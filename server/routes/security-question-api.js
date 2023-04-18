@@ -15,10 +15,8 @@ const SecurityQuestion = require("../models/security-question");
 const ErrorResponse = require("../services/error-response");
 const BaseResponse = require("../services/base-response");
 
-
 // Configurations
 const router = express.Router();
-
 
 /**
  * FindAll
@@ -45,17 +43,29 @@ router.get("/", async (req, res) => {
       .exec(function (err, securityQuestions) {
         if (err) {
           console.log(err);
-          const findAllMongodbErrorResponse = new ErrorResponse(500, "Internal server error", err);
+          const findAllMongodbErrorResponse = new ErrorResponse(
+            500,
+            "Internal server error",
+            err
+          );
           res.status(500).send(findAllMongodbErrorResponse.toObject());
         } else {
           console.log(securityQuestions);
-          const findAllResponse = new BaseResponse(200, "Query successful", securityQuestions);
+          const findAllResponse = new BaseResponse(
+            200,
+            "Query successful",
+            securityQuestions
+          );
           res.json(findAllResponse.toObject());
         }
       });
   } catch (e) {
     console.log(e);
-    const findAllCatchErrorResponse = new ErrorResponse(500, "Internal server error", e.message);
+    const findAllCatchErrorResponse = new ErrorResponse(
+      500,
+      "Internal server error",
+      e.message
+    );
     res.status(500).send(findAllCatchErrorResponse.toObject());
   }
 });
@@ -64,11 +74,9 @@ router.get("/", async (req, res) => {
  * FindById
  */
 
-
 /**
  * CreateSecurityQuestion
  */
-
 
 /**
  * UpdateSecurityQuestion
@@ -79,4 +87,4 @@ router.get("/", async (req, res) => {
  * DeleteSecurityQuestion
  */
 
-
+module.exports = router;
