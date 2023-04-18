@@ -17,28 +17,6 @@ app.use(express.urlencoded({'extended': true}));
 app.use(express.static(path.join(__dirname, '../dist/bcrs')));
 app.use('/', express.static(path.join(__dirname, '../dist/bcrs')));
 
-// Swagger configuration.
-const swaggerOptions = {
-  definition: {
-    openapi: '3.0.0',
-    info: {
-      title: 'BCRS API',
-      version: '1.0.0',
-      description: 'BCRS API',
-    },
-    servers: [
-      {
-        url: 'http://localhost:3000',
-        description: 'Development server',
-      },
-    ],
-  },
-  apis: ['./server/routes/*.js'],
-};
-
-const spacs = swaggerJsDoc(swaggerOptions);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(spacs));
-
 // default server port value.
 const PORT = process.env.PORT || 3000;
 
@@ -49,11 +27,32 @@ const CONN =
 /**
  * Database connection.
  */
-mongoose.connect(CONN).then(() => {
-  console.log('Connection to the database was successful');
-}).catch(err => {
-  console.log('MongoDB Error: ' + err.message);
-});
+mongoose
+  .connect(CONN)
+  .then(() => {
+    console.log("Connection to the database was successful");
+  })
+  .catch((err) => {
+    console.log("MongoDB Error: " + err.message);
+  });
+
+// Swagger API documentation options.
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "NodeBucket API's",
+      version: "1.0.0",
+    },
+  },
+  apis: ["./server/routes/*.js"],
+};
+
+// Swagger specific options
+const openapiSpecification = swaggerJsDoc(options);
+
+// Swagger UI
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
 // Wire-up the Express server.
 app.listen(PORT, () => {

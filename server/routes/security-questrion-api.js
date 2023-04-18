@@ -23,7 +23,7 @@ const router = express.Router();
 /**
  * FindAll
  * @openapi
- * /:
+ * /api/security-questions:
  *   get:
  *     tags:
  *       - Security Questions
@@ -32,16 +32,8 @@ const router = express.Router();
  *     responses:
  *       200:
  *         description: A list of security questions that are not disabled
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/SecurityQuestions'
  *       500:
  *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
  */
 
 router.get("/", async (req, res) => {
