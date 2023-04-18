@@ -36,6 +36,7 @@ const router = express.Router();
  *         description: Internal server error
  */
 
+// Ace Code | Joh Test
 router.get("/", async (req, res) => {
   try {
     SecurityQuestion.find({})
@@ -72,7 +73,7 @@ router.get("/", async (req, res) => {
 /**
  * UpdateSecurityQuestion
  */
-
+// Ace Code | Joh Test
 
 /**
  * DeleteSecurityQuestion
