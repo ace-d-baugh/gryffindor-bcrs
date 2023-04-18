@@ -4,6 +4,8 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 const app = express(); // Express variable.
 
@@ -14,6 +16,28 @@ app.use(express.json());
 app.use(express.urlencoded({'extended': true}));
 app.use(express.static(path.join(__dirname, '../dist/bcrs')));
 app.use('/', express.static(path.join(__dirname, '../dist/bcrs')));
+
+// Swagger configuration.
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'BCRS API',
+      version: '1.0.0',
+      description: 'BCRS API',
+    },
+    servers: [
+      {
+        url: 'http://localhost:3000',
+        description: 'Development server',
+      },
+    ],
+  },
+  apis: ['./server/routes/*.js'],
+};
+
+const spacs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(spacs));
 
 // default server port value.
 const PORT = process.env.PORT || 3000;
