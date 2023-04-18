@@ -10,11 +10,11 @@
 */
 
 // Require needed modules
-
-
+const express = require("express");
+const User = require("../models/user");
 
 // Configurations
-
+const router = express.Router();
 
 
 /**
