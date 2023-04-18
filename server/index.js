@@ -43,7 +43,8 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(spacs));
 const PORT = process.env.PORT || 3000;
 
 // TODO: This line will be replaced with your database connection string (including username/password).
-const CONN = 'mongodb+srv://superadmin:s3cret@cluster0-lujih.mongodb.net/bcrs?retryWrites=true&w=majority';
+const CONN =
+  "mongodb+srv://gryffindor_bcrs_user:s3cret@buwebdev-cluster-1.9wmv0d7.mongodb.net/gryffindor-bcrs?retryWrites=true&w=majority";
 
 /**
  * Database connection.
