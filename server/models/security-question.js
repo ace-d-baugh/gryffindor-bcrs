@@ -1,10 +1,10 @@
 /*
 =====================================================
-; File Name:
+; File Name: security-question.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author:
 ; Date:
-; File Description:
+; File Description: Security question schema
 ; Modifications:
 =====================================================
 */
@@ -18,3 +18,6 @@ let securityQuestionSchema = new Schema({
   text: { type: String },
   isDisabled: { type: Boolean, default: false }
 }, { collection: 'security-questions' });
+
+// Export the model
+module.exports = mongoose.model('SecurityQuestion', securityQuestionSchema);

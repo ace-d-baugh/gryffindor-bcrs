@@ -33,7 +33,6 @@ const router = express.Router();
  *       500:
  *         description: Internal server error
  */
-
 // Ace Code | John Test
 router.get("/", async (req, res) => {
   try {
