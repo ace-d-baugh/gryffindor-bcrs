@@ -174,14 +174,136 @@ router.post('/', async (req, res) => {
     }
 });
 
-
-
-
-
 /**
  * DeleteUser
  */
 // Chad Coded | Ace Tested | John Approved
+// Delete User
+/**
+ * @openapi
+ * /api/users/{id}:
+ *  delete:
+ *      tags:
+ *          - Users
+ *      description: Deletes a user
+ *      summary: Delete a user from the database
+ *      parameters:
+ *          - in: path
+ *            name: id
+ *            description: the id of the employee to delete
+ *            required: yes
+ *            schema:
+ *              type: string
+ *      responses:
+ *          '200':
+ *              description: Document updated
+ *          '500':
+ *              description: Server Exception
+ *          '501':
+ *              description: MongoDB Exception
+ */
+
+router.delete('/:id', async (req, res) => {
+  try {
+    User.findOne({ '_id': req.params.id }, function (err, user) {
+      if (err) {
+        console.log(err);
+        const deleteUserMongodbErrorResponse = new ErrorResponse(
+          500,
+          "Internal sever error",
+          err
+        );
+        res.status(500).send(deleteUserMongodbErrorResponse.toObject());
+      } else {
+        console.log(user);
+
+        user.set({
+          isDisabled: true,
+          dateModified: new Date(),
+        });
+
+        user.save(function (err, savedUser) {
+          if (err) {
+            console.log(err);
+            const savedUserMongodbErrorResponse = new ErrorResponse(
+              500,
+              "Internal server error",
+              err
+            );
+            res.json(savedUserMongodbErrorResponse.toObject());
+          } else {
+            console.log(savedUser);
+            const savedUserResponse = new BaseResponse(
+              200,
+              "Query successful",
+              savedUser
+            );
+            res.json(savedUserResponse.toObject());
+          }
+        });
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    const deleteUserCatchErrorResponse = new ErrorResponse(
+      500,
+      "Internal server error",
+      e.message
+    );
+    res.status(500).send(deleteUserCatchErrorResponse.toObject());
+  }
+});
+
+router.delete("/deactivate/:username", async (req, res) => {
+  try {
+    User.findOne({ userName: req.params.userName }, function (err, user) {
+      if (err) {
+        console.log(err);
+        const deleteUserMongodbErrorResponse = new ErrorResponse(
+          500,
+          "Internal sever error",
+          err
+        );
+        res.status(500).send(deleteUserMongodbErrorResponse.toObject());
+      } else {
+        console.log(user);
+
+        user.set({
+          isDisabled: true,
+          dateModified: new Date(),
+        });
+
+        user.save(function (err, savedUser) {
+          if (err) {
+            console.log(err);
+            const savedUserMongodbErrorResponse = new ErrorResponse(
+              500,
+              "Internal server error",
+              err
+            );
+            res.json(savedUserMongodbErrorResponse.toObject());
+          } else {
+            console.log(savedUser);
+            const savedUserResponse = new BaseResponse(
+              200,
+              "Query successful",
+              savedUser
+            );
+            res.json(savedUserResponse.toObject());
+          }
+        });
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    const deleteUserCatchErrorResponse = new ErrorResponse(
+      500,
+      "Internal server error",
+      e.message
+    );
+    res.status(500).send(deleteUserCatchErrorResponse.toObject());
+  }
+});
 
 
 // Export the router
