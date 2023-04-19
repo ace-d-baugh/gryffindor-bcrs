@@ -15,10 +15,13 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
+
 const SecurityQuestionRoute = require("./routes/security-question-api");
 const UserRoute = require("./routes/user-api");
+const Session = require("./routes/session-api");
 
 const app = express(); // Express variable.
 
@@ -67,8 +70,8 @@ const openapiSpecification = swaggerJsDoc(options);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
 app.use("/api/security-questions", SecurityQuestionRoute);
-
 app.use("/api/users", UserRoute);
+app.use("/api/session", Session);
 
 // Wire-up the Express server.
 app.listen(PORT, () => {

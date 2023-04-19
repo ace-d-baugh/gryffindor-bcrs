@@ -274,6 +274,89 @@ router.put("/:id", async (req, res) => {
  * DeleteSecurityQuestion
  */
 // Chad Coded | Ace Tested | John Approved
+/**
+ * @openapi
+ * /api/security-questions/{id}:
+ *   delete:
+ *     tags:
+ *       - Security Questions
+ *     description: Deletes security question by ID
+ *     summary: deleteSecurityQuestions
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         scheme:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: Security question gets deleted
+ *       '500':
+ *         description: Server Exception
+ *       '501':
+ *         description: MongoDB Exception
+ */
+
+router.delete("/:id", async (req, res) => {
+  // find a security question by _id and delete it, or return an error message
+  try {
+    SecurityQuestion.findOne(
+      { _id: req.params.id },
+      function (err, securityQuestion) {
+        if (err) {
+          console.log(err);
+          const deleteByIdMongoDBErrorResponse = new BaseResponse(
+            501,
+            `${config.mongoServerError}:${err.message}`,
+            null
+          );
+
+          console.log(deleteByIdMongoDBErrorResponse.toObject());
+          res.status(501).send(deleteByIdMongoDBErrorResponse.toObject());
+        } else {
+          securityQuestion.set({
+            isDisabled: true,
+          });
+
+          securityQuestion.save(function (err, savedSecurityQuestion) {
+            if (err) {
+              console.log(err);
+              const savedSecurityQuestionMongoDBErrorResponse =
+                new BaseResponse(
+                  501,
+                  `${config.mongoServerError}:${err.message}`,
+                  null
+                );
+
+              console.log(savedSecurityQuestionMongoDBErrorResponse.toObject());
+              res
+                .status(501)
+                .send(savedSecurityQuestionMongoDBErrorResponse.toObject());
+            } else {
+              // console.log(savedSecurityQuestion);
+
+              const deleteByIdResponse = new BaseResponse(
+                200,
+                `Security Question deleted.`,
+                savedSecurityQuestion
+              );
+              res.json(deleteByIdResponse.toObject());
+            }
+          });
+        }
+      }
+    );
+  } catch (e) {
+    // internal Server Error
+    const deleteByIdErrorResponse = new ErrorResponse(
+      500,
+      `${config.serverError}:${err.message}`,
+      null
+    );
+    console.log(deleteByIdErrorResponse.toObject());
+    res.status(500).send(deleteByIdErrorResponse.toObject());
+  }
+});
 
 // Export the router
 module.exports = router;
