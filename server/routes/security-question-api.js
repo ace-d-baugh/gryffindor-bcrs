@@ -21,7 +21,7 @@ const router = express.Router();
 /**
  * FindAll
  * @openapi
- * /api/security-questions:
+ * /:
  *   get:
  *     tags:
  *       - Security Questions
@@ -33,8 +33,7 @@ const router = express.Router();
  *       500:
  *         description: Internal server error
  */
-
-// Ace Code | Joh Test
+// Ace Code | John Test
 router.get("/", async (req, res) => {
   try {
     SecurityQuestion.find({})
@@ -81,7 +80,7 @@ router.get("/", async (req, res) => {
 /**
  * UpdateSecurityQuestion
  */
-// Ace Code | Joh Test
+// Ace Code | John Test
 
 /**
  * DeleteSecurityQuestion
