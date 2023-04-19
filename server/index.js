@@ -1,13 +1,24 @@
+/*
+=====================================================
+; File Name: index.js
+; Project: Gryffindor - Bob's Computer Repair Shop
+; Author: Richard Krasso
+; Date: 04/18/2023
+; File Description: This is the main server file
+; Modifications: Ace Baugh
+=====================================================
+*/
+
 /**
  * Require statements
  */
-const express = require('express');
-const path = require('path');
-const mongoose = require('mongoose');
-const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
-const SecurityQuestionRoute = require('./routes/security-question-api');
-const UserRoute = require('./routes/user-api');
+const express = require("express");
+const path = require("path");
+const mongoose = require("mongoose");
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
+const SecurityQuestionRoute = require("./routes/security-question-api");
+const UserRoute = require("./routes/user-api");
 
 const app = express(); // Express variable.
 
@@ -15,14 +26,13 @@ const app = express(); // Express variable.
  * App configurations.
  */
 app.use(express.json());
-app.use(express.urlencoded({'extended': true}));
-app.use(express.static(path.join(__dirname, '../dist/bcrs')));
-app.use('/', express.static(path.join(__dirname, '../dist/bcrs')));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "../dist/bcrs")));
+app.use("/", express.static(path.join(__dirname, "../dist/bcrs")));
 
 // default server port value.
 const PORT = process.env.PORT || 3000;
 
-// TODO: This line will be replaced with your database connection string (including username/password).
 const CONN =
   "mongodb+srv://gryffindor_bcrs_user:s3cret@buwebdev-cluster-1.9wmv0d7.mongodb.net/gryffindor-bcrs?retryWrites=true&w=majority";
 
@@ -62,5 +72,5 @@ app.use("/api/users", UserRoute);
 
 // Wire-up the Express server.
 app.listen(PORT, () => {
-  console.log('Application started and listening on PORT: ' + PORT);
-})
+  console.log("Application started and listening on PORT: " + PORT);
+});

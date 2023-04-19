@@ -12,6 +12,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// user role schema
 let userRoleSchema = new Schema({
     text: {type: String, default: 'standard'}
 });

@@ -1,9 +1,20 @@
+/*
+=====================================================
+; File Name: environment.ts
+; Project: Gryffindor - Bob's Computer Repair Shop
+; Author: Richard Krasso
+; Date: 04/18/2023
+; File Description: Environment file
+; Modifications: Ace Baugh
+=====================================================
+*/
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
 };
 
 /*

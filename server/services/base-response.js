@@ -2,13 +2,14 @@
 =====================================================
 ; File Name: base-response.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
-; Author: Ace Baugh
-; Date: 18 April 2023
+; Author: Richard Krasso
+; Date: 04/18/2023
 ; File Description: Base response class
-; Modifications:
+; Modifications: Ace Baugh
 =====================================================
 */
 
+// This class is used to create a base response object
 class BaseResponse {
   constructor(httpCode, message, data) {
     this.httpCode = httpCode;
@@ -16,6 +17,7 @@ class BaseResponse {
     this.data = data;
   }
 
+  // This method converts the base response object to a JSON object
   toObject() {
     return {
       httpCode: this.httpCode,
@@ -25,4 +27,5 @@ class BaseResponse {
   }
 }
 
+// Export the class
 module.exports = BaseResponse;

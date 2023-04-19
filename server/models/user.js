@@ -2,10 +2,10 @@
 =====================================================
 ; File Name: user.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
-; Author: Ace Baugh
+; Author: Richard Krasso
 ; Date: 04/18/2023
 ; File Description: This file creates the user model
-; Modifications:
+; Modifications: Ace Baugh
 =====================================================
 */
 

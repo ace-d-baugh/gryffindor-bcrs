@@ -2,10 +2,10 @@
 =====================================================
 ; File Name: user-api.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
-; Author:
-; Date:
+; Author: Richard Krasso
+; Date: 04/18/2023
 ; File Description: User API
-; Modifications:
+; Modifications: Ace Baugh, Chad ONeal, John Vanhessche
 =====================================================
 */
 
@@ -22,7 +22,7 @@ const router = express.Router();
 /**
  * FindAll
  */
-
+// John Coded | Chad Tested | Ace Approved
 
 
 /**
@@ -47,7 +47,7 @@ const router = express.Router();
  *       500:
  *         description: Internal server error
  */
-// Ace Code | John Test
+// Ace Coded | John Tested | Chad Approved
 router.get("/:id", async (req, res) => {
   try {
     User.findOne({ _id: req.params.id }, function (err, user) {
@@ -73,7 +73,7 @@ router.get("/:id", async (req, res) => {
 /**
  * CreateUser
  */
-
+// John Coded | Chad Tested | Ace Approved
 
 
 /**
@@ -122,26 +122,24 @@ router.get("/:id", async (req, res) => {
  *       500:
  *         description: Internal server error
 */
-
-/*
-Do I need this code?
-
-dateModified:
-  type: Date
-
-*/
-
-// Ace Code | John Test
+// Ace Coded | John Tested | Chad Approved
 router.put("/:id", async (req, res) => {
   try {
+    // Find the user document by id
     User.findOne({ _id: req.params.id }, function (err, user) {
+      // Check if there is an error
       if (err) {
+        // Log the error
         console.log(err);
+        // Create a new error response object
         const updateUserMongodbErrorResponse = new ErrorResponse(500, "Internal server error", err);
+        // Send the error response object
         res.status(500).send(updateUserMongodbErrorResponse.toObject());
       } else {
+        // Log the user document
         console.log(user);
 
+        // Update the user document
         user.set({
           firstName: req.body.firstName,
           lastName: req.body.lastName,
@@ -151,22 +149,33 @@ router.put("/:id", async (req, res) => {
           dateModified: new Date(),
         });
 
+        // Save the user document
         user.save(function (err, savedUser) {
+          // Check if there is an error
           if (err) {
+            // Log the error
             console.log(err);
+            // Create a new error response object
             const saveUserMongodbErrorResponse = new ErrorResponse(500, "Internal server error", err);
+            // Send the error response object
             res.status(500).send(saveUserMongodbErrorResponse.toObject());
           } else {
+            // Log the saved user document
             console.log(savedUser);
+            // Create a new base response object
             const saveUserResponse = new BaseResponse(200, "Query successful", savedUser);
+            // Send the base response object
             res.json(saveUserResponse.toObject());
           }
         });
       }
     });
   } catch (e) {
+    // Log the error
     console.log(e);
+    // Create a new error response object
     const updateUserCatchErrorResponse = new ErrorResponse(500, "Internal server error", e.message);
+    // Send the error response object
     res.status(500).send(updateUserCatchErrorResponse.toObject());
   }
 });
@@ -175,5 +184,8 @@ router.put("/:id", async (req, res) => {
 /**
  * DeleteUser
  */
+// Chad Coded | Ace Tested | John Approved
 
+
+// Export the router
 module.exports = router;

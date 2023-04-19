@@ -2,10 +2,10 @@
 =====================================================
 ; File Name: selected-security-questions.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
-; Author: Ace Baugh
+; Author: Richard Krasso
 ; Date: 04/18/2023
 ; File Description: This file defines the selected security questions schema
-; Modifications:
+; Modifications: Ace Baugh
 =====================================================
 */
 

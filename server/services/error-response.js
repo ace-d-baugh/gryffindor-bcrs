@@ -1,14 +1,15 @@
 /*
 =====================================================
-; File Name:
+; File Name: error-response.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
-; Author:
-; Date:
-; File Description:
-; Modifications:
+; Author: Richard Krasso
+; Date: 04/18/2023
+; File Description: This is the error response class
+; Modifications: Ace Baugh
 =====================================================
 */
 
+// This class is used to create an error response object
 class ErrorResponse {
   constructor(httpCode, message, data) {
     this.httpCode = httpCode;
@@ -16,6 +17,7 @@ class ErrorResponse {
     this.data = data;
   }
 
+  // This method converts the error response object to a JSON object
   toObject() {
     return {
       httpCode: this.httpCode,
@@ -25,4 +27,5 @@ class ErrorResponse {
   }
 }
 
+// Export the class
 module.exports = ErrorResponse;
