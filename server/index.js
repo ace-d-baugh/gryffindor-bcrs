@@ -6,6 +6,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+const SecurityQuestionRoute = require('./routes/security-question-api');
 
 const app = express(); // Express variable.
 
@@ -53,6 +54,8 @@ const openapiSpecification = swaggerJsDoc(options);
 
 // Swagger UI
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
+
+app.use("/api/security-questions", SecurityQuestionRoute);
 
 // Wire-up the Express server.
 app.listen(PORT, () => {
