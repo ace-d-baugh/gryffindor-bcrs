@@ -2,10 +2,10 @@
 =====================================================
 ; File Name: user-api.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
-; Author:
-; Date:
+; Author: Richard Krasso
+; Date: 04/18/2023
 ; File Description: User API
-; Modifications:
+; Modifications: Ace Baugh, Chad ONeal, John Vanhessche
 =====================================================
 */
 
@@ -51,6 +51,25 @@ router.get('/', async(req, res) => {
 
 /**
  * FindById
+ * @openapi
+ * /api/users/{id}:
+ *   get:
+ *     tags:
+ *       - Users
+ *     description: API for returning a user by id
+ *     summary: Retrieve a user by id
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The id of the user to retrieve
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: A user object
+ *       500:
+ *         description: Internal server error
  */
 // Ace Code | John Test
 
@@ -109,4 +128,8 @@ router.post('/', async (req, res) => {
 /**
  * DeleteUser
  */
+// Chad Coded | Ace Tested | John Approved
 
+
+// Export the router
+module.exports = router;
