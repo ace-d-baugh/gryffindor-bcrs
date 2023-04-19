@@ -77,7 +77,7 @@ router.get("/", async (req, res) => {
  * CreateSecurityQuestion
  */
 router.post('/', async(req, res) => {
-  try 
+  try
   {
     let newSecurityQuestion = {
       text: req.body.text
@@ -88,7 +88,7 @@ router.post('/', async(req, res) => {
       {
         console.log(err);
         const createSecurityQuestionMongodbErrorResponse = new ErrorResponse(500, 'Internal server error', err);
-        res.status(500).send(createSecurityQuestionMongodbErrorResponse.toObject()); 
+        res.status(500).send(createSecurityQuestionMongodbErrorResponse.toObject());
       }
       else
       {
@@ -111,6 +111,8 @@ router.post('/', async(req, res) => {
  * @openapi
  * /api/security-questions/{id}:
  *   put:
+ *     tags:
+ *       - Security Questions
  *     summary: Update a security question by ID
  *     parameters:
  *       - in: path
