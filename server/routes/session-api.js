@@ -17,8 +17,6 @@ const BaseResponse = require("../services/base-response");
 const router = express.Router();
 
 const bcrypt = require("bcryptjs");
-const saltRounds = 10;
-
 
 // Configurations
 

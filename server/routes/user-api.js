@@ -14,6 +14,8 @@ const express = require("express");
 const User = require("../models/user");
 const ErrorResponse = require("../services/error-response");
 const BaseResponse = require("../services/base-response");
+const bcrypt = require("bcryptjs");
+const saltRounds = 10;
 
 // Configurations
 const router = express.Router();
@@ -95,6 +97,42 @@ router.get("/:id", async (req, res) => {
  * CreateUser
  */
 // John Coded | Chad Tested | Ace Approved
+/**
+ * @openapi
+ * /api/users:
+ *   post:
+ *     tags:
+ *       - Users
+ *     name: createUser
+ *     description: API to create new user
+ *     summary: Creates a new user object
+ *     operationId: createUser
+ *     requestBody:
+ *        description: User information
+ *        content:
+ *          application/json:
+ *            schema:
+ *              properties:
+ *                username:
+ *                  type: string
+ *                password:
+ *                  type: string
+ *                firstName:
+ *                  type: string
+ *                lastName:
+ *                  type: string
+ *                phoneNumber:
+ *                  type: string
+ *                address:
+ *                  type: string
+ *     responses:
+ *       '200':
+ *         description: Query successful
+ *       '500':
+ *         description: Internal server error
+ *       '501':
+ *         description: MongoDB Exception
+ */
 router.post('/', async (req, res) => {
     try
     {
@@ -105,9 +143,9 @@ router.post('/', async (req, res) => {
         }
 
         //defining new user object from info entered on screen
-        let newUser = 
+        let newUser =
         {
-            userName: req.body.userName,
+            username: req.body.username,
             password: hashedPassword,
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -136,109 +174,8 @@ router.post('/', async (req, res) => {
     }
 });
 
-/**
- * UpdateUser
- * @openapi
- * /api/users/{id}:
- *   put:
- *     tags:
- *       - Users
- *     description: API for updating a user
- *     summary: Update a user
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         description: ID of the user to update
- *         schema:
- *           type: string
- *     requestBody:
- *       description: User object to be updated
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - firstName
- *               - lastName
- *               - phoneNumber
- *               - address
- *               - email
- *               - dateModified
- *             properties:
- *               firstName:
- *                 type: string
- *               lastName:
- *                 type: string
- *               phoneNumber:
- *                 type: string
- *               address:
- *                 type: string
- *               email:
- *                 type: string
- *     responses:
- *       200:
- *         description: Update successful
- *       500:
- *         description: Internal server error
-*/
-// Ace Coded | John Tested | Chad Approved
-router.put("/:id", async (req, res) => {
-  try {
-    // Find the user document by id
-    User.findOne({ _id: req.params.id }, function (err, user) {
-      // Check if there is an error
-      if (err) {
-        // Log the error
-        console.log(err);
-        // Create a new error response object
-        const updateUserMongodbErrorResponse = new ErrorResponse(500, "Internal server error", err);
-        // Send the error response object
-        res.status(500).send(updateUserMongodbErrorResponse.toObject());
-      } else {
-        // Log the user document
-        console.log(user);
 
-        // Update the user document
-        user.set({
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-          phoneNumber: req.body.phoneNumber,
-          address: req.body.address,
-          email: req.body.email,
-          dateModified: new Date(),
-        });
 
-        // Save the user document
-        user.save(function (err, savedUser) {
-          // Check if there is an error
-          if (err) {
-            // Log the error
-            console.log(err);
-            // Create a new error response object
-            const saveUserMongodbErrorResponse = new ErrorResponse(500, "Internal server error", err);
-            // Send the error response object
-            res.status(500).send(saveUserMongodbErrorResponse.toObject());
-          } else {
-            // Log the saved user document
-            console.log(savedUser);
-            // Create a new base response object
-            const saveUserResponse = new BaseResponse(200, "Query successful", savedUser);
-            // Send the base response object
-            res.json(saveUserResponse.toObject());
-          }
-        });
-      }
-    });
-  } catch (e) {
-    // Log the error
-    console.log(e);
-    // Create a new error response object
-    const updateUserCatchErrorResponse = new ErrorResponse(500, "Internal server error", e.message);
-    // Send the error response object
-    res.status(500).send(updateUserCatchErrorResponse.toObject());
-  }
-});
 
 
 /**
