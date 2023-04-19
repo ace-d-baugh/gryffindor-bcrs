@@ -79,8 +79,68 @@ router.get("/", async (req, res) => {
 
 /**
  * UpdateSecurityQuestion
+ * @openapi
+ * /api/security-questions/{id}:
+ *   put:
+ *     summary: Update a security question by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID of the security question to update
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       description: Security question object to be updated
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               text:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Update successful
+ *       500:
+ *         description: Internal server error
  */
 // Ace Code | John Test
+router.put("/:id", async (req, res) => {
+  try {
+    SecurityQuestion.findOne({ _id: req.params.id }, function (err, securityQuestion) {
+      if (err) {
+        console.log(err);
+        const updateMongodbErrorResponse = new ErrorResponse(500, "Internal server error", err);
+        res.status(500).send(updateMongodbErrorResponse.toObject());
+      } else {
+        console.log(securityQuestion);
+
+        securityQuestion.set({
+          text: req.body.text
+        });
+
+        securityQuestion.save(function (err, savedSecurityQuestion) {
+          if (err) {
+            console.log(err);
+            const savedSecurityQuestionMongodbErrorResponse = new ErrorResponse(500, "Internal server error", err);
+            res.status(500).send(savedSecurityQuestionMongodbErrorResponse.toObject());
+          } else {
+            console.log(savedSecurityQuestion);
+            const updateSecurityQuestionResponse = new BaseResponse(200, "Query successful", savedSecurityQuestion);
+            res.json(updateSecurityQuestionResponse.toObject());
+          }
+        });
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    const updateCatchErrorResponse = new ErrorResponse(500, "Internal server error", e.message);
+    res.status(500).send(updateCatchErrorResponse.toObject());
+  }
+});
+
 
 /**
  * DeleteSecurityQuestion
