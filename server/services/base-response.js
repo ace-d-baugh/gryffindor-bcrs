@@ -1,10 +1,10 @@
 /*
 =====================================================
-; File Name:
+; File Name: base-response.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
-; Author:
-; Date:
-; File Description:
+; Author: Ace Baugh
+; Date: 18 April 2023
+; File Description: Base response class
 ; Modifications:
 =====================================================
 */
@@ -24,3 +24,5 @@ class BaseResponse {
     };
   }
 }
+
+module.exports = BaseResponse;
