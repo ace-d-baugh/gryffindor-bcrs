@@ -21,7 +21,7 @@ const router = express.Router();
 /**
  * FindAll
  * @openapi
- * /:
+ * /api/security-questions:
  *   get:
  *     tags:
  *       - Security Questions

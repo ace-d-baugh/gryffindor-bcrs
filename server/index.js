@@ -54,10 +54,6 @@ const openapiSpecification = swaggerJsDoc(options);
 // Swagger UI
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
-app.get("/api/security-questions", (req, res) => {
-  console.log(res.send("API called successfully!"));
-});
-
 // Wire-up the Express server.
 app.listen(PORT, () => {
   console.log('Application started and listening on PORT: ' + PORT);
