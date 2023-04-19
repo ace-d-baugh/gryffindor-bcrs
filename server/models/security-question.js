@@ -1,23 +1,20 @@
 /*
 =====================================================
-; File Name: security-question.js
+; File Name:  security-question.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
-; Author:
-; Date:
-; File Description: Security question schema
+; Author: John Vanhessche
+; Date: 18 April 2023
+; File Description:  Model for security questions
 ; Modifications:
 =====================================================
 */
 
-// Require statements
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Security question schema
 let securityQuestionSchema = new Schema({
-  text: { type: String },
-  isDisabled: { type: Boolean, default: false }
-}, { collection: 'securityQuestions' });
+    text: { type: String },
+    isDisabled: { type: Boolean, default: false }
+}, { collection: 'securityQuestions' })
 
-// Export the model
 module.exports = mongoose.model('SecurityQuestion', securityQuestionSchema);
