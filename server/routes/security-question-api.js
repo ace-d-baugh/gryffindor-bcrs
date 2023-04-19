@@ -26,7 +26,7 @@ const router = express.Router();
  *     tags:
  *       - Security Questions
  *     description: API for returning all security questions that are not disabled
- *     summary: Retrieve all security questions that are not disabled
+ *     summary: findAll
  *     responses:
  *       200:
  *         description: A list of security questions that are not disabled
@@ -81,52 +81,90 @@ router.get("/", async (req, res) => {
 
 /**
  * FindById
- * @openapi
+ // Chad Coded | John Tested | Ace Approved
+ @openapi
  * /api/security-questions/{id}:
  *   get:
  *     tags:
  *       - Security Questions
- *     description: API for returning a security question by id
+ *     name: findSecurityQuestionById
+ *     description: findById
  *     summary: findById
  *     parameters:
- *       - in: path
- *         name: id
+ *       - name: id
+ *         in: path
  *         required: true
- *         description: The id of the security question to retrieve
+ *         description: Id to filter the securityQuestions collection by.
  *         schema:
  *           type: string
  *     responses:
- *       200:
- *         description: A user object
- *       500:
- *         description: Internal server error
+ *       '200':
+ *         description: Returned an security question with corresponding Id
+ *       '500':
+ *         description: Server Exception
+ *       '501':
+ *         description: MongoDB Exception
  */
-// Chad Coded | John Tested | Ace Approved
 router.get("/:id", async (req, res) => {
   try {
-    SecurityQuestion.findOne({ _id: req.params.id }, function (err, SecurityQuestion) {
-      if (err) {
-        console.log(err);
-        const findByIdMongodbErrorResponse = new ErrorResponse(500, "Internal server error", err);
-        res.status(500).send(findByIdMongodbErrorResponse.toObject());
-      } else {
-        console.log(SecurityQuestion);
-        const findByIdResponse = new BaseResponse(200, "Query successful", SecurityQuestion);
-        res.json(findByIdResponse.toObject());
+    // find a security question by _id, or return an error message
+    SecurityQuestion.findOne({ _id: req.params.id },function (err, securityQuestion) {
+        if (err) {
+          console.log(err);
+          const findByIdMongoDBErrorResponse = new BaseResponse(501,`${config.mongoServerError}:${err.message}`, null);
+          console.log(findByIdMongoDBErrorResponse.toObject());
+          res.status(501).send(findByIdMongoDBErrorResponse.toObject());
+        } else {
+          const findByIdResponse = new BaseResponse(
+            200,
+            `findSecurityQuestionById query was successful.`,
+            securityQuestion
+          );
+          console.log(findByIdResponse.toObject());
+          res.json(findByIdResponse.toObject());
+        }
       }
-    });
+    );
   } catch (e) {
-    console.log(e);
-    const findByIdCatchErrorResponse = new ErrorResponse(500, "Internal server error", e.message);
-    res.status(500).send(findByIdCatchErrorResponse.toObject());
+    // internal Server Error
+    const findByIdErrorResponse = new ErrorResponse(
+      500,
+      `${config.serverError}:${err.message}`,
+      null
+    );
+    console.log(findByIdErrorResponse.toObject());
+    res.status(500).send(findByIdErrorResponse.toObject());
   }
 });
 
-
 /**
- * CreateSecurityQuestion
+ * FindById
+ // John Coded | Chad Tested | Ace Approved
+@openapi
+ * /api/security-questions:
+ *   post:
+ *     tags:
+ *       - Security Questions
+ *     description: API to create new security question
+ *     summary: createSecurityQuestion
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             required:
+ *               - security Question
+ *             properties:
+ *              text:
+ *                type: string
+ *     responses:
+ *       '200':
+ *         description: Query successful
+ *       '500':
+ *         description: Internal server error
+ *       '501':
+ *         description: MongoDB Exception
  */
-// John Coded | Chad Tested | Ace Approved
 router.post("/", async (req, res) => {
   try {
     let newSecurityQuestion = {
@@ -169,104 +207,88 @@ router.post("/", async (req, res) => {
 });
 
 /**
- * UpdateSecurityQuestion
- * @openapi
+ * updateSecurityQuestion
+// Ace Coded | John Tested | Chad Approved
+* @openapi
  * /api/security-questions/{id}:
  *   put:
  *     tags:
  *       - Security Questions
- *     summary: Update a security question by ID
+ *     description: Update a security question by id
+ *     summary: updateSecurityQuestions
  *     parameters:
- *       - in: path
- *         name: id
+ *       - name: id
+ *         in: path
  *         required: true
- *         description: ID of the security question to update
- *         schema:
+ *         scheme:
  *           type: string
  *     requestBody:
- *       description: Security question object to be updated
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               text:
- *                 type: string
+ *        description: Security Question field that needs to be updated
+ *        content:
+ *          application/json:
+ *            schema:
+ *              properties:
+ *                text:
+ *                  type: string
  *     responses:
- *       200:
- *         description: Update successful
- *       500:
- *         description: Internal server error
+ *       '200':
+ *         description: A security question gets deleted
+ *       '500':
+ *         description: Server Exception
+ *       '501':
+ *         description: MongoDB Exception
  */
-// Ace Coded | John Tested | Chad Approved
 router.put("/:id", async (req, res) => {
   try {
-    // Find the security question by ID
     SecurityQuestion.findOne(
-      { _id: req.params.id },
+      { id: req.params.id },
       function (err, securityQuestion) {
-        // If there is an error, return a 500 error
         if (err) {
-          // Log the error
           console.log(err);
-          // Create a new error response object
-          const updateMongodbErrorResponse = new ErrorResponse(
+          const updateSecurityQuestionMongodbErrorResponse = new ErrorResponse(
             500,
             "Internal server error",
             err
           );
-          // Send the error response object
-          res.status(500).send(updateMongodbErrorResponse.toObject());
+          res
+            .status(500)
+            .send(updateSecurityQuestionMongodbErrorResponse.toObject());
         } else {
-          // Log the security question
           console.log(securityQuestion);
 
-          // Update the security question
           securityQuestion.set({
             text: req.body.text,
           });
 
-          // Save the security question
           securityQuestion.save(function (err, savedSecurityQuestion) {
-            // If there is an error, return a 500 error
             if (err) {
-              // Log the error
               console.log(err);
-              // Create a new error response object
               const savedSecurityQuestionMongodbErrorResponse =
                 new ErrorResponse(500, "Internal server error", err);
-              // Send the error response object
               res
                 .status(500)
                 .send(savedSecurityQuestionMongodbErrorResponse.toObject());
             } else {
-              // Log the security question
               console.log(savedSecurityQuestion);
-              // Create a new base response object
-              const updateSecurityQuestionResponse = new BaseResponse(
+              const savedSecurityQuestionResponse = new BaseResponse(
                 200,
                 "Query successful",
                 savedSecurityQuestion
               );
-              // Send the base response object
-              res.json(updateSecurityQuestionResponse.toObject());
+              res.json(savedSecurityQuestionResponse.toObject());
             }
           });
         }
       }
     );
   } catch (e) {
-    // Log the error
     console.log(e);
-    // Create a new error response object
-    const updateCatchErrorResponse = new ErrorResponse(
+    const updateSecurityQuestionCatchErrorResponse = new ErrorResponse(
       500,
       "Internal server error",
       e.message
     );
-    // Send the error response object
-    res.status(500).send(updateCatchErrorResponse.toObject());
+    res.status(500).send(updateSecurityQuestionCatchErrorResponse.toObject());
   }
 });
 

@@ -25,6 +25,24 @@ const router = express.Router();
  * FindAll
  */
 // John Coded | Chad Tested | Ace Approved
+/**
+ * @openapi
+ * /api/users:
+ *   get:
+ *     tags:
+ *       - Users
+ *     name: findAllUsers
+ *     description: Reads,retrieves all users.
+ *     summary: findAll
+ *     operationId: findAllUsers
+ *     responses:
+ *       '200':
+ *         description: Returned all users
+ *       '500':
+ *         description: Server Exception
+ *       '501':
+ *         description: MongoDB Exception
+ */
 router.get('/', async(req, res) => {
     try
     {
@@ -56,7 +74,7 @@ router.get('/', async(req, res) => {
  *     tags:
  *       - Users
  *     description: API for returning a user by id
- *     summary: Retrieve a user by id
+ *     summary: findById
  *     parameters:
  *       - in: path
  *         name: id
@@ -105,7 +123,7 @@ router.get("/:id", async (req, res) => {
  *       - Users
  *     name: createUser
  *     description: API to create new user
- *     summary: Creates a new user object
+ *     summary: createUser
  *     operationId: createUser
  *     requestBody:
  *        description: User information
@@ -175,6 +193,102 @@ router.post('/', async (req, res) => {
 });
 
 /**
+ * updateUser
+ */
+// Chad Coded | John & Ace Tested & Approved
+/**
+* @openapi
+ * /api/users/{id}:
+ *  put:
+ *      tags:
+ *          - Users
+ *      description: updates a user by Id
+ *      summary: updateUser
+ *      parameters:
+ *          - name: id
+ *            in: path
+ *            description: the id of the user to update
+ *            required: true
+ *            schema:
+ *              type: string
+ *      requestBody:
+ *          description: Updates the user information
+ *          content:
+ *            application/json:
+ *              schema:
+ *                properties:
+ *                  firstName:
+ *                    type: string
+ *                  lastName:
+ *                    type: string
+ *                  phoneNumber:
+ *                    type: string
+ *                  email:
+ *                   type: string
+ *                  role:
+ *                   type: string
+ *                  address:
+ *                    type: string
+ *      responses:
+ *          '200':
+ *              description: Document updated
+ *          '500':
+ *              description: Server Exception
+ *          '501':
+ *              description: MongoDB Exception
+ */
+
+router.put('/:id', async (req, res) => {
+  try {
+    User.findOne({ '_id': req.params.id }, function (err, user) {
+      if (err) {
+        console.log(err);
+        const updateUserByIdMongodbErrorResponse = new ErrorResponse(
+          500,
+          "Internal server error",
+          err
+        );
+        res.status(500).send(updateUserByIdMongodbErrorResponse.toObject());
+      } else {
+        console.log(user);
+
+
+        user.set({
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          phoneNumber: req.body.phoneNumber,
+          address: req.body.address,
+          email: req.body.email,
+          'role.text': req.body.role,
+          dateModified: new Date(),
+        });
+
+        user.save(function (err, savedUser) {
+          if (err) {
+            console.log(err);
+            const saveUserMongodbErrorResponse = new ErrorResponse(500, "Internal server error", err);
+            res.status(500).send(saveUserMongodbErrorResponse.toObject());
+          } else {
+            console.log(savedUser);
+            const saveUserResponse = new BaseResponse(200, "Query successful", savedUser);
+            res.json(saveUserResponse.toObject());
+          }
+        });
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    const updateUserByIdCatchErrorResponse = new ErrorResponse(
+      500,
+      "Internal server error",
+      e.message
+    );
+    res.status(500).send(updateUserByIdCatchErrorResponse.toObject());
+  }
+});
+
+
+/**
  * DeleteUser
  */
 // Chad Coded | Ace Tested | John Approved
@@ -186,7 +300,7 @@ router.post('/', async (req, res) => {
  *      tags:
  *          - Users
  *      description: Deletes a user
- *      summary: Delete a user from the database
+ *      summary: deleteUser
  *      parameters:
  *          - in: path
  *            name: id
