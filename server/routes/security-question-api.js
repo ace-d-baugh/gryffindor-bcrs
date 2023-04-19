@@ -80,9 +80,54 @@ router.get("/", async (req, res) => {
 });
 
 /**
- * FindById
- */
-// Chad Coded | Ace Tested | John Approved
+ * findById
+ * @openapi
+ * /api/security-questions/{id}:
+ *   get:
+ *     tags:
+ *       - Security Questions
+ *     description: Returns security question by ID
+ *     summary: findById
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         description: Security Question ID
+ *         schema:
+ *           type: number
+ *     responses:
+ *     responses:
+*       '200':
+*         description: Employee by empId
+*       '401':
+*         description: Invalid empId
+*       '500':
+*         description: Server exception
+*       '501':
+*         description: MongoDB Exception
+*/
+// Ace Coded | John Tested | Chad Approved
+// findById
+router.get("/:id", async (req, res) => {
+  try {
+    User.findOne({ _id: req.params.id }, function (err, user) {
+      if (err) {
+        console.log(err);
+        const findByIdMongodbErrorResponse = new ErrorResponse(500, "Internal server error", err);
+        res.status(500).send(findByIdMongodbErrorResponse.toObject());
+      } else {
+        console.log(security-question);
+        const findByIdResponse = new BaseResponse(200, "Query successful", user);
+        res.json(findByIdResponse.toObject());
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    const findByIdCatchErrorResponse = new ErrorResponse(500, "Internal server error", e.message);
+    res.status(500).send(findByIdCatchErrorResponse.toObject());
+  }
+});
+
 
 /**
  * CreateSecurityQuestion
