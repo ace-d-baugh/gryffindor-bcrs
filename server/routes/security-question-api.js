@@ -80,44 +80,38 @@ router.get("/", async (req, res) => {
 });
 
 /**
- * findById
+ * FindById
  * @openapi
  * /api/security-questions/{id}:
  *   get:
  *     tags:
  *       - Security Questions
- *     description: Returns security question by ID
+ *     description: API for returning a security question by id
  *     summary: findById
  *     parameters:
- *       - name: id
- *         in: path
+ *       - in: path
+ *         name: id
  *         required: true
- *         description: Security Question ID
+ *         description: The id of the security question to retrieve
  *         schema:
- *           type: number
+ *           type: string
  *     responses:
- *     responses:
-*       '200':
-*         description: Employee by empId
-*       '401':
-*         description: Invalid empId
-*       '500':
-*         description: Server exception
-*       '501':
-*         description: MongoDB Exception
-*/
-// Ace Coded | John Tested | Chad Approved
-// findById
+ *       200:
+ *         description: A user object
+ *       500:
+ *         description: Internal server error
+ */
+// Chad Coded | John Tested | Ace Approved
 router.get("/:id", async (req, res) => {
   try {
-    User.findOne({ _id: req.params.id }, function (err, user) {
+    SecurityQuestion.findOne({ _id: req.params.id }, function (err, SecurityQuestion) {
       if (err) {
         console.log(err);
         const findByIdMongodbErrorResponse = new ErrorResponse(500, "Internal server error", err);
         res.status(500).send(findByIdMongodbErrorResponse.toObject());
       } else {
-        console.log(security-question);
-        const findByIdResponse = new BaseResponse(200, "Query successful", user);
+        console.log(SecurityQuestion);
+        const findByIdResponse = new BaseResponse(200, "Query successful", SecurityQuestion);
         res.json(findByIdResponse.toObject());
       }
     });
