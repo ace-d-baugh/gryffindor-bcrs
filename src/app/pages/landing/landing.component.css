@@ -220,6 +220,7 @@ header {
   gap: 1rem;
   border-bottom: 3rem solid #EEBA30;
   border-top: 3rem solid #740001;
+  padding: 2rem;
 }
 
 .landing-review {
@@ -229,7 +230,6 @@ header {
   height: 20rem;
   padding: 1rem;
   color: #740001;
-  margin: 4rem 0;
 }
 
 .landing-review-body {
