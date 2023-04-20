@@ -15,8 +15,12 @@ const User = require("../models/user");
 const ErrorResponse = require("../services/error-response");
 const BaseResponse = require("../services/base-response");
 const router = express.Router();
+const Ajv = require('ajv')
+
 
 const bcrypt = require("bcryptjs");
+const ajv = new Ajv()
+const logFile = 'session-api.js'
 
 
 // Configurations
@@ -34,7 +38,7 @@ const sessionSigninSchema = {
 }
 
 
-//TODO: validate
+
 /**
  * Signin
  */
