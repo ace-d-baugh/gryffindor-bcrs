@@ -17,13 +17,17 @@ import { HomeComponent } from './pages/home/home.component';
 const routes: Routes = [
   {
     path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'other/',
     component: BaseLayoutComponent,
-    children: [
-      {
-        path: '',
-        component: HomeComponent,
-      },
-    ],
+    // children: [
+    //   {
+    //     path: '',
+    //     component: HomeComponent,
+    //   },
+    // ],
   },
 ];
 
