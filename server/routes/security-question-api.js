@@ -14,9 +14,22 @@ const express = require("express");
 const SecurityQuestion = require("../models/security-question");
 const ErrorResponse = require("../services/error-response");
 const BaseResponse = require("../services/base-response");
+const Ajv = require('ajv')
+
 
 // Configurations
 const router = express.Router();
+const ajv = new Ajv()
+const logFile = 'security-question-api.js'
+
+const securityQuestionsSchema = {
+  type: 'object',
+  properties: {
+    text: {type: 'string'}
+  }, 
+  required: ['text'],
+  additionalProperties: false
+}
 
 /**
  * FindAll
@@ -79,6 +92,8 @@ router.get("/", async (req, res) => {
   }
 });
 
+
+
 /**
  * FindById
  // Chad Coded | John Tested | Ace Approved
@@ -137,8 +152,10 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+
+
 /**
- * FindById
+ * createSecurityQuestion
  // John Coded | Chad Tested | Ace Approved
 @openapi
  * /api/security-questions:
@@ -166,36 +183,50 @@ router.get("/:id", async (req, res) => {
  *         description: MongoDB Exception
  */
 router.post("/", async (req, res) => {
-  try {
-    let newSecurityQuestion = {
-      text: req.body.text,
-    };
+  try 
+  {
+    const newSecurityQuestion = req.body
+    const validator = ajv.compile(securityQuestionsSchema)
+    const valid = validator(newSecurityQuestion)  //true
 
-    SecurityQuestion.create(
-      newSecurityQuestion,
-      function (err, securityQuestion) {
-        if (err) {
-          console.log(err);
-          const createSecurityQuestionMongodbErrorResponse = new ErrorResponse(
-            500,
-            "Internal server error",
-            err
-          );
-          res
-            .status(500)
-            .send(createSecurityQuestionMongodbErrorResponse.toObject());
-        } else {
-          console.log(securityQuestion);
-          const createSecurityQuestionResponse = new BaseResponse(
-            200,
-            "Query successful",
-            securityQuestion
-          );
-          res.json(createSecurityQuestionResponse.toObject());
+    if (valid) 
+    {
+      SecurityQuestion.create(
+        newSecurityQuestion,
+        function (err, securityQuestion) {
+          if (err) {
+            console.log(err);
+            const createSecurityQuestionMongodbErrorResponse = new ErrorResponse(
+              500,
+              "Internal server error",
+              err
+            );
+            res
+              .status(500)
+              .send(createSecurityQuestionMongodbErrorResponse.toObject());
+          } else {
+            console.log(securityQuestion);
+            const createSecurityQuestionResponse = new BaseResponse(
+              200,
+              "Query successful",
+              securityQuestion
+            );
+            res.json(createSecurityQuestionResponse.toObject());
+          }
         }
-      }
-    );
-  } catch (e) {
+      );
+    } else 
+    {       
+        const securityQuestionValidationError = new ErrorResponse(
+          400,
+          "Bad Request", 
+          `Input doesn't match expected Schema ${req.body}`
+        );
+        console.log(securityQuestionValidationError);
+        res.json(securityQuestionValidationError.toObject());
+    }    
+  } 
+  catch (e) {
     console.log(e);
     const createSecurityQuestionCatchErrorResponse = new ErrorResponse(
       500,
@@ -206,6 +237,8 @@ router.post("/", async (req, res) => {
   }
 });
 
+
+//TODO: validate
 /**
  * updateSecurityQuestion
 // Ace Coded | John Tested | Chad Approved

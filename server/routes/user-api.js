@@ -66,6 +66,7 @@ router.get('/', async(req, res) => {
 });
 
 
+
 /**
  * FindById
  * @openapi
@@ -111,6 +112,7 @@ router.get("/:id", async (req, res) => {
 
 
 
+//TODO: validate
 /**
  * CreateUser
  */
@@ -192,6 +194,7 @@ router.post('/', async (req, res) => {
     }
 });
 
+//TODO: validate
 /**
  * updateUser
  */

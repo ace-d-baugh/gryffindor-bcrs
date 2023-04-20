@@ -18,9 +18,23 @@ const router = express.Router();
 
 const bcrypt = require("bcryptjs");
 
+
 // Configurations
 
 
+//schema
+const sessionSigninSchema = {
+  type: 'object',
+  properties: {
+    username: {type: 'string'},
+    password: {type: 'string'}
+  }, 
+  required: ['username', 'password'],
+    additionalProperties: false
+}
+
+
+//TODO: validate
 /**
  * Signin
  */
@@ -59,50 +73,68 @@ const bcrypt = require("bcryptjs");
  *         description: MongoDB Exception.
  */
 router.post("/signin", (req, res) => {
-  try {
-    User.findOne({ username: req.body.username }, function (err, user) {
-      if (err) {
-        console.log(err);
-        const signinMongodbErrorResponse = new ErrorResponse(
-          500,
-          "Internal Server Error",
-          err
-        );
-        res.status(500).send(signinMongodbErrorResponse.toObject());
-      } else {
-        console.log(user);
-        /**
-         * Description: If the user is found, compare the password
-         */
-        if (user) {
-          let passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
+  try {   
 
-          console.log(passwordIsValid);
+    const sessionSignin = req.body
+    const validator = ajv.compile(sessionSigninSchema)
+    const valid = validator(sessionSignin)
+
+    if (valid) 
+    
+    {
+      User.findOne({ username: req.body.username }, function (err, user) {
+        if (err) {
+          console.log(err);
+          const signinMongodbErrorResponse = new ErrorResponse(
+            500,
+            "Internal Server Error",
+            err
+          );
+          res.status(500).send(signinMongodbErrorResponse.toObject());
+        } else {
+          console.log(user);
           /**
-           * if password is valid, return the user
+           * Description: If the user is found, compare the password
            */
-          if (passwordIsValid) {
-            console.log("Login successful");
-            const signinResponse = new BaseResponse(200, "Login successful", user);
-            res.json(signinResponse.toObject());
+          if (user) {
+            let passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
+  
+            console.log(passwordIsValid);
+            /**
+             * if password is valid, return the user
+             */
+            if (passwordIsValid) {
+              console.log("Login successful");
+              const signinResponse = new BaseResponse(200, "Login successful", user);
+              res.json(signinResponse.toObject());
+            } else {
+              /**
+               * If password is invalid, return an error
+               */
+              console.log("Invalid password: Please try again");
+              const invalidPasswordResponse = new BaseResponse(401, "Invalid password", "Please try again", user);
+              res.status(401).send(invalidPasswordResponse.toObject());
+            }
           } else {
             /**
-             * If password is invalid, return an error
+             * if username is invalid, return an error
              */
-            console.log("Invalid password: Please try again");
-            const invalidPasswordResponse = new BaseResponse(401, "Invalid password", "Please try again", user);
-            res.status(401).send(invalidPasswordResponse.toObject());
+            console.log(`Invalid username: ${req.body.userName}. Please try again`);
+            const invalidUserNameResponse = new BaseResponse(401, "Invalid username", "Please try again", null);
+            res.status(401).send(invalidUserNameResponse.toObject());
           }
-        } else {
-          /**
-           * if username is invalid, return an error
-           */
-          console.log(`Invalid username: ${req.body.userName}. Please try again`);
-          const invalidUserNameResponse = new BaseResponse(401, "Invalid username", "Please try again", null);
-          res.status(401).send(invalidUserNameResponse.toObject());
         }
-      }
-    });
+      });
+    } else 
+    {
+      const signinValidationError = new ErrorResponse(
+        400,
+        "Bad Request", 
+        `Input doesn't match expected Schema ${req.body}`
+      );
+      console.log(signinValidationError);
+      res.json(signinValidationError.toObject());
+    }    
   } catch (e) {
     console.log(e);
     const signinCatchErrorResponse = new ErrorResponse(500, "Internal Server Error", e.message);
