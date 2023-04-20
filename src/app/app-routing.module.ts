@@ -13,21 +13,22 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LandingComponent } from './pages/landing/landing.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: LandingComponent,
   },
   {
     path: 'other/',
     component: BaseLayoutComponent,
-    // children: [
-    //   {
-    //     path: '',
-    //     component: HomeComponent,
-    //   },
-    // ],
+    children: [
+      {
+        path: '',
+        component: HomeComponent,
+      },
+    ],
   },
 ];
 

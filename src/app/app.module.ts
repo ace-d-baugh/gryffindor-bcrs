@@ -22,11 +22,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { LandingComponent } from './pages/landing/landing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    LandingComponent,
     AuthLayoutComponent,
     BaseLayoutComponent,
   ],

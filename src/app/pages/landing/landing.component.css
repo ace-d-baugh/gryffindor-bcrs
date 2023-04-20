@@ -1,0 +1,303 @@
+/*
+=====================================================
+; File Name: landing.component.css
+; Project: Gryffindor - Bob's Computer Repair Shop
+; Author: Richard Krasso
+; Date: 04/18/2023
+; File Description: Landing page CSS
+; Modifications: Ace Baugh
+=====================================================
+*/
+
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+.page-container {
+  background-image: url(src/assets/images/Bobs-Interior-v3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(#210706ff, #210706cc, #21070688, transparent);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  color: #F5DEB3;
+}
+
+.company {
+  flex: 1;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.company-logo img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.company-name {
+  font-size: 2rem;
+}
+
+.navbar {
+  flex: 1;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 1.5rem;
+  padding: 1.5rem;
+}
+
+.nav-link:hover {
+  color: #740001;
+  background-color: #F5DEB3;
+  box-shadow: 0 .5rem 3rem #740001CC;
+}
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+
+.hero-action {
+  background-color: #21070655;
+  display: flex;
+  flex-direction: column;
+  margin: 50rem 10rem;
+  color: #F5DEB3;
+  padding: 2rem;
+}
+
+.hero-action-title {
+  font-size: 6rem;
+}
+
+.hero-action-body {
+  font-size: 1.5rem;
+  width: 40rem;
+  margin: 3rem 0;
+}
+
+.btn {
+  background-color: #F5DEB3;
+  color: #740001;
+  border: none;
+}
+
+.hero-button {
+  padding: 1.75rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  box-shadow: 1rem 1rem #EEBA30;
+}
+
+.hero-review {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #21070688;
+  width: 30rem;
+  height: 18rem;
+  padding: 1rem;
+  color: #F5DEB3;
+}
+
+.hero-review-rating {
+  color: #EEBA30;
+  font-size: 2rem;
+  display: flex;
+}
+
+.rating-star {
+  padding: 0 .25rem;
+}
+
+.hero-review-body {
+  padding: 1rem .25rem;
+}
+
+.hero-review-author {
+  text-align: right;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.about {
+  background-color: #F5DEB3;
+  width: 100%;
+  padding: 5rem;
+  color: #210706;
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-text {
+  max-width: 1200px;
+  margin: 1rem 0;
+}
+
+.about-text h2 {
+  font-size: 3rem;
+}
+
+.about-text p {
+  padding: 2rem 0;
+}
+
+.about-text a {
+  color: #740001;
+  text-decoration: none;
+}
+
+.about-text a:hover {
+  color: #740001;
+  border: 1px solid #210706;
+  box-shadow: .25rem .25rem #EEBA30;
+}
+
+.about-action-button {
+  width: 100%;
+  text-align: center;
+}
+
+.about-button {
+  padding: 1rem;
+  box-shadow: .5rem .5rem #EEBA30;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 1px solid #210706;
+}
+
+.reviews {
+  background-image: linear-gradient(290deg, #F5DEB3 0%, #F5DEB3 40%, transparent 40%, transparent 60%, #F5DEB3 60%, #F5DEB3 100%);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-bottom: 3rem solid #EEBA30;
+  border-top: 3rem solid #740001;
+}
+
+.landing-review {
+  background-color: #F5DEB3;
+  border: 5px solid #740001;
+  width: 22rem;
+  height: 20rem;
+  padding: 1rem;
+  color: #740001;
+  margin: 4rem 0;
+}
+
+.landing-review-body {
+  font-size: 1rem;
+  padding: .25rem .25rem;
+}
+
+.landing-review-author {
+  text-align: right;
+  font-size: 1.25rem;
+}
+
+
+.call-to-action {
+  background: none;
+  width: 100%;
+  display: flex;
+}
+
+.contact {
+  width: 100%;
+  background: #F5DEB3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  color: #740001;
+}
+
+.contact-content {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-content h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.contact-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone-side a {
+  color: #740001;
+  text-decoration: none;
+}
+
+.phone-side a:hover {
+  color: #740001;
+  box-shadow: .25rem .25rem #EEBA30;
+}
+
+.contact-text {
+  padding: 1rem 0;
+}
+
+.transparent-text {
+  color: transparent;
+}
+
+.footer {
+  background: linear-gradient(transparent, #21070688, #210706cc, #210706ff);
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+  color: #F5DEB3;
+  font-weight: 700;
+}
