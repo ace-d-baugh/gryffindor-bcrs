@@ -30,12 +30,8 @@
     "express": "^4.18.1",
     "mongoose": "^6.5.2",
     "ngx-cookie-service": "^14.0.1",
-<<<<<<< HEAD
     "primeng": "^13.4.2-lts",
-=======
     "primeicons": "^6.0.0",
-    "primeng": "^14.0.1",
->>>>>>> fbf07eb3a905eba253cad9aebf4df8f0febf4ad4
     "rxjs": "~7.5.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.2",
