@@ -15,14 +15,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './pages/home/home.component';
-import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
-import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MessageModule } from 'primeng/message';
+import { MessagesModule } from 'primeng/messages';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+
+//component imports
+import { HomeComponent } from './pages/home/home.component';
+import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
+import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { LandingComponent } from './pages/landing/landing.component';
+<<<<<<< HEAD
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,6 +49,9 @@ import { MessageModule }  from 'primeng/message';
 import { MessagesModule }  from 'primeng/messages';
 
 
+=======
+import { UserListComponent } from './pages/user-list/user-list.component';
+>>>>>>> fbf07eb3a905eba253cad9aebf4df8f0febf4ad4
 
 @NgModule({
   declarations: [
@@ -39,9 +59,13 @@ import { MessagesModule }  from 'primeng/messages';
     HomeComponent,
     AuthLayoutComponent,
     BaseLayoutComponent,
+<<<<<<< HEAD
     LandingComponent,
     SignInComponent
 
+=======
+    UserListComponent,
+>>>>>>> fbf07eb3a905eba253cad9aebf4df8f0febf4ad4
   ],
   imports: [
     BrowserModule,
@@ -51,6 +75,7 @@ import { MessagesModule }  from 'primeng/messages';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+<<<<<<< HEAD
     MatToolbarModule,
     MatCardModule,
     MessageModule,
@@ -59,6 +84,22 @@ import { MessagesModule }  from 'primeng/messages';
     FormsModule,
     ReactiveFormsModule,
 
+=======
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatMenuModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatTableModule,
+    MessageModule,
+    MessagesModule,
+    TableModule,
+    ButtonModule,
+    ConfirmDialogModule
+>>>>>>> fbf07eb3a905eba253cad9aebf4df8f0febf4ad4
   ],
   providers: [],
   bootstrap: [AppComponent],

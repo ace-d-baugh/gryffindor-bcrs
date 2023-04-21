@@ -26,7 +26,7 @@ const logFile = 'session-api.js'
 // Configurations
 
 
-//schema
+//Datavalidation schema
 const sessionSigninSchema = {
   type: 'object',
   properties: {
