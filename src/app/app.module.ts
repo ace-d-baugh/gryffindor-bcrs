@@ -23,14 +23,25 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { LandingComponent } from './pages/landing/landing.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { MatCardModule } from '@angular/material/card';
+import { MessageModule }  from 'primeng/message';
+import { MessagesModule }  from 'primeng/messages';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LandingComponent,
     AuthLayoutComponent,
     BaseLayoutComponent,
+    LandingComponent,
+    SignInComponent
+
   ],
   imports: [
     BrowserModule,
@@ -40,6 +51,14 @@ import { LandingComponent } from './pages/landing/landing.component';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatToolbarModule,
+    MatCardModule,
+    MessageModule,
+    MessagesModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -11,9 +11,11 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LandingComponent } from './pages/landing/landing.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
 
 const routes: Routes = [
   {
@@ -28,9 +30,23 @@ const routes: Routes = [
         path: '',
         component: HomeComponent,
       },
-    ],
-  },
-];
+    ]
+    },
+    {
+      path: 'session',
+      component: AuthLayoutComponent,
+      children: [
+        {
+          path: 'sign-in',
+          component: SignInComponent,
+        },
+      ],
+    },
+    {
+      path: '**',
+      redirectTo: 'session/not-found'
+    }
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
