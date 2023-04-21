@@ -5,7 +5,7 @@
 ; Author: Richard Krasso
 ; Date: 04/18/2023
 ; File Description: App routing module
-; Modifications: Ace Baugh
+; Modifications: Ace Baugh, John Vanhessche
 =====================================================
 */
 
@@ -16,6 +16,7 @@ import { BaseLayoutComponent } from './shared/base-layout/base-layout.component'
 import { HomeComponent } from './pages/home/home.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
     {
       path: '**',
       redirectTo: 'session/not-found'
+    },
+    {
+      path: 'users',
+      component: UserListComponent
     }
   ];
 

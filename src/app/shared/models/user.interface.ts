@@ -13,9 +13,9 @@ export interface User {
     _id?: string;
     username: string;
     password?: string;
-    firstname: string;
-    lastname: string;
-    phonenumber: string;
+    firstName: string;
+    lastName: string;
+    phoneNumber: string;
     address: string;
     email: string
 }
