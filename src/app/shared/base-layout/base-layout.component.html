@@ -8,40 +8,28 @@
 ;===========================================
 -->
 
-<div fxLayout="column">
-
-  <!-- navigation -->
-  <nav fxFlex>
-    <mat-toolbar>
-      <!-- navbar container -->
-      <div class="navbar-container">
-        <!-- logo -->
-        <button class="logo" routerLink="/" mat-button>BCRS</button>
-
-        <button class="navbar-link" routerLink="/" mat-button>Home</button>
-        <button class="navbar-link" mat-button>About</button>
-      </div>
-
-    </mat-toolbar>
-  </nav>
-
-  <!-- main content -->
-  <div fxFlex>
-    <main class="main-content" fxFlex="100%;">
-      <!--background-image-->
-  <img src="src/assets/images/Bobs-interior-v4.jpg" alt="BCRS-background">
-      <router-outlet></router-outlet>
-    </main>
-  </div>
-
-  <!-- footer -->
-  <div fxFlex>
-    <footer class="footer">
-      <mat-toolbar class="footer-content">
-        <p>
-          &copy; {{year | date: 'yyyy'}} - BCRS - <a href="https://www.bellevue.edu/" class="bu-link" target="_blank">Bellevue University</a>
-        </p>
-      </mat-toolbar>
-    </footer>
+<div class="page-container font-primary">
+  <header>
+    <div class="company">
+      <div class="company-logo"><img src="./assets/images/bcrs-logo.png" alt="main-logo" /></div>
+      <div class="company-name font-accent">Bob's Computer Repair Shop</div>
+    </div>
+    <div class="navbar">
+      <div class="nav-link" routerLink="/">Home</div>
+      <div class="nav-link">About</div>
+      <div class="nav-link">Services</div>
+      <div class="nav-link">Contact</div>
+      <div class="nav-link" routerLink="/session/sign-in">Sign-In</div>
+    </div>
+  </header>
+  <main>
+    <div class="hero">
+    </div>
+  </main>
+  <div class="footer">
+    <div class="copyright">&copy;2023 Bob's Computer Repair Shop | All Rights Reserved |&nbsp;</div>
+    <div class="created-by">Created By: John Vanhessche, Chad ONeal, & Ace Baugh</div>
   </div>
 </div>
+
+

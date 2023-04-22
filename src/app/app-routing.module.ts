@@ -35,7 +35,7 @@ const routes: Routes = [
     },
     {
       path: 'session',
-      component: AuthLayoutComponent,
+      component: BaseLayoutComponent,
       children: [
         {
           path: 'sign-in',
