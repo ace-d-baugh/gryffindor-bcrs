@@ -1,0 +1,20 @@
+/*
+=====================================================
+; File Name: security-question-list.component.css
+; Project: Gryffindor - Bob's Computer Repair Shop
+; Author: Richard Krasso
+; Date: 04/22/2023
+; File Description: Security Question List component CSS
+; Modifications: John Vanhessche
+=====================================================
+*/
+
+title {
+    color: #740001;
+    font-weight: bold;
+}
+
+subtitle {
+    color: #ae0001;
+    font-weight: bold;
+}
