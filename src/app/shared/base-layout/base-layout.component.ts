@@ -9,17 +9,29 @@
 =====================================================
 */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-base-layout',
   templateUrl: './base-layout.component.html',
   styleUrls: ['./base-layout.component.css'],
 })
-export class BaseLayoutComponent implements OnInit {
+export class BaseLayoutComponent implements OnInit, DoCheck {
   year: number = Date.now();
+  currentRoute!: string;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = event.url;
+      }
+    });
+  }
+
+  ngDoCheck(): void {
+    this.currentRoute = this.router.url;
+  }
 }
