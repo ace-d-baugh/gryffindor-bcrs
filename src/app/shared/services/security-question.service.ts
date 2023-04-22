@@ -22,7 +22,7 @@ export class SecurityQuestionService {
 
     constructor(private http: HttpClient) { }
 
-    findAllSecurityQuestion(): Observable<any> {
+    findAllSecurityQuestions(): Observable<any> {
         return this.http.get('/api/security-questions');
     }
 
