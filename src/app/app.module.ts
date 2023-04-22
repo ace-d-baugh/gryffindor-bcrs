@@ -28,6 +28,8 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
+import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
+import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
 
 //component imports
 import { HomeComponent } from './pages/home/home.component';
@@ -42,12 +44,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MessageModule }  from 'primeng/message';
 import { MessagesModule }  from 'primeng/messages';
 import { UserListComponent } from './pages/user-list/user-list.component';
-<<<<<<< Updated upstream
 import { ToastModule } from 'primeng/toast';
-=======
-import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
-import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
->>>>>>> Stashed changes
 
 
 

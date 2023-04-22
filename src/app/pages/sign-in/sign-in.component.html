@@ -34,14 +34,20 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-card-actions>
-        <button type="submit" class="full-width btn-primary" mat-raised-button [disabled]="!signinForm.valid">
-          Submit
-        </button>
-      </mat-card-actions>
+
     </mat-card-content>
     </form>
+    <div fxLayout fxLayoutAlign="space-between">
+      <a href="" class="navbar-link" routerLink="/session/register">Create New Account</a>
+      <a href="" class="navbar-link" routerLink="/session/forgot">Forgot Password</a>
+    </div>
   </mat-card-content>
   </mat-card>
+  <mat-card-actions>
+    <button type="submit" class="full-width btn-primary" mat-raised-button [disabled]="!signinForm.valid">
+      Submit
+    </button>
+  </mat-card-actions>
 </div>
+
 
