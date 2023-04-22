@@ -9,6 +9,13 @@
 =====================================================
 */
 
+.hide-header-footer header {
+  display: none;
+}
+
+.hide-header-footer footer {
+  display: none;
+}
 
 .font-primary {
   font-family: var(--font-primary);
@@ -130,7 +137,7 @@ header {
 
 
 
-.footer {
+footer {
   background: linear-gradient(transparent, #21070688, #210706cc, #210706ff);
   display: flex;
   justify-content: center;
@@ -140,5 +147,7 @@ header {
   font-weight: 700;
 
 }
+
+
 
 

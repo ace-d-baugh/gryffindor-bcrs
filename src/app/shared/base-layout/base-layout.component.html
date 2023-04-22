@@ -7,9 +7,9 @@
 ; Description: Base Layout Component
 ;===========================================
 -->
-
+<div class="base-layout-wrapper" [ngClass]="{ 'hide-header-footer': hideHeaderFooter }">
 <div class="page-container font-primary">
-  <header *ngIf="currentRoute !== '/session/sign-in'">
+  <header>
     <div class="company">
       <div class="company-logo"><img src="./assets/images/bcrs-logo.png" alt="main-logo" /></div>
       <div class="company-name font-accent">Bob's Computer Repair Shop</div>
@@ -27,10 +27,10 @@
     </div>
     <router-outlet></router-outlet>
   </main>
-  <div class="footer" *ngIf="currentRoute !== '/session/sign-in'">
+  <footer>
     <div class="copyright">&copy;2023 Bob's Computer Repair Shop | All Rights Reserved |&nbsp;</div>
     <div class="created-by">Created By: John Vanhessche, Chad ONeal, & Ace Baugh</div>
-  </div>
+  </footer>
 </div>
-
+</div>
 

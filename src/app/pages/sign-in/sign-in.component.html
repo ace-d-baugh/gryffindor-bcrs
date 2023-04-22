@@ -1,10 +1,47 @@
-<div class="page-container font-primary sign-in-page">
-  <mat-card fxFlex class="login-container">
-    <mat-card-header>
-      <mat-card-title class="login-title">
-        Customer Sign-In
+<div fxLayout>
+  <mat-card class="mat-elevation-z0 signin-card">
+    <mat-card-header class="padding-bottom-5" fxLayoutAlign="center">
+      <mat-card-title>
+        <h1 class="card-title">Customer Sign-In</h1>
       </mat-card-title>
     </mat-card-header>
-    <!-- ... -->
+
+
+<mat-card-content>
+  <!-- Error messages -->
+  <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+  <form [formGroup]="signinForm" (ngSubmit)="signin(); signinForm.reset()">
+    <mat-card-content>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Username</mat-label>
+        <input type="text" matInput formControlName="userName" />
+
+        <mat-error *ngIf="signinForm.controls['userName'].hasError('required') && signinForm.controls['userName'].touched">
+          Username is required.
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" />
+
+        <mat-error *ngIf="signinForm.controls['password'].hasError('required') && signinForm.controls['password'].touched">
+          Password is required.
+        </mat-error>
+
+        <mat-error *ngIf="signinForm.controls['password'].hasError('pattern') && signinForm.controls['password'].touched">
+          Password must be at least 8 characters, contain one letter, and one number.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-card-actions>
+        <button type="submit" class="full-width btn-primary" mat-raised-button [disabled]="!signinForm.valid">
+          Submit
+        </button>
+      </mat-card-actions>
+    </mat-card-content>
+    </form>
+  </mat-card-content>
   </mat-card>
 </div>
+

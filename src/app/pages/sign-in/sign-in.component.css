@@ -1,11 +1,5 @@
-/* hide header and footer on sign-in page */
-.sign-in-page header,
-.sign-in-page footer {
-  display: none;
-}
-
-/* stylings for the login page */
-.login-container {
+/* stylings for the signin page */
+.signin-card {
   width: 35%;
   position: absolute;
   top: 50%;
@@ -13,12 +7,62 @@
   transform: translate(-50%, -50%);
 }
 
-/* stylings for the login title */
-.login-title {
+/* stylings for the signin title */
+.signin-title {
   text-align: center;
   font-size: 45px;
   font-weight: bold;
   padding: 25px;
+}
+
+/* stylings for the signin subtitle */
+.signin-subtitle {
+  text-align: center;
+  font-weight: light;
+  font-size: 18px;
+  padding: 5px;
+  color: #CCA43D;
+}
+
+/* stylings for the signin form */
+.mat-card {
+  padding: 0;
+}
+
+/* stylings for the signin form header */
+.mat-card-header {
+  background-color: #2A623D;
+  padding-left: 8%;
+  padding-top: 15px;
+  color: #AAAAAA;
+}
+
+/* stylings for the signin form content */
+.mat-card-content {
+  padding: 28px;
+}
+
+/* stylings for the signin form actions */
+.mat-card-actions {
+  padding: 25px;
+}
+
+/* stylings for the signin form button */
+.btn-lg {
+  height: 50px;
+  font-size: 18px;
+  background-color: #2A623D;
+  color: #AAAAAA;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #2A623D !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: #2A623D !important;
 }
 
 

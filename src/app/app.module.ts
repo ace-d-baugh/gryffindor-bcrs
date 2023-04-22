@@ -42,6 +42,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MessageModule }  from 'primeng/message';
 import { MessagesModule }  from 'primeng/messages';
 import { UserListComponent } from './pages/user-list/user-list.component';
+import { ToastModule } from 'primeng/toast';
 
 
 
@@ -83,7 +84,8 @@ import { UserListComponent } from './pages/user-list/user-list.component';
     MessagesModule,
     TableModule,
     ButtonModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    ToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

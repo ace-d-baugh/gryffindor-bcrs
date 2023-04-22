@@ -9,29 +9,59 @@
 =====================================================
 */
 
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { ConfirmationService, ConfirmEventType, MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-base-layout',
   templateUrl: './base-layout.component.html',
   styleUrls: ['./base-layout.component.css'],
+  providers: [MessageService, ConfirmationService]
 })
-export class BaseLayoutComponent implements OnInit, DoCheck {
+
+export class BaseLayoutComponent implements OnInit {
+  sessionName: string
   year: number = Date.now();
-  currentRoute!: string;
+  hideHeaderFooter: boolean = false;
 
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {
+  //  constructor
+  constructor(private cookieService: CookieService, public router: Router,
+    private confirmationService: ConfirmationService, private messageService: MessageService) {
+    this.sessionName = this.cookieService.get('session_name')
+    this.year = Date.now()
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.currentRoute = event.url;
+        this.hideHeaderFooter = event.url === '/session/sign-in';
       }
-    });
+     });
+   }
+
+  ngOnInit(): void {
   }
 
-  ngDoCheck(): void {
-    this.currentRoute = this.router.url;
+  // logout function
+  signout() {
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to proceed?',
+      header: 'Log out confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.cookieService.deleteAll()
+        this.router.navigate(['/session/login'])
+      },
+      reject: (type: any) => {
+        switch (type) {
+          case ConfirmEventType.REJECT:
+            this.messageService.add({ severity: 'info', summary: 'Cancelled', detail: 'Log out cancelled' });
+            break
+            case ConfirmEventType.CANCEL:
+            this.messageService.add({ severity: 'info', summary: 'Cancelled', detail: 'Log out cancelled' });
+            break
+        }
+      }
+    })
   }
 }
