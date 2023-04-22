@@ -42,7 +42,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MessageModule }  from 'primeng/message';
 import { MessagesModule }  from 'primeng/messages';
 import { UserListComponent } from './pages/user-list/user-list.component';
+<<<<<<< Updated upstream
 import { ToastModule } from 'primeng/toast';
+=======
+import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
+import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
+>>>>>>> Stashed changes
 
 
 
@@ -55,6 +60,8 @@ import { ToastModule } from 'primeng/toast';
     LandingComponent,
     SignInComponent,
     UserListComponent,
+    SecurityQuestionListComponent,
+    SecurityQuestionDetailsComponent,
   ],
   imports: [
     BrowserModule,
