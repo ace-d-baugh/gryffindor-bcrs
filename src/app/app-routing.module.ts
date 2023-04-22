@@ -11,7 +11,6 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LandingComponent } from './pages/landing/landing.component';
@@ -24,34 +23,34 @@ const routes: Routes = [
     component: LandingComponent,
   },
   {
-    path: 'other/',
+    path: 'other',
     component: BaseLayoutComponent,
     children: [
       {
         path: '',
         component: HomeComponent,
       },
-    ]
-    },
-    {
-      path: 'session',
-      component: BaseLayoutComponent,
-      children: [
-        {
-          path: 'sign-in',
-          component: SignInComponent,
-        },
-      ],
-    },
-    {
-      path: '**',
-      redirectTo: 'session/not-found'
-    },
-    {
-      path: 'users',
-      component: UserListComponent
-    }
-  ];
+      {
+        path: 'users',
+        component: UserListComponent,
+      },
+    ],
+  },
+  {
+    path: 'session',
+    component: BaseLayoutComponent,
+    children: [
+      {
+        path: 'sign-in',
+        component: SignInComponent,
+      },
+    ],
+  },
+  {
+    path: '**',
+    redirectTo: 'session/not-found',
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
