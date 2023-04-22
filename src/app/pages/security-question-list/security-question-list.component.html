@@ -16,7 +16,7 @@
         <h1 class="title">
             Security Questions Configuration Page!<br />
             <span class="subtitle">
-            Fields marked with an asterisk (*) are required.                
+            Fields marked with an asterisk (*) are required.
             </span>
         </h1>
     </div>
@@ -26,7 +26,7 @@
             <mat-card>
                 <form [formGroup]="sqForm" (ngSubmit)="create(); sqForm.reset();">
                     <mat-form-field appearance="fill" class="w-100">
-                        <mat-labels>Security question</mat-labels>
+                        <mat-label>Security question</mat-label>
                         <input
                          type="text"
                          matInput
