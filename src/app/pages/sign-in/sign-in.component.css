@@ -1,3 +1,15 @@
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
 /* stylings for the signin page */
 .signin-card {
   width: 35%;
@@ -5,24 +17,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: 0.85;
+
 }
 
 /* stylings for the signin title */
-.signin-title {
-  text-align: center;
-  font-size: 45px;
-  font-weight: bold;
-  padding: 25px;
+.card-title {
+  font-size: 35px;
+  font-weight: 700;
+  margin-left: -10%;
+  margin-top: 5%;
 }
 
-/* stylings for the signin subtitle */
-.signin-subtitle {
-  text-align: center;
-  font-weight: light;
-  font-size: 18px;
-  padding: 5px;
-  color: #CCA43D;
-}
 
 /* stylings for the signin form */
 .mat-card {
@@ -31,15 +37,47 @@
 
 /* stylings for the signin form header */
 .mat-card-header {
-  background-color: #2A623D;
+  background-color: #F5DEB3 ;
   padding-left: 8%;
   padding-top: 15px;
-  color: #AAAAAA;
+  color:  #740001 ;
 }
 
 /* stylings for the signin form content */
 .mat-card-content {
   padding: 28px;
+  background-color: #F5DEB3 ;
+}
+
+.create-new {
+  background-color: #F5DEB3;
+  opacity: 90%;
+}
+
+.forgot {
+  color: #740001;
+  margin-left: 77%;
+  margin-top: -7%;
+}
+
+.submit {
+  color: #740001;
+  margin-left: 37%;
+}
+
+.btn {
+  background-color: #F5DEB3;
+  color: #740001;
+  border: none;
+  margin-left: 30%;
+  width: 200px;
+  border-radius: 2%;
+}
+
+.hero-button {
+  font-size: 25px;
+  font-weight: 700;
+  box-shadow: 1rem 1rem #EEBA30;
 }
 
 /* stylings for the signin form actions */
@@ -47,22 +85,22 @@
   padding: 25px;
 }
 
-/* stylings for the signin form button */
-.btn-lg {
-  height: 50px;
-  font-size: 18px;
-  background-color: #2A623D;
-  color: #AAAAAA;
+.mat-form-field {
+  height: 25%;
+  width: 100%;
+  fill: #740001;
 }
 
 ::ng-deep.mat-form-field-underline {
   /*change color of underline*/
-  background-color: #2A623D !important;
+  background-color: #FFDB58 !important;
 }
 
 ::ng-deep.mat-form-field-ripple {
  /*change color of underline when focused*/
- background-color: #2A623D !important;
+ background-color: #FFDB58 !important;
 }
+
+
 
 
