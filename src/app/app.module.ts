@@ -28,22 +28,24 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
-import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
-import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
 
 //component imports
 import { HomeComponent } from './pages/home/home.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { LandingComponent } from './pages/landing/landing.component';
+import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
+import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { MatCardModule } from '@angular/material/card';
 import { MessageModule }  from 'primeng/message';
 import { MessagesModule }  from 'primeng/messages';
-import { UserListComponent } from './pages/user-list/user-list.component';
 import { ToastModule } from 'primeng/toast';
 
 
@@ -59,6 +61,7 @@ import { ToastModule } from 'primeng/toast';
     UserListComponent,
     SecurityQuestionListComponent,
     SecurityQuestionDetailsComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

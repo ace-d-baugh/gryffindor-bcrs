@@ -10,32 +10,33 @@
 */
 
 import { Component, OnInit } from '@angular/core';
-import { User } from "../../shared/models/user.interface";
-import { UserService } from "../../shared/services/user.service";
-import { ConfirmationService, ConfirmEventType } from "primeng/api";
+import { User } from '../../shared/models/user.interface';
+import { UserService } from '../../shared/services/user.service';
+import { ConfirmationService, ConfirmEventType } from 'primeng/api';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  styleUrls: ['./user-list.component.css'],
 })
 export class UserListComponent implements OnInit {
-
   users: User[] = [];
 
-  constructor(private userService: UserService, private confirmationService: ConfirmationService) {
+  constructor(
+    private userService: UserService,
+    private confirmationService: ConfirmationService
+  ) {
     this.userService.findAllUsers().subscribe({
       next: (res) => {
         this.users = res.data;
       },
       error: (e) => {
         console.log(e);
-      }
-    })
-   }
-
-  ngOnInit(): void {
+      },
+    });
   }
+
+  ngOnInit(): void {}
 
   delete(userId: string) {
     this.confirmationService.confirm({
@@ -45,16 +46,16 @@ export class UserListComponent implements OnInit {
       accept: () => {
         this.userService.deleteUser(userId).subscribe({
           next: (res) => {
-            console.log('User deleted successfully')
-            this.users = this.users.filter(user => user._id !== userId)
+            console.log('User deleted successfully');
+            this.users = this.users.filter((user) => user._id !== userId);
           },
           error: (e) => {
             console.log(e);
-          }
-        })
+          },
+        });
       },
       reject: (type: any) => {
-        switch(type) {
+        switch (type) {
           case ConfirmEventType.REJECT:
             console.log('User rejected this operation');
             break;
@@ -62,7 +63,7 @@ export class UserListComponent implements OnInit {
             console.log('User cancelled this operation');
             break;
         }
-      }
+      },
     });
   }
 }

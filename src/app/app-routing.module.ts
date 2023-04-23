@@ -17,6 +17,7 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -51,9 +52,16 @@ const routes: Routes = [
       },
     ],
   },
+  // a 404 page for everything not found
   {
     path: '**',
-    redirectTo: 'session/not-found',
+    component: BaseLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: NotFoundComponent,
+      },
+    ],
   },
 ];
 
