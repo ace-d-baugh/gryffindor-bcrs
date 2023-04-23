@@ -26,6 +26,7 @@ export class BaseLayoutComponent implements OnInit {
   sessionName: string
   year: number = Date.now();
   hideHeaderFooter: boolean = false;
+  currentYear: number = new Date().getFullYear();
 
   //  constructor
   constructor(private cookieService: CookieService, public router: Router,

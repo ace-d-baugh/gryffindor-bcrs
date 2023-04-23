@@ -69,6 +69,7 @@ header {
 .nav-link {
   font-size: 1.5rem;
   padding: 1.5rem;
+  cursor: finger;
 }
 
 .nav-link:hover {

@@ -17,6 +17,9 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+// global current year variable
+export const currentYear: number = new Date().getFullYear();
+
 // Enable production mode unless running locally
 if (environment.production) {
   enableProdMode();
