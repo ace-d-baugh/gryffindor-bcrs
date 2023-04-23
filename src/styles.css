@@ -14,3 +14,78 @@
   box-sizing: border-box;
 }
 
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+.btn {
+  background-color: #F5DEB3;
+  color: #740001;
+  border: none;
+}
+
+header {
+  background: linear-gradient(#210706ff, #210706cc, #21070688, transparent);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  color: #F5DEB3;
+}
+
+.company {
+  flex: 1;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.company-logo img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.company-name {
+  font-size: 2rem;
+}
+
+.navbar {
+  flex: 1;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 1.5rem;
+  padding: 1.5rem;
+}
+
+.nav-link:hover {
+  color: #740001;
+  background-color: #F5DEB3;
+  box-shadow: 0 .5rem 3rem #740001CC;
+}
+
+
+
+footer {
+  background: linear-gradient(transparent, #21070688, #210706cc, #210706ff);
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+  color: #F5DEB3;
+  font-weight: 700;
+}
