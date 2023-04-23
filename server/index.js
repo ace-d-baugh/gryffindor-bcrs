@@ -30,12 +30,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../dist/bcrs")));
 
-// Use connect-history-api-fallback middleware
-app.use(history());
-
-// Serve static files after the connect-history-api-fallback middleware
-app.use(express.static(path.join(__dirname, "../dist/bcrs")));
-
 // default server port value.
 const PORT = process.env.PORT || 3000;
 
