@@ -96,8 +96,7 @@ router.get("/", async (req, res) => {
 
 /**
  * FindById
- // Chad Coded | John Tested | Ace Approved
- @openapi
+ * @openapi
  * /api/security-questions/{id}:
  *   get:
  *     tags:
@@ -120,6 +119,7 @@ router.get("/", async (req, res) => {
  *       '501':
  *         description: MongoDB Exception
  */
+// Chad Coded | John Tested | Ace Approved
 router.get("/:id", async (req, res) => {
   try {
     // find a security question by _id, or return an error message
@@ -156,8 +156,7 @@ router.get("/:id", async (req, res) => {
 
 /**
  * createSecurityQuestion
- // John Coded | Chad Tested | Ace Approved
-@openapi
+ * @openapi
  * /api/security-questions:
  *   post:
  *     tags:
@@ -182,6 +181,7 @@ router.get("/:id", async (req, res) => {
  *       '501':
  *         description: MongoDB Exception
  */
+// John Coded | Chad Tested | Ace Approved
 router.post("/", async (req, res) => {
   try
   {
@@ -241,8 +241,7 @@ router.post("/", async (req, res) => {
 //TODO: validate
 /**
  * updateSecurityQuestion
-// Ace Coded | John Tested | Chad Approved
-* @openapi
+ * @openapi
  * /api/security-questions/{id}:
  *   put:
  *     tags:
@@ -271,49 +270,66 @@ router.post("/", async (req, res) => {
  *       '501':
  *         description: MongoDB Exception
  */
+// Ace Coded | John Tested | Chad Approved
 router.put("/:id", async (req, res) => {
   try {
-    SecurityQuestion.findOne(
-      { id: req.params.id },
-      function (err, securityQuestion) {
-        if (err) {
-          console.log(err);
-          const updateSecurityQuestionMongodbErrorResponse = new ErrorResponse(
-            500,
-            "Internal server error",
-            err
-          );
-          res
-            .status(500)
-            .send(updateSecurityQuestionMongodbErrorResponse.toObject());
-        } else {
-          console.log(securityQuestion);
 
-          securityQuestion.set({
-            text: req.body.text,
-          });
+    const updateSecurityQuestion = req.body
+    const validator = ajv.compile(securityQuestionsSchema)
+    const valid = validator(updateSecurityQuestion)
 
-          securityQuestion.save(function (err, savedSecurityQuestion) {
-            if (err) {
-              console.log(err);
-              const savedSecurityQuestionMongodbErrorResponse =
-                new ErrorResponse(500, "Internal server error", err);
-              res
-                .status(500)
-                .send(savedSecurityQuestionMongodbErrorResponse.toObject());
-            } else {
-              console.log(savedSecurityQuestion);
-              const savedSecurityQuestionResponse = new BaseResponse(
-                200,
-                "Query successful",
-                savedSecurityQuestion
-              );
-              res.json(savedSecurityQuestionResponse.toObject());
-            }
-          });
+    if (valid)
+    {
+      SecurityQuestion.findOne(
+        { id: req.params.id },
+        function (err, securityQuestion) {
+          if (err) {
+            console.log(err);
+            const updateSecurityQuestionMongodbErrorResponse = new ErrorResponse(
+              500,
+              "Internal server error",
+              err
+            );
+            res
+              .status(500)
+              .send(updateSecurityQuestionMongodbErrorResponse.toObject());
+          } else {
+            console.log(securityQuestion);
+
+            securityQuestion.set({
+              text: req.body.text,
+            });
+
+            securityQuestion.save(function (err, savedSecurityQuestion) {
+              if (err) {
+                console.log(err);
+                const savedSecurityQuestionMongodbErrorResponse =
+                  new ErrorResponse(500, "Internal server error", err);
+                res
+                  .status(500)
+                  .send(savedSecurityQuestionMongodbErrorResponse.toObject());
+              } else {
+                console.log(savedSecurityQuestion);
+                const savedSecurityQuestionResponse = new BaseResponse(
+                  200,
+                  "Query successful",
+                  savedSecurityQuestion
+                );
+                res.json(savedSecurityQuestionResponse.toObject());
+              }
+            });
+          }
         }
-      }
-    );
+      );
+    } else {
+      const securityQuestionValidationError = new ErrorResponse(
+        400,
+        "Bad Request",
+        `Input doesn't match expected Schema ${req.body}`
+      );
+      console.log(securityQuestionValidationError);
+      res.json(securityQuestionValidationError.toObject());
+    }
   } catch (e) {
     console.log(e);
     const updateSecurityQuestionCatchErrorResponse = new ErrorResponse(
@@ -327,9 +343,6 @@ router.put("/:id", async (req, res) => {
 
 /**
  * DeleteSecurityQuestion
- */
-// Chad Coded | Ace Tested | John Approved
-/**
  * @openapi
  * /api/security-questions/{id}:
  *   delete:
@@ -351,7 +364,7 @@ router.put("/:id", async (req, res) => {
  *       '501':
  *         description: MongoDB Exception
  */
-
+// Chad Coded | Ace Tested | John Approved
 router.delete("/:id", async (req, res) => {
   // find a security question by _id and delete it, or return an error message
   try {

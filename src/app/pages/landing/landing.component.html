@@ -15,10 +15,13 @@
       <div class="company-name font-accent">Bob's Computer Repair Shop</div>
     </div>
     <div class="navbar">
-      <div class="nav-link">Home</div>
-      <div class="nav-link">About</div>
-      <div class="nav-link">Services</div>
-      <div class="nav-link">Contact</div>
+      <div class="nav-link" routerLink="/">Home</div>
+      <div class="nav-link" routerLink="/about">About</div>
+      <!-- If the user is not logged in, the user will be sent to the signin page, else they will go to the services page
+      <div class="nav-link" *ngIf="!isAuthenticated" routerLink="/session/sign-in">Services</div>
+      <div class="nav-link" *ngIf="isAuthenticated" routerLink="/services">Services</div>-->
+      <div class="nav-link" routerLink="/services">Services</div> <!-- This is for testing purposes -->
+      <div class="nav-link" routerLink="/contact">Contact</div>
       <div class="nav-link" routerLink="/session/sign-in">Sign-In</div>
     </div>
   </header>
@@ -28,7 +31,7 @@
         <h1 class="hero-action-title font-accent">Bob's Magical Services</h1>
         <div class="hero-action-body">Welcome to Bob's Computer Repair Shop! Our skilled technicians provide fast and affordable magical repair services. Click below to schedule your repair service today and unleash your magical computer's full potential!</div>
         <div class="hero-action-button">
-          <button class="btn hero-button">ACACIA SERVICE</button>
+          <button class="btn hero-button" routerLink="/services">ACACIA SERVICE</button>
         </div>
       </div>
       <div class="hero-review">
@@ -54,7 +57,7 @@
             Click below to schedule your repair service today and experience our personalized magical service!
           </p>
           <div class="about-action-button">
-            <button class="btn about-button">ACCIO SERVICE</button>
+            <button class="btn about-button" routerLink="/services">ACCIO SERVICE</button>
           </div>
         </div>
       </div>
@@ -457,7 +460,7 @@
     </div>
   </main>
   <div class="footer">
-    <div class="copyright">&copy;2023 Bob's Computer Repair Shop | All Rights Reserved |&nbsp;</div>
+    <div class="copyright">&copy;{{ currentYear }} Bob's Computer Repair Shop | All Rights Reserved |&nbsp;</div>
     <div class="created-by">Created By: John Vanhessche, Chad ONeal, & Ace Baugh</div>
   </div>
 </div>

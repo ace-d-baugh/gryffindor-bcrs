@@ -17,6 +17,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing.component.css'],
 })
 export class LandingComponent implements OnInit {
+
+  //currentYear variable
+  currentYear: number = new Date().getFullYear();
+
   constructor() {}
 
   ngOnInit(): void {}
