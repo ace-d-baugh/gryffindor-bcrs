@@ -273,47 +273,63 @@ router.post("/", async (req, res) => {
 // Ace Coded | John Tested | Chad Approved
 router.put("/:id", async (req, res) => {
   try {
-    SecurityQuestion.findOne(
-      { id: req.params.id },
-      function (err, securityQuestion) {
-        if (err) {
-          console.log(err);
-          const updateSecurityQuestionMongodbErrorResponse = new ErrorResponse(
-            500,
-            "Internal server error",
-            err
-          );
-          res
-            .status(500)
-            .send(updateSecurityQuestionMongodbErrorResponse.toObject());
-        } else {
-          console.log(securityQuestion);
 
-          securityQuestion.set({
-            text: req.body.text,
-          });
+    const updateSecurityQuestion = req.body
+    const validator = ajv.compile(securityQuestionsSchema)
+    const valid = validator(updateSecurityQuestion)
 
-          securityQuestion.save(function (err, savedSecurityQuestion) {
-            if (err) {
-              console.log(err);
-              const savedSecurityQuestionMongodbErrorResponse =
-                new ErrorResponse(500, "Internal server error", err);
-              res
-                .status(500)
-                .send(savedSecurityQuestionMongodbErrorResponse.toObject());
-            } else {
-              console.log(savedSecurityQuestion);
-              const savedSecurityQuestionResponse = new BaseResponse(
-                200,
-                "Query successful",
-                savedSecurityQuestion
-              );
-              res.json(savedSecurityQuestionResponse.toObject());
-            }
-          });
+    if (valid)
+    {
+      SecurityQuestion.findOne(
+        { id: req.params.id },
+        function (err, securityQuestion) {
+          if (err) {
+            console.log(err);
+            const updateSecurityQuestionMongodbErrorResponse = new ErrorResponse(
+              500,
+              "Internal server error",
+              err
+            );
+            res
+              .status(500)
+              .send(updateSecurityQuestionMongodbErrorResponse.toObject());
+          } else {
+            console.log(securityQuestion);
+
+            securityQuestion.set({
+              text: req.body.text,
+            });
+
+            securityQuestion.save(function (err, savedSecurityQuestion) {
+              if (err) {
+                console.log(err);
+                const savedSecurityQuestionMongodbErrorResponse =
+                  new ErrorResponse(500, "Internal server error", err);
+                res
+                  .status(500)
+                  .send(savedSecurityQuestionMongodbErrorResponse.toObject());
+              } else {
+                console.log(savedSecurityQuestion);
+                const savedSecurityQuestionResponse = new BaseResponse(
+                  200,
+                  "Query successful",
+                  savedSecurityQuestion
+                );
+                res.json(savedSecurityQuestionResponse.toObject());
+              }
+            });
+          }
         }
-      }
-    );
+      );
+    } else {
+      const securityQuestionValidationError = new ErrorResponse(
+        400,
+        "Bad Request",
+        `Input doesn't match expected Schema ${req.body}`
+      );
+      console.log(securityQuestionValidationError);
+      res.json(securityQuestionValidationError.toObject());
+    }
   } catch (e) {
     console.log(e);
     const updateSecurityQuestionCatchErrorResponse = new ErrorResponse(
