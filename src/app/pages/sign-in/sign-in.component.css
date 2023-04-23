@@ -87,6 +87,11 @@
   text-decoration: none;
 }
 
+.forgot:active {
+  color: #FF8C00;
+  cursor: pointer;
+}
+
 .sign-in {
   color: #740001;
   width: 9%;
