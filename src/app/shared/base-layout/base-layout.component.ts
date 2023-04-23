@@ -24,15 +24,13 @@ import { ConfirmationService, ConfirmEventType, MessageService } from 'primeng/a
 
 export class BaseLayoutComponent implements OnInit {
   sessionName: string
-  year: number = Date.now();
   hideHeaderFooter: boolean = false;
   currentYear: number = new Date().getFullYear();
 
   //  constructor
-  constructor(private cookieService: CookieService, public router: Router,
+  constructor(private cookieService: CookieService, private router: Router,
     private confirmationService: ConfirmationService, private messageService: MessageService) {
     this.sessionName = this.cookieService.get('session_name')
-    this.year = Date.now()
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.hideHeaderFooter = event.url === '/session/sign-in';

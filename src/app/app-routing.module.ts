@@ -32,10 +32,6 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
-        path: 'security-questions',
-        component: SecurityQuestionListComponent,
-      },
-      {
         path: 'users',
         component: UserListComponent,
       },
@@ -48,6 +44,10 @@ const routes: Routes = [
       {
         path: 'sign-in',
         component: SignInComponent,
+      },
+      {
+        path: 'security-questions-list',
+        component: SecurityQuestionListComponent,
       },
     ],
   },
