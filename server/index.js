@@ -12,7 +12,7 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const history = require("connect-history-api-fallback");
+
 
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
@@ -70,13 +70,8 @@ app.use("/api/security-questions", SecurityQuestionRoute);
 app.use("/api/users", UserRoute);
 app.use("/api/session", Session);
 
-// Catch all other routes and return the index.html file
-app.all('*', (req, res, next) => {
-  if (req.accepts('html')) {
-    res.sendFile(path.join(__dirname, '../dist/bcrs/index.html'));
-  } else {
-    next();
-  }
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/bcrs/index.html'));
 });
 
 // Wire-up the Express server.
