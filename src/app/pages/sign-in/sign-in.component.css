@@ -12,58 +12,90 @@
 
 /* stylings for the signin page */
 .signin-card {
+  height: 450px;
   width: 35%;
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.85;
-
+  opacity: 0.87;
+  border-radius: 4%;
 }
+
+.hr {
+  border-color: #740001;
+  border-style: solid;
+  border-width: 0 0 2px 0;
+  margin: 20px 0;
+  width: 95%;
+  margin-left: 2.5%;
+}
+
 
 /* stylings for the signin title */
 .card-title {
   font-size: 35px;
   font-weight: 700;
-  margin-left: -10%;
+  left: 50%;
   margin-top: 5%;
+  border-radius: 4%;
 }
 
 
 /* stylings for the signin form */
 .mat-card {
   padding: 0;
+  background-color: #F5DEB3;
+  border-radius: 2%;
 }
 
 /* stylings for the signin form header */
 .mat-card-header {
   background-color: #F5DEB3 ;
-  padding-left: 8%;
+  padding-left: 24%;
   padding-top: 15px;
-  color:  #740001 ;
+  color:  #740001;
+  border-radius: 25%;
 }
 
 /* stylings for the signin form content */
 .mat-card-content {
   padding: 28px;
   background-color: #F5DEB3 ;
+  border-radius: 2%;
 }
 
 .create-new {
   background-color: #F5DEB3;
   opacity: 90%;
-  margin-top: 20%;
+  width: 21%;
+  border-radius: 50%;
+}
+
+.create-new-wrapper {
+  position: absolute;
+  top: calc(50% + 290px); /* Adjust the value after + to move the button up or down */
+  left: 45.5%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
 }
 
 .forgot {
   color: #740001;
   margin-left: 77%;
   margin-top: -7%;
+  text-decoration: none;
 }
 
-.submit {
+.sign-in {
   color: #740001;
-  margin-left: 37%;
+  width: 9%;
+}
+
+.sign-in-wrapper {
+  position: absolute;
+  top: calc(9% + 325px); /* Adjust the value after + to move the button up or down */
+  left: 22%;
 }
 
 .btn {
@@ -76,9 +108,17 @@
 }
 
 .hero-button {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 700;
-  box-shadow: 1rem 1rem #EEBA30;
+  box-shadow: .5rem .5rem #EEBA30;
+  border: 1px solid #740001;
+  border-radius: 5.5%;
+  cursor: pointer;
+}
+
+.hero-button:active {
+  background-color:   #FFDB58;
+  cursor: pointer;
 }
 
 /* stylings for the signin form actions */
@@ -89,17 +129,17 @@
 .mat-form-field {
   height: 25%;
   width: 100%;
-  fill: #740001;
+  color: #740001;
 }
 
 ::ng-deep.mat-form-field-underline {
   /*change color of underline*/
-  background-color: #FFDB58 !important;
+  background-color: #D3A625  !important;
 }
 
 ::ng-deep.mat-form-field-ripple {
  /*change color of underline when focused*/
- background-color: #FFDB58 !important;
+ background-color: #D3A625  !important;
 }
 
 

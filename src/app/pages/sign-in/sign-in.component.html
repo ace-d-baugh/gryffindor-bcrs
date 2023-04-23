@@ -1,10 +1,11 @@
 <div fxLayout>
   <mat-card class="mat-elevation-z0 signin-card">
-    <mat-card-header class="padding-bottom-5" fxLayoutAlign="center">
+    <mat-card-header class="padding-bottom-1" fxLayoutAlign="left">
       <mat-card-title>
       <h1 class="card-title">Customer Sign-In</h1>
       </mat-card-title>
     </mat-card-header>
+    <hr class="hr">
 
 
 <mat-card-content>
@@ -13,12 +14,12 @@
   <form [formGroup]="signinForm" (ngSubmit)="signin(); signinForm.reset()">
 
     <mat-card-content>
-      <mat-form-field appearance="fill" class="full-width custom-form-field">
+      <mat-form-field appearance="fill">
         <mat-label>Username</mat-label>
         <input type="text" matInput formControlName="userName" />
         <br>
 
-        <mat-error class="error" *ngIf="signinForm.controls['userName'].hasError('required') && signinForm.controls['userName'].touched">
+        <mat-error *ngIf="signinForm.controls['userName'].hasError('required') && signinForm.controls['userName'].touched">
           Username is required.
         </mat-error>
       </mat-form-field>
@@ -42,23 +43,22 @@
       <a class="forgot" routerLink="/session/forgot">Forgot Password</a>
     </div>
 
-    <mat-card-actions class="submit">
-      <button type="submit" class="full-width btn-primary" mat-raised-button [disabled]="!signinForm.valid">
-        Sign-In
-      </button>
-    </mat-card-actions>
-
+    <div class="sign-in-wrapper">
+        <button class="btn hero-button" >Sign-In</button>
+    </div>
   </mat-card-content>
+  </mat-card>
 
-  <mat-card class="create-new">
-    <mat-card-actions>
+  <div class="create-new-wrapper">
+
       <div class="hero-action-button">
         <button class="btn hero-button">Create New Account</button>
       </div>
-    </mat-card-actions>
-  </mat-card>
 
-  </mat-card>
+  </div>
+
 </div>
+
+
 
 
