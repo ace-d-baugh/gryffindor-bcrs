@@ -1,0 +1,72 @@
+/*
+=====================================================
+; File Name: not-found.component.css
+; Project: Gryffindor - Bob's Computer Repair Shop
+; Author: Richard Krasso
+; Date: 04/18/2023
+; File Description: 404 page not found component CSS
+; Modifications: Ace Baugh
+=====================================================
+*/
+
+.btn {
+  height: 40px;
+  margin-top: 1rem !important;
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary) !important;
+  display: inline-block;
+  text-align: center;
+  margin: 0;
+  padding: 0 16px;
+  border-radius: 10px;
+  overflow: visible;
+  transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--accent) !important;
+  color: var(--primary) !important;
+  border: 2px solid var(--secondary) !important;
+}
+
+.not-found-content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  color: var(--primary) !important;
+  text-align: center;
+}
+
+.warn {
+  padding: 0 1rem;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  color: var(--warn) !important;
+}
+
+.vortex {
+  width: 100%;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+/* svg animation */
+svg {
+  width: 100%;
+  height: 100%;
+  animation: rotate 20s linear infinite;
+}
+
+/* animate svg*/
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
