@@ -19,18 +19,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   selector: 'app-security-question-list',
   templateUrl: './security-question-list.component.html',
   styleUrls: ['./security-question-list.component.css'],
-  providers: [ConfirmationService]
+  providers: [ConfirmationService],
 })
 export class SecurityQuestionListComponent implements OnInit {
-
   securityQuestions: SecurityQuestion[];
 
   sqForm: FormGroup = this.fb.group({
-    text: [null, Validators.compose([Validators.required])]
+    text: [null, Validators.compose([Validators.required])],
   });
 
-
-  constructor(private securityQuestionService: SecurityQuestionService, private confirmationService: ConfirmationService, private fb: FormBuilder) {
+  constructor(
+    private securityQuestionService: SecurityQuestionService,
+    private confirmationService: ConfirmationService,
+    private fb: FormBuilder
+  ) {
     this.securityQuestions = [];
 
     this.securityQuestionService.findAllSecurityQuestions().subscribe({
@@ -38,20 +40,19 @@ export class SecurityQuestionListComponent implements OnInit {
         this.securityQuestions = res.data;
       },
       error: (e) => {
-        console.log(e)
-      }      
-    })
-   }
-
-  ngOnInit(): void {
+        console.log(e);
+      },
+    });
   }
+
+  ngOnInit(): void {}
 
   create(): void {
     const sqText = this.sqForm.controls['text'].value;
 
     const newSq = {
-      text: sqText
-    }
+      text: sqText,
+    };
 
     this.securityQuestionService.createSecurityQuestion(newSq).subscribe({
       next: (res) => {
@@ -61,9 +62,9 @@ export class SecurityQuestionListComponent implements OnInit {
         console.log(e);
       },
       complete: () => {
-        this.sqForm.controls['text'].setErrors({'incorrect': false})
-      }
-    })
+        this.sqForm.controls['text'].setErrors({ incorrect: false });
+      },
+    });
   }
 
   delete(sqId: string): void {
@@ -75,15 +76,17 @@ export class SecurityQuestionListComponent implements OnInit {
         this.securityQuestionService.deleteSecurityQuestion(sqId).subscribe({
           next: (res) => {
             console.log('Security question deleted successfully');
-            this.securityQuestions = this.securityQuestions.filter(sq => sq._id !== sqId);
+            this.securityQuestions = this.securityQuestions.filter(
+              (sq) => sq._id !== sqId
+            );
           },
           error: (e) => {
-            console.log(e)
-          }
-        })
+            console.log(e);
+          },
+        });
       },
       reject: (type: any) => {
-        switch(type) {
+        switch (type) {
           case ConfirmEventType.REJECT:
             console.log('User rejected this operation');
             break;
@@ -91,7 +94,7 @@ export class SecurityQuestionListComponent implements OnInit {
             console.log('user cancelled this operation');
             break;
         }
-      }
-    })
+      },
+    });
   }
 }

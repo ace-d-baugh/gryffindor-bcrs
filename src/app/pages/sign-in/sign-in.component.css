@@ -1,3 +1,13 @@
+/*
+============================================
+; Title: sign-in.component.css
+; Author: Professor Krasso
+; Modified by: Chad ONeal
+; Date: 04/23/2023
+; Description: sign-in component styles
+============================================
+*/
+
 .font-primary {
   font-family: var(--font-primary);
 }
