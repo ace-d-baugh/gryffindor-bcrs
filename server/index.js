@@ -9,12 +9,10 @@
 =====================================================
 */
 
-/**
- * Require statements
- */
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const history = require("connect-history-api-fallback");
 
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
@@ -31,7 +29,12 @@ const app = express(); // Express variable.
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../dist/bcrs")));
-app.use("/", express.static(path.join(__dirname, "../dist/bcrs")));
+
+// Use connect-history-api-fallback middleware
+app.use(history());
+
+// Serve static files after the connect-history-api-fallback middleware
+app.use(express.static(path.join(__dirname, "../dist/bcrs")));
 
 // default server port value.
 const PORT = process.env.PORT || 3000;
@@ -73,8 +76,16 @@ app.use("/api/security-questions", SecurityQuestionRoute);
 app.use("/api/users", UserRoute);
 app.use("/api/session", Session);
 
+// Catch all other routes and return the index.html file
+app.all('*', (req, res, next) => {
+  if (req.accepts('html')) {
+    res.sendFile(path.join(__dirname, '../dist/bcrs/index.html'));
+  } else {
+    next();
+  }
+});
+
 // Wire-up the Express server.
 app.listen(PORT, () => {
   console.log("Application started and listening on PORT: " + PORT);
 });
-
