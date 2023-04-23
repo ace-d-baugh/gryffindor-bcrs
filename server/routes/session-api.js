@@ -32,17 +32,13 @@ const sessionSigninSchema = {
   properties: {
     username: {type: 'string'},
     password: {type: 'string'}
-  }, 
+  },
   required: ['username', 'password'],
     additionalProperties: false
 }
 
 
 
-/**
- * Signin
- */
-// Chad Coded | Ace Tested | John Approved
 /**
  * Signin
  * @openapi
@@ -76,15 +72,16 @@ const sessionSigninSchema = {
  *       '501':
  *         description: MongoDB Exception.
  */
+// Chad Coded | Ace Tested | John Approved
 router.post("/signin", (req, res) => {
-  try {   
+  try {
 
     const sessionSignin = req.body
     const validator = ajv.compile(sessionSigninSchema)
     const valid = validator(sessionSignin)
 
-    if (valid) 
-    
+    if (valid)
+
     {
       User.findOne({ username: req.body.username }, function (err, user) {
         if (err) {
@@ -102,7 +99,7 @@ router.post("/signin", (req, res) => {
            */
           if (user) {
             let passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
-  
+
             console.log(passwordIsValid);
             /**
              * if password is valid, return the user
@@ -129,16 +126,16 @@ router.post("/signin", (req, res) => {
           }
         }
       });
-    } else 
+    } else
     {
       const signinValidationError = new ErrorResponse(
         400,
-        "Bad Request", 
+        "Bad Request",
         `Input doesn't match expected Schema ${req.body}`
       );
       console.log(signinValidationError);
       res.json(signinValidationError.toObject());
-    }    
+    }
   } catch (e) {
     console.log(e);
     const signinCatchErrorResponse = new ErrorResponse(500, "Internal Server Error", e.message);

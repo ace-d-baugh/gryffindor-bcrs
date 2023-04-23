@@ -23,9 +23,6 @@ const router = express.Router();
 
 /**
  * FindAll
- */
-// John Coded | Chad Tested | Ace Approved
-/**
  * @openapi
  * /api/users:
  *   get:
@@ -43,6 +40,7 @@ const router = express.Router();
  *       '501':
  *         description: MongoDB Exception
  */
+// John Coded | Chad Tested | Ace Approved
 router.get('/', async(req, res) => {
     try
     {
@@ -115,9 +113,6 @@ router.get("/:id", async (req, res) => {
 //TODO: validate
 /**
  * CreateUser
- */
-// John Coded | Chad Tested | Ace Approved
-/**
  * @openapi
  * /api/users:
  *   post:
@@ -153,6 +148,7 @@ router.get("/:id", async (req, res) => {
  *       '501':
  *         description: MongoDB Exception
  */
+// John Coded | Chad Tested | Ace Approved
 router.post('/', async (req, res) => {
     try
     {
@@ -197,10 +193,7 @@ router.post('/', async (req, res) => {
 //TODO: validate
 /**
  * updateUser
- */
-// Chad Coded | John & Ace Tested & Approved
-/**
-* @openapi
+ * @openapi
  * /api/users/{id}:
  *  put:
  *      tags:
@@ -240,7 +233,7 @@ router.post('/', async (req, res) => {
  *          '501':
  *              description: MongoDB Exception
  */
-
+// Chad Coded | John & Ace Tested & Approved
 router.put('/:id', async (req, res) => {
   try {
     User.findOne({ '_id': req.params.id }, function (err, user) {
@@ -293,10 +286,6 @@ router.put('/:id', async (req, res) => {
 
 /**
  * DeleteUser
- */
-// Chad Coded | Ace Tested | John Approved
-// Delete User
-/**
  * @openapi
  * /api/users/{id}:
  *  delete:
@@ -319,7 +308,7 @@ router.put('/:id', async (req, res) => {
  *          '501':
  *              description: MongoDB Exception
  */
-
+// Chad Coded | Ace Tested | John Approved
 router.delete('/:id', async (req, res) => {
   try {
     User.findOne({ '_id': req.params.id }, function (err, user) {
@@ -371,6 +360,11 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+/**
+ * 
+ * DO WE NEED THIS???
+ *
+ **/
 router.delete("/deactivate/:username", async (req, res) => {
   try {
     User.findOne({ userName: req.params.userName }, function (err, user) {
