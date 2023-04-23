@@ -55,6 +55,10 @@ const routes: Routes = [
         path: 'sign-in',
         component: SignInComponent,
       },
+      {
+        path: 'security-questions-list',
+        component: SecurityQuestionListComponent,
+      },
     ],
   },
   // a 404 page for everything not found
