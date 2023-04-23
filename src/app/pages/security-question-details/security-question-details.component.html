@@ -1,3 +1,13 @@
+<!--
+============================================
+; Title: security-question-details.component.html
+; Author: Professor Krasso
+; Date: 04/22/2023
+; Modified By: John Vanhessche
+; Description: security-question-details Component
+;===========================================
+-->
+
 <div fxLayout="column">
     <mat-card class="mat-elevation-z0">
         <mat-card-title style="text-align: center; font-weight: lighter;">Update Security Question Form</mat-card-title>
@@ -13,12 +23,12 @@
                 <div fxLayout="column" fxLayoutGap="10px">
                     <mat-form-field appearance="fill">
                         <mat-label>Security question</mat-label>
-                        <input 
+                        <input
                             type="text"
                             matInput
                             formControlName="text"
                             required />
-                        
+
                             <mat-error class="error" *ngIf="editForm.controls['text'].hasError('required') && editForm.controls['text'].touched">
                                 Security question is a required field.
                             </mat-error>
