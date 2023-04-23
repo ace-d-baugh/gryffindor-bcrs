@@ -18,6 +18,7 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
 
 const routes: Routes = [
   {
@@ -33,8 +34,12 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
-        path: 'security-questions',
+        path: 'security-question-list',
         component: SecurityQuestionListComponent,
+      },
+      {
+        path: 'security-question-details/:questionId',
+        component: SecurityQuestionDetailsComponent,
       },
       {
         path: 'users',
