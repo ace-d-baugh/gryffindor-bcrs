@@ -16,6 +16,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
+import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent,
+      },
+      {
+        path: 'security-questions',
+        component: SecurityQuestionListComponent,
       },
       {
         path: 'users',
