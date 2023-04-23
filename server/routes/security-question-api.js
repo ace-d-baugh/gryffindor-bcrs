@@ -26,7 +26,7 @@ const securityQuestionsSchema = {
   type: 'object',
   properties: {
     text: {type: 'string'}
-  }, 
+  },
   required: ['text'],
   additionalProperties: false
 }
@@ -183,13 +183,13 @@ router.get("/:id", async (req, res) => {
  *         description: MongoDB Exception
  */
 router.post("/", async (req, res) => {
-  try 
+  try
   {
     const newSecurityQuestion = req.body
     const validator = ajv.compile(securityQuestionsSchema)
     const valid = validator(newSecurityQuestion)  //true
 
-    if (valid) 
+    if (valid)
     {
       SecurityQuestion.create(
         newSecurityQuestion,
@@ -215,17 +215,17 @@ router.post("/", async (req, res) => {
           }
         }
       );
-    } else 
-    {       
+    } else
+    {
         const securityQuestionValidationError = new ErrorResponse(
           400,
-          "Bad Request", 
+          "Bad Request",
           `Input doesn't match expected Schema ${req.body}`
         );
         console.log(securityQuestionValidationError);
         res.json(securityQuestionValidationError.toObject());
-    }    
-  } 
+    }
+  }
   catch (e) {
     console.log(e);
     const createSecurityQuestionCatchErrorResponse = new ErrorResponse(
@@ -265,7 +265,7 @@ router.post("/", async (req, res) => {
  *                  type: string
  *     responses:
  *       '200':
- *         description: A security question gets deleted
+ *         description: A security question gets updated
  *       '500':
  *         description: Server Exception
  *       '501':
