@@ -17,18 +17,6 @@
   display: none;
 }
 
-.font-primary {
-  font-family: var(--font-primary);
-}
-
-.font-accent {
-  font-family: var(--font-accent);
-}
-
-.font-handwriting {
-  font-family: var(--font-handwriting);
-}
-
 .page-container {
   background-image: url(src/assets/images/Bobs-Interior-v4.jpg);
   background-size: cover;
@@ -39,114 +27,10 @@
   flex-direction: column;
 }
 
-header {
-  background: linear-gradient(#210706ff, #210706cc, #21070688, transparent);
-  display: flex;
-  justify-content: space-between;
-  padding: 0 2rem;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-  color: #F5DEB3;
-}
-
-.company {
-  flex: 1;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-
-.company-logo img {
-  width: 4rem;
-  height: 4rem;
-}
-
-.company-name {
-  font-size: 2rem;
-}
-
-.navbar {
-  flex: 1;
-  display: flex;
-  justify-content: right;
-  align-items: center;
-}
-
-.nav-link {
-  font-size: 1.5rem;
-  padding: 1.5rem;
-}
-
-.nav-link:hover {
-  color: #740001;
-  background-color: #F5DEB3;
-  box-shadow: 0 .5rem 3rem #740001CC;
-}
-
-.hero {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-}
-
-.hero-action {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  margin: 0 2rem;
-  color: #F5DEB3;
-  padding: 2rem;
-}
-
-.hero-action-title {
-  font-size: 6rem;
-  padding-left: 1rem;
-}
-
-.hero-action-body {
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  width: 40rem;
-  margin: 3rem 0;
-  background-color: #21070666;
-  padding: 1rem;
-  box-shadow: 0 0 1rem #210706;
-}
-
-.hero-action-button {
-  padding-left: 1rem;
-}
-
-.btn {
-  background-color: #F5DEB3;
-  color: #740001;
-  border: none;
-}
-
-.hero-button {
-  padding: 1.75rem;
-  font-size: 1.75rem;
-  font-weight: 700;
-  box-shadow: 1rem 1rem #EEBA30;
-}
 
 
 
-footer {
-  background: linear-gradient(transparent, #21070688, #210706cc, #210706ff);
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  width: 100%;
-  color: #F5DEB3;
-  font-weight: 700;
 
-}
 
 
 
