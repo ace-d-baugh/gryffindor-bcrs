@@ -264,7 +264,7 @@ router.post("/", async (req, res) => {
  *                  type: string
  *     responses:
  *       '200':
- *         description: A security question gets deleted
+ *         description: A security question gets updated
  *       '500':
  *         description: Server Exception
  *       '501':
