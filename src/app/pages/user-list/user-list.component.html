@@ -23,7 +23,7 @@
   </div>
 
   <div class="center m2">
-    <button class="btn" routerLink="/users/create/new">Add User</button>
+    <button class="btn" routerLink="/main/users/create/new">Add User</button>
   </div>
 
   <!--second column table data-->
@@ -49,7 +49,7 @@
           <td>{{ user.email }}</td>
           <td>{{ user.address }}</td>
           <td style="text-align: center">
-            <i class="pi pi-pencil edit-btn" routerLink="/users/{{user._id}}"></i>
+            <i class="pi pi-pencil edit-btn" routerLink="/main/users/{{user._id}}"></i>
             <i class="pi pi-trash delete-btn" (click)="delete(user._id)"></i>
           </td>
         </tr>

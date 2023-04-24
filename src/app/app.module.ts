@@ -49,6 +49,7 @@ import { MessagesModule }  from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
 import { MatDividerModule } from '@angular/material/divider';
 import { MenuModule } from 'primeng/menu';
+import { UserCreateComponent } from './pages/user-create/user-create.component';
 
 
 
@@ -65,6 +66,7 @@ import { MenuModule } from 'primeng/menu';
     SecurityQuestionDetailsComponent,
     NotFoundComponent,
     ServerErrorComponent,
+    UserCreateComponent,
   ],
   imports: [
     BrowserModule,
