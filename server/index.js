@@ -75,18 +75,22 @@ app.use("/api/session", Session);
 
 // Error handler for 404 errors
 app.use(function (req, res, next) {
-  next(createError(404));
+  // next(createError(404));
+  // reroute to session/not-found
+  res.redirect("/session/not-found");
 });
 
 // Error handler for other errors
 app.use(function (err, req, res, next) {
-  res.status(err.status || 500);
-  res.send({
-    type: "error",
-    status: err.status,
-    message: err.message,
-    stack: req.app.get("env") === "development" ? err.stack : undefined,
-  });
+  // res.status(err.status || 500);
+  // res.send({
+  //   type: "error",
+  //   status: err.status,
+  //   message: err.message,
+  //   stack: req.app.get("env") === "development" ? err.stack : undefined,
+  // });
+  //reroute to session/server-error
+  res.redirect("/session/server-error");
 });
 
 // Wire-up the Express server.
