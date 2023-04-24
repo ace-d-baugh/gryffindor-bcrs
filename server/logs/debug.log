@@ -29733,3 +29733,38 @@
 }
 =======
 >>>>>>> 9358ddeb1f50f387e02651c1d8de749a362cbe50
+[4/24/2023, 4:33:36 PM] server	 session-api.js - User logged in successfully
+[4/24/2023, 4:34:52 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:34:57 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:35:00 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:35:11 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:35:53 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:36:28 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:36:32 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:36:44 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:38:13 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:38:58 PM] server	 security-question-api.js - All security questions returned successfully
+[4/24/2023, 4:39:06 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 4:39:39 PM] server	 security-question-api.js - {
+  text: 'Is this a security question? ',
+  isDisabled: false,
+  _id: new ObjectId("6446e90b8a4bd5c928389322"),
+  __v: 0
+} was added successfully
+[4/24/2023, 4:39:45 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 4:39:55 PM] server	 security-question-api.js - {
+  text: 'Why is this a security question? ',
+  isDisabled: false,
+  _id: new ObjectId("6446e90b8a4bd5c928389322"),
+  __v: 0
+} was updated successfully
+[4/24/2023, 4:39:55 PM] server	 security-question-api.js - All security questions returned successfully
+[4/24/2023, 4:39:55 PM] server	 security-question-api.js - {
+  text: 'Why is this a security question? ',
+  isDisabled: false,
+  _id: new ObjectId("6446e90b8a4bd5c928389322"),
+  __v: 0
+} was updated successfully
+[4/24/2023, 4:39:59 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 4:40:34 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:47:29 PM] server	 session-api.js - User logged in successfully
