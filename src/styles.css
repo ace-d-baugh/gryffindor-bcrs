@@ -552,6 +552,16 @@ main {
   box-shadow: 0 0.5rem 3rem var(--color-primary-3);
 }
 
+.giant-error {
+  font-family: var(--font-accent);
+  font-size: 20rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 footer {
   background: linear-gradient(
     transparent,
