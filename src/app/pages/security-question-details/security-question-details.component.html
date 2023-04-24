@@ -8,6 +8,7 @@
 ;===========================================
 -->
 
+<!--main content container-->
 <div class="main-container">
   <div class="content-title center">
     <h1>Update Security Question Form</h1>
@@ -16,6 +17,7 @@
 
   <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
+  <!--forms-->
   <form [formGroup]="editForm" (ngSubmit)="save(); editForm.reset()">
     <label class="input-label" for="text">Security question</label>
     <input
@@ -35,6 +37,7 @@
       Security question is a required field.
     </mat-error>
 
+    <!--save cancel buttons-->
     <div class="buttons">
       <button class="btn" (click)="cancel()">Cancel</button>
       <button class="btn" (click)="save()">Save</button>

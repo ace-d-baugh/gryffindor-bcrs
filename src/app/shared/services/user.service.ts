@@ -9,17 +9,19 @@
 =====================================================
 */
 
+//import statements
 import { Injectable } from "@angular/core";
 import { User } from "../models/user.interface";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 
+//export class
 @Injectable({
     providedIn: 'root'
 })
 
 export class UserService {
-    
+
     constructor(private http: HttpClient) {}
 
     findAllUsers():Observable<any> {
@@ -42,6 +44,7 @@ export class UserService {
         })
     }
 
+    // update user
     updateUser(userId: string, user: User): Observable<any> {
         return this.http.put('/api/users/' + userId, {
             firstName: user.firstName,
@@ -52,6 +55,7 @@ export class UserService {
         })
     }
 
+    // delete user
     deleteUser(userId: string): Observable<any> {
         return this.http.delete('/api/users' + userId);
     }

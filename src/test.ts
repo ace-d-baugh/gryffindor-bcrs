@@ -1,5 +1,16 @@
+/*
+============================================
+; Title: test.ts for BCRS
+; Author: Professor Krasso
+; Modified by: John Vanhessche
+; Date: 04/23/2023
+; Description: test.ts for BCRS
+===========================================
+*/
+
 // This file is required by karma.conf.js and loads recursively all the .spec and framework files
 
+// import statements
 import 'zone.js/testing';
 import { getTestBed } from '@angular/core/testing';
 import {

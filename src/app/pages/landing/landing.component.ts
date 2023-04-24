@@ -9,13 +9,17 @@
 =====================================================
 */
 
+//import statements
 import { Component, OnInit } from '@angular/core';
 
+//component
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css'],
 })
+
+//export class
 export class LandingComponent implements OnInit {
 
   //currentYear variable

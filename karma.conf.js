@@ -1,6 +1,17 @@
+/*
+============================================
+; Title: karma.config.js for BCRS
+; Author: Professor Krasso
+; Modified by: Chad ONeal, Ace Baugh, John Vanhessche
+; Date: 03/25/2023
+; Description: app.component.css for BCRS
+==========================================
+*/
+
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
+// imports
 module.exports = function (config) {
   config.set({
     basePath: '',

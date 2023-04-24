@@ -1,3 +1,14 @@
+/*
+============================================
+; Title: hintrc BCRS
+; Author: Professor Krasso
+; Modified by: Ace Baugh
+; Date: 04/24/2023
+; Description: hintrc BCRS
+===========================================
+*/
+
+// eslint-disable-next-line no-undef
 {
   "extends": [
     "development"

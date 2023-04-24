@@ -29767,6 +29767,7 @@
 } was updated successfully
 [4/24/2023, 4:39:59 PM] server	 security-question-api.js - Security Question deleted successfully
 [4/24/2023, 4:40:34 PM] server	 user-api.js - Query on all users was successful
+<<<<<<< HEAD
 [4/24/2023, 4:47:29 PM] server	 session-api.js - User logged in successfully
 [4/24/2023, 5:11:54 PM] server	 security-question-api.js - All security questions returned successfully
 [4/24/2023, 5:12:17 PM] server	 security-question-api.js - {
@@ -29833,3 +29834,5 @@
 [4/24/2023, 6:53:22 PM] server	 security-question-api.js - Query was successful
 [4/24/2023, 6:54:24 PM] server	 security-question-api.js - Query was successful
 [4/24/2023, 6:55:24 PM] server	 security-question-api.js - Query was successful
+=======
+>>>>>>> a41fe1ada16abb5c6afd881b10611efa4db22b12

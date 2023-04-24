@@ -9,6 +9,7 @@
 =====================================================
 */
 
+//import statements
 import { Component, OnInit } from '@angular/core';
 import { SecurityQuestion } from 'src/app/shared/models/security-question.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -16,6 +17,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SecurityQuestionService } from 'src/app/shared/services/security-question.service';
 import { Message } from 'primeng/api';
 
+//export class
 @Component({
   selector: 'app-security-question-details',
   templateUrl: './security-question-details.component.html',
@@ -30,6 +32,7 @@ export class SecurityQuestionDetailsComponent implements OnInit {
     text: [null, Validators.compose([Validators.required])],
   });
 
+  //constructor
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -40,6 +43,7 @@ export class SecurityQuestionDetailsComponent implements OnInit {
     this.errorMessages = [];
     this.questionId = this.route.snapshot.paramMap.get('questionId') ?? '';
 
+    //find security question by id
     this.securityQuestionService
       .findSecurityQuestionById(this.questionId)
       .subscribe({
@@ -57,6 +61,7 @@ export class SecurityQuestionDetailsComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //save function
   save(): void {
     const updatedSecurityQuestion: SecurityQuestion = {
       text: this.editForm.controls['text'].value,
@@ -79,6 +84,7 @@ export class SecurityQuestionDetailsComponent implements OnInit {
       });
   }
 
+  //cancel function
   cancel(): void {
     this.router.navigate(['/main/security-question-list']);
   }

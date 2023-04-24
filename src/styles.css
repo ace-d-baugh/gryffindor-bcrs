@@ -1,3 +1,13 @@
+/*
+============================================
+; Title: styles.css for BCRS
+; Author: Professor Krasso
+; Modified by: Ace Baugh 04/24/2023
+; Date: 03/25/2023
+; Description: styles.css for BCRS
+===========================================
+*/
+
 /* You can add global styles to this file, and also import other style files */
 
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
@@ -64,10 +74,16 @@
   box-sizing: border-box;
 }
 
+/*
+  ============================================
+  ; Title: styles.css for BCRS*/
 .font-primary {
   font-family: var(--font-primary);
 }
 
+/*
+  ============================================
+  ; Title: styles.css for BCRS*/
 .font-accent {
   font-family: var(--font-accent);
 }
@@ -85,6 +101,9 @@ h6 {
   font-family: var(--font-accent);
 }
 
+/*
+  ============================================
+  ; Title: styles.css for BCRS*/
 p {
   font-family: var(--font-primary);
 }
@@ -93,6 +112,8 @@ a {
   text-decoration: none;
 }
 
+/*  ============================================
+  ; Title: styles.css for BCRS*/
 .m1 {
   margin: 1rem;
 }
@@ -153,6 +174,9 @@ a {
   margin-bottom: 5rem;
 }
 
+/*
+  ============================================
+  ; Title: styles.css for BCRS*/
 .ml {
   margin-left: 1rem;
 }
@@ -193,6 +217,9 @@ a {
   margin-right: 5rem;
 }
 
+/*
+  ============================================
+  ; Title: styles.css for BCRS*/
 .p1 {
   padding: 1rem;
 }
@@ -253,6 +280,9 @@ a {
   padding-bottom: 5rem;
 }
 
+/*
+  ============================================
+  ; Title: styles.css for BCRS*/
 .pl {
   padding-left: 1rem;
 }
@@ -293,6 +323,9 @@ a {
   padding-right: 5rem;
 }
 
+/*
+  ============================================
+  ; Title: styles.css for BCRS*/
 .btn,
 .p-button {
   background-color: var(--color-white);
@@ -310,6 +343,8 @@ a {
   color: var(--color-white);
 }
 
+/*  ============================================
+  ; Title: styles.css for BCRS*/
 .btn[disabled],
 .disabled-btn {
   background-color: var(--color-primary-dark-3);
@@ -330,6 +365,8 @@ a {
   color: var(--color-white);
 }
 
+/*  ============================================
+  ; Title: styles.css for BCRS*/
 .card:hover {
   box-shadow: 0 0 20px var(--color-primary-dark);
 }
@@ -341,6 +378,8 @@ a {
   text-align: center;
 }
 
+/*  ============================================
+  ; Title: styles.css for BCRS*/
 .card-title {
   font-size: 1.2rem;
 }
@@ -361,6 +400,8 @@ a {
   text-align: center;
 }
 
+/*  ============================================
+  ; Title: styles.css for BCRS*/
 .card-footer a {
   color: var(--color-white);
 }
@@ -382,6 +423,8 @@ form {
   margin-bottom: 1rem;
 }
 
+/*  ============================================
+  ; Title: styles.css for BCRS*/
 .input-label {
   padding: 0.5rem;
   font-size: 1.2rem;
@@ -402,6 +445,8 @@ textarea {
   font-weight: 700;
 }
 
+/* ============================================
+  ; Title: styles.css for BCRS*/
 input:hover,
 textarea:hover {
   background-color: var(--color-white);
@@ -418,6 +463,8 @@ textarea:valid {
   color: var(--color-primary-dark);
 }
 
+/*  ============================================
+  ; Title: styles.css for BCRS*/
 table {
   border-collapse: collapse;
   width: 100%;
@@ -436,6 +483,8 @@ td {
   padding: 0.5rem;
 }
 
+/* ============================================
+  ; Title: styles.css for BCRS*/
 th {
   background-color: var(--color-primary-dark);
   color: var(--color-white);
@@ -458,6 +507,8 @@ tr:hover i {
   color: var(--color-white);
 }
 
+/*  ============================================
+  ; Title: styles.css for BCRS*/
 a {
   color: var(--color-primary-dark);
   text-decoration: none;
@@ -474,6 +525,8 @@ a {
   flex-direction: column;
 }
 
+/*  ============================================
+  ; Title: styles.css for BCRS*/
 .user-menu {
   border-radius: 0 !important;
   background-color: #f5deb3;
@@ -486,6 +539,8 @@ a {
   color: var(--color-white) !important;
 }
 
+/* ============================================
+  ; Title: styles.css for BCRS*/
 .p-message-error,
 .p-toast-message {
   background: var(--color-primary-dark-2);
@@ -515,6 +570,8 @@ a {
   padding: 2rem;
 }
 
+/*  ============================================
+  ; Title: styles.css for BCRS*/
 .p-dialog-title {
   font-size: 1.5rem;
   font-weight: 700;
@@ -540,6 +597,8 @@ a {
   margin-right: 1rem;
 }
 
+/*  ============================================
+  ; Title: styles.css for BCRS*/
 .p-confirm-dialog-accept,
 .p-confirm-dialog-reject {
   outline: none;

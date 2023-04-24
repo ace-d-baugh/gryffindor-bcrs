@@ -3,11 +3,12 @@
 ; Title: sign-in.component.html
 ; Author: Professor Krasso
 ; Date: 04/21/2023
-; Modified By: John Vanhessche
+; Modified By: Chad ONeal
 ; Description: Sign-In Component
 ;===========================================
 -->
 
+<!--main content container-->
 <div class="main-container">
   <h1 class="center mb2">Customer Sign-In</h1>
   <hr class="hr" />
@@ -26,6 +27,7 @@
       />
 
 
+      <!--mat-error-->
       <mat-error
         *ngIf="
           signinForm.controls['username'].hasError('required') &&
@@ -46,6 +48,7 @@
       />
 
 
+      <!--mat-error-->
       <mat-error
         *ngIf="
           signinForm.controls['password'].hasError('required') &&
@@ -70,6 +73,7 @@
       <a routerLink="/session/forgot">Forgot Password</a>
     </div>
 
+    <!--sign-in button-->
     <div class="center">
       <button type="submit" class="btn" [disabled]="!signinForm.valid">
         Sign-In
@@ -78,6 +82,7 @@
   </form>
 </div>
 
+<!--create new account button-->
 <div class="center m3">
   <button class="btn" routerLink="/main/users/create/new">
     Create New Account
