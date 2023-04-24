@@ -11,7 +11,9 @@
 <div class="page-container font-primary">
   <header>
     <div class="company">
-      <div class="company-logo"><img src="./assets/images/bcrs-logo.png" alt="main-logo" /></div>
+      <div class="company-logo">
+        <img src="./assets/images/bcrs-logo.png" alt="main-logo" />
+      </div>
       <div class="company-name font-accent">Bob's Computer Repair Shop</div>
     </div>
     <div class="navbar">
@@ -20,7 +22,8 @@
       <!-- If the user is not logged in, the user will be sent to the signin page, else they will go to the services page
       <div class="nav-link" *ngIf="!isAuthenticated" routerLink="/session/sign-in">Services</div>
       <div class="nav-link" *ngIf="isAuthenticated" routerLink="/services">Services</div>-->
-      <div class="nav-link" routerLink="/services">Services</div> <!-- This is for testing purposes -->
+      <div class="nav-link" routerLink="/services">Services</div>
+      <!-- This is for testing purposes -->
       <div class="nav-link" routerLink="/contact">Contact</div>
       <div class="nav-link" routerLink="/session/sign-in">Sign-In</div>
     </div>
@@ -29,9 +32,16 @@
     <div class="hero">
       <div class="hero-action">
         <h1 class="hero-action-title font-accent">Bob's Magical Services</h1>
-        <div class="hero-action-body">Welcome to Bob's Computer Repair Shop! Our skilled technicians provide fast and affordable magical repair services. Click below to schedule your repair service today and unleash your magical computer's full potential!</div>
+        <div class="hero-action-body">
+          Welcome to Bob's Computer Repair Shop! Our skilled technicians provide
+          fast and affordable magical repair services. Click below to schedule
+          your repair service today and unleash your magical computer's full
+          potential!
+        </div>
         <div class="hero-action-button">
-          <button class="btn hero-button" routerLink="/services">ACCIO SERVICE</button>
+          <button class="btn hero-button" routerLink="/services">
+            ACCIO SERVICE
+          </button>
         </div>
       </div>
       <div class="hero-review">
@@ -42,7 +52,14 @@
           <div class="rating-star">&starf;</div>
           <div class="rating-star">&starf;</div>
         </div>
-        <div class="hero-review-body font-handwriting">"I had a virus on my magical computer, and I was worried that I would lose all of my magical research. Bob's Computer Repair Shop was able to remove the virus and restore all of my data quickly and efficiently. Their technicians were extremely knowledgeable and provided excellent customer service. An attest to their Gryffindor history."</div>
+        <div class="hero-review-body font-handwriting">
+          "I had a virus on my magical computer, and I was worried that I would
+          lose all of my magical research. Bob's Computer Repair Shop was able
+          to remove the virus and restore all of my data quickly and
+          efficiently. Their technicians were extremely knowledgeable and
+          provided excellent customer service. An attest to their Gryffindor
+          history."
+        </div>
         <div class="hero-review-author font-accent">-Lysander Ashworth</div>
       </div>
     </div>
@@ -51,62 +68,102 @@
         <div class="about-text">
           <h2 class="font-accent">Who we are...</h2>
           <p>
-            Bob's Computer Repair Shop is the most trusted and reliable computer repair shop in the Wizarding World. Our team of expert Gryffindor-based technicians is here to provide fast, efficient, and affordable repair services to get your muggle computer back up and running in no time. From virus removal to hardware upgrades, we have the expertise to get the job done right. <a href="#">Learn more about us here.</a>
+            Bob's Computer Repair Shop is the most trusted and reliable computer
+            repair shop in the Wizarding World. Our team of expert
+            Gryffindor-based technicians is here to provide fast, efficient, and
+            affordable repair services to get your muggle computer back up and
+            running in no time. From virus removal to hardware upgrades, we have
+            the expertise to get the job done right.
+            <a href="#">Learn more about us here.</a>
           </p>
           <p>
-            Click below to schedule your repair service today and experience our personalized magical service!
+            Click below to schedule your repair service today and experience our
+            personalized magical service!
           </p>
           <div class="about-action-button">
-            <button class="btn about-button" routerLink="/services">ACCIO SERVICE</button>
+            <button class="btn about-button" routerLink="/services">
+              ACCIO SERVICE
+            </button>
           </div>
         </div>
       </div>
       <div class="reviews">
-            <div class="landing-review">
-              <div class="hero-review-rating">
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-              </div>
-              <div class="landing-review-body font-handwriting">"I had a problem with my magical computer's hardware, and I wasn't sure if it could be fixed. Bob's Computer Repair Shop was able to diagnose the issue and provide me with a hardware upgrade that was within my budget. I am so grateful for their expertise and personalized service."</div>
-              <div class="landing-review-author font-accent">-Marcellus Quigley</div>
-            </div>
-            <div class="landing-review">
-              <div class="hero-review-rating">
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-              </div>
-              <div class="landing-review-body font-handwriting">"I had a software glitch on my magical computer that was causing it to freeze constantly. Bob's Computer Repair Shop was able to diagnose the issue and fix it within a few hours. The techs were courteous, professional, and provided excellent communication throughout the entire process."</div>
-              <div class="landing-review-author font-accent">-Belladonna Ravenswood</div>
-            </div>
-            <div class="landing-review">
-              <div class="hero-review-rating">
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-              </div>
-              <div class="landing-review-body font-handwriting">"I recently purchased a new magical computer and needed help with setting it up. Bob's Computer Repair Shop provided me with an array of magical accessories and software that helped me optimize my computing experience. I am extremely satisfied with their services."</div>
-              <div class="landing-review-author font-accent">-Thaddeus Blackwood</div>
-            </div>
-            <div class="landing-review">
-              <div class="hero-review-rating">
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-                <div class="rating-star">&starf;</div>
-              </div>
-              <div class="landing-review-body font-handwriting">"I have been a customer of Bob's Computer Repair Shop for several years now, and I am constantly impressed by their professionalism and expertise. They have been able to help me with all of my magical computing needs, from virus removal to hardware upgrades. I highly recommend their services."</div>
-              <div class="landing-review-author font-accent">-Rowena Nightingale</div>
-            </div>
+        <div class="landing-review">
+          <div class="hero-review-rating">
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
           </div>
+          <div class="landing-review-body font-handwriting">
+            "I had a problem with my magical computer's hardware, and I wasn't
+            sure if it could be fixed. Bob's Computer Repair Shop was able to
+            diagnose the issue and provide me with a hardware upgrade that was
+            within my budget. I am so grateful for their expertise and
+            personalized service."
+          </div>
+          <div class="landing-review-author font-accent">
+            -Marcellus Quigley
+          </div>
+        </div>
+        <div class="landing-review">
+          <div class="hero-review-rating">
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+          </div>
+          <div class="landing-review-body font-handwriting">
+            "I had a software glitch on my magical computer that was causing it
+            to freeze constantly. Bob's Computer Repair Shop was able to
+            diagnose the issue and fix it within a few hours. The techs were
+            courteous, professional, and provided excellent communication
+            throughout the entire process."
+          </div>
+          <div class="landing-review-author font-accent">
+            -Belladonna Ravenswood
+          </div>
+        </div>
+        <div class="landing-review">
+          <div class="hero-review-rating">
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+          </div>
+          <div class="landing-review-body font-handwriting">
+            "I recently purchased a new magical computer and needed help with
+            setting it up. Bob's Computer Repair Shop provided me with an array
+            of magical accessories and software that helped me optimize my
+            computing experience. I am extremely satisfied with their services."
+          </div>
+          <div class="landing-review-author font-accent">
+            -Thaddeus Blackwood
+          </div>
+        </div>
+        <div class="landing-review">
+          <div class="hero-review-rating">
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+          </div>
+          <div class="landing-review-body font-handwriting">
+            "I have been a customer of Bob's Computer Repair Shop for several
+            years now, and I am constantly impressed by their professionalism
+            and expertise. They have been able to help me with all of my magical
+            computing needs, from virus removal to hardware upgrades. I highly
+            recommend their services."
+          </div>
+          <div class="landing-review-author font-accent">
+            -Rowena Nightingale
+          </div>
+        </div>
+      </div>
       <div class="contact font-primary">
         <div class="contact-content">
           <h2 class="font-accent">Need Help? Contact Us!</h2>
@@ -439,7 +496,8 @@
               <p>Direct: +44 117 956 2544</p>
               <p>Toll-Free: 1-800-NODE-APP</p>
               <p>
-                <span class="transparent-text">Toll-Free: 1-800-</span>(6633-277)
+                <span class="transparent-text">Toll-Free: 1-800-</span
+                >(6633-277)
               </p>
               <p>
                 email:
@@ -451,8 +509,8 @@
           </div>
           <div class="col">
             <p class="contact-text">
-              If you have any questions or concerns, please feel free to visit us or
-              send us an owl. We are happy to help in any way that we can.
+              If you have any questions or concerns, please feel free to visit
+              us or send us an owl. We are happy to help in any way that we can.
             </p>
           </div>
         </div>
@@ -460,8 +518,12 @@
     </div>
   </main>
   <div class="footer">
-    <div class="copyright">&copy;{{ currentYear }} Bob's Computer Repair Shop | All Rights Reserved |&nbsp;</div>
-    <div class="created-by">Created By: John Vanhessche, Chad ONeal, & Ace Baugh</div>
+    <div class="copyright">
+      &copy;{{ currentYear }} Bob's Computer Repair Shop | All Rights Reserved
+      |&nbsp;
+    </div>
+    <div class="created-by">
+      Created By: John Vanhessche, Chad ONeal, & Ace Baugh
+    </div>
   </div>
 </div>
-

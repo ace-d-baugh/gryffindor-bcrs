@@ -19,6 +19,8 @@ import { UserListComponent } from './pages/user-list/user-list.component';
 import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
+import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
+import { ServerErrorComponent } from './pages/server-error/server-error.component';
 
 const routes: Routes = [
   {
@@ -26,7 +28,7 @@ const routes: Routes = [
     component: LandingComponent,
   },
   {
-    path: 'other',
+    path: 'main',
     component: BaseLayoutComponent,
     children: [
       {
@@ -49,24 +51,26 @@ const routes: Routes = [
   },
   {
     path: 'session',
-    component: BaseLayoutComponent,
+    component: AuthLayoutComponent,
     children: [
       {
         path: 'sign-in',
         component: SignInComponent,
+      },
+      {
+        path: 'not-found',
+        component: NotFoundComponent,
+      },
+      {
+        path: 'server-error',
+        component: ServerErrorComponent,
       },
     ],
   },
   // a 404 page for everything not found
   {
     path: '**',
-    component: BaseLayoutComponent,
-    children: [
-      {
-        path: '',
-        component: NotFoundComponent,
-      },
-    ],
+    redirectTo: 'session/not-found',
   },
 ];
 

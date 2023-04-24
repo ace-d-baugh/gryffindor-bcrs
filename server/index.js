@@ -12,7 +12,7 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-
+const createError = require("http-errors");
 
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
@@ -29,6 +29,7 @@ const app = express(); // Express variable.
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../dist/bcrs")));
+app.use("/", express.static(path.join(__dirname, "../dist/bcrs")));
 
 // default server port value.
 const PORT = process.env.PORT || 3000;
@@ -66,12 +67,26 @@ const openapiSpecification = swaggerJsDoc(options);
 // Swagger UI
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
+
+// API routes.
 app.use("/api/security-questions", SecurityQuestionRoute);
 app.use("/api/users", UserRoute);
 app.use("/api/session", Session);
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/bcrs/index.html'));
+// Error handler for 404 errors
+app.use(function (req, res, next) {
+  next(createError(404));
+});
+
+// Error handler for other errors
+app.use(function (err, req, res, next) {
+  res.status(err.status || 500);
+  res.send({
+    type: "error",
+    status: err.status,
+    message: err.message,
+    stack: req.app.get("env") === "development" ? err.stack : undefined,
+  });
 });
 
 // Wire-up the Express server.

@@ -39,6 +39,7 @@ import { SecurityQuestionDetailsComponent } from './pages/security-question-deta
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ServerErrorComponent } from './pages/server-error/server-error.component';
 
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -62,6 +63,7 @@ import { ToastModule } from 'primeng/toast';
     SecurityQuestionListComponent,
     SecurityQuestionDetailsComponent,
     NotFoundComponent,
+    ServerErrorComponent,
   ],
   imports: [
     BrowserModule,
