@@ -486,7 +486,8 @@ a {
   color: var(--color-white) !important;
 }
 
-.p-message-error {
+.p-message-error,
+.p-toast-message {
   background: var(--color-primary-dark-2);
   padding: 0.5rem;
   color: var(--color-white);
@@ -496,7 +497,8 @@ a {
 }
 
 .p-message-close,
-.p-dialog-header-close {
+.p-dialog-header-close,
+.p-toast-icon-close {
   cursor: pointer;
   color: var(--color-white);
   font-size: 1.2rem;
@@ -531,6 +533,11 @@ a {
 
 .p-dialog-content i {
   font-size: 3rem;
+}
+
+.p-toast-message-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
 }
 
 .p-confirm-dialog-accept,
