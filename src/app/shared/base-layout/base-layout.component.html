@@ -26,18 +26,12 @@
       </button>
 
        <mat-menu #session="matMenu" x-position="before">
-          <button
-            mat-menu-item
-            routerLink="users/profile/{{ sessionName }}"
-            style="
-              background-color: #c0c0c0;
-              text-align: center;
-              font-weight: bold;
-            "
-          >
+          <button mat-menu-item routerLink="users/profile/{{ sessionName }}" style="text-align: center; font-weight: bold;">
             Welcome {{ sessionName }}
           </button>
+
           <mat-divider></mat-divider>
+
           <button mat-menu-item [matMenuTriggerFor]="configs">
             <mat-icon>settings</mat-icon>
             Configurations
@@ -46,13 +40,13 @@
           <mat-menu #configs="matMenu">
             <!-- users list -->
 
-            <button mat-menu-item routerLink="/users">
+            <button mat-menu-item routerLink="/main/users">
               <mat-icon>supervisor_account</mat-icon>
               User List
             </button>
 
             <!-- security questions -->
-            <button mat-menu-item routerLink="/security-questions">
+            <button mat-menu-item routerLink="/main/security-question-list">
               <mat-icon>help</mat-icon>
               Security Questions
             </button>

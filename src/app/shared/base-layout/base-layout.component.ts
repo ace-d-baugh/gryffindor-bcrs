@@ -12,6 +12,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+
 import {
   ConfirmationService,
   ConfirmEventType,
