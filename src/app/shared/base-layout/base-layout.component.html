@@ -26,9 +26,9 @@
       <div class="nav-link" routerLink="/main/about">About</div>
       <div class="nav-link" routerLink="/main">Services</div>
       <div class="nav-link" routerLink="/main/contact">Contact</div>
-      <div class="nav-link" routerLink="/session/sign-in" *ngIf="!sessionName">Sign-In</div>
+      <div class="nav-link" routerLink="/session/sign-in" *ngIf="!session">Sign-In</div>
 
-      <button [matMenuTriggerFor]="session" mat-icon-button class="ml-xs" *ngIf="sessionName">
+      <button [matMenuTriggerFor]="session" mat-icon-button class="ml-xs" *ngIf="session">
         <mat-icon>person</mat-icon>
       </button>
 
