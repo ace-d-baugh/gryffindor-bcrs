@@ -6400,6 +6400,7 @@
 [4/24/2023, 12:33:10 PM] server	 user-api.js - Query on all users was successful
 [4/24/2023, 12:33:21 PM] server	 user-api.js - Query on all users was successful
 <<<<<<< HEAD
+<<<<<<< HEAD
 [4/24/2023, 12:34:42 PM] server	 user-api.js - Query on all users was successful
 [4/24/2023, 12:34:46 PM] server	 user-api.js - Query on all users was successful
 [4/24/2023, 12:34:49 PM] server	 user-api.js - Query on all users was successful
@@ -29730,3 +29731,5 @@
   isDisabled: false,
   __v: 0
 }
+=======
+>>>>>>> 9358ddeb1f50f387e02651c1d8de749a362cbe50
