@@ -9,18 +9,6 @@
 =====================================================
 */
 
-.font-primary {
-  font-family: var(--font-primary);
-}
-
-.font-accent {
-  font-family: var(--font-accent);
-}
-
-.font-handwriting {
-  font-family: var(--font-handwriting);
-}
-
 .page-container {
   background-image: url(src/assets/images/Bobs-Interior-v3.jpg);
   background-size: cover;
