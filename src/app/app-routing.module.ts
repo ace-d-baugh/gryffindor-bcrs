@@ -33,7 +33,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent,
+        // component: ServicesComponent,
+        component: HomeComponent, // depricate
       },
       {
         path: 'security-question-list',

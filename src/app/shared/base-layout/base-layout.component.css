@@ -9,21 +9,11 @@
 =====================================================
 */
 
-.hide-header-footer header {
-  display: none;
+h1 {
+  font-family: var(--font-accent);
+  font-size: 2rem;
+  color: #F5DEB3;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
-
-.hide-header-footer footer {
-  display: none;
-}
-
-.page-container {
-  background-image: url(src/assets/images/Bobs-Interior-v4.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-}
-
