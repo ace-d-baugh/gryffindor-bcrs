@@ -47,7 +47,7 @@ const routes: Routes = [
         path: 'users',
         component: UserListComponent,
       },
-    ],
+    ]
   },
   {
     path: 'session',
@@ -57,6 +57,7 @@ const routes: Routes = [
         path: 'sign-in',
         component: SignInComponent,
       },
+<<<<<<< HEAD
       {
         path: 'not-found',
         component: NotFoundComponent,
@@ -66,6 +67,9 @@ const routes: Routes = [
         component: ServerErrorComponent,
       },
     ],
+=======
+    ]
+>>>>>>> 4320ff8ff843154d07ca8caf39907aa550fd2e0a
   },
   // a 404 page for everything not found
   {

@@ -16,12 +16,12 @@ const ErrorResponse = require("../services/error-response");
 const BaseResponse = require("../services/base-response");
 const router = express.Router();
 const Ajv = require('ajv')
+const { debugLogger, errorLogger } = require('../logs/logger');
 
 
 const bcrypt = require("bcryptjs");
 const ajv = new Ajv()
-const logFile = 'session-api.js'
-
+const myFile = 'session-api.js'
 
 // Configurations
 
@@ -92,6 +92,8 @@ router.post("/signin", (req, res) => {
             err
           );
           res.status(500).send(signinMongodbErrorResponse.toObject());
+          errorLogger({filename: myfile, message: "Internal server error"})
+
         } else {
           console.log(user);
           /**
@@ -108,6 +110,7 @@ router.post("/signin", (req, res) => {
               console.log("Login successful");
               const signinResponse = new BaseResponse(200, "Login successful", user);
               res.json(signinResponse.toObject());
+              debugLogger({filename: myFile, message: "User logged in successfully"})
             } else {
               /**
                * If password is invalid, return an error
@@ -115,6 +118,7 @@ router.post("/signin", (req, res) => {
               console.log("Invalid password: Please try again");
               const invalidPasswordResponse = new BaseResponse(401, "Invalid password", "Please try again", user);
               res.status(401).send(invalidPasswordResponse.toObject());
+              errorLogger({filename: myFile, message: "Invalid credentials entered"})
             }
           } else {
             /**
@@ -123,6 +127,7 @@ router.post("/signin", (req, res) => {
             console.log(`Invalid username: ${req.body.userName}. Please try again`);
             const invalidUserNameResponse = new BaseResponse(401, "Invalid username", "Please try again", null);
             res.status(401).send(invalidUserNameResponse.toObject());
+            errorLogger({filename: myFile, message: "Inavlid user id"})
           }
         }
       });
@@ -135,11 +140,13 @@ router.post("/signin", (req, res) => {
       );
       console.log(signinValidationError);
       res.json(signinValidationError.toObject());
+      errorLogger({filename: myFile, message: "Bad request, input doesn't match schema"})
     }
   } catch (e) {
     console.log(e);
     const signinCatchErrorResponse = new ErrorResponse(500, "Internal Server Error", e.message);
     res.status(500).send(signinCatchErrorResponse.toObject());
+    errorLogger({filename: myFile, message: "Internal Server error"})
   }
 });
 

@@ -14,11 +14,13 @@ const express = require("express");
 const User = require("../models/user");
 const ErrorResponse = require("../services/error-response");
 const BaseResponse = require("../services/base-response");
+const { debugLogger, errorLogger } = require('../logs/logger');
 const bcrypt = require("bcryptjs");
 const saltRounds = 10;
 
 // Configurations
 const router = express.Router();
+const myFile = 'user-api.js'
 
 
 /**
@@ -49,17 +51,20 @@ router.get('/', async(req, res) => {
                 console.log(err);
                 const findAllMongodbErrorResponse = new ErrorResponse(500, 'Internal server error', err);
                 res.status(500).send(findAllMongodbErrorResponse.toObject());
+                errorLogger({filename: myFile, message: "Internal server error"})
             } else
             {
                 console.log(users);
                 const findAllUsersResponse = new BaseResponse(200, 'Query successful', users);
                 res.json(findAllUsersResponse.toObject());
+                debugLogger({filename: myFile, message: "Query on all users was successful"})
             }
         })
     } catch (e)
     {
         const findAllCatchErrorResponse = new ErrorResponse(500, 'Internal server error', e.message);
         res.status(500).send(findAllCatchErrorResponse.toObject());
+        errorLogger({filename: myFile, message: "Internal server error"})
     }
 });
 
@@ -95,16 +100,19 @@ router.get("/:id", async (req, res) => {
         console.log(err);
         const findByIdMongodbErrorResponse = new ErrorResponse(500, "Internal server error", err);
         res.status(500).send(findByIdMongodbErrorResponse.toObject());
+        errorLogger({filename: myFile, message: `user ${req.params.id} is not found`})
       } else {
         console.log(user);
         const findByIdResponse = new BaseResponse(200, "Query successful", user);
         res.json(findByIdResponse.toObject());
+        debugLogger({filename: myFile, message: `user ${user.username} found successfully`})
       }
     });
   } catch (e) {
     console.log(e);
     const findByIdCatchErrorResponse = new ErrorResponse(500, "Internal server error", e.message);
     res.status(500).send(findByIdCatchErrorResponse.toObject());
+    errorLogger({filename: myFile, message: "Internal server error"})
   }
 });
 
@@ -177,16 +185,19 @@ router.post('/', async (req, res) => {
                 console.log(err);
                 const createUserMongodbErrorResponse = new ErrorResponse(500, 'Internal server error', err);
                 res.status(500).send(createUserMongodbErrorResponse.toObject());
+                errorLogger({filename: myFile, message: "Validation on creating user failed"})
             } else {
                 console.log(user);
                 const createUserResponse = new BaseResponse(200, 'Query successful', user);
                 res.json(createUserResponse.toObject())
+                debugLogger({filename: myFile, message: `user ${user.username} created successfully`})
             }
         })
     } catch (e) {
         console.log(e);
         const createUserCatchErrorResponse = new ErrorResponse(500, 'Internal server error', e.message);
         res.status(500).send(createUserCatchErrorResponse.toObject());
+        errorLogger({filename: myFile, message: "Internal server error"})
     }
 });
 
@@ -245,6 +256,7 @@ router.put('/:id', async (req, res) => {
           err
         );
         res.status(500).send(updateUserByIdMongodbErrorResponse.toObject());
+        errorLogger({filename: myFile, message: `User ${req.params.id} not found`})
       } else {
         console.log(user);
 
@@ -264,10 +276,12 @@ router.put('/:id', async (req, res) => {
             console.log(err);
             const saveUserMongodbErrorResponse = new ErrorResponse(500, "Internal server error", err);
             res.status(500).send(saveUserMongodbErrorResponse.toObject());
+            errorLogger({filename: myFile, message: "Validation of updates failed"})
           } else {
             console.log(savedUser);
             const saveUserResponse = new BaseResponse(200, "Query successful", savedUser);
             res.json(saveUserResponse.toObject());
+            debugLogger({filename: myFile, message: `user ${savedUser.username} updated successfully`})
           }
         });
       }
@@ -280,6 +294,7 @@ router.put('/:id', async (req, res) => {
       e.message
     );
     res.status(500).send(updateUserByIdCatchErrorResponse.toObject());
+    errorLogger({filename: myFile, message: "Internal server error"})
   }
 });
 
@@ -320,6 +335,7 @@ router.delete('/:id', async (req, res) => {
           err
         );
         res.status(500).send(deleteUserMongodbErrorResponse.toObject());
+        errorLogger({filename: myFile, message: `user ${req.params.id} not found`})
       } else {
         console.log(user);
 
@@ -337,6 +353,7 @@ router.delete('/:id', async (req, res) => {
               err
             );
             res.json(savedUserMongodbErrorResponse.toObject());
+            errorLogger({filename: myFile, message: "Unable to delete user"})
           } else {
             console.log(savedUser);
             const savedUserResponse = new BaseResponse(
@@ -345,6 +362,7 @@ router.delete('/:id', async (req, res) => {
               savedUser
             );
             res.json(savedUserResponse.toObject());
+            debugLogger({filename: myFile, message: `user ${savedUser.username} deleted successfully`})
           }
         });
       }
@@ -357,6 +375,7 @@ router.delete('/:id', async (req, res) => {
       e.message
     );
     res.status(500).send(deleteUserCatchErrorResponse.toObject());
+    errorLogger({filename: myFile, message: "Internal server error"})
   }
 });
 

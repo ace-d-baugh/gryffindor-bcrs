@@ -41,7 +41,7 @@ export class SecurityQuestionListComponent implements OnInit {
       },
       error: (e) => {
         console.log(e);
-      },
+      }
     });
   }
 
@@ -62,8 +62,8 @@ export class SecurityQuestionListComponent implements OnInit {
         console.log(e);
       },
       complete: () => {
-        this.sqForm.controls['text'].setErrors({ incorrect: false });
-      },
+        this.sqForm.controls['text'].setErrors({ 'incorrect': false });
+      }
     });
   }
 

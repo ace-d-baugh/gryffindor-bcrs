@@ -1,0 +1,12 @@
+[4/23/2023, 6:35:11 PM] server	 security-question-api.js - Invalid id and/or request
+[4/23/2023, 6:40:12 PM] server	 security-question-api.js - 643ec5d3a9bef7f1: Invalid id and/or request
+[4/23/2023, 7:28:14 PM] server	 security-question-api.js - Message doesn't match expected schema
+[4/23/2023, 7:37:25 PM] server	 security-question-api.js - Internal Server error
+[4/23/2023, 7:51:45 PM] server	 session-api.js - Invalid credentials entered
+[4/23/2023, 7:52:51 PM] server	 session-api.js - Inavlid user id
+[4/23/2023, 8:06:12 PM] server	 user-api.js - user foo is not found
+[4/23/2023, 8:12:36 PM] server	 user-api.js - Internal server error
+[4/23/2023, 8:13:40 PM] server	 user-api.js - Validation on creating user failed
+[4/23/2023, 8:19:44 PM] server	 user-api.js - User not found
+[4/23/2023, 8:20:42 PM] server	 user-api.js - User 6 not found
+[4/23/2023, 8:24:38 PM] server	 user-api.js - user 6 not found
