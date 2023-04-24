@@ -52,7 +52,7 @@ import { MenuModule } from 'primeng/menu';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 
 
-
+//module
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,3 +1,14 @@
+/*
+============================================
+; Title: user-create.component.css for BCRS
+; Author: Professor Krasso
+; Modified by: Chad ONeal
+; Date: 03/25/2023
+; Description: user-create.component.css for BCRS
+===========================================
+*/
+
+//import statements
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../shared/services/user.service';
@@ -5,13 +16,17 @@ import { Message } from 'primeng/api';
 import { User } from '../../shared/models/user.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+//component
 @Component({
   selector: 'app-user-create',
   templateUrl: './user-create.component.html',
   styleUrls: ['./user-create.component.css']
 })
+
+//export class
 export class UserCreateComponent implements OnInit {
 
+  //form group
   form: FormGroup = this.fb.group({
     userName: [null, Validators.compose([Validators.required])],
     password: [null, Validators.compose([Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$')])],
@@ -22,6 +37,7 @@ export class UserCreateComponent implements OnInit {
     email: [null, Validators.compose([Validators.required, Validators.email])]
   });
 
+  //
   user: User;
   userId: string;
   errorMessages: Message[] = [];
@@ -34,6 +50,7 @@ export class UserCreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //create user function
   createUser(): void {
     const newUser: User = {
       username: this.form.controls['userName'].value,
@@ -60,6 +77,7 @@ export class UserCreateComponent implements OnInit {
   })
   }
 
+  //cancel function
   cancel(): void {
     this.router.navigate(['/main/users']);
   }

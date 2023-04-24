@@ -5,20 +5,21 @@
 ; Author: Richard Krasso
 ; Date: 04/18/2023
 ; File Description: Base layout component
-; Modifications: Ace Baugh
+; Modifications: Chad ONeal
 =====================================================
 */
 
+// import statements
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-
 import {
   ConfirmationService,
   ConfirmEventType,
   MessageService,
 } from 'primeng/api';
 
+// export class
 @Component({
   selector: 'app-base-layout',
   templateUrl: './base-layout.component.html',

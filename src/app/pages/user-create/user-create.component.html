@@ -1,9 +1,21 @@
+<!--
+============================================
+; Title: user-create.component.html for BCRS
+; Author: Professor Krasso
+; Modified by: Chad ONeal
+; Date: 04/24/2023
+; Description: user-create.component.html for BCRS
+===========================================
+-->
+
+<!--main container-->
 <div class="main-container">
 
   <mat-card-title style="text-align: center; font-weight: lighter"
       >Create User Form</mat-card-title
     >
 
+    <!--fields marked-->
   <mat-card-subtitle style="text-align: center; font-weight: lighter">
     Fields marked with an asterisk (*) are required
   </mat-card-subtitle>
@@ -11,6 +23,7 @@
 
   <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
+  <!--forms-->
   <form [formGroup]="form" (ngSubmit)="createUser()"
     (keydown.enter)="$event.preventDefault()"
     style="width: 50%; margin: 0 auto">
@@ -27,6 +40,7 @@
           </mat-error>
         </mat-form-field>
 
+        <!--forms-->
         <mat-form-field appearance="fill">
           <mat-label>Password</mat-label>
           <input type="password" matInput formControlName="password" required/>
@@ -43,6 +57,7 @@
           </mat-error>
         </mat-form-field>
 
+        <!--forms-->
         <mat-form-field appearance="fill">
           <mat-label>First Name</mat-label>
           <input type="text" matInput formControlName="firstName" required />
@@ -73,6 +88,7 @@
           </mat-error>
         </mat-form-field>
 
+        <!--forms-->
         <mat-form-field appearance="fill">
           <mat-label>Email address</mat-label>
           <input type="text" matInput formControlName="email" required />
@@ -91,6 +107,7 @@
         <mat-form-field appearance="fill">
           <mat-label>Address</mat-label>
 
+          <!--address required-->
           <textarea matInput required formControlName="address"
             placeholder="505 South St Knoxville, TN 37920"
           ></textarea>
@@ -104,11 +121,13 @@
     </mat-card-content>
 
     <br />
+    <!--cancel button-->
     <mat-card-actions align="end">
       <button mat-raised-button (click)="cancel()" style="background-color: #eeba30; color: white">
         Cancel
       </button>
 
+    <!--submit button-->
       <button mat-raised-button [disabled]="!form.valid" style="background-color: #ae0001; color: white">
         Submit
       </button>

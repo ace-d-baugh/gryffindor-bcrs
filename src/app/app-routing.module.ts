@@ -5,10 +5,11 @@
 ; Author: Richard Krasso
 ; Date: 04/18/2023
 ; File Description: App routing module
-; Modifications: Ace Baugh, John Vanhessche
+; Modifications: Ace Baugh, John Vanhessche, Chad ONeal
 =====================================================
 */
 
+// import statements
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
@@ -23,6 +24,7 @@ import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component'
 import { ServerErrorComponent } from './pages/server-error/server-error.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 
+// routes
 const routes: Routes = [
   {
     path: '',
@@ -80,6 +82,7 @@ const routes: Routes = [
   },
 ];
 
+// export
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {

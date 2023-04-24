@@ -9,6 +9,7 @@
 =====================================================
 */
 
+//export interface
 export interface SecurityQuestion {
     _id?: string;
     text: string;

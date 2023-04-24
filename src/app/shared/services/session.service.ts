@@ -1,14 +1,26 @@
+/*
+============================================
+; Title: user-create.component.css for BCRS
+; Author: Professor Krasso
+; Modified by: John Vanhessche
+; Date: 03/25/2023
+; Description: user-create.component.css for BCRS
+===========================================
+*/
+
+// import statements
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.interface';
 
-
+//  Injectable
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
 
+  //  constructor
   constructor(private http: HttpClient) { }
   /**
    * Description: This function will call the API to login a user

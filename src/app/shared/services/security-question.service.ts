@@ -9,15 +9,18 @@
 =====================================================
 */
 
+//import statements
 import { SecurityQuestion } from "../models/security-question.interface";
 import { Injectable } from '@angular/core'
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs'
 
+//export class
 @Injectable({
     providedIn: 'root'
 })
 
+//export class
 export class SecurityQuestionService {
 
     constructor(private http: HttpClient) { }
@@ -42,6 +45,7 @@ export class SecurityQuestionService {
         })
     }
 
+    //
     deleteSecurityQuestion(questionId: string): Observable<any> {
         return this.http.delete('/api/security-questions/' + questionId)
     }

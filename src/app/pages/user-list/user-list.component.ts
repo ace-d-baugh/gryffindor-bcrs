@@ -5,23 +5,28 @@
 ; Author: Richard Krasso
 ; Date: 04/20/2023
 ; File Description: user-list.component
-; Modifications: John Vanhessche
+; Modifications: Chad ONeal
 =====================================================
 */
 
+//import statements
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../shared/models/user.interface';
 import { UserService } from '../../shared/services/user.service';
 import { ConfirmationService, ConfirmEventType } from 'primeng/api';
 
+//export class
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
 })
+
+//export class
 export class UserListComponent implements OnInit {
   users: User[] = [];
 
+  //  constructor
   constructor(
     private userService: UserService,
     private confirmationService: ConfirmationService
@@ -36,8 +41,10 @@ export class UserListComponent implements OnInit {
     });
   }
 
+  //ngOnInit
   ngOnInit(): void {}
 
+  //delete
   delete(userId: string) {
     this.confirmationService.confirm({
       message: 'Are you sure that you want to delete this record?',

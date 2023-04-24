@@ -9,6 +9,7 @@
 =====================================================
 */
 
+/*stylings for the landing page*/
 .page-container {
   background-image: url(src/assets/images/Bobs-Interior-v3.jpg);
   background-size: cover;
@@ -19,6 +20,7 @@
   flex-direction: column;
 }
 
+/*stylings for the header*/
 header {
   background: linear-gradient(#210706ff, #210706cc, #21070688, transparent);
   display: flex;
@@ -31,6 +33,7 @@ header {
   color: #F5DEB3;
 }
 
+/*stylings for the company logo*/
 .company {
   flex: 1;
   display: flex;
@@ -38,15 +41,18 @@ header {
   align-items: center;
 }
 
+/*stylings for the company logo image*/
 .company-logo img {
   width: 4rem;
   height: 4rem;
 }
 
+/*stylings for the company name*/
 .company-name {
   font-size: 2rem;
 }
 
+/*stylings for the navbar*/
 .navbar {
   flex: 1;
   display: flex;
@@ -54,18 +60,21 @@ header {
   align-items: center;
 }
 
+/*stylings for the navbar links*/
 .nav-link {
   font-size: 1.5rem;
   padding: 1.5rem;
   cursor: finger;
 }
 
+/*  stylings for the navbar links when hovered over*/
 .nav-link:hover {
   color: #740001;
   background-color: #F5DEB3;
   box-shadow: 0 .5rem 3rem #740001CC;
 }
 
+/*stylings for the navbar links when active*/
 .hero {
   height: 100vh;
   width: 100%;
@@ -74,6 +83,7 @@ header {
   justify-content: space-between;
 }
 
+/*stylings for the hero image*/
 .hero-action {
   display: flex;
   flex-direction: column;
@@ -84,11 +94,13 @@ header {
   padding: 2rem;
 }
 
+/*stylings for the hero image title*/
 .hero-action-title {
   font-size: 6rem;
   padding-left: 1rem;
 }
 
+/*stylings for the hero image body*/
 .hero-action-body {
   font-size: 1.5rem;
   line-height: 1.5rem;
@@ -99,16 +111,19 @@ header {
   box-shadow: 0 0 1rem #210706;
 }
 
+/*stylings for the hero image button*/
 .hero-action-button {
   padding-left: 1rem;
 }
 
+/*stylings for the hero image button*/
 .btn {
   background-color: #F5DEB3;
   color: #740001;
   border: none;
 }
 
+/*stylings for the hero image button when hovered over*/
 .hero-button {
   padding: 1.75rem;
   font-size: 1.75rem;
@@ -116,6 +131,7 @@ header {
   box-shadow: 1rem 1rem #EEBA30;
 }
 
+/*stylings for the hero image button when hovered over*/
 .hero-review {
   position: absolute;
   bottom: 0;
@@ -127,30 +143,36 @@ header {
   color: #F5DEB3;
 }
 
+/*stylings for the hero image button when hovered over*/
 .hero-review-rating {
   color: #EEBA30;
   font-size: 2rem;
   display: flex;
 }
 
+/*stylings for the hero image button when hovered over*/
 .rating-star {
   padding: 0 .25rem;
 }
 
+/*  stylings for the hero image button when hovered over*/
 .hero-review-body {
   padding: 1rem .25rem;
 }
 
+/*stylings for the hero image button when hovered over*/
 .hero-review-author {
   text-align: right;
 }
 
+/*stylings for the hero image button when hovered over*/
 .content {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
+/*  stylings for the hero image button when hovered over*/
 .about {
   background-color: #F5DEB3;
   width: 100%;
@@ -163,35 +185,42 @@ header {
   align-items: center;
 }
 
+/*stylings for the hero image button when hovered over*/
 .about-text {
   max-width: 1200px;
   margin: 1rem 0;
 }
 
+/*stylings for the hero image button when hovered over*/
 .about-text h2 {
   font-size: 3rem;
 }
 
+/*stylings for the hero image button when hovered over*/
 .about-text p {
   padding: 2rem 0;
 }
 
+/*  stylings for the hero image button when hovered over*/
 .about-text a {
   color: #740001;
   text-decoration: none;
 }
 
+/*stylings for the hero image button when hovered over*/
 .about-text a:hover {
   color: #740001;
   border: 1px solid #210706;
   box-shadow: .25rem .25rem #EEBA30;
 }
 
+/*stylings for the hero image button when hovered over*/
 .about-action-button {
   width: 100%;
   text-align: center;
 }
 
+/*stylings for the hero image button when hovered over*/
 .about-button {
   padding: 1rem;
   box-shadow: .5rem .5rem #EEBA30;
@@ -200,6 +229,7 @@ header {
   border: 1px solid #210706;
 }
 
+/*stylings for the hero image button when hovered over*/
 .reviews {
   background-image: linear-gradient(290deg, #F5DEB3 0%, #F5DEB3 40%, transparent 40%, transparent 60%, #F5DEB3 60%, #F5DEB3 100%);
   width: 100%;
@@ -213,6 +243,7 @@ header {
   padding: 2rem;
 }
 
+/*stylings for the hero image button when hovered over*/
 .landing-review {
   background-color: #F5DEB3;
   border: 5px solid #740001;
@@ -222,23 +253,26 @@ header {
   color: #740001;
 }
 
+/*stylings for the hero image button when hovered over*/
 .landing-review-body {
   font-size: 1rem;
   padding: .25rem .25rem;
 }
 
+/*  stylings for the hero image button when hovered over*/
 .landing-review-author {
   text-align: right;
   font-size: 1.25rem;
 }
 
-
+/*stylings for the hero image button when hovered over*/
 .call-to-action {
   background: none;
   width: 100%;
   display: flex;
 }
 
+/*stylings for the hero image button when hovered over*/
 .contact {
   width: 100%;
   background: #F5DEB3;
@@ -249,6 +283,7 @@ header {
   color: #740001;
 }
 
+/*stylings for the hero image button when hovered over*/
 .contact-content {
   max-width: 1200px;
   display: flex;
@@ -257,17 +292,20 @@ header {
   align-items: center;
 }
 
+/*stylings for the hero image button when hovered over*/
 .contact-content h2 {
   font-size: 3rem;
   margin-bottom: 2rem;
 }
 
+/*stylings for the hero image button when hovered over*/
 .contact-info {
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
 
+/*stylings for the hero image button when hovered over*/
 .col {
   display: flex;
   flex-direction: column;
@@ -275,24 +313,29 @@ header {
   align-items: center;
 }
 
+/*  stylings for the hero image button when hovered over*/
 .phone-side a {
   color: #740001;
   text-decoration: none;
 }
 
+/*stylings for the hero image button when hovered over*/
 .phone-side a:hover {
   color: #740001;
   box-shadow: .25rem .25rem #EEBA30;
 }
 
+/*stylings for the hero image button when hovered over*/
 .contact-text {
   padding: 1rem 0;
 }
 
+/*stylings for the hero image button when hovered over*/
 .transparent-text {
   color: transparent;
 }
 
+/*stylings for the hero image button when hovered over*/
 .footer {
   background: linear-gradient(transparent, #21070688, #210706cc, #210706ff);
   display: flex;

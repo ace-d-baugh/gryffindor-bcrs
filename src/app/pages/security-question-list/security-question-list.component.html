@@ -8,6 +8,7 @@
 ;===========================================
 -->
 
+<!--main-->
 <div class="main-container">
   <p-confirmDialog
     [style]="{ width: '35vw' }"
@@ -20,6 +21,7 @@
     <h3>Fields marked with an asterisk (*) are required.</h3>
   </div>
 
+  <!--create security questions-->
   <div class="create-security-question-container">
     <div class="m2">
       <form [formGroup]="sqForm" (ngSubmit)="create(); sqForm.reset()">
@@ -32,6 +34,7 @@
             placeholder="Enter a security question.."
           />
 
+          <!--buttons-->
           <button
             type="submit"
             [disabled]="!sqForm.valid"
@@ -51,6 +54,7 @@
     </div>
   </div>
 
+  <!--security questions -->
   <div>
     <p-table [value]="securityQuestions" responsiveLayout="scroll">
       <ng-template pTemplate="header">

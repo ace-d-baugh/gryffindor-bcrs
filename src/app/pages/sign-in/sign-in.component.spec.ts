@@ -1,7 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*
+============================================
+; Title: sign-in.component.css for BCRS
+; Author: Professor Krasso
+; Modified by: Chad ONeal
+; Date: 04/24/2023
+; Description: sign-in.component.css for BCRS
+===========================================
+*/
 
+//import statements
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SignInComponent } from './sign-in.component';
 
+//component
 describe('SignInComponent', () => {
   let component: SignInComponent;
   let fixture: ComponentFixture<SignInComponent>;
@@ -17,6 +28,7 @@ describe('SignInComponent', () => {
     fixture.detectChanges();
   });
 
+  //it statement
   it('should create', () => {
     expect(component).toBeTruthy();
   });

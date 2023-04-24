@@ -9,18 +9,22 @@
 =====================================================
 */
 
+//import statements
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, ConfirmEventType } from 'primeng/api';
 import { SecurityQuestionService } from 'src/app/shared/services/security-question.service';
 import { SecurityQuestion } from 'src/app/shared/models/security-question.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+//export class
 @Component({
   selector: 'app-security-question-list',
   templateUrl: './security-question-list.component.html',
   styleUrls: ['./security-question-list.component.css'],
   providers: [ConfirmationService],
 })
+
+//export class
 export class SecurityQuestionListComponent implements OnInit {
   securityQuestions: SecurityQuestion[];
 
@@ -45,6 +49,7 @@ export class SecurityQuestionListComponent implements OnInit {
     });
   }
 
+  //ngOnInit
   ngOnInit(): void {}
 
   create(): void {
@@ -67,6 +72,7 @@ export class SecurityQuestionListComponent implements OnInit {
     });
   }
 
+  //delete
   delete(sqId: string): void {
     this.confirmationService.confirm({
       message: 'Are you sure that you want to delete this record?',
