@@ -403,7 +403,8 @@ input:hover {
   color: var(--color-primary-dark);
 }
 
-input:focus {
+input:focus,
+input:valid {
   outline: none;
   border: 1px solid var(--color-accent);
   background-color: var(--color-white);
@@ -468,6 +469,7 @@ a {
   color: var(--color-white);
   font-size: 0.8rem;
   margin-top: 0.5rem;
+  box-shadow: 0 0 10px var(--color-primary-dark-3);
 }
 
 .p-message-close {
