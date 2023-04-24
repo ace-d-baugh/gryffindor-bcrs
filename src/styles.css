@@ -1,59 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 :root {
   --font-primary: "Lato", sans-serif;
   --font-accent: "Philosopher", sans-serif;
   --font-handwriting: "Architects Daughter", cursive;
-  --color-primary-dark: #740001FF;
-  --color-primary-dark-2: #740001CC;
+  --color-primary-dark: #740001ff;
+  --color-primary-dark-2: #740001cc;
   --color-primary-dark-3: #74000188;
   --color-primary-dark-4: #74000144;
   --color-primary-dark-5: #74000122;
-  --color-primary: #ae0001FF;
-  --color-primary-2: #ae0001CC;
+  --color-primary: #ae0001ff;
+  --color-primary-2: #ae0001cc;
   --color-primary-3: #ae000188;
   --color-primary-4: #ae000144;
   --color-primary-5: #ae000122;
-  --color-primary-light: #BA4422FF;
-  --color-primary-light-2: #BA4422CC;
-  --color-primary-light-3: #BA442288;
-  --color-primary-light-4: #BA442244;
-  --color-primary-light-5: #BA442222;
-  --color-extra: #FF8C00FF;
-  --color-extra-2: #FF8C00CC;
-  --color-extra-3: #FF8C0088;
-  --color-extra-4: #FF8C0044;
-  --color-extra-5: #FF8C0022;
-  --color-accent-dark: #D3A625FF;
-  --color-accent-dark-2: #D3A625CC;
-  --color-accent-dark-3: #D3A62588;
-  --color-accent-dark-4: #D3A62544;
-  --color-accent-dark-5: #D3A62522;
-  --color-accent: #EEBA30FF;
-  --color-accent-2: #EEBA30CC;
-  --color-accent-3: #EEBA3088;
-  --color-accent-4: #EEBA3044;
-  --color-accent-5: #EEBA3022;
-  --color-accent-light: #FFDB58FF;
-  --color-accent-light-2: #FFDB58CC;
-  --color-accent-light-3: #FFDB5888;
-  --color-accent-light-4: #FFDB5844;
-  --color-accent-light-5: #FFDB5822;
-  --color-white: #F5DEB3FF;
-  --color-white-2: #F5DEB3CC;
-  --color-white-3: #F5DEB388;
-  --color-white-4: #F5DEB344;
-  --color-white-5: #F5DEB322;
-  --color-shade: #8B4513FF;
-  --color-shade-2: #8B4513CC;
-  --color-shade-3: #8B451388;
-  --color-shade-4: #8B451344;
-  --color-shade-5: #8B451322;
-  --color-black: #210706FF;
-  --color-black-2: #210706CC;
+  --color-primary-light: #ba4422ff;
+  --color-primary-light-2: #ba4422cc;
+  --color-primary-light-3: #ba442288;
+  --color-primary-light-4: #ba442244;
+  --color-primary-light-5: #ba442222;
+  --color-extra: #ff8c00ff;
+  --color-extra-2: #ff8c00cc;
+  --color-extra-3: #ff8c0088;
+  --color-extra-4: #ff8c0044;
+  --color-extra-5: #ff8c0022;
+  --color-accent-dark: #d3a625ff;
+  --color-accent-dark-2: #d3a625cc;
+  --color-accent-dark-3: #d3a62588;
+  --color-accent-dark-4: #d3a62544;
+  --color-accent-dark-5: #d3a62522;
+  --color-accent: #eeba30ff;
+  --color-accent-2: #eeba30cc;
+  --color-accent-3: #eeba3088;
+  --color-accent-4: #eeba3044;
+  --color-accent-5: #eeba3022;
+  --color-accent-light: #ffdb58ff;
+  --color-accent-light-2: #ffdb58cc;
+  --color-accent-light-3: #ffdb5888;
+  --color-accent-light-4: #ffdb5844;
+  --color-accent-light-5: #ffdb5822;
+  --color-white: #f5deb3ff;
+  --color-white-2: #f5deb3cc;
+  --color-white-3: #f5deb388;
+  --color-white-4: #f5deb344;
+  --color-white-5: #f5deb322;
+  --color-shade: #8b4513ff;
+  --color-shade-2: #8b4513cc;
+  --color-shade-3: #8b451388;
+  --color-shade-4: #8b451344;
+  --color-shade-5: #8b451322;
+  --color-black: #210706ff;
+  --color-black-2: #210706cc;
   --color-black-3: #21070688;
   --color-black-4: #21070644;
   --color-black-5: #21070622;
@@ -64,7 +63,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 
 .font-primary {
   font-family: var(--font-primary);
@@ -78,7 +76,12 @@
   font-family: var(--font-handwriting);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-accent);
 }
 
@@ -290,17 +293,27 @@ a {
   padding-right: 5rem;
 }
 
-
 .btn {
   background-color: var(--color-white);
   color: var(--color-primary-dark);
   border: 1px solid var(--color-primary-dark);
   padding: 0.5rem 1rem;
+  box-shadow: 0.5rem 0.5rem var(--color-accent);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .btn:hover {
   background-color: var(--color-primary-dark);
   color: var(--color-white);
+}
+
+.btn[disabled] {
+  background-color: var(--color-primary-dark-3);
+  color: var(--color-white);
+  border: 1px solid var(--color-primary-dark-3);
+  box-shadow: none;
 }
 
 .card {
@@ -353,6 +366,51 @@ a {
   text-align: center;
 }
 
+.right {
+  text-align: right;
+}
+
+form {
+  margin-top: 1rem;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.input-label {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+input {
+  width: 100%;
+  background-color: var(--color-primary-dark-4);
+  color: var(--color-white);
+  border: 1px solid var(--color-primary-dark);
+  padding: 0.5rem 1rem;
+  box-shadow: 0.5rem 0.5rem var(--color-accent);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+input:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary-dark);
+}
+
+input:focus,
+input:valid {
+  outline: none;
+  border: 1px solid var(--color-accent);
+  background-color: var(--color-white);
+  color: var(--color-primary-dark);
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -360,11 +418,14 @@ table {
   box-shadow: 0 0 10px var(--color-primary-dark-3);
 }
 
-table, th, td {
+table,
+th,
+td {
   border-bottom: 1px solid var(--color-primary-dark);
 }
 
-th, td {
+th,
+td {
   padding: 0.5rem;
 }
 
@@ -402,8 +463,26 @@ a {
   flex-direction: column;
 }
 
+.p-message-error {
+  background: var(--color-primary-dark-2);
+  padding: .5rem;
+  color: var(--color-white);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 0 10px var(--color-primary-dark-3);
+}
+
+.p-message-close {
+  cursor: pointer;
+}
+
 header {
-  background: linear-gradient(var(--color-black), var(--color-black-2), var(--color-black-3), transparent);
+  background: linear-gradient(
+    var(--color-black),
+    var(--color-black-2),
+    var(--color-black-3),
+    transparent
+  );
   display: flex;
   justify-content: space-between;
   padding: 0 2rem;
@@ -412,6 +491,11 @@ header {
   width: 100%;
   z-index: 1;
   color: var(--color-white);
+}
+
+hr {
+  border: 1px solid var(--color-primary-dark);
+  box-shadow: 0 0 10px var(--color-primary-dark);
 }
 
 .company {
@@ -447,7 +531,7 @@ header {
 .nav-link:hover {
   color: var(--color-primary-dark);
   background-color: var(--color-white);
-  box-shadow: 0 .5rem 3rem var(--color-primary-3)
+  box-shadow: 0 0.5rem 3rem var(--color-primary-3);
 }
 
 main {
@@ -465,11 +549,46 @@ main {
   padding: 2rem;
   background-color: var(--color-white-2);
   color: var(--color-primary-dark);
-  box-shadow: 0 .5rem 3rem var(--color-primary-3)
+  box-shadow: 0 0.5rem 3rem var(--color-primary-3);
+  display: flex;
+  flex-direction: column;
+}
+
+.giant-error {
+  font-family: var(--font-accent);
+  font-size: 20rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-btn {
+  color: var(--color-primary);
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.delete-btn {
+  color: var(--color-primary-2);
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 footer {
-  background: linear-gradient(transparent, var(--color-black-3), var(--color-black-2), var(--color-black));
+  background: linear-gradient(
+    transparent,
+    var(--color-black-3),
+    var(--color-black-2),
+    var(--color-black)
+  );
   display: flex;
   justify-content: center;
   padding: 1rem;
