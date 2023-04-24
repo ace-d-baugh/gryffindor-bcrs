@@ -66,7 +66,7 @@ export class SecurityQuestionDetailsComponent implements OnInit {
       .updateSecurityQuestion(this.questionId, updatedSecurityQuestion)
       .subscribe({
         next: (res) => {
-          this.router.navigate(['/security-questions']);
+          this.router.navigate(['/main/security-question-list']);
         },
         error: (e) => {
           this.errorMessages = [
@@ -80,6 +80,6 @@ export class SecurityQuestionDetailsComponent implements OnInit {
   }
 
   cancel(): void {
-    this.router.navigate(['/security-questions']);
+    this.router.navigate(['/main/security-question-list']);
   }
 }

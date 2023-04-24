@@ -6540,3 +6540,1644 @@
   isDisabled: false,
   __v: 0
 }
+[4/24/2023, 3:07:46 PM] server	 session-api.js - User logged in successfully
+[4/24/2023, 3:09:24 PM] server	 session-api.js - User logged in successfully
+[4/24/2023, 3:12:18 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("644021d91b09b459edc40fa6"),
+  text: 'What is your favorite banana?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6440978a14c78b009d96e669"),
+  text: 'How big was the hail in Johns hand?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644559bd6d9125e54665c87c"),
+  text: 'Why are you afraid of Gorillas',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570b85c5c8f6fd81174e0"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c35c5c8f6fd81174e2"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c55c5c8f6fd81174e6"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c65c5c8f6fd81174e8"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c75c5c8f6fd81174ea"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c85c5c8f6fd81174ec"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c95c5c8f6fd81174ee"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c95c5c8f6fd81174f0"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570ca5c5c8f6fd81174f4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570ca5c5c8f6fd81174f6"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570cb5c5c8f6fd81174f8"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570cc5c5c8f6fd81174fa"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6445890d4d87bda83a6956db"),
+  text: 'Who was your best friend in college?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:12:52 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 3:12:57 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("644021d91b09b459edc40fa6"),
+  text: 'What is your favorite banana?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6440978a14c78b009d96e669"),
+  text: 'How big was the hail in Johns hand?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644559bd6d9125e54665c87c"),
+  text: 'Why are you afraid of Gorillas',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570b85c5c8f6fd81174e0"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c35c5c8f6fd81174e2"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c55c5c8f6fd81174e6"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c65c5c8f6fd81174e8"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c75c5c8f6fd81174ea"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c85c5c8f6fd81174ec"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c95c5c8f6fd81174ee"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c95c5c8f6fd81174f0"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570ca5c5c8f6fd81174f4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570ca5c5c8f6fd81174f6"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570cb5c5c8f6fd81174f8"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570cc5c5c8f6fd81174fa"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6445890d4d87bda83a6956db"),
+  text: 'Who was your best friend in college?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:13:00 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 3:13:04 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("644021d91b09b459edc40fa6"),
+  text: 'What is your favorite banana?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6440978a14c78b009d96e669"),
+  text: 'How big was the hail in Johns hand?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644559bd6d9125e54665c87c"),
+  text: 'Why are you afraid of Gorillas',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570b85c5c8f6fd81174e0"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c35c5c8f6fd81174e2"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c55c5c8f6fd81174e6"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c65c5c8f6fd81174e8"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c75c5c8f6fd81174ea"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c85c5c8f6fd81174ec"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c95c5c8f6fd81174ee"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c95c5c8f6fd81174f0"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570ca5c5c8f6fd81174f4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570ca5c5c8f6fd81174f6"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570cb5c5c8f6fd81174f8"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570cc5c5c8f6fd81174fa"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6445890d4d87bda83a6956db"),
+  text: 'Who was your best friend in college?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:15:31 PM] server	 security-question-api.js - {
+  text: 'Is this a sceuirty question? ',
+  isDisabled: false,
+  _id: new ObjectId("6446d553bf707a9a7a6f0050"),
+  __v: 0
+} was added successfully
+[4/24/2023, 3:15:53 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("644021d91b09b459edc40fa6"),
+  text: 'What is your favorite banana?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6440978a14c78b009d96e669"),
+  text: 'How big was the hail in Johns hand?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644559bd6d9125e54665c87c"),
+  text: 'Why are you afraid of Gorillas',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570b85c5c8f6fd81174e0"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c35c5c8f6fd81174e2"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c55c5c8f6fd81174e6"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c65c5c8f6fd81174e8"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c75c5c8f6fd81174ea"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c85c5c8f6fd81174ec"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c95c5c8f6fd81174ee"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c95c5c8f6fd81174f0"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570ca5c5c8f6fd81174f4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570ca5c5c8f6fd81174f6"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570cb5c5c8f6fd81174f8"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570cc5c5c8f6fd81174fa"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6445890d4d87bda83a6956db"),
+  text: 'Who was your best friend in college?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6446d553bf707a9a7a6f0050"),
+  text: 'Is this a sceuirty question? ',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:17:19 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("644021d91b09b459edc40fa6"),
+  text: 'What is your favorite banana?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6440978a14c78b009d96e669"),
+  text: 'How big was the hail in Johns hand?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644559bd6d9125e54665c87c"),
+  text: 'Why are you afraid of Gorillas',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570b85c5c8f6fd81174e0"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c35c5c8f6fd81174e2"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c55c5c8f6fd81174e6"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c65c5c8f6fd81174e8"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c75c5c8f6fd81174ea"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c85c5c8f6fd81174ec"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c95c5c8f6fd81174ee"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c95c5c8f6fd81174f0"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570ca5c5c8f6fd81174f4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570ca5c5c8f6fd81174f6"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570cb5c5c8f6fd81174f8"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570cc5c5c8f6fd81174fa"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6445890d4d87bda83a6956db"),
+  text: 'Who was your best friend in college?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("6446d553bf707a9a7a6f0050"),
+  text: 'Is this a sceuirty question? ',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:18:20 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:18:24 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:18:29 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:18:32 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:18:35 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:18:38 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:18:42 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:18:44 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:18:47 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:18:49 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:18:52 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:18:55 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:18:58 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:19:14 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:19:35 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:19:42 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:19:55 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 3:20:39 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:23:11 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 3:23:28 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 3:23:36 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 3:23:54 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 3:24:16 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 3:24:52 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 3:31:15 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 3:33:12 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 3:33:17 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 3:40:54 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:41:19 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:41:48 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:48:48 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:48:57 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:49:02 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:49:05 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:55:16 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:55:59 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 3:56:07 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 4:01:20 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was you high school science teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 4:01:22 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 4:01:57 PM] server	 security-question-api.js - {
+  text: 'Who was your favorite elementary school teacher?',
+  isDisabled: false,
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e")
+} was updated successfully
+[4/24/2023, 4:01:57 PM] server	 security-question-api.js - {
+  text: 'Who was your favorite elementary school teacher?',
+  isDisabled: false,
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e")
+} was updated successfully
+[4/24/2023, 4:02:22 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 4:05:07 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 4:05:35 PM] server	 security-question-api.js - {
+  text: 'Who was your favorite elementray school teacher? ?',
+  isDisabled: false,
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e")
+} was updated successfully
+[4/24/2023, 4:05:35 PM] server	 security-question-api.js - {
+  text: 'Who was your favorite elementray school teacher? ?',
+  isDisabled: false,
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e")
+} was updated successfully
+[4/24/2023, 4:05:58 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 4:06:00 PM] server	 security-question-api.js - {
+  text: 'Who was your favorite elementray school teacher? ?',
+  isDisabled: false,
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e")
+} was updated successfully
+[4/24/2023, 4:06:00 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was your favorite elementray school teacher? ?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 4:06:00 PM] server	 security-question-api.js - {
+  text: 'Who was your favorite elementray school teacher? ?',
+  isDisabled: false,
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e")
+} was updated successfully
+[4/24/2023, 4:06:14 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:06:20 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:07:10 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:10:08 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:14:26 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:14:30 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:15:04 PM] server	 session-api.js - User logged in successfully
+[4/24/2023, 4:15:21 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:15:24 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:16:29 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:16:32 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:16:57 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:17:00 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:18:54 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:20:14 PM] server	 user-api.js - user bearboy created successfully
+[4/24/2023, 4:22:57 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:24:01 PM] server	 user-api.js - user doplhin created successfully
+[4/24/2023, 4:24:01 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:24:45 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was your favorite elementray school teacher? ?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 4:25:48 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:26:02 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:26:42 PM] server	 security-question-api.js - {
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e"),
+  text: 'Who was your favorite elementray school teacher? ?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec640a9bef7f1dc14d311"),
+  text: 'What is your favorite hobby? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec742a9bef7f1dc14d312"),
+  text: ' What is your favorite sandwich meat?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec793a9bef7f1dc14d313"),
+  text: ' What is the name of your favorite teacher?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7a4a9bef7f1dc14d314"),
+  text: ' What is your favorite vacation spot?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7afa9bef7f1dc14d315"),
+  text: ' What was the name of the first album you ever purchased?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7c8a9bef7f1dc14d316"),
+  text: 'What is the name of your favorite fictional character??',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7d8a9bef7f1dc14d317"),
+  text: ' What is the name of your favorite childhood toy?',
+  isDisabled: false
+},{
+  _id: new ObjectId("643ec7eea9bef7f1dc14d318"),
+  text: ' What is the name of the first play or musical you ever saw? ',
+  isDisabled: false
+},{
+  _id: new ObjectId("6440293851b521688209e625"),
+  text: 'What is your favorite fruit?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64402e16eca5262b633b91a1"),
+  text: 'What color is your favorite bird?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  text: 'What is your least favorite song?',
+  isDisabled: false,
+  __v: 0
+},{
+  _id: new ObjectId("644570c45c5c8f6fd81174e4"),
+  text: 'When did you begin beleiving tht you could fly?',
+  isDisabled: false,
+  __v: 0
+}
+[4/24/2023, 4:26:49 PM] server	 user-api.js - Query on all users was successful

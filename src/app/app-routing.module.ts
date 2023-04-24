@@ -21,6 +21,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { ServerErrorComponent } from './pages/server-error/server-error.component';
+import { UserCreateComponent } from './pages/user-create/user-create.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path: 'users',
         component: UserListComponent,
+      },
+      {
+        path: 'users/create/new',
+        component: UserCreateComponent,
       },
     ]
   },
