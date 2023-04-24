@@ -25,20 +25,20 @@ from 'primeng/api';
   providers: [MessageService, ConfirmationService],
 })
 export class BaseLayoutComponent implements OnInit {
+  username: string = this.cookieService.get('sessionuser');
   sessionName: string;
   hideHeaderFooter: boolean = false;
   currentYear: number = new Date().getFullYear();
-  role: string | undefined;
-
+  role: any;
 
   //  constructor
   constructor(private cookieService: CookieService, private router: Router,
     private confirmationService: ConfirmationService, private messageService: MessageService) {
-    this.sessionName = this.cookieService.get('session_name')
+    this.sessionName = this.cookieService.get('sessionuser')
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.hideHeaderFooter = event.url === '/session/sign-in';
-        this.role = this.cookieService.get('admin'); // Replace 'user_role' with the actual cookie key for the user role
+
       }
     });
   }

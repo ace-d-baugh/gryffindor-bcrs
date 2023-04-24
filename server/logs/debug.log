@@ -6399,3 +6399,4 @@
 [4/24/2023, 12:29:06 PM] server	 user-api.js - Query on all users was successful
 [4/24/2023, 12:33:10 PM] server	 user-api.js - Query on all users was successful
 [4/24/2023, 12:33:21 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 1:12:20 PM] server	 session-api.js - User logged in successfully
