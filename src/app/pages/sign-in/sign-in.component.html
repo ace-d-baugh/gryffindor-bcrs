@@ -23,9 +23,8 @@
         formControlName="username"
         id="username"
         class="form-control"
-
       />
-      <br />
+
 
       <mat-error
         *ngIf="
@@ -44,9 +43,8 @@
         formControlName="password"
         id="password"
         class="form-control"
-
       />
-      <br />
+
 
       <mat-error
         *ngIf="
@@ -73,11 +71,15 @@
     </div>
 
     <div class="center">
-      <button type="submit" class="btn" [disabled]="!signinForm.valid">Sign-In</button>
+      <button type="submit" class="btn" [disabled]="!signinForm.valid">
+        Sign-In
+      </button>
     </div>
   </form>
 </div>
 
 <div class="center m3">
-  <button class="btn" routerLink="/main/users/create/new">Create New Account</button>
+  <button class="btn" routerLink="/main/users/create/new">
+    Create New Account
+  </button>
 </div>
