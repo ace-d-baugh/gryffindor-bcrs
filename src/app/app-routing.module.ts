@@ -45,7 +45,7 @@ const routes: Routes = [
         path: 'users',
         component: UserListComponent,
       },
-    ],
+    ]
   },
   {
     path: 'session',
@@ -55,7 +55,7 @@ const routes: Routes = [
         path: 'sign-in',
         component: SignInComponent,
       },
-    ],
+    ]
   },
   // a 404 page for everything not found
   {

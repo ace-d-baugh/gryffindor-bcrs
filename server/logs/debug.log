@@ -1,0 +1,79 @@
+[4/23/2023, 6:12:07 PM] server	 security-question-api.js - [object Object]
+[4/23/2023, 6:12:59 PM] server	 security-question-api.js - Query was successful
+[4/23/2023, 7:14:14 PM] server	 security-question-api.js - {
+  text: 'Who was you high school science teacher?',
+  isDisabled: false,
+  _id: new ObjectId("643ec5d3a9bef7f1dc14d30e")
+} was updated successfully
+[4/23/2023, 7:38:10 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/23/2023, 7:52:26 PM] server	 session-api.js - User logged in successfully
+[4/23/2023, 8:02:10 PM] server	 user-api.js - Query on all users was successful
+[4/23/2023, 8:03:07 PM] server	 user-api.js - Query on all users was successful
+[4/23/2023, 8:03:32 PM] server	 user-api.js - user {
+  _id: new ObjectId("643ecda5a9bef7f1dc14d31b"),
+  username: 'tester2',
+  password: 'password01',
+  firstName: 'TEST',
+  lastName: 'McTESTING',
+  phoneNumber: '+1(207)555-1313',
+  address: 'A New Address',
+  email: 'you@me.com',
+  isDisabled: false,
+  role: { text: 'admin', _id: new ObjectId("643f514ea771b52a73955c2a") },
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("6445d564d5d46272daa2390b"),
+      questionText: 'What did you name your first car? ',
+      answerText: 'Crathnor'
+    },
+    {
+      _id: new ObjectId("6445d564d5d46272daa2390c"),
+      questionText: 'What is your favorite movie quote?',
+      answerText: 'Do, or do not. There is no try.'
+    },
+    {
+      _id: new ObjectId("6445d564d5d46272daa2390d"),
+      questionText: 'What is the name of your favorite book? ',
+      answerText: "Ender's Game"
+    }
+  ],
+  dateCreated: 2023-04-18T12:30:45.123Z,
+  dateModified: 2023-04-19T02:26:22.844Z
+} found successfully
+[4/23/2023, 8:04:22 PM] server	 user-api.js - user tester2 found successfully
+[4/23/2023, 8:11:59 PM] server	 user-api.js - user Lois0473 created successfully
+[4/23/2023, 8:15:17 PM] server	 user-api.js - Query on all users was successful
+[4/23/2023, 8:16:47 PM] server	 user-api.js - user {
+  username: 'Lois0473',
+  password: '$2a$10$rbh.UBlYoux8vs/fZTFrZ.ibfwXyZ/gaD8eg3QTYfryb5Vo8OI/IS',
+  firstName: 'Lois',
+  lastName: 'Griffin-Quagmire',
+  phoneNumber: '123-456-7890',
+  address: '31 Spooner St',
+  isDisabled: false,
+  role: { _id: new ObjectId("6445d75f49bcd6b52a96ec1d") },
+  selectedSecurityQuestions: [],
+  dateCreated: 2023-04-24T01:07:41.320Z,
+  dateModified: 2023-04-24T01:16:47.673Z,
+  _id: new ObjectId("6445d75f49bcd6b52a96ec1c"),
+  __v: 0
+} updated successfully
+[4/23/2023, 8:17:17 PM] server	 user-api.js - user Lois0473 updated successfully
+[4/23/2023, 8:18:59 PM] server	 user-api.js - user Lois0473 updated successfully
+[4/23/2023, 8:23:11 PM] server	 user-api.js - Query on all users was successful
+[4/23/2023, 8:24:55 PM] server	 user-api.js - user {
+  username: 'ctox2',
+  password: '$2a$10$wK7K2zG0/sbWl.BhWzzs8ubCmvIgbXcvkYSL8hKCEsaY.ykruuIfO',
+  firstName: 'Travis',
+  lastName: 'Howerton',
+  phoneNumber: '865-867-5309',
+  address: 'downtown',
+  isDisabled: true,
+  role: { text: 'standard', _id: new ObjectId("644029ed51b521688209e643") },
+  selectedSecurityQuestions: [],
+  dateCreated: 2023-04-19T17:46:47.130Z,
+  dateModified: 2023-04-24T01:24:55.068Z,
+  _id: new ObjectId("644029ed51b521688209e642"),
+  __v: 0
+} deleted successfully
+[4/23/2023, 8:26:03 PM] server	 user-api.js - user tester6 deleted successfully
