@@ -15,6 +15,7 @@
     <h3>Fields marked with an asterisk (*) are required</h3>
   </div>
 
+  <!--error messages-->
   <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
   <form
@@ -43,6 +44,7 @@
         </mat-error>
       </div>
 
+      <!--div-->
       <div class="form-group">
         <label class="input-label">Password</label>
         <input
@@ -63,6 +65,7 @@
         </mat-error>
       </div>
 
+      <!--errors-->
       <mat-error
         class="error"
         *ngIf="
@@ -75,6 +78,7 @@
       </mat-error>
     </div>
 
+    <!--form group-->
     <div class="form-group">
       <label class="input-label">First Name</label>
       <input
@@ -95,6 +99,7 @@
       </mat-error>
     </div>
 
+    <!--form group-->
     <div class="form-group">
       <label class="input-label">Last Name</label>
       <input
@@ -186,6 +191,8 @@
       <button class="btn" (click)="cancel()">Cancel</button>
 
     <br />
+
+    <!--submit actions-->
     <mat-card-actions align="end">
       <button mat-raised-button (click)="cancel()" style="background-color: #eeba30; color: white">
         Cancel
@@ -194,6 +201,8 @@
       <button mat-raised-button [disabled]="!form.valid" style="background-color: #ae0001; color: white">
         Submit
       </button>
+
+    </mat-card-actions>
     </div>
   </form>
 </div>
