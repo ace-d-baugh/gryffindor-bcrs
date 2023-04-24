@@ -7,6 +7,7 @@
 ; Description: Base Layout Component
 ;===========================================
 -->
+
 <div class="base-container font-primary">
   <header>
     <div class="company">
@@ -19,6 +20,37 @@
       <div class="nav-link" routerLink="/services">Services</div>
       <div class="nav-link" routerLink="/contact">Contact</div>
       <div class="nav-link" routerLink="/session/sign-in">Sign-In</div>
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="User profile menu">
+        <mat-icon style="font-size: 30px;">person</mat-icon>
+      </button>
+
+
+        <mat-menu #profileMenu="matMenu" x-position="before">
+          <button mat-menu-item routerLink="users/profile/{{ sessionName }}" style="text-align: center;">Welcome {{ sessionName }}</button>
+
+
+          <mat-menu #configs="matMenu">
+            <ng-container *ngIf="role === 'admin'">
+              <button mat-menu-item routerLink="/users">
+                <mat-icon>supervisor_account</mat-icon>
+                User List
+              </button>
+              <button mat-menu-item routerLink="/roles">
+                <mat-icon>admin_panel_settings</mat-icon>
+                Roles
+              </button>
+              <button mat-menu-item routerLink="/security-questions">
+                <mat-icon>help</mat-icon>
+                Security Questions
+              </button>
+            </ng-container>
+            <button mat-menu-item (click)="signout()">
+              <mat-icon>logout</mat-icon>
+              Sign out
+            </button>
+          </mat-menu>
+
+        </mat-menu>
     </div>
   </header>
 
@@ -31,5 +63,4 @@
     <div class="created-by">Created By: John Vanhessche, Chad ONeal, & Ace Baugh</div>
   </footer>
 </div>
-
 
