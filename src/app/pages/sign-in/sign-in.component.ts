@@ -55,6 +55,7 @@ export class SignInComponent implements OnInit {
    * details: calls the session service to signin
    */
   signin() {
+    alert
     const username = this.signinForm.controls['username'].value;
     const password = this.signinForm.controls['password'].value;
 
@@ -62,7 +63,7 @@ export class SignInComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.cookieService.set('sessionuser', res.data.username, 1);
-        this.router.navigate(['']);
+        this.router.navigate(['/main']);
       },
       error: (e) => {
         this.errorMessages = [

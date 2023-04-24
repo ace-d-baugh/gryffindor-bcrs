@@ -38,7 +38,7 @@
           routerLink="users/profile/{{ sessionName }}"
           style="text-align: center; font-weight: bold"
         >
-          Welcome {{ username }}
+          Welcome {{ sessionName }}
         </button>
 
         <mat-divider></mat-divider>
@@ -63,7 +63,7 @@
           </button>
         </mat-menu>
 
-        <button mat-menu-item routerLink="/session/sign-in" (click)="signout()" class="user-menu-item">
+        <button mat-menu-item (click)="signout()" class="user-menu-item">
           <mat-icon>logout</mat-icon>
           Sign out
         </button>

@@ -26,9 +26,7 @@ import {
   providers: [MessageService, ConfirmationService],
 })
 export class BaseLayoutComponent implements OnInit {
-  username: string;
   sessionName: string;
-  hideHeaderFooter: boolean = false;
   currentYear: number = new Date().getFullYear();
   role: any;
 
@@ -40,7 +38,6 @@ export class BaseLayoutComponent implements OnInit {
     private messageService: MessageService
   ) {
     this.sessionName = this.cookieService.get('sessionuser');
-    this.username = this.cookieService.get('sessionuser');
 
   }
 
