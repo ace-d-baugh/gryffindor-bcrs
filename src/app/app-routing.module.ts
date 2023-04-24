@@ -22,6 +22,8 @@ import { SecurityQuestionDetailsComponent } from './pages/security-question-deta
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { ServerErrorComponent } from './pages/server-error/server-error.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -36,6 +38,14 @@ const routes: Routes = [
         path: '',
         // component: ServicesComponent,
         component: HomeComponent, // depricate
+      },
+      {
+        path: 'about',
+        component: AboutComponent,
+      },
+      {
+        path: 'contact',
+        component: ContactComponent,
       },
       {
         path: 'security-question-list',
@@ -53,7 +63,7 @@ const routes: Routes = [
         path: 'users/create/new',
         component: UserCreateComponent,
       },
-    ]
+    ],
   },
   {
     path: 'session',

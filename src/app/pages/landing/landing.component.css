@@ -152,7 +152,7 @@ header {
 }
 
 .about {
-  background-color: #F5DEB3;
+  background-color: #F5DEB3CC;
   width: 100%;
   padding: 5rem;
   color: #210706;
@@ -241,56 +241,12 @@ header {
 
 .contact {
   width: 100%;
-  background: #F5DEB3;
+  background: #F5DEB3CC;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 3rem;
   color: #740001;
-}
-
-.contact-content {
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.contact-content h2 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-}
-
-.contact-info {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-.col {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.phone-side a {
-  color: #740001;
-  text-decoration: none;
-}
-
-.phone-side a:hover {
-  color: #740001;
-  box-shadow: .25rem .25rem #EEBA30;
-}
-
-.contact-text {
-  padding: 1rem 0;
-}
-
-.transparent-text {
-  color: transparent;
 }
 
 .footer {
