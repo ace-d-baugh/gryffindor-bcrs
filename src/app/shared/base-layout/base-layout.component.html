@@ -16,7 +16,9 @@
 <div class="base-container font-primary">
   <header>
     <div class="company">
-      <div class="company-logo"><img src="./assets/images/bcrs-logo.png" alt="main-logo" /></div>
+      <div class="company-logo">
+        <img src="./assets/images/bcrs-logo.png" alt="main-logo" />
+      </div>
       <div class="company-name font-accent">Bob's Computer Repair Shop</div>
     </div>
     <div class="navbar">
@@ -24,55 +26,62 @@
       <div class="nav-link" routerLink="/about">About</div>
       <div class="nav-link" routerLink="/services">Services</div>
       <div class="nav-link" routerLink="/contact">Contact</div>
-      <div class="nav-link" routerLink="/session/sign-in">Sign-In</div>
+      <div class="nav-link" routerLink="/session/sign-in" *ngIf="!session">Sign-In</div>
 
-      <button [matMenuTriggerFor]="session" mat-icon-button class="ml-xs">
+      <button [matMenuTriggerFor]="session" mat-icon-button class="ml-xs" *ngIf="session">
         <mat-icon>person</mat-icon>
       </button>
 
-       <mat-menu #session="matMenu" x-position="before">
-          <button mat-menu-item routerLink="users/profile/{{ sessionName }}" style="text-align: center; font-weight: bold;">
-            Welcome {{ sessionName }}
+      <mat-menu #session="matMenu" x-position="before" class="user-menu">
+        <button
+          mat-menu-item
+          routerLink="users/profile/{{ sessionName }}"
+          style="text-align: center; font-weight: bold"
+        >
+          Welcome {{ sessionName }}
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-menu-item [matMenuTriggerFor]="configs" class="user-menu-item">
+          <mat-icon>settings</mat-icon>
+          Configurations
+        </button>
+
+        <mat-menu #configs="matMenu" class="user-menu">
+          <!-- users list -->
+
+          <button mat-menu-item routerLink="/main/users" class="user-menu-item">
+            <mat-icon>supervisor_account</mat-icon>
+            User List
           </button>
 
-          <mat-divider></mat-divider>
-
-          <button mat-menu-item [matMenuTriggerFor]="configs">
-            <mat-icon>settings</mat-icon>
-            Configurations
+          <!-- security questions -->
+          <button mat-menu-item routerLink="/main/security-question-list" class="user-menu-item">
+            <mat-icon>help</mat-icon>
+            Security Questions
           </button>
-
-          <mat-menu #configs="matMenu">
-            <!-- users list -->
-
-            <button mat-menu-item routerLink="/main/users">
-              <mat-icon>supervisor_account</mat-icon>
-              User List
-            </button>
-
-            <!-- security questions -->
-            <button mat-menu-item routerLink="/main/security-question-list">
-              <mat-icon>help</mat-icon>
-              Security Questions
-            </button>
-          </mat-menu>
-
-          <button mat-menu-item (click)="signout()">
-            <mat-icon>logout</mat-icon>
-            Sign out
-          </button>
-
         </mat-menu>
-   </div>
-</header>
+
+        <button mat-menu-item (click)="signout()" class="user-menu-item">
+          <mat-icon>logout</mat-icon>
+          Sign out
+        </button>
+      </mat-menu>
+    </div>
+  </header>
 
   <main>
     <router-outlet></router-outlet>
   </main>
 
   <footer>
-    <div class="copyright">&copy;{{ currentYear }} Bob's Computer Repair Shop | All Rights Reserved |&nbsp;</div>
-    <div class="created-by">Created By: John Vanhessche, Chad ONeal, & Ace Baugh</div>
+    <div class="copyright">
+      &copy;{{ currentYear }} Bob's Computer Repair Shop | All Rights Reserved
+      |&nbsp;
+    </div>
+    <div class="created-by">
+      Created By: John Vanhessche, Chad ONeal, & Ace Baugh
+    </div>
   </footer>
 </div>
-

@@ -78,7 +78,7 @@ router.get("/", async (req, res) => {
           );
           // Send the base response object
           res.json(findAllResponse.toObject());
-          debugLogger({filename: myfile, message: securityQuestions})
+          debugLogger({filename: myfile, message: "All security questions returned successfully"})
         }
       });
   } catch (e) {
