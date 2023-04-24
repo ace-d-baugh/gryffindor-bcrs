@@ -29767,3 +29767,4 @@
 } was updated successfully
 [4/24/2023, 4:39:59 PM] server	 security-question-api.js - Security Question deleted successfully
 [4/24/2023, 4:40:34 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 4:47:29 PM] server	 session-api.js - User logged in successfully
