@@ -1,0 +1,19 @@
+<div fxLayout="column">
+
+    <div class="card">
+
+        <div class="card-title">Update User form</div>
+        <div class="card-subtitle" style="text-align: center; font-weight: lighter;">Fields marked with an asterisk (*) are required.</div>
+        <br />
+
+        <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+
+        <form [formGroup]="form" (ngsubmit)="saveUser()" (keydown.enter)="$event.preventDefault()" style="width: 50%; margin: 0 auto">
+            
+
+        </form>
+
+
+    </div>  <!--card end-->
+
+</div>  <!--fxLayout end-->
