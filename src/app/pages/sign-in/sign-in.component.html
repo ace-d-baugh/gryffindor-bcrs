@@ -1,84 +1,83 @@
 <!--
 ============================================
-; Title: user-list.component.html
+; Title: sign-in.component.html
 ; Author: Professor Krasso
 ; Date: 04/21/2023
 ; Modified By: John Vanhessche
-; Description: user-list Component
+; Description: Sign-In Component
 ;===========================================
 -->
 
-<div fxLayout>
-  <mat-card class="mat-elevation-z0 signin-card">
-    <mat-card-header class="padding-bottom-1" fxLayoutAlign="left">
-      <mat-card-title>
-        <h1 class="card-title">Customer Sign-In</h1>
-      </mat-card-title>
-    </mat-card-header>
-    <hr class="hr" />
+<div class="main-container">
+  <h1 class="center mb2">Customer Sign-In</h1>
+  <hr class="hr" />
 
-    <mat-card-content>
-      <!-- Error messages -->
-      <p-messages
-        [(value)]="errorMessages"
-        [enableService]="false"
-      ></p-messages>
-      <form [formGroup]="signinForm" (ngSubmit)="signin(); signinForm.reset()">
-        <mat-card-content>
-          <mat-form-field appearance="fill">
-            <mat-label>Username</mat-label>
-            <input type="text" matInput formControlName="userName" />
-            <br />
+  <!-- Error messages -->
+  <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
-            <mat-error
-              *ngIf="
-                signinForm.controls['userName'].hasError('required') &&
-                signinForm.controls['userName'].touched
-              "
-            >
-              Username is required.
-            </mat-error>
-          </mat-form-field>
-          <br /><br />
+  <form [formGroup]="signinForm" (ngSubmit)="signin(); signinForm.reset()">
+    <div class="form-group">
+      <label class="input-label" for="input">Username</label>
+      <input
+        type="text"
+        formControlName="username"
+        id="username"
+        class="form-control"
 
-          <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Password</mat-label>
-            <input type="password" matInput formControlName="password" />
-            <mat-error
-              *ngIf="
-                signinForm.controls['password'].hasError('required') &&
-                signinForm.controls['password'].touched
-              "
-            >
-              Password is required.
-            </mat-error>
+      />
+      <br />
 
-            <mat-error
-              *ngIf="
-                signinForm.controls['password'].hasError('pattern') &&
-                signinForm.controls['password'].touched
-              "
-            >
-              Password must be at least 8 characters, contain one letter, and
-              one number.
-            </mat-error>
-          </mat-form-field>
-        </mat-card-content>
-      </form>
-
-      <div fxLayout fxLayoutAlign="forgot">
-        <a class="forgot" routerLink="/session/forgot">Forgot Password</a>
-      </div>
-
-      <div class="sign-in-wrapper">
-        <button class="btn hero-button">Sign-In</button>
-      </div>
-    </mat-card-content>
-  </mat-card>
-
-  <div class="create-new-wrapper">
-    <div class="hero-action-button">
-      <button class="btn hero-button">Create New Account</button>
+      <mat-error
+        *ngIf="
+          signinForm.controls['username'].hasError('required') &&
+          signinForm.controls['username'].touched
+        "
+      >
+        Username is required.
+      </mat-error>
     </div>
-  </div>
+
+    <div class="form-group">
+      <label class="input-label" for="password">Password</label>
+      <input
+        type="password"
+        formControlName="password"
+        id="password"
+        class="form-control"
+
+      />
+      <br />
+
+      <mat-error
+        *ngIf="
+          signinForm.controls['password'].hasError('required') &&
+          signinForm.controls['password'].touched
+        "
+      >
+        Password is required.
+      </mat-error>
+
+      <div
+        class="error-message"
+        *ngIf="
+          signinForm.controls['password'].hasError('pattern') &&
+          signinForm.controls['password'].touched
+        "
+      >
+        Password must be at least 8 characters, contain one letter, and one
+        number.
+      </div>
+    </div>
+    <div class="right">
+      <a routerLink="/session/forgot">Forgot Password</a>
+    </div>
+
+    <div class="center">
+      <button type="submit" class="btn" [disabled]="!signinForm.valid">Sign-In</button>
+    </div>
+  </form>
+</div>
+
+<div class="center m3">
+  <button class="btn">Create New Account</button>
 </div>

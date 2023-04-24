@@ -10,3 +10,8 @@
 [4/23/2023, 8:19:44 PM] server	 user-api.js - User not found
 [4/23/2023, 8:20:42 PM] server	 user-api.js - User 6 not found
 [4/23/2023, 8:24:38 PM] server	 user-api.js - user 6 not found
+[4/24/2023, 11:18:13 AM] server	 session-api.js - Bad request, input doesn't match schema
+[4/24/2023, 11:22:07 AM] server	 session-api.js - Inavlid user id
+[4/24/2023, 11:25:10 AM] server	 session-api.js - Inavlid user id
+[4/24/2023, 11:25:31 AM] server	 session-api.js - Inavlid user id
+[4/24/2023, 11:26:16 AM] server	 session-api.js - Inavlid user id

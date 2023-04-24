@@ -24,7 +24,7 @@ import { Message } from 'primeng/api';
 export class SignInComponent implements OnInit {
   // create a property that contains a form group
   signinForm: FormGroup = this.fb.group({
-    userName: [null, Validators.compose([Validators.required])],
+    username: [null, Validators.compose([Validators.required])],
     //pattern for password: at least 8 characters, at least one letter, at least one number
     password: [
       null,
@@ -50,18 +50,18 @@ export class SignInComponent implements OnInit {
 
   /**
    * Description: signin function
-   * userName: comes from the form input
+   * username: comes from the form input
    * password: comes from the form input
    * details: calls the session service to signin
    */
   signin() {
-    const userName = this.signinForm.controls['userName'].value;
+    const username = this.signinForm.controls['username'].value;
     const password = this.signinForm.controls['password'].value;
 
-    this.sessionService.signin(userName, password).subscribe({
+    this.sessionService.signin(username, password).subscribe({
       next: (res) => {
         console.log(res);
-        this.cookieService.set('sessionuser', res.data.userName, 1);
+        this.cookieService.set('sessionuser', res.data.username, 1);
         this.router.navigate(['']);
       },
       error: (e) => {
