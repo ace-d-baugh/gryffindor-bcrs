@@ -26,16 +26,16 @@
       <div class="nav-link" routerLink="/main/about">About</div>
       <div class="nav-link" routerLink="/main">Services</div>
       <div class="nav-link" routerLink="/main/contact">Contact</div>
-      <div class="nav-link" routerLink="/session/sign-in" *ngIf="!session">Sign-In</div>
+      <!-- if not signed in, show sign-in link -->
+      <div class="nav-link" routerLink="/session/sign-in" *ngIf="!sessionName">Sign-In</div>
 
-      <button [matMenuTriggerFor]="session" mat-icon-button class="ml-xs" *ngIf="session">
+      <button [matMenuTriggerFor]="session" mat-icon-button class="ml-xs" *ngIf="sessionName">
         <mat-icon>person</mat-icon>
       </button>
 
       <mat-menu #session="matMenu" x-position="before" class="user-menu">
         <button
           mat-menu-item
-          routerLink="users/profile/{{ sessionName }}"
           style="text-align: center; font-weight: bold"
         >
           Welcome {{ sessionName }}

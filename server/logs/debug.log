@@ -29795,40 +29795,16 @@
 [4/24/2023, 5:15:03 PM] server	 user-api.js - user goldenboy created successfully
 [4/24/2023, 5:15:03 PM] server	 user-api.js - Query on all users was successful
 [4/24/2023, 5:15:11 PM] server	 user-api.js - Query on all users was successful
-[4/24/2023, 6:03:14 PM] server	 session-api.js - User logged in successfully
-[4/24/2023, 6:03:20 PM] server	 security-question-api.js - All security questions returned successfully
-[4/24/2023, 6:03:29 PM] server	 security-question-api.js - {
-  text: 'enter a security question',
-  isDisabled: false,
-  _id: new ObjectId("6446fcb14e08cd88cabe91ee"),
-  __v: 0
-} was added successfully
-[4/24/2023, 6:03:32 PM] server	 security-question-api.js - Query was successful
-[4/24/2023, 6:03:41 PM] server	 security-question-api.js - {
-  text: 'delete this a security question',
-  isDisabled: false,
-  _id: new ObjectId("6446fcb14e08cd88cabe91ee"),
-  __v: 0
-} was updated successfully
-[4/24/2023, 6:03:41 PM] server	 security-question-api.js - All security questions returned successfully
-[4/24/2023, 6:03:41 PM] server	 security-question-api.js - {
-  text: 'delete this a security question',
-  isDisabled: false,
-  _id: new ObjectId("6446fcb14e08cd88cabe91ee"),
-  __v: 0
-} was updated successfully
-[4/24/2023, 6:03:44 PM] server	 security-question-api.js - Security Question deleted successfully
-[4/24/2023, 6:05:10 PM] server	 session-api.js - User logged in successfully
-[4/24/2023, 6:05:32 PM] server	 security-question-api.js - All security questions returned successfully
-[4/24/2023, 6:06:18 PM] server	 security-question-api.js - {
-  text: 'Are you scared of bigfoot? ',
-  isDisabled: false,
-  _id: new ObjectId("6446fd5a4e08cd88cabe91fb"),
-  __v: 0
-} was added successfully
-[4/24/2023, 6:06:20 PM] server	 security-question-api.js - Query was successful
-[4/24/2023, 6:06:22 PM] server	 security-question-api.js - All security questions returned successfully
-[4/24/2023, 6:06:30 PM] server	 security-question-api.js - Security Question deleted successfully
-[4/24/2023, 6:06:35 PM] server	 user-api.js - Query on all users was successful
-[4/24/2023, 6:06:54 PM] server	 user-api.js - Query on all users was successful
-[4/24/2023, 6:07:08 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 5:42:47 PM] server	 session-api.js - User logged in successfully
+[4/24/2023, 5:44:13 PM] server	 session-api.js - User logged in successfully
+[4/24/2023, 5:56:55 PM] server	 security-question-api.js - All security questions returned successfully
+[4/24/2023, 5:56:57 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 5:57:59 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 5:58:29 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 6:00:04 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 6:00:23 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 6:01:08 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 6:01:11 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 6:02:34 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 6:02:35 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 6:03:01 PM] server	 security-question-api.js - Query was successful
