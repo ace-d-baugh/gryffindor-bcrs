@@ -16,8 +16,8 @@ import { CookieService } from 'ngx-cookie-service';
 import {
   ConfirmationService,
   ConfirmEventType,
-  MessageService,}
-from 'primeng/api';
+  MessageService,
+} from 'primeng/api';
 
 @Component({
   selector: 'app-base-layout',
@@ -26,20 +26,24 @@ from 'primeng/api';
   providers: [MessageService, ConfirmationService],
 })
 export class BaseLayoutComponent implements OnInit {
-  username: string = this.cookieService.get('sessionuser');
+  username: string;
   sessionName: string;
   hideHeaderFooter: boolean = false;
   currentYear: number = new Date().getFullYear();
   role: any;
 
   //  constructor
-  constructor(private cookieService: CookieService, private router: Router,
-    private confirmationService: ConfirmationService, private messageService: MessageService) {
-    this.sessionName = this.cookieService.get('sessionuser')
+  constructor(
+    private cookieService: CookieService,
+    private router: Router,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService
+  ) {
+    this.sessionName = this.cookieService.get('sessionuser');
+    this.username = this.cookieService.get('sessionuser');
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.hideHeaderFooter = event.url === '/session/sign-in';
-
       }
     });
   }
@@ -53,19 +57,27 @@ export class BaseLayoutComponent implements OnInit {
       header: 'Sign out confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.cookieService.deleteAll()
-        this.router.navigate(['/session/sign-in'])
+        this.cookieService.deleteAll();
+        this.router.navigate(['/session/sign-in']);
       },
       reject: (type: any) => {
         switch (type) {
           case ConfirmEventType.REJECT:
-            this.messageService.add({ severity: 'info', summary: 'Cancelled', detail: 'Sign out cancelled' });
-            break
-            case ConfirmEventType.CANCEL:
-            this.messageService.add({ severity: 'info', summary: 'Cancelled', detail: 'Sign out cancelled' });
-            break
+            this.messageService.add({
+              severity: 'info',
+              summary: 'Cancelled',
+              detail: 'Sign out cancelled',
+            });
+            break;
+          case ConfirmEventType.CANCEL:
+            this.messageService.add({
+              severity: 'info',
+              summary: 'Cancelled',
+              detail: 'Sign out cancelled',
+            });
+            break;
         }
-      }
-    })
+      },
+    });
   }
 }
