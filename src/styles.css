@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 :root {
   --font-primary: "Lato", sans-serif;
   --font-accent: "Philosopher", sans-serif;
@@ -310,7 +310,8 @@ a {
   color: var(--color-white);
 }
 
-.btn[disabled] {
+.btn[disabled],
+.disabled-btn {
   background-color: var(--color-primary-dark-3);
   color: var(--color-white);
   border: 1px solid var(--color-primary-dark-3);
@@ -353,10 +354,11 @@ a {
 }
 
 .card-footer {
-  background-color: var(--color-primary-dark-2);
-  color: var(--color-white);
+  background-color: var(--color-primary-dark-4);
+  color: var(--color-primary);
   padding: 0.5rem;
   font-size: 0.8rem;
+  text-align: center;
 }
 
 .card-footer a {
@@ -387,7 +389,8 @@ form {
   color: var(--color-primary-dark);
 }
 
-input {
+input,
+textarea {
   width: 100%;
   background-color: var(--color-primary-dark-4);
   color: var(--color-white);
@@ -399,13 +402,16 @@ input {
   font-weight: 700;
 }
 
-input:hover {
+input:hover,
+textarea:hover {
   background-color: var(--color-white);
   color: var(--color-primary-dark);
 }
 
 input:focus,
-input:valid {
+input:valid,
+textarea:focus,
+textarea:valid {
   outline: none;
   border: 1px solid var(--color-accent);
   background-color: var(--color-white);
@@ -468,17 +474,34 @@ a {
   flex-direction: column;
 }
 
+.user-menu {
+  border-radius: 0 !important;
+  background-color: #f5deb3;
+  box-shadow: 0 0 10px 0 var(--color-primary-dark-2);
+}
+
+.user-menu-item:hover,
+.user-menu-item:hover mat-icon {
+  background-color: var(--color-primary-dark) !important;
+  color: var(--color-white) !important;
+}
+
 .p-message-error {
   background: var(--color-primary-dark-2);
-  padding: .5rem;
+  padding: 0.5rem;
   color: var(--color-white);
   font-size: 0.8rem;
   margin-top: 0.5rem;
   box-shadow: 0 0 10px var(--color-primary-dark-3);
 }
 
-.p-message-close {
+.p-message-close,
+.p-dialog-header-close {
   cursor: pointer;
+  color: var(--color-white);
+  font-size: 1.2rem;
+  background-color: var(--color-primary-dark-2);
+  border: none;
 }
 
 .p-dialog-mask {
@@ -488,12 +511,6 @@ a {
 .p-dialog {
   background-color: var(--color-white);
   padding: 2rem;
-}
-
-p-times {
-  color: var(--color-white);
-  background-color: var(--color-primary-dark);
-  padding: .25rem;
 }
 
 .p-dialog-title {
@@ -514,6 +531,11 @@ p-times {
 
 .p-dialog-content i {
   font-size: 3rem;
+}
+
+.p-confirm-dialog-accept,
+.p-confirm-dialog-reject {
+  outline: none;
 }
 
 .p-dialog-footer {
@@ -541,6 +563,7 @@ header {
 hr {
   border: 1px solid var(--color-primary-dark);
   box-shadow: 0 0 10px var(--color-primary-dark);
+  margin: 1rem;
 }
 
 .company {
@@ -618,14 +641,19 @@ main {
   cursor: pointer;
 }
 
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .sq-create {
   position: absolute;
   top: 1.7rem;
-  right: .5rem;
+  right: 0.5rem;
   background-color: var(--color-primary-dark);
   color: var(--color-white);
   border: none;
-  padding: 0.5rem .5rem;
+  padding: 0.5rem 0.5rem;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
