@@ -29768,3 +29768,30 @@
 [4/24/2023, 4:39:59 PM] server	 security-question-api.js - Security Question deleted successfully
 [4/24/2023, 4:40:34 PM] server	 user-api.js - Query on all users was successful
 [4/24/2023, 4:47:29 PM] server	 session-api.js - User logged in successfully
+[4/24/2023, 5:11:54 PM] server	 security-question-api.js - All security questions returned successfully
+[4/24/2023, 5:12:17 PM] server	 security-question-api.js - {
+  text: 'Why is Neeblit whining',
+  isDisabled: false,
+  _id: new ObjectId("6446f0b19ae1b86e03d0191f"),
+  __v: 0
+} was added successfully
+[4/24/2023, 5:12:20 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 5:12:38 PM] server	 security-question-api.js - {
+  text: 'Why is Neyland whining? ',
+  isDisabled: false,
+  _id: new ObjectId("6446f0b19ae1b86e03d0191f"),
+  __v: 0
+} was updated successfully
+[4/24/2023, 5:12:38 PM] server	 security-question-api.js - All security questions returned successfully
+[4/24/2023, 5:12:38 PM] server	 security-question-api.js - {
+  text: 'Why is Neyland whining? ',
+  isDisabled: false,
+  _id: new ObjectId("6446f0b19ae1b86e03d0191f"),
+  __v: 0
+} was updated successfully
+[4/24/2023, 5:12:42 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/24/2023, 5:12:48 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 5:14:10 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 5:15:03 PM] server	 user-api.js - user goldenboy created successfully
+[4/24/2023, 5:15:03 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 5:15:11 PM] server	 user-api.js - Query on all users was successful

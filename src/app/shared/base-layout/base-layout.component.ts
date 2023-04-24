@@ -10,7 +10,7 @@
 */
 
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
 import {
@@ -41,11 +41,7 @@ export class BaseLayoutComponent implements OnInit {
   ) {
     this.sessionName = this.cookieService.get('sessionuser');
     this.username = this.cookieService.get('sessionuser');
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.hideHeaderFooter = event.url === '/session/sign-in';
-      }
-    });
+
   }
 
   ngOnInit(): void {}
