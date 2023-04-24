@@ -47,6 +47,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MessageModule }  from 'primeng/message';
 import { MessagesModule }  from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
+import { MatDividerModule } from '@angular/material/divider';
+import { MenuModule } from 'primeng/menu';
 
 
 
@@ -94,6 +96,8 @@ import { ToastModule } from 'primeng/toast';
     ButtonModule,
     ConfirmDialogModule,
     ToastModule,
+    MatDividerModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],
