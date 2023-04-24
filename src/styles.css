@@ -390,7 +390,8 @@ a {
   text-decoration: none;
 }
 
-.base-container {
+.base-container,
+.auth-container {
   background-image: url(src/assets/images/Bobs-Interior-v4.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -461,7 +462,7 @@ main {
   min-width: 800px;
   max-width: 1200px;
   padding: 2rem;
-  background-color: var(--color-white);
+  background-color: var(--color-white-2);
   color: var(--color-primary-dark);
   box-shadow: 0 .5rem 3rem var(--color-primary-3)
 }
