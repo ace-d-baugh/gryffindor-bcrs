@@ -17,7 +17,6 @@ export class UserDetailsComponent implements OnInit {
   errorMessages: Message[];
 
   form: FormGroup = this.fb.group({
-    username: [null, Validators.compose([Validators.required])],
     firstName: [null, Validators.compose([Validators.required])],
     lastName: [null, Validators.compose([Validators.required])],
     phoneNumber: [null, Validators.compose([Validators.required])],
@@ -54,7 +53,7 @@ export class UserDetailsComponent implements OnInit {
 
   saveUser(): void {
     const updatedUser = {
-      username: this.form.controls['username'].value,
+      username: this.user.username,
       firstName: this.form.controls['firstName'].value,
       lastName: this.form.controls['lastName'].value,
       phoneNumber: this.form.controls['phoneNumber'].value,

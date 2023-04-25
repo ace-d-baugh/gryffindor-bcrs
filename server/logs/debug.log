@@ -29879,3 +29879,14 @@
 [4/24/2023, 7:50:48 PM] server	 user-api.js - Query on all users was successful
 [4/24/2023, 7:55:13 PM] server	 user-api.js - Query on all users was successful
 [4/24/2023, 7:55:42 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 8:14:33 PM] server	 session-api.js - User logged in successfully
+[4/24/2023, 8:15:12 PM] server	 session-api.js - User logged in successfully
+[4/24/2023, 8:15:16 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 8:19:06 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 8:19:11 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 8:21:04 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 8:32:11 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 8:33:54 PM] server	 user-api.js - user bearboy found successfully
+[4/24/2023, 8:34:11 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 8:34:12 PM] server	 user-api.js - user goldenboy found successfully
+[4/24/2023, 8:34:21 PM] server	 user-api.js - user goldenboy updated successfully
