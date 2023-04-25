@@ -29,7 +29,7 @@ export class UserService {
     }
 
     findUserById(userId: string): Observable<any> {
-        return this.http.get('/api/users' + userId);
+        return this.http.get('/api/users/' + userId);
     }
 
     createUser(user: User): Observable<any> {

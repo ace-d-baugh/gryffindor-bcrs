@@ -18,7 +18,7 @@
   <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
   <!--forms-->
-  <form [formGroup]="editForm" (ngSubmit)="save(); editForm.reset()">
+  <form [formGroup]="editForm" (ngSubmit)="save(); editForm.reset()" (keydown.enter)="$event.preventDefault()">
     <label class="input-label" for="text">Security question</label>
     <input
       type="text"
