@@ -25,27 +25,31 @@ export class SecurityQuestionService {
 
     constructor(private http: HttpClient) { }
 
+    // find all security questions
     findAllSecurityQuestions(): Observable<any> {
         return this.http.get('/api/security-questions');
     }
 
+    // find security question by id
     findSecurityQuestionById(questionId: string): Observable<any> {
         return this.http.get('/api/security-questions/' + questionId);
     }
 
+    // create security question
     createSecurityQuestion(newSecurityQuestion: SecurityQuestion): Observable<any> {
         return this.http.post('/api/security-questions', {
             text: newSecurityQuestion.text
         })
     }
 
+    // update security question
     updateSecurityQuestion(questionId: string, updatedSecurityQuestion: SecurityQuestion): Observable<any> {
         return this.http.put('/api/security-questions/' + questionId, {
             text: updatedSecurityQuestion.text
         })
     }
 
-    //
+    // delete security question
     deleteSecurityQuestion(questionId: string): Observable<any> {
         return this.http.delete('/api/security-questions/' + questionId)
     }

@@ -29914,29 +29914,3 @@
 [4/24/2023, 9:35:12 PM] server	 user-api.js - user bearboy found successfully
 [4/24/2023, 9:35:17 PM] server	 user-api.js - user bearboy found successfully
 >>>>>>> a9715d110f0d2850f03efdac0f6e791084d7b5e3
-[4/24/2023, 8:44:12 PM] server	 session-api.js - User logged in successfully
-[4/24/2023, 8:44:16 PM] server	 user-api.js - Query on all users was successful
-[4/24/2023, 8:44:20 PM] server	 user-api.js - user bearboy found successfully
-[4/24/2023, 8:44:29 PM] server	 user-api.js - user bearboy updated successfully
-[4/24/2023, 8:44:30 PM] server	 user-api.js - Query on all users was successful
-[4/24/2023, 8:44:46 PM] server	 security-question-api.js - All security questions returned successfully
-[4/24/2023, 8:44:50 PM] server	 security-question-api.js - Query was successful
-[4/24/2023, 8:45:00 PM] server	 security-question-api.js - {
-  text: 'What is your least favorite hobby? ',
-  isDisabled: false,
-  _id: new ObjectId("643ec640a9bef7f1dc14d311")
-} was updated successfully
-[4/24/2023, 8:45:00 PM] server	 security-question-api.js - All security questions returned successfully
-[4/24/2023, 8:45:00 PM] server	 security-question-api.js - {
-  text: 'What is your least favorite hobby? ',
-  isDisabled: false,
-  _id: new ObjectId("643ec640a9bef7f1dc14d311")
-} was updated successfully
-[4/24/2023, 8:45:07 PM] server	 security-question-api.js - Security Question deleted successfully
-[4/24/2023, 8:45:25 PM] server	 user-api.js - Query on all users was successful
-[4/24/2023, 8:45:49 PM] server	 user-api.js - user doplhin deleted successfully
-[4/24/2023, 8:51:51 PM] server	 user-api.js - user glg20 created successfully
-[4/24/2023, 8:51:51 PM] server	 user-api.js - Query on all users was successful
-[4/24/2023, 8:52:18 PM] server	 user-api.js - user glg20 deleted successfully
-[4/24/2023, 8:52:24 PM] server	 user-api.js - user glg20 deleted successfully
-[4/24/2023, 8:56:14 PM] server	 user-api.js - Query on all users was successful
