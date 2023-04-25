@@ -1,9 +1,9 @@
 /*
 ============================================
-, Title: about.component.css for nodebucket
+, Title: user-details.component.css for BCRS
 ; Author: Chad ONeal
-; Date: 04/05/2023
-; Description: css styling for nodebucket
+; Date: 04/24/2023
+; Description: css styling for BCRS
 ===========================================
 */
 
