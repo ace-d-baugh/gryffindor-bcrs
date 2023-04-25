@@ -30,31 +30,24 @@ const createUserSchema = {
   properties: {
     username: {
       type: "string",
-      required: true,
     },
     password: {
       type: "string",
-      required: true,
     },
     firstName: {
       type: "string",
-      required: true,
     },
     lastName: {
       type: "string",
-      required: true,
     },
     phoneNumber: {
       type: "string",
-      required: true,
     },
     email: {
       type: "string",
-      required: true,
     },
     address: {
       type: "string",
-      required: true,
     },
     role: {
       type: "object",
@@ -63,9 +56,9 @@ const createUserSchema = {
           type: "string",
         },
       },
-      required: true,
     },
   },
+  required: ["username", "password", "firstName", "lastName", "phoneNumber", "email", "address", "role"],
   additionalProperties: false,
 }
 
@@ -74,25 +67,21 @@ const updateUserSchema = {
   properties: {
     firstName: {
       type: "string",
-      required: true,
     },
     lastName: {
       type: "string",
-      required: true,
     },
     phoneNumber: {
       type: "string",
-      required: true,
     },
     email: {
       type: "string",
-      required: true,
     },
     address: {
       type: "string",
-      required: true,
     },
   },
+  required: ["firstName", "lastName", "phoneNumber", "email", "address"],
   additionalProperties: false,
 }
 
@@ -247,8 +236,15 @@ router.get("/:id", async (req, res) => {
  *                  type: string
  *                phoneNumber:
  *                  type: string
+ *                email:
+ *                  type: string
  *                address:
  *                  type: string
+ *                role:
+ *                  type: object
+ *                  properties:
+ *                    text:
+ *                      type: string
  *     responses:
  *       '200':
  *         description: Query successful
@@ -365,8 +361,6 @@ router.post("/", async (req, res) => {
  *                  phoneNumber:
  *                    type: string
  *                  email:
- *                   type: string
- *                  role:
  *                   type: string
  *                  address:
  *                    type: string
