@@ -72,7 +72,7 @@ export class SecurityQuestionListComponent implements OnInit {
     });
   }
 
-  //delete
+  //delete function
   delete(sqId: string): void {
     this.confirmationService.confirm({
       message: 'Are you sure that you want to delete this record?',
