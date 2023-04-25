@@ -29914,3 +29914,55 @@
 [4/24/2023, 9:35:12 PM] server	 user-api.js - user bearboy found successfully
 [4/24/2023, 9:35:17 PM] server	 user-api.js - user bearboy found successfully
 >>>>>>> a9715d110f0d2850f03efdac0f6e791084d7b5e3
+[4/24/2023, 10:33:03 PM] server	 session-api.js - User logged in successfully
+[4/24/2023, 10:33:30 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 10:38:17 PM] server	 user-api.js - user rooferdude found successfully
+[4/24/2023, 10:42:03 PM] server	 user-api.js - user rooferdude updated successfully
+[4/24/2023, 10:42:03 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 10:49:38 PM] server	 security-question-api.js - All security questions returned successfully
+[4/24/2023, 10:49:43 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 10:49:50 PM] server	 security-question-api.js - {
+  text: 'What is your most favorite song?',
+  isDisabled: false,
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  __v: 0
+} was updated successfully
+[4/24/2023, 10:49:50 PM] server	 security-question-api.js - All security questions returned successfully
+[4/24/2023, 10:49:50 PM] server	 security-question-api.js - {
+  text: 'What is your most favorite song?',
+  isDisabled: false,
+  _id: new ObjectId("64456e3c8f1ddc389556a47b"),
+  __v: 0
+} was updated successfully
+[4/24/2023, 10:56:20 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 11:05:29 PM] server	 user-api.js - user rooferdude deleted successfully
+[4/24/2023, 11:11:14 PM] server	 session-api.js - User logged in successfully
+[4/24/2023, 11:12:35 PM] server	 user-api.js - user istealmoney created successfully
+[4/24/2023, 11:12:35 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 11:12:39 PM] server	 user-api.js - user istealmoney found successfully
+[4/24/2023, 11:12:57 PM] server	 user-api.js - user istealmoney updated successfully
+[4/24/2023, 11:12:57 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 11:13:01 PM] server	 user-api.js - user istealmoney deleted successfully
+[4/24/2023, 11:13:02 PM] server	 user-api.js - user istealmoney deleted successfully
+[4/24/2023, 11:13:06 PM] server	 security-question-api.js - All security questions returned successfully
+[4/24/2023, 11:13:17 PM] server	 security-question-api.js - {
+  text: 'Why does joe suck? ',
+  isDisabled: false,
+  _id: new ObjectId("6447454d5aaf8df411d6ec6f"),
+  __v: 0
+} was added successfully
+[4/24/2023, 11:13:20 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 11:13:27 PM] server	 security-question-api.js - {
+  text: 'Does does joe suck? ',
+  isDisabled: false,
+  _id: new ObjectId("6447454d5aaf8df411d6ec6f"),
+  __v: 0
+} was updated successfully
+[4/24/2023, 11:13:27 PM] server	 security-question-api.js - All security questions returned successfully
+[4/24/2023, 11:13:27 PM] server	 security-question-api.js - {
+  text: 'Does does joe suck? ',
+  isDisabled: false,
+  _id: new ObjectId("6447454d5aaf8df411d6ec6f"),
+  __v: 0
+} was updated successfully
+[4/24/2023, 11:13:30 PM] server	 security-question-api.js - Security Question deleted successfully
