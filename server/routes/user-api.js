@@ -160,6 +160,11 @@ router.get("/:id", async (req, res) => {
 router.post('/', async (req, res) => {
     try
     {
+      const newUser = req.body;
+      const validator = ajv.compile(userSchema);
+      const valid = validator(newUser);
+
+      if (valid) {
         //hash password entered
         let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);  //salt/hash password
         standardRole = {
@@ -193,6 +198,11 @@ router.post('/', async (req, res) => {
                 debugLogger({filename: myFile, message: `user ${user.username} created successfully`})
             }
         })
+      } else {
+        console.log('validation error');
+        res.json(createUserValidationError.toObject());
+        errorLogger({filename: myFile, message: "Validation on creating user failed"})
+      }
     } catch (e) {
         console.log(e);
         const createUserCatchErrorResponse = new ErrorResponse(500, 'Internal server error', e.message);

@@ -195,7 +195,7 @@ router.post("/", async (req, res) => {
   {
     const newSecurityQuestion = req.body
     const validator = ajv.compile(securityQuestionsSchema)
-    const valid = validator(newSecurityQuestion)  //true
+    const valid = validator(newSecurityQuestion)
 
     if (valid)
     {
