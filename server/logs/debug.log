@@ -29879,6 +29879,10 @@
 [4/24/2023, 7:50:48 PM] server	 user-api.js - Query on all users was successful
 [4/24/2023, 7:55:13 PM] server	 user-api.js - Query on all users was successful
 [4/24/2023, 7:55:42 PM] server	 user-api.js - Query on all users was successful
+<<<<<<< HEAD
+[4/24/2023, 8:38:27 PM] server	 user-api.js - user goldenboy found successfully
+[4/24/2023, 8:38:32 PM] server	 user-api.js - user goldenboy updated successfully
+=======
 [4/24/2023, 9:08:28 PM] server	 security-question-api.js - Query was successful
 [4/24/2023, 9:09:07 PM] server	 security-question-api.js - Query was successful
 [4/24/2023, 9:09:33 PM] server	 security-question-api.js - Query was successful
@@ -29909,35 +29913,4 @@
 [4/24/2023, 9:35:10 PM] server	 user-api.js - user bearboy found successfully
 [4/24/2023, 9:35:12 PM] server	 user-api.js - user bearboy found successfully
 [4/24/2023, 9:35:17 PM] server	 user-api.js - user bearboy found successfully
-[4/24/2023, 9:44:48 PM] server	 user-api.js - Query on all users was successful
-[4/24/2023, 9:45:39 PM] server	 session-api.js - User logged in successfully
-[4/24/2023, 9:45:45 PM] server	 user-api.js - Query on all users was successful
-[4/24/2023, 9:46:28 PM] server	 user-api.js - user lamar_jackson created successfully
-[4/24/2023, 9:46:28 PM] server	 user-api.js - Query on all users was successful
-[4/24/2023, 9:46:33 PM] server	 user-api.js - user lamar_jackson found successfully
-[4/24/2023, 9:46:40 PM] server	 user-api.js - user lamar_jackson updated successfully
-[4/24/2023, 9:46:40 PM] server	 user-api.js - Query on all users was successful
-[4/24/2023, 9:46:44 PM] server	 user-api.js - user lamar_jackson deleted successfully
-[4/24/2023, 9:46:46 PM] server	 user-api.js - user lamar_jackson deleted successfully
-[4/24/2023, 9:46:52 PM] server	 security-question-api.js - All security questions returned successfully
-[4/24/2023, 9:47:12 PM] server	 security-question-api.js - {
-  text: 'is this a sceurity question? ',
-  isDisabled: false,
-  _id: new ObjectId("644731205aaf8df411d6ec46"),
-  __v: 0
-} was added successfully
-[4/24/2023, 9:47:14 PM] server	 security-question-api.js - Query was successful
-[4/24/2023, 9:47:46 PM] server	 security-question-api.js - {
-  text: 'Why is this a sceurity question? ',
-  isDisabled: false,
-  _id: new ObjectId("644731205aaf8df411d6ec46"),
-  __v: 0
-} was updated successfully
-[4/24/2023, 9:47:46 PM] server	 security-question-api.js - {
-  text: 'Why is this a sceurity question? ',
-  isDisabled: false,
-  _id: new ObjectId("644731205aaf8df411d6ec46"),
-  __v: 0
-} was updated successfully
-[4/24/2023, 9:47:46 PM] server	 security-question-api.js - All security questions returned successfully
-[4/24/2023, 9:47:50 PM] server	 security-question-api.js - Security Question deleted successfully
+>>>>>>> a9715d110f0d2850f03efdac0f6e791084d7b5e3
