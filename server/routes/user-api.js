@@ -24,6 +24,78 @@ const router = express.Router();
 const ajv = new Ajv();
 const myFile = "user-api.js";
 
+// Schema
+const createUserSchema = {
+  type: "object",
+  properties: {
+    username: {
+      type: "string",
+      required: true,
+    },
+    password: {
+      type: "string",
+      required: true,
+    },
+    firstName: {
+      type: "string",
+      required: true,
+    },
+    lastName: {
+      type: "string",
+      required: true,
+    },
+    phoneNumber: {
+      type: "string",
+      required: true,
+    },
+    email: {
+      type: "string",
+      required: true,
+    },
+    address: {
+      type: "string",
+      required: true,
+    },
+    role: {
+      type: "object",
+      properties: {
+        text: {
+          type: "string",
+        },
+      },
+      required: true,
+    },
+  },
+  additionalProperties: false,
+}
+
+const updateUserSchema = {
+  type: "object",
+  properties: {
+    firstName: {
+      type: "string",
+      required: true,
+    },
+    lastName: {
+      type: "string",
+      required: true,
+    },
+    phoneNumber: {
+      type: "string",
+      required: true,
+    },
+    email: {
+      type: "string",
+      required: true,
+    },
+    address: {
+      type: "string",
+      required: true,
+    },
+  },
+  additionalProperties: false,
+}
+
 /**
  * FindAll
  * @openapi
@@ -148,7 +220,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//TODO: validate
 /**
  * CreateUser
  * @openapi
@@ -190,7 +261,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const newUser = req.body;
-    const validator = ajv.compile(userSchema);
+    const validator = ajv.compile(createUserSchema);
     const valid = validator(newUser);
 
     if (valid) {
@@ -311,7 +382,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const updatedUser = req.body;
-    const validator = ajv.compile(userSchema);
+    const validator = ajv.compile(updateUserSchema);
     const valid = validator(updatedUser);
 
     if (valid) {
