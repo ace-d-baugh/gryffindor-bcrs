@@ -735,6 +735,10 @@ main {
   color: transparent;
 }
 
+.float-right {
+  float: right;
+}
+
 footer {
   background: linear-gradient(
     transparent,
