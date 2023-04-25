@@ -15,8 +15,6 @@
 ></p-confirmDialog>
 
 <div class="main-container">
-  <!--main div start-->
-
   <div class="content-title center">
     <h1>Users Configuration Page!</h1>
     <h3>To add a new record select the Add User button</h3>
@@ -25,8 +23,6 @@
   <div class="center m2">
     <button class="btn" routerLink="/main/users/create/new">Add User</button>
   </div>
-
-  <!--second column table data-->
 
   <div>
     <p-table [value]="users" responsiveLayout="scroll">
@@ -49,7 +45,10 @@
           <td>{{ user.email }}</td>
           <td>{{ user.address }}</td>
           <td style="text-align: center">
-            <i class="pi pi-pencil edit-btn" routerLink="/main/users/{{user._id}}"></i>
+            <i
+              class="pi pi-pencil edit-btn"
+              routerLink="/main/user-details/{{ user._id }}"
+            ></i>
             <i class="pi pi-trash delete-btn" (click)="delete(user._id)"></i>
           </td>
         </tr>
@@ -57,4 +56,3 @@
     </p-table>
   </div>
 </div>
-<!--main div end-->

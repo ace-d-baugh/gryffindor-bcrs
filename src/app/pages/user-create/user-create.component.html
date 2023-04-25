@@ -174,7 +174,6 @@
       <label class="input-label">Address</label>
 
           <textarea matInput required formControlName="address"
-            placeholder="505 South St Knoxville, TN 37920"
           ></textarea>
 
       <mat-error
@@ -189,20 +188,10 @@
     </div>
     <div class="buttons">
       <button class="btn" (click)="cancel()">Cancel</button>
-
-    <br />
-
-    <!--submit actions-->
-    <mat-card-actions align="end">
-      <button mat-raised-button (click)="cancel()" style="background-color: #eeba30; color: white">
-        Cancel
-      </button>
-
-      <button mat-raised-button [disabled]="!form.valid" style="background-color: #ae0001; color: white">
-        Submit
-      </button>
-
-    </mat-card-actions>
+      <button
+        class="btn submit-button"
+        type="submit"
+        [disabled]="form.invalid">Create User</button>
     </div>
   </form>
 </div>

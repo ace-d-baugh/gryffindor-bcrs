@@ -29836,3 +29836,34 @@
 [4/24/2023, 6:55:24 PM] server	 security-question-api.js - Query was successful
 =======
 >>>>>>> a41fe1ada16abb5c6afd881b10611efa4db22b12
+[4/24/2023, 7:36:21 PM] server	 session-api.js - User logged in successfully
+[4/24/2023, 7:46:57 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:47:02 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:47:07 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:48:11 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:48:15 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:48:17 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:48:24 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:49:25 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:50:54 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:51:22 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:51:24 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:51:27 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:51:29 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:51:35 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:56:10 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:56:17 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:57:58 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:58:01 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:58:53 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:58:56 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:58:59 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:59:05 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 7:59:07 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 8:12:07 PM] server	 user-api.js - user Silly created successfully
+[4/24/2023, 8:12:07 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 8:15:08 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 8:16:34 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 8:16:56 PM] server	 user-api.js - user Silly deleted successfully
+[4/24/2023, 8:17:00 PM] server	 user-api.js - user Silly deleted successfully
+[4/24/2023, 8:17:11 PM] server	 user-api.js - Query on all users was successful
