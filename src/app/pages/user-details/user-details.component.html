@@ -1,89 +1,109 @@
-<div fxLayout="column">
+<!--
+============================================
+; Title: user-details.component.html
+; Author: Professor Krasso
+; Date: 04/22/2023
+; Modified By: John Vanhessche
+; Description: user-details Component
+;===========================================
+-->
 
-    <div class="main-container">
+<div class="main-container">
+  <h1>Update User form</h1>
+  <h3>Fields marked with an asterisk (*) are required.</h3>
 
-        <div class="card-title">Update User form</div>
-        <div class="card-subtitle" style="text-align: center; font-weight: lighter;">Fields marked with an asterisk (*) are required.</div>
-        <br />
+  <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
-        <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+  <form
+    [formGroup]="form"
+    (ngSubmit)="saveUser(); form.reset()"
+    (keydown.enter)="$event.preventDefault()"
+  >
+    <div class="form-group">
+      <label class="input-label">First Name</label>
+      <input type="text" formControlName="firstName" require />
 
-        <form [formGroup]="form" (ngSubmit)="saveUser()" (keydown.enter)="$event.preventDefault()" style="width: 50%; margin: 0 auto">
-            <div class="card-content">
-                <div fxLayout="column" fxLayoutGap="10px">
-                    <div class="form-field" appearance="fill">
-                        <label class="label">First Name</label>
-                        <input 
-                        type="text"
-                        formControlName="firstName"
-                        require />
+      <mat-error
+        *ngIf="
+          form.controls['firstName'].hasError('required') &&
+          form.controls['firstName'].touched
+        "
+      >
+        First name is a required field.
+      </mat-error>
+    </div>
 
-                        <div class="error" *ngIf="form.controls['firstName'].hasError('required') && form.controls['firstName'].touched">
-                            First name is a required field.
-                        </div>  <!--first name error end-->
-                    </div>  <!--form-field end-->
-                    
-                    <div class="form-field" appearance="fill">
-                        <div class="label">Last name</div>
-                        <input 
-                            type="text"
-                            formControlName="lastName"
-                            required 
-                        />
 
-                        <div class="error" *ngIf="form.controls['lastName'].hasError('required') && form.controls['lastName'].touched">
-                            Last name is a required field
-                        </div>  <!--last name error end-->
-                    </div> <!--form-field end-->
+    <div class="form-group">
+      <label class="input-label">Last name</label>
+      <input type="text" formControlName="lastName" required />
 
-                    <div class="form-field" appearance="fill">
-                        <label class="label">Phone number</label>
-                        <input 
-                            type="text"
-                            formControlName="phoneNumber"
-                            required />
-                        
-                        <div class="error" *ngIf="form.controls['phoneNumber'].hasError('required') && form.controls['phoneNumber'].touched">
-                            Phone number is a required field
-                        </div>
-                    </div>  <!--form-field end-->
+      <mat-error
+        *ngIf="
+          form.controls['lastName'].hasError('required') &&
+          form.controls['lastName'].touched
+        "
+      >
+        Last name is a required field
+      </mat-error>
+    </div>
+    <div class="form-group">
+      <label class="input-label">Phone number</label>
+      <input type="text" formControlName="phoneNumber" required />
 
-                    <div class="form-field" appearance="fill">
-                        <label class="label">Email address</label>
-                        <input 
-                            type="text"
-                            formControlName="email"
-                            required />
-                        
-                        <div class="error" *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched">
-                            Email is a required field
-                        </div>
+      <mat-error
+        *ngIf="
+          form.controls['phoneNumber'].hasError('required') &&
+          form.controls['phoneNumber'].touched
+        "
+      >
+        Phone number is a required field
+      </mat-error>
+    </div>
 
-                        <div class="error" *ngIf="form.controls['email'].hasError('email') && form.controls['email'].touched">
-                            Invalid email format
-                        </div>
-                    </div>  <!--form-field end-->
+    <div class="form-group">
+      <label class="input-label">Email address</label>
+      <input type="text" formControlName="email" required />
 
-                    <div class="form-field" appearance="fill">
-                        <label class="label">Address</label>
-                        <textarea
-                            type="text"
-                            formControlName="address"
-                            required ></textarea>
-                        
-                        <div class="error" *ngIf="form.controls['address'].hasError('required') && form.controls['address'].touched">
-                            Address is a required field
-                        </div>
-                    </div>  <!--form-field end-->                                        
-                </div> <!--fxLayout end-->
-            </div>  <!--card-content end-->
+      <mat-error
+        *ngIf="
+          form.controls['email'].hasError('required') &&
+          form.controls['email'].touched
+        "
+      >
+        Email is a required field
+      </mat-error>
 
-            <br />
+      <mat-error
+        *ngIf="
+          form.controls['email'].hasError('email') &&
+          form.controls['email'].touched
+        "
+      >
+        Invalid email format
+      </mat-error>
+    </div>
 
-            <div class="card-actions" align="end">
-                <button class="raised-button" (click)="cancel()" color="accent">Cancel</button>
-                <button class="raised-button" [disabled]="!form.valid" color="primary">Submit</button>
-            </div>  <!--card-actions end-->
-        </form>
-    </div>  <!--card end-->
-</div>  <!--fxLayout end-->
+    <div class="form-group">
+      <label class="input-label">Address</label>
+      <textarea type="text" formControlName="address" required></textarea>
+
+      <mat-error
+        *ngIf="
+          form.controls['address'].hasError('required') &&
+          form.controls['address'].touched
+        "
+      >
+        Address is a required field
+      </mat-error>
+    </div>
+
+    <div class="buttons">
+      <button class="btn" (click)="cancel()" color="accent">Cancel</button>
+      <button class="btn" [disabled]="!form.valid" color="primary">
+        Submit
+      </button>
+    </div>
+
+  </form>
+</div>
