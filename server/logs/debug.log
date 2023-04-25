@@ -29879,5 +29879,38 @@
 [4/24/2023, 7:50:48 PM] server	 user-api.js - Query on all users was successful
 [4/24/2023, 7:55:13 PM] server	 user-api.js - Query on all users was successful
 [4/24/2023, 7:55:42 PM] server	 user-api.js - Query on all users was successful
+<<<<<<< HEAD
 [4/24/2023, 8:38:27 PM] server	 user-api.js - user goldenboy found successfully
 [4/24/2023, 8:38:32 PM] server	 user-api.js - user goldenboy updated successfully
+=======
+[4/24/2023, 9:08:28 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:09:07 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:09:33 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:09:49 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:10:24 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:10:37 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:10:53 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:10:57 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:11:10 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:11:26 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:11:31 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:11:41 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:11:45 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:11:49 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:11:50 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:11:56 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:11:56 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:12:24 PM] server	 security-question-api.js - Query was successful
+[4/24/2023, 9:12:38 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 9:12:43 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 9:13:05 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 9:13:29 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 9:13:32 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 9:29:46 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 9:34:03 PM] server	 user-api.js - user rooferdude found successfully
+[4/24/2023, 9:34:12 PM] server	 user-api.js - Query on all users was successful
+[4/24/2023, 9:34:15 PM] server	 user-api.js - user bearboy found successfully
+[4/24/2023, 9:35:10 PM] server	 user-api.js - user bearboy found successfully
+[4/24/2023, 9:35:12 PM] server	 user-api.js - user bearboy found successfully
+[4/24/2023, 9:35:17 PM] server	 user-api.js - user bearboy found successfully
+>>>>>>> a9715d110f0d2850f03efdac0f6e791084d7b5e3
