@@ -250,7 +250,6 @@ router.post("/", async (req, res) => {
 });
 
 
-//TODO: validate
 /**
  * updateSecurityQuestion
  * @openapi
