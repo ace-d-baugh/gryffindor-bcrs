@@ -25,6 +25,7 @@ import { ServerErrorComponent } from './pages/server-error/server-error.componen
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
 
 // routes
 const routes: Routes = [
@@ -65,7 +66,11 @@ const routes: Routes = [
         path: 'users/create/new',
         component: UserCreateComponent,
       },
-    ],
+      {
+        path: 'users/user-details/:userId',
+        component: UserDetailsComponent,
+      }
+    ]
   },
   {
     path: 'session',

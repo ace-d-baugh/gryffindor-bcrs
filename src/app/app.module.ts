@@ -40,6 +40,7 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ServerErrorComponent } from './pages/server-error/server-error.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 
@@ -71,6 +72,7 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
     UserCreateComponent,
     AboutComponent,
     ContactComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
