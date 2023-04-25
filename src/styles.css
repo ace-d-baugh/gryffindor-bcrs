@@ -735,7 +735,7 @@ main {
   color: transparent;
 }
 
-.footer {
+footer {
   background: linear-gradient(
     transparent,
     var(--color-black-3),
