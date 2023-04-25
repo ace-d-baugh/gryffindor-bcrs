@@ -239,7 +239,12 @@ router.post("/", async (req, res) => {
         }
       });
     } else {
-      console.log("validation error");
+      const createUserValidationError = new ErrorResponse(
+        400,
+        "Validation Error",
+        `Input doesn't match expected Schema ${req.body}`
+      );
+      console.log(createUserValidationError);
       res.json(createUserValidationError.toObject());
       errorLogger({
         filename: myFile,
@@ -370,7 +375,7 @@ router.put("/:id", async (req, res) => {
         `Input doesn't match expected schema ${req.body}`
       );
       console.log(userValidationError);
-      res.json(createUserValidationError.toObject());
+      res.json(userValidationError.toObject());
       errorLogger({
         filename: myFile,
         message: "Validation of updates failed",
