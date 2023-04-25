@@ -9,6 +9,7 @@
 =====================================================
 */
 
+// imports from angular core
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -16,16 +17,20 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { User } from 'src/app/shared/models/user.interface';
 import { Message } from 'primeng/api';
 
+//  declare component
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css'],
 })
+
+// export component
 export class UserDetailsComponent implements OnInit {
   user: User;
   userId: string;
   errorMessages: Message[];
 
+  //  declare form
   form: FormGroup = this.fb.group({
     firstName: [null, Validators.compose([Validators.required])],
     lastName: [null, Validators.compose([Validators.required])],
@@ -34,6 +39,7 @@ export class UserDetailsComponent implements OnInit {
     email: [null, Validators.compose([Validators.required, Validators.email])],
   });
 
+  //  declare constructor
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -44,6 +50,7 @@ export class UserDetailsComponent implements OnInit {
     this.user = {} as User;
     this.errorMessages = [];
 
+    //  find user by id
     this.userService.findUserById(this.userId).subscribe({
       next: (res) => {
         this.user = res.data;
@@ -51,6 +58,7 @@ export class UserDetailsComponent implements OnInit {
       error: (e) => {
         console.log(e);
       },
+      //  set form values
       complete: () => {
         this.form.controls['firstName'].setValue(this.user.firstName);
         this.form.controls['lastName'].setValue(this.user.lastName);
@@ -58,6 +66,7 @@ export class UserDetailsComponent implements OnInit {
         this.form.controls['address'].setValue(this.user.address);
         this.form.controls['email'].setValue(this.user.email);
 
+        //  log user
         console.log(this.user);
       },
     });

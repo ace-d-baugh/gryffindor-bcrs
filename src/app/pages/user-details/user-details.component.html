@@ -8,12 +8,15 @@
 ;===========================================
 -->
 
+<!--main content-->
 <div class="main-container">
   <h1>Update User form</h1>
   <h3>Fields marked with an asterisk (*) are required.</h3>
 
+  <!--error messages-->
   <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
+  <!--forms-->
   <form
     [formGroup]="form"
     (ngSubmit)="saveUser(); form.reset()"
@@ -34,6 +37,7 @@
     </div>
 
 
+    <!--form groups-->
     <div class="form-group">
       <label class="input-label">Last name</label>
       <input type="text" formControlName="lastName" required />
@@ -47,6 +51,8 @@
         Last name is a required field
       </mat-error>
     </div>
+
+    <!--Phone number-->
     <div class="form-group">
       <label class="input-label">Phone number</label>
       <input type="text" formControlName="phoneNumber" required />
@@ -61,6 +67,7 @@
       </mat-error>
     </div>
 
+    <!--Email-->
     <div class="form-group">
       <label class="input-label">Email address</label>
       <input type="text" formControlName="email" required />
@@ -74,6 +81,7 @@
         Email is a required field
       </mat-error>
 
+      <!--email validation-->
       <mat-error
         *ngIf="
           form.controls['email'].hasError('email') &&
@@ -88,6 +96,7 @@
       <label class="input-label">Address</label>
       <textarea type="text" formControlName="address" required></textarea>
 
+      <!--address validation-->
       <mat-error
         *ngIf="
           form.controls['address'].hasError('required') &&
@@ -98,6 +107,7 @@
       </mat-error>
     </div>
 
+    <!--City-->
     <div class="buttons">
       <button class="btn" (click)="cancel()" color="accent">Cancel</button>
       <button class="btn" [disabled]="!form.valid" color="primary">
