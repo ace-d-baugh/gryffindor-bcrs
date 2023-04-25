@@ -15,11 +15,13 @@ const User = require("../models/user");
 const ErrorResponse = require("../services/error-response");
 const BaseResponse = require("../services/base-response");
 const { debugLogger, errorLogger } = require("../logs/logger");
+const Ajv = require("ajv");
 const bcrypt = require("bcryptjs");
 const saltRounds = 10;
 
 // Configurations
 const router = express.Router();
+const ajv = new Ajv();
 const myFile = "user-api.js";
 
 /**
