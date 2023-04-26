@@ -49,16 +49,8 @@ const createUserSchema = {
     address: {
       type: "string",
     },
-    role: {
-      type: "object",
-      properties: {
-        text: {
-          type: "string",
-        },
-      },
-    },
   },
-  required: ["username", "password", "firstName", "lastName", "phoneNumber", "email", "address", "role"],
+  required: ["username", "password", "firstName", "lastName", "phoneNumber", "email", "address"],
   additionalProperties: false,
 }
 
@@ -262,25 +254,25 @@ router.post("/", async (req, res) => {
 
     if (valid) {
       //hash password entered
-      let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds); //salt/hash password
+      hashedPassword = bcrypt.hashSync(newUser.password, saltRounds); //salt/hash password
       standardRole = {
         text: "standard",
       };
 
       //defining new user object from info entered on screen
-      let newUser = {
-        username: req.body.username,
+      createNewUser = {
+        username: newUser.username,
         password: hashedPassword,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        phoneNumber: req.body.phoneNumber,
-        address: req.body.address,
-        email: req.body.email,
+        firstName: newUser.firstName,
+        lastName: newUser.lastName,
+        phoneNumber: newUser.phoneNumber,
+        address: newUser.address,
+        email: newUser.email,
         role: standardRole,
       };
 
       //create the user, create error and success message objects.
-      User.create(newUser, function (err, user) {
+      User.create(createNewUser, function (err, user) {
         if (err) {
           console.log(err);
           const createUserMongodbErrorResponse = new ErrorResponse(
@@ -291,7 +283,7 @@ router.post("/", async (req, res) => {
           res.status(500).send(createUserMongodbErrorResponse.toObject());
           errorLogger({
             filename: myFile,
-            message: "Validation on creating user failed",
+            message: "Error creating user in MongoDB",
           });
         } else {
           console.log(user);
