@@ -29966,3 +29966,4 @@
   __v: 0
 } was updated successfully
 [4/24/2023, 11:13:30 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/25/2023, 8:38:19 PM] server	 user-api.js - Query on all users was successful
