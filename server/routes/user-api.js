@@ -15,12 +15,67 @@ const User = require("../models/user");
 const ErrorResponse = require("../services/error-response");
 const BaseResponse = require("../services/base-response");
 const { debugLogger, errorLogger } = require("../logs/logger");
+const Ajv = require("ajv");
 const bcrypt = require("bcryptjs");
 const saltRounds = 10;
 
 // Configurations
 const router = express.Router();
+const ajv = new Ajv();
 const myFile = "user-api.js";
+
+// Schema
+const createUserSchema = {
+  type: "object",
+  properties: {
+    username: {
+      type: "string",
+    },
+    password: {
+      type: "string",
+    },
+    firstName: {
+      type: "string",
+    },
+    lastName: {
+      type: "string",
+    },
+    phoneNumber: {
+      type: "string",
+    },
+    email: {
+      type: "string",
+    },
+    address: {
+      type: "string",
+    },
+  },
+  required: ["username", "password", "firstName", "lastName", "phoneNumber", "email", "address"],
+  additionalProperties: false,
+}
+
+const updateUserSchema = {
+  type: "object",
+  properties: {
+    firstName: {
+      type: "string",
+    },
+    lastName: {
+      type: "string",
+    },
+    phoneNumber: {
+      type: "string",
+    },
+    email: {
+      type: "string",
+    },
+    address: {
+      type: "string",
+    },
+  },
+  required: ["firstName", "lastName", "phoneNumber", "email", "address"],
+  additionalProperties: false,
+}
 
 /**
  * FindAll
@@ -146,7 +201,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//TODO: validate
 /**
  * CreateUser
  * @openapi
@@ -174,8 +228,15 @@ router.get("/:id", async (req, res) => {
  *                  type: string
  *                phoneNumber:
  *                  type: string
+ *                email:
+ *                  type: string
  *                address:
  *                  type: string
+ *                role:
+ *                  type: object
+ *                  properties:
+ *                    text:
+ *                      type: string
  *     responses:
  *       '200':
  *         description: Query successful
@@ -188,30 +249,30 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const newUser = req.body;
-    const validator = ajv.compile(userSchema);
+    const validator = ajv.compile(createUserSchema);
     const valid = validator(newUser);
 
     if (valid) {
       //hash password entered
-      let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds); //salt/hash password
+      hashedPassword = bcrypt.hashSync(newUser.password, saltRounds); //salt/hash password
       standardRole = {
         text: "standard",
       };
 
       //defining new user object from info entered on screen
-      let newUser = {
-        username: req.body.username,
+      createNewUser = {
+        username: newUser.username,
         password: hashedPassword,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        phoneNumber: req.body.phoneNumber,
-        address: req.body.address,
-        email: req.body.email,
+        firstName: newUser.firstName,
+        lastName: newUser.lastName,
+        phoneNumber: newUser.phoneNumber,
+        address: newUser.address,
+        email: newUser.email,
         role: standardRole,
       };
 
       //create the user, create error and success message objects.
-      User.create(newUser, function (err, user) {
+      User.create(createNewUser, function (err, user) {
         if (err) {
           console.log(err);
           const createUserMongodbErrorResponse = new ErrorResponse(
@@ -222,7 +283,7 @@ router.post("/", async (req, res) => {
           res.status(500).send(createUserMongodbErrorResponse.toObject());
           errorLogger({
             filename: myFile,
-            message: "Validation on creating user failed",
+            message: "Error creating user in MongoDB",
           });
         } else {
           console.log(user);
@@ -293,8 +354,6 @@ router.post("/", async (req, res) => {
  *                    type: string
  *                  email:
  *                   type: string
- *                  role:
- *                   type: string
  *                  address:
  *                    type: string
  *      responses:
@@ -309,7 +368,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const updatedUser = req.body;
-    const validator = ajv.compile(userSchema);
+    const validator = ajv.compile(updateUserSchema);
     const valid = validator(updatedUser);
 
     if (valid) {
