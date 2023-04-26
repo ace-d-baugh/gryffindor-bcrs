@@ -43,6 +43,7 @@ import { ServerErrorComponent } from './pages/server-error/server-error.componen
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { BadRequestComponent } from './pages/bad-request/bad-request.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -72,7 +73,8 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
     UserCreateComponent,
     AboutComponent,
     ContactComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    BadRequestComponent,
   ],
   imports: [
     BrowserModule,

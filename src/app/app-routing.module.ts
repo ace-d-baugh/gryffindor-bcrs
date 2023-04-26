@@ -26,6 +26,7 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { BadRequestComponent } from './pages/bad-request/bad-request.component';
 
 // routes
 const routes: Routes = [
@@ -69,13 +70,17 @@ const routes: Routes = [
       {
         path: 'users/user-details/:userId',
         component: UserDetailsComponent,
-      }
-    ]
+      },
+    ],
   },
   {
     path: 'session',
     component: AuthLayoutComponent,
     children: [
+      {
+        path: 'bad-request',
+        component: BadRequestComponent,
+      },
       {
         path: 'sign-in',
         component: SignInComponent,
