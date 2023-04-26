@@ -152,6 +152,48 @@ router.post("/signin", (req, res) => {
 
 
 
+/** Register user 
+ *  Chad
+*/
+
+
+
+
+
+
+/** Verify user 
+ * John
+ * */
+
+
+
+
+
+
+
+/** Verify security question 
+ *    Ace
+*/
+
+
+
+
+
+/** Reset password 
+ * John
+*/
+
+
+
+/* Find Selected Security Questions.
+* Ace
+  
+*/
+
+
+
+
+
 /**
  * User Sign-out
  */
