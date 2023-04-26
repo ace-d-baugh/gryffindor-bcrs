@@ -538,5 +538,52 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+/**
+ * FindSelectedSecurityQuestions
+ * @openapi
+ * /api/users/selectedSecurityQuestions/{username}:
+ * get:
+ *     tags:
+ *        - Users
+ *    description: Returns selected security questions for a user
+ *   summary: findSelectedSecurityQuestions
+ *  parameters:
+ *     - name: username
+ *      in: path
+ *     description: username to query
+ *     required: true
+ *    schema:
+ *     type: string
+ *   responses:
+ *     '200':
+ *      description: Selected security questions returned
+ *    '500':
+ *     description: Server Exception
+ *   '501':
+ *    description: MongoDB Exception
+ * '400':
+ * description: Bad Request
+ * '404':
+ * description: Not Found
+ */
+// Ace Coded | John Tested | Chad Approved
+router.get("/selectedSecurityQuestions/:username", async (req, res) => {
+  try {
+    // Find user by username
+    
+  } catch (e) {
+    console.log(e);
+    const findSelectedSecurityQuestionsCatchErrorResponse = new ErrorResponse(
+      500,
+      "Internal server error",
+      e.message
+    );
+    res
+      .status(500)
+      .send(findSelectedSecurityQuestionsCatchErrorResponse.toObject());
+    errorLogger({ filename: myFile, message: "Internal server error" });
+  }
+});
+
 // Export the router
 module.exports = router;
