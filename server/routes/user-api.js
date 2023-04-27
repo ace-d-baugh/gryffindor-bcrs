@@ -353,7 +353,7 @@ router.post("/", async (req, res) => {
  *                  phoneNumber:
  *                    type: string
  *                  email:
- *                   type: string
+ *                    type: string
  *                  address:
  *                    type: string
  *      responses:
@@ -542,35 +542,68 @@ router.delete("/:id", async (req, res) => {
  * FindSelectedSecurityQuestions
  * @openapi
  * /api/users/selectedSecurityQuestions/{username}:
- * get:
+ *   get:
  *     tags:
- *        - Users
- *    description: Returns selected security questions for a user
- *   summary: findSelectedSecurityQuestions
- *  parameters:
- *     - name: username
- *      in: path
- *     description: username to query
- *     required: true
- *    schema:
- *     type: string
- *   responses:
- *     '200':
- *      description: Selected security questions returned
- *    '500':
- *     description: Server Exception
- *   '501':
- *    description: MongoDB Exception
- * '400':
- * description: Bad Request
- * '404':
- * description: Not Found
+ *       - Users
+ *     description: Returns selected security questions for a user
+ *     summary: findSelectedSecurityQuestions
+ *     parameters:
+ *       - name: username
+ *         in: path
+ *         description: username to query
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       description: Array of selected security questions
+ *       content:
+ *         application/json:
+ *           schema:
+ *
+ *     responses:
+ *       '200':
+ *         description: Selected security questions returned
+ *       '500':
+ *         description: Server Exception
+ *       '501':
+ *         description: MongoDB Exception
+ *       '400':
+ *         description: Bad Request
+ *       '404':
+ *         description: Not Found
  */
 // Ace Coded | John Tested | Chad Approved
 router.get("/selectedSecurityQuestions/:username", async (req, res) => {
   try {
     // Find user by username
-    
+    User.findOne({ username: req.params.username }, function (err, user) {
+      if (err) {
+        console.log(err);
+        const findSelectedSecurityQuestionsMongodbErrorResponse =
+          new ErrorResponse(500, "Internal server error", err);
+        res
+          .status(500)
+          .send(
+            findSelectedSecurityQuestionsMongodbErrorResponse.toObject()
+          );
+        errorLogger({
+          filename: myFile,
+          message: `user ${req.params.username} not found`,
+        });
+      } else {
+        console.log(user);
+        const findSelectedSecurityQuestionsResponse = new BaseResponse(
+          200,
+          "Query successful",
+          user.selectedSecurityQuestions
+        );
+        res.json(findSelectedSecurityQuestionsResponse.toObject());
+        debugLogger({
+          filename: myFile,
+          message: `user ${user.username} selected security questions found`,
+        });
+      }
+    });
   } catch (e) {
     console.log(e);
     const findSelectedSecurityQuestionsCatchErrorResponse = new ErrorResponse(
