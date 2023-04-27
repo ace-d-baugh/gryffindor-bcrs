@@ -128,7 +128,7 @@ router.post("/signin", (req, res) => {
             console.log(`Invalid username: ${req.body.userName}. Please try again`);
             const invalidUserNameResponse = new BaseResponse(401, "Invalid username", "Please try again", null);
             res.status(401).send(invalidUserNameResponse.toObject());
-            errorLogger({filename: myFile, message: "Inavalid user id"})
+            errorLogger({filename: myFile, message: "Invalid user id"})
           }
         }
       });
@@ -154,8 +154,100 @@ router.post("/signin", (req, res) => {
 
 
 /** Register user
- *  Chad
+ *  Chad coded | Ace Tested | John Approved
 */
+// register a new user
+/**
+ * @openapi
+ * /api/session/register:
+ *   post:
+ *     tags:
+ *       - Session
+ *     name: registerUser
+ *     description: API to register a new user
+ *     summary: registerUser
+ *     requestBody:
+ *        description: User information
+ *        content:
+ *          application/json:
+ *            schema:
+ *              properties:
+ *                username:
+ *                  type: string
+ *                password:
+ *                  type: string
+ *                firstName:
+ *                  type: string
+ *                lastName:
+ *                  type: string
+ *                phoneNumber:
+ *                  type: string
+ *                address:
+ *                  type: string
+ *                email:
+ *                  type: string
+ *     responses:
+ *       '200':
+ *         description: User registration successful
+ *       '500':
+ *         description: Internal server error
+ *       '501':
+ *         description: MongoDB Exception
+ */
+
+router.post('/register', async (req, res) => {
+  try {
+    // sees if user exists
+    User.findOne({ username: req.body.username }, function (err, user) {
+      if (err) {
+        console.log(err);
+        const registerUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+        res.status(500).send(registerUserMongodbErrorResponse.toObject());
+      } else {
+        // creates new user if one does not exist
+        if (!user) {
+          let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
+          standardRole = {
+            text: 'standard'
+          }
+
+          let registeredUser = {
+            username: req.body.username,
+            password: hashedPassword,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            phoneNumber: req.body.phoneNumber,
+            address: req.body.address,
+            email: req.body.email,
+            role: standardRole,
+            selectedSecurityQuestions: req.body.selectedSecurityQuestions
+          };
+
+          //create new user
+          User.create(registeredUser, function (err, newUser) {
+            if (err) {
+              console.log(err);
+              const newUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+              res.status(500).send(newUserMongodbErrorResponse.toObject());
+            } else {
+              const registeredUserResponse = new BaseResponse('200', 'Query successful', newUser);
+              res.json(registeredUserResponse.toObject());
+            }
+          })
+        } else {
+          console.log(`Username ${req.body.username} already exists`);
+          const alreadyExistsUserResponse = new BaseResponse('400', `The username: ${req.body.username} is already in use.`, null);
+          res.status(400).send(alreadyExistsUserResponse.toObject());
+        }
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    const registerUserCatchErrorResponse = new ErrorResponse('500', 'Internal server error', e.message);
+    res.status(500).send(registerUserCatchErrorResponse.toObject());
+  }
+});
+
 
 
 /** verifyUser

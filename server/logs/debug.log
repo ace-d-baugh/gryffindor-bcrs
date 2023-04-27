@@ -29944,3 +29944,36 @@
 [4/25/2023, 8:49:59 PM] server	 user-api.js - Query on all users was successful
 [4/25/2023, 8:50:04 PM] server	 user-api.js - Query on all users was successful
 [4/25/2023, 8:50:12 PM] server	 user-api.js - Query on all users was successful
+[4/27/2023, 6:09:14 PM] server	 session-api.js - User logged in successfully
+[4/27/2023, 6:46:49 PM] server	 session-api.js - User logged in successfully
+[4/27/2023, 6:46:57 PM] server	 security-question-api.js - All security questions returned successfully
+[4/27/2023, 6:49:07 PM] server	 security-question-api.js - {
+  text: 'Who is the current president? ',
+  isDisabled: false,
+  _id: new ObjectId("644afbe3813e39904d9a1836"),
+  __v: 0
+} was added successfully
+[4/27/2023, 6:49:10 PM] server	 security-question-api.js - Query was successful
+[4/27/2023, 6:49:20 PM] server	 security-question-api.js - {
+  text: 'Who was the last president? ',
+  isDisabled: false,
+  _id: new ObjectId("644afbe3813e39904d9a1836"),
+  __v: 0
+} was updated successfully
+[4/27/2023, 6:49:20 PM] server	 security-question-api.js - All security questions returned successfully
+[4/27/2023, 6:49:20 PM] server	 security-question-api.js - {
+  text: 'Who was the last president? ',
+  isDisabled: false,
+  _id: new ObjectId("644afbe3813e39904d9a1836"),
+  __v: 0
+} was updated successfully
+[4/27/2023, 6:49:24 PM] server	 security-question-api.js - Security Question deleted successfully
+[4/27/2023, 6:49:29 PM] server	 user-api.js - Query on all users was successful
+[4/27/2023, 6:49:38 PM] server	 user-api.js - user miked found successfully
+[4/27/2023, 6:49:46 PM] server	 user-api.js - user miked updated successfully
+[4/27/2023, 6:49:46 PM] server	 user-api.js - Query on all users was successful
+[4/27/2023, 6:49:53 PM] server	 user-api.js - user Superman deleted successfully
+[4/27/2023, 6:50:39 PM] server	 user-api.js - user batman created successfully
+[4/27/2023, 6:50:39 PM] server	 user-api.js - Query on all users was successful
+[4/27/2023, 6:50:53 PM] server	 user-api.js - user batman deleted successfully
+[4/27/2023, 6:51:07 PM] server	 user-api.js - user miked deleted successfully
