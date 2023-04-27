@@ -20,6 +20,7 @@ const { debugLogger, errorLogger } = require('../logs/logger');
 
 
 const bcrypt = require("bcryptjs");
+const saltRounds = 10;
 const ajv = new Ajv()
 const myFile = 'session-api.js'
 
@@ -127,7 +128,7 @@ router.post("/signin", (req, res) => {
             console.log(`Invalid username: ${req.body.userName}. Please try again`);
             const invalidUserNameResponse = new BaseResponse(401, "Invalid username", "Please try again", null);
             res.status(401).send(invalidUserNameResponse.toObject());
-            errorLogger({filename: myFile, message: "Inavlid user id"})
+            errorLogger({filename: myFile, message: "Inavalid user id"})
           }
         }
       });
@@ -157,18 +158,57 @@ router.post("/signin", (req, res) => {
 */
 
 
-
-
-
-
-/** Verify user
- * John
- * */
-
-
-
-
-
+/** verifyUser
+ *  @openapi
+ * /api/verify/users/{username}:
+ *   get:
+ *     tags:
+ *       - username
+ *     description: API for verifying that a user exists by examining their user name
+ *     summary: verifyUser
+ *     parameters:
+ *         - in: path
+ *         name: username
+ *         required: true
+ *         description: The user name of the user to verify
+ *         schema:
+ *            type: string
+ *     responses:
+ *       200:
+ *         description: A user name object
+ *       500:
+ *         description: Internal server error
+ */
+ /* John */
+router.get('/verify/users/:username', async (req, res) => {
+  try {
+    User.findOne({'username': req.params.username}, function(err, user) {
+      if (err) {
+        console.log(err)
+        const verifyMongodbErrorResponse = new ErrorResponse('500', 'Internal Server Error', err);
+        res.status(500).send(verifyMongodbErrorResponse.toObject());
+        errorLogger({filename: myFile, message: `Error retrieving ${user} from database`});
+      } else {
+        if (user) {
+          console.log(user);
+          const verifyUserResponse = new BaseResponse('200', 'Query successful', user);
+          res.json(verifyUserResponse.toObject());
+          debugLogger({filename: myFile, message: `User ${user} successfully verified`})
+        } else {
+          const invalidUsernameResponse = new BaseResponse('400', 'Invalid username', req.params.username);
+          res.status(400).send(invalidUsernameResponse.toObject());
+          errorLogger({filename: myFile, message: `User ${user} doesn't exist`})
+        }
+      }
+    })
+  }
+  catch (e) {
+    console.log(e);
+    const verifyUserCatchErrorResponse = new ErrorResponse('500', 'Internal Server Error', e.message);
+    res.status(500).send(verifyUserCatchErrorResponse.toObject());
+    errorLogger({filename: myFile, message: 'Internal Server Error'})
+  }
+})
 
 
 /**
@@ -223,7 +263,88 @@ router.post('/verify/users/:username/security-questions', async(req, res) => {
 /** Reset password
  * John
 */
+/**
+ * resetPassword
+ * @openapi
+ * /api/users/{username}/reset-password:
+ *   post:
+ *     tags:
+ *       - username
+ *     name: Reset Password
+ *     description: API to reset the password for a user name
+ *     summary: resetPassword
+ *     parameters:
+ *         - in: path
+ *         name: username
+ *         required: true
+ *         description: The user name of the user to verify
+ *         schema:
+ *            type: string
+ *     responses:
+ *       '200':
+ *         description: Password reset successful
+ *       '500':
+ *         description: Internal server error
+ *
+ */
+router.post('/users/:username/reset-password', async(req, res) => {
+
+  try {
+
+    const password = req.body.password;
+
+    User.findOne({'username': req.params.username}, function(err, user) {
+      if(err) {
+        console.log(err);
+        const resetPasswordMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+        res.status(500).send(resetPasswordMongodbErrorResponse.toObject());
+        errorLogger({filename: myFile, message: `Cannot find user ${username} on database`})
+      } else {
+        console.log(user);
+        let hashedPassword = bcrypt.hashSync(password, saltRounds);
+
+        //set the new password
+        user.set({
+          password: hashedPassword
+        });
+
+        //save the new password for the user
+        user.save(function(err, updatedUser) {
+          if (err) {
+            console.log(err);
+            const updatedUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+            res.status(500).send(updatedUserMongodbErrorResponse.toObject());
+            errorLogger({filename: myFile, message: `Error attempting to save new password for ${updatedUser} user`});
+          } else {
+            console.log(updatedUser)
+            const updatedUserPasswordResponse = new BaseResponse('200', 'Query successful', updatedUser);
+            res.json(updatedUserPasswordResponse.toObject());
+            debugLogger({filename: myFile, message: `Password for user ${updatedUser} reset successfully`});
+          }
+        })
+      }
+    })
+  }
+  catch (e) {
+    console.log(e);
+    const resetPasswordCatchError = new ErrorResponse('500', 'Internal server error', e.message);
+    res.status(500).send(resetPasswordCatchError.toObject());
+    errorLogger({filename: myFile, message: 'Internal server error'});
+  }
+});
 
 
+
+
+
+
+
+
+
+
+
+/**
+ * User Sign-out
+ */
 
 module.exports = router;
