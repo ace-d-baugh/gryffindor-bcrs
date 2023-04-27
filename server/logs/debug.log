@@ -29944,3 +29944,5 @@
 [4/25/2023, 8:49:59 PM] server	 user-api.js - Query on all users was successful
 [4/25/2023, 8:50:04 PM] server	 user-api.js - Query on all users was successful
 [4/25/2023, 8:50:12 PM] server	 user-api.js - Query on all users was successful
+[4/25/2023, 8:22:05 PM] server	 session-api.js - User logged in successfully
+[4/26/2023, 3:03:10 PM] server	 user-api.js - Query on all users was successful
