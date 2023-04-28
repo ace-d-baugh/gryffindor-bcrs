@@ -53,6 +53,7 @@ import { ToastModule } from 'primeng/toast';
 import { MatDividerModule } from '@angular/material/divider';
 import { MenuModule } from 'primeng/menu';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { NewComponent } from './pages/new/new.component';
 
 
 //module
@@ -72,7 +73,8 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
     UserCreateComponent,
     AboutComponent,
     ContactComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    NewComponent
   ],
   imports: [
     BrowserModule,
