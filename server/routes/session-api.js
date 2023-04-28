@@ -38,8 +38,6 @@ const sessionSigninSchema = {
     additionalProperties: false
 }
 
-
-
 /**
  * Signin
  * @openapi
@@ -151,12 +149,37 @@ router.post("/signin", (req, res) => {
   }
 });
 
+// registerUserSchema
+const registerUserSchema = {
+  type: 'object',
+  properties: {
+    username: {type: 'string'},
+    password: {type: 'string'},
+    firstName: {type: 'string'},
+    lastName: {type: 'string'},
+    phoneNumber: {type: 'string'},
+    address: {type: 'string'},
+    email: {type: 'string'},
+    selectedSecurityQuestions: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          questionText: {type: 'string'},
+          answerText: {type: 'string'}
+        },
+        required: ['questionText', 'answerText'],
+        additionalProperties: false
+      }
+    }
+  },
+  required: ['username', 'password', 'firstName', 'lastName', 'email'],
+  additionalProperties: false
+};
 
-
-/** Register user
+/** userRegister
  *  Chad coded | Ace Tested | John Approved
 */
-// register a new user
 /**
  * @openapi
  * /api/session/register:
@@ -194,61 +217,71 @@ router.post("/signin", (req, res) => {
  *       '501':
  *         description: MongoDB Exception
  */
-
 router.post('/register', async (req, res) => {
   try {
-    // sees if user exists
-    User.findOne({ username: req.body.username }, function (err, user) {
-      if (err) {
-        console.log(err);
-        const registerUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
-        res.status(500).send(registerUserMongodbErrorResponse.toObject());
-      } else {
-        // creates new user if one does not exist
-        if (!user) {
-          let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
-          standardRole = {
-            text: 'standard'
-          }
+    const registerUser = req.body;
+    const validator = ajv.compile(registerUserSchema);
+    const valid = validator(registerUser);
 
-          let registeredUser = {
-            username: req.body.username,
-            password: hashedPassword,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            phoneNumber: req.body.phoneNumber,
-            address: req.body.address,
-            email: req.body.email,
-            role: standardRole,
-            selectedSecurityQuestions: req.body.selectedSecurityQuestions
-          };
-
-          //create new user
-          User.create(registeredUser, function (err, newUser) {
-            if (err) {
-              console.log(err);
-              const newUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
-              res.status(500).send(newUserMongodbErrorResponse.toObject());
-            } else {
-              const registeredUserResponse = new BaseResponse('200', 'Query successful', newUser);
-              res.json(registeredUserResponse.toObject());
-            }
-          })
+    if (valid) {
+      // Check if user already exists
+      User.findOne({ username: req.body.username }, function (err, user) {
+        if (err) {
+          console.log(err);
+          const registerUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+          res.status(500).send(registerUserMongodbErrorResponse.toObject());
         } else {
-          console.log(`Username ${req.body.username} already exists`);
-          const alreadyExistsUserResponse = new BaseResponse('400', `The username: ${req.body.username} is already in use.`, null);
-          res.status(400).send(alreadyExistsUserResponse.toObject());
+          if (!user) {
+            // Hash password
+            let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
+
+            // Create user object
+            let registeredUser = {
+              username: req.body.username,
+              password: hashedPassword,
+              firstName: req.body.firstName,
+              lastName: req.body.lastName,
+              phoneNumber: req.body.phoneNumber,
+              address: req.body.address,
+              email: req.body.email,
+              role: { text: 'standard' },
+              selectedSecurityQuestions: req.body.selectedSecurityQuestions
+            };
+
+            // Create new user
+            User.create(registeredUser, function (err, newUser) {
+              if (err) {
+                console.log(err);
+                const newUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+                res.status(500).send(newUserMongodbErrorResponse.toObject());
+              } else {
+                const registeredUserResponse = new BaseResponse('200', 'Query successful', newUser);
+                res.json(registeredUserResponse.toObject());
+              }
+            })
+          } else {
+            console.log(`Username ${req.body.username} already exists`);
+            const alreadyExistsUserResponse = new BaseResponse('400', `The username: ${req.body.username} is already in use.`, null);
+            res.status(400).send(alreadyExistsUserResponse.toObject());
+          }
         }
-      }
-    });
+      });
+    } else {
+      const registerUserValidationError = new ErrorResponse(
+        400,
+        "Bad Request",
+        `Input doesn't match expected Schema ${req.body}`
+      );
+      console.log(registerUserValidationError);
+      res.json(registerUserValidationError.toObject());
+      errorLogger({filename: myFile, message: "Bad request, input doesn't match schema"})
+    }
   } catch (e) {
     console.log(e);
     const registerUserCatchErrorResponse = new ErrorResponse('500', 'Internal server error', e.message);
     res.status(500).send(registerUserCatchErrorResponse.toObject());
   }
 });
-
-
 
 /** verifyUser
  *  @openapi
