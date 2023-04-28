@@ -54,6 +54,7 @@ import { ToastModule } from 'primeng/toast';
 import { MatDividerModule } from '@angular/material/divider';
 import { MenuModule } from 'primeng/menu';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
 
 
 //module
@@ -75,6 +76,7 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
     ContactComponent,
     UserDetailsComponent,
     BadRequestComponent,
+    VerifyUsernameFormComponent,
   ],
   imports: [
     BrowserModule,
