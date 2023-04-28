@@ -1,0 +1,30 @@
+<div class="main-container">
+
+    <!--main card title-->
+    <div class="content-title center">
+        <h1>Forgot Password</h1>
+        <h3>Fields marked with an asterisk (*) are required.</h3>
+    </div>
+
+    <br /> <br />
+
+    <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+
+    <div class="form-container">
+        <div class="m2">
+            <form [formGroup]="form" (ngSubmit)="verifyUser()" #usernameForm>
+                <div class="form-group">
+                    <label class="input-label" for="text">Username*</label>
+                    <input 
+                        type="text"
+                        formControlName="username"
+                        required
+                        placeholder="User Name"
+                        />
+                    <br /><br />                          
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</div>
