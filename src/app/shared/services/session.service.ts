@@ -53,4 +53,9 @@ export class SessionService {
     return this.http.get('/api/session/verify/users/' + username);
   }
 
+  updatePassword(password: string, username: string): Observable<any> {
+    return this.http.post('/api/session/users' + username + '/reset-password', {
+      password
+    })
+  }
 }

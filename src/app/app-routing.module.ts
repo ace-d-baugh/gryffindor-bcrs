@@ -28,6 +28,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { BadRequestComponent } from './pages/bad-request/bad-request.component';
 import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
+import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
 
 // routes
 const routes: Routes = [
@@ -97,6 +98,10 @@ const routes: Routes = [
       {
         path: 'forgot',
         component: VerifyUsernameFormComponent
+      },
+      {
+        path: 'reset-password',
+        component: ResetPasswordFormComponent
       }
     ],
   },

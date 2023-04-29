@@ -29981,3 +29981,18 @@
 [4/27/2023, 8:30:19 PM] server	 user-api.js - Query on all users was successful
 [4/27/2023, 8:32:26 PM] server	 user-api.js - Query on all users was successful
 [4/27/2023, 8:36:04 PM] server	 user-api.js - Query on all users was successful
+[4/29/2023, 11:59:29 AM] server	 session-api.js - User {
+  _id: new ObjectId("64471a7d2511e967842c9aba"),
+  username: 'mozart',
+  password: '$2a$10$RcxCGf8pTqmLqvgy2pVbguMKEjh6tp1oPGxhnUNWUSpH7GswQVvVC',
+  firstName: 'Wolfgang',
+  lastName: 'Mozart',
+  phoneNumber: '987-456-2310',
+  address: '654 Main St, Vienna, Austria',
+  email: 'mozart@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("64471a7d2511e967842c9abb") },
+  dateCreated: 2023-04-25T00:00:47.128Z,
+  selectedSecurityQuestions: [],
+  __v: 0
+} successfully verified
