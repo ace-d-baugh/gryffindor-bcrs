@@ -28,6 +28,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { BadRequestComponent } from './pages/bad-request/bad-request.component';
 import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
+import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
 import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component';
 
 // routes
@@ -100,9 +101,9 @@ const routes: Routes = [
         component: VerifyUsernameFormComponent
       },
       {
-        path: 'verify-security-questions',
-        component: VerifySecurityQuestionsFormComponent
-      },
+        path: 'reset-password',
+        component: ResetPasswordFormComponent
+      }
     ],
   },
   // a 404 page for everything not found

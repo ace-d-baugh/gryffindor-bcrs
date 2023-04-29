@@ -1,3 +1,13 @@
+<!--
+============================================
+; Title: verify-username-form.component.html for BCRS
+; Author: Professor Krasso
+; Modified by: John Vanhessche
+; Date: 04/29/2023
+; Description: verify-username-form.component.html for BCRS
+===========================================
+-->
+
 <div class="main-container">
 
     <!--main card title-->
@@ -6,7 +16,7 @@
         <h3>Fields marked with an asterisk (*) are required.</h3>
     </div>
 
-    <br /> <br />
+    <br />
 
     <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
@@ -14,20 +24,19 @@
         <div class="m2">
             <form [formGroup]="form" (ngSubmit)="verifyUser()" #usernameForm>
                 <div class="form-group">
-                    <label class="input-label" for="text">Username*</label>
+                    <label class="input-label" for="text">User Name*</label>
                     <input 
                         type="text"
                         formControlName="username"
                         required
-                        placeholder="User Name"
                         />
                         <div class="error" *ngIf="form.controls['username'].hasError('required') && form.controls['username'].touched">
                             User name is a required field
                         </div>
                     <br /><br />
                     
-                    <button routerLink="/session/login" color="accent">Cancel</button>
-                    <button [disabled]="!form.valid" color="primary">Forgot Password</button>                    
+                    <button class="btn" routerLink="/session/sign-in" color="accent">Cancel</button>
+                    <button class="btn" [disabled]="!form.valid" color="primary">Forgot Password</button>                    
                 </div>
             </form>
         </div>

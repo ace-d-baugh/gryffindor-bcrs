@@ -29981,35 +29981,18 @@
 [4/27/2023, 8:30:19 PM] server	 user-api.js - Query on all users was successful
 [4/27/2023, 8:32:26 PM] server	 user-api.js - Query on all users was successful
 [4/27/2023, 8:36:04 PM] server	 user-api.js - Query on all users was successful
-[4/29/2023, 12:44:11 PM] server	 session-api.js - User {
-  _id: new ObjectId("64454abb3220b4ccbb5087f4"),
-  username: 'rooferdude',
-  password: '$2a$10$jMksc4SfuTBSPr5NQOsxVOFw6WsLvyyOsi1W.SvHZ5er0bUCyOIHG',
-  firstName: 'Chad',
-  lastName: 'Hutchison',
-  phoneNumber: '123-465-7890',
-  address: '321 Electric Ave',
-  isDisabled: true,
-  role: { _id: new ObjectId("64454abb3220b4ccbb5087f5"), text: 'standard' },
-  dateCreated: 2023-04-23T15:07:08.175Z,
+[4/29/2023, 11:59:29 AM] server	 session-api.js - User {
+  _id: new ObjectId("64471a7d2511e967842c9aba"),
+  username: 'mozart',
+  password: '$2a$10$RcxCGf8pTqmLqvgy2pVbguMKEjh6tp1oPGxhnUNWUSpH7GswQVvVC',
+  firstName: 'Wolfgang',
+  lastName: 'Mozart',
+  phoneNumber: '987-456-2310',
+  address: '654 Main St, Vienna, Austria',
+  email: 'mozart@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("64471a7d2511e967842c9abb") },
+  dateCreated: 2023-04-25T00:00:47.128Z,
   selectedSecurityQuestions: [],
-  __v: 0,
-  dateModified: 2023-04-25T03:05:29.409Z,
-  email: 'me@brad.com'
-} successfully verified
-[4/29/2023, 2:22:50 PM] server	 session-api.js - User {
-  _id: new ObjectId("64454abb3220b4ccbb5087f4"),
-  username: 'rooferdude',
-  password: '$2a$10$jMksc4SfuTBSPr5NQOsxVOFw6WsLvyyOsi1W.SvHZ5er0bUCyOIHG',
-  firstName: 'Chad',
-  lastName: 'Hutchison',
-  phoneNumber: '123-465-7890',
-  address: '321 Electric Ave',
-  isDisabled: true,
-  role: { _id: new ObjectId("64454abb3220b4ccbb5087f5"), text: 'standard' },
-  dateCreated: 2023-04-23T15:07:08.175Z,
-  selectedSecurityQuestions: [],
-  __v: 0,
-  dateModified: 2023-04-25T03:05:29.409Z,
-  email: 'me@brad.com'
+  __v: 0
 } successfully verified
