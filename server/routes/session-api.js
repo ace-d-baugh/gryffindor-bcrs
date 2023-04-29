@@ -209,6 +209,15 @@ const registerUserSchema = {
  *                  type: string
  *                email:
  *                  type: string
+ *               selectedSecurityQuestions:
+ *                 type: array
+ *                items:
+ *                 type: object
+ *                properties:
+ *                 questionText:
+ *                  type: string
+ *                answerText:
+ *                 type: string
  *     responses:
  *       '200':
  *         description: User registration successful

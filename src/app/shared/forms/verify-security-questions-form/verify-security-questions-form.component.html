@@ -1,0 +1,44 @@
+<!--
+==============================================
+; Title: bcrs verify-security-questions.component.html
+; Author: Professor Krasso
+; Modified by: Chad ONeal
+; Date: 04/29/2023
+; Description: html for bcrs
+==============================================
+!-->
+
+<div class="main-container">
+
+  <!--main card title-->
+  <div class="content-title center">
+    <h1>Verify Security Questions</h1>
+    <h3>Fields marked with an asterisk (*) are required.</h3>
+  </div>
+  <br><br>
+
+    <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+
+    <div class="form-container">
+      <div class="m2">
+        <form [formGroup]="form" (ngSubmit)="verifySecurityQuestions()" #usernameForm>
+          <div class="form-group">
+              <label class="input-label" for="text">Security Questions*</label>
+              <input
+                  type="text"
+                  formControlName="securityquestions"
+                  required
+                  placeholder="Security Question"
+                  />
+                  <div class="error" *ngIf="form.controls['securityquestions'].hasError('required') && form.controls['securityquestions'].touched">
+                      Security Question is a required field
+                  </div>
+              <br /><br />
+
+              <button routerLink="/session/login" color="accent">Cancel</button>
+              <button [disabled]="!form.valid" color="primary">Verify Security Questions</button>
+          </div>
+      </form>
+      </div>
+    </div>
+</div>
