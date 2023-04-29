@@ -21,10 +21,15 @@
                         required
                         placeholder="User Name"
                         />
-                    <br /><br />                          
+                        <div class="error" *ngIf="form.controls['username'].hasError('required') && form.controls['username'].touched">
+                            User name is a required field
+                        </div>
+                    <br /><br />
+                    
+                    <button routerLink="/session/login" color="accent">Cancel</button>
+                    <button [disabled]="!form.valid" color="primary">Forgot Password</button>                    
                 </div>
             </form>
         </div>
-    </div>
-    
+    </div>    
 </div>

@@ -27,6 +27,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { BadRequestComponent } from './pages/bad-request/bad-request.component';
+import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
 
 // routes
 const routes: Routes = [
@@ -93,6 +94,10 @@ const routes: Routes = [
         path: 'server-error',
         component: ServerErrorComponent,
       },
+      {
+        path: 'forgot',
+        component: VerifyUsernameFormComponent
+      }
     ],
   },
   // a 404 page for everything not found
