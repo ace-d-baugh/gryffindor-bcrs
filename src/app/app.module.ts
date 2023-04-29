@@ -55,6 +55,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MenuModule } from 'primeng/menu';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
+import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
 
 
 //module
@@ -77,6 +78,7 @@ import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form
     UserDetailsComponent,
     BadRequestComponent,
     VerifyUsernameFormComponent,
+    ResetPasswordFormComponent,
   ],
   imports: [
     BrowserModule,
