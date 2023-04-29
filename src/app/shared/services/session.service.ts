@@ -19,6 +19,13 @@ import { User } from '../models/user.interface';
   providedIn: 'root'
 })
 export class SessionService {
+  // verify username
+  verifysecurityquestions(securityquestions: any) {
+    throw new Error('Method not implemented.');
+  }
+  verifysecurityquestion(securityquestion: any) {
+    throw new Error('Method not implemented.');
+  }
 
   //  constructor
   constructor(private http: HttpClient) { }
@@ -52,5 +59,10 @@ export class SessionService {
   verifyusername(username: string): Observable<any>{
     return this.http.get('/api/session/verify/users/' + username);
   }
+
+  // verify-security-questions
+  securityquestions(securityquestions: string): Observable<any>{
+  return this.http.get('/api/session/verify', { securityquestions });
+}
 
 }
