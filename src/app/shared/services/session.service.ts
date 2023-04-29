@@ -67,7 +67,7 @@ export class SessionService {
   }
   // verify-security-questions
   securityquestions(securityquestions: string): Observable<any>{
-  return this.http.get('/api/session/verify', { securityquestions });
+  return this.http.post('/api/session/verify', { securityquestions });
 }
 
 }
