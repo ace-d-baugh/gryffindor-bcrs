@@ -19,26 +19,83 @@
 
     <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
-    <div class="form-container">
-      <div class="m2">
-        <form [formGroup]="form" (ngSubmit)="verifySecurityQuestions()" #usernameForm>
-          <div class="form-group">
-              <label class="input-label" for="text">Security Questions*</label>
-              <input
-                  type="text"
-                  formControlName="securityquestions"
-                  required
-                  placeholder="Security Question"
-                  />
-                  <div class="error" *ngIf="form.controls['securityquestions'].hasError('required') && form.controls['securityquestions'].touched">
-                      Security Question is a required field
-                  </div>
-              <br /><br />
+    <!--forms field-->
+    <form *ngIf="selectedSecurityQuestions" [formGroup]="form" (ngSubmit)="verifySecurityQuestions()">
 
-              <button routerLink="/session/login" color="accent">Cancel</button>
-              <button [disabled]="!form.valid" color="primary">Verify Security Questions</button>
+      <div class="form-group">
+        <label class="input-label" for="input">{{ verifySecurityQuestionsModel.question1 }}</label>
+        <input
+          type="text"
+          formControlName="answerToSecurityQuestion1"
+          id="answerToSecurityQuestion1"
+          class="form-control"
+        />
+        <!--mat-error-->
+        <mat-error
+              class="error"
+              *ngIf="
+                form.controls['answerToSecurityQuestion1'].hasError(
+                  'required'
+                ) && form.controls['answerToSecurityQuestion1'].touched
+              "
+            >
+              Required field.
+         </mat-error>
+        </div>
+
+        <div class="form-group">
+          <label class="input-label" for="input">{{ verifySecurityQuestionsModel.question2 }}</label>
+          <input
+            type="text"
+            formControlName="answerToSecurityQuestion2"
+            id="answerToSecurityQuestion2"
+            class="form-control"
+          />
+          <!--mat-error-->
+          <mat-error
+                class="error"
+                *ngIf="
+                  form.controls['answerToSecurityQuestion2'].hasError(
+                    'required'
+                  ) && form.controls['answerToSecurityQuestion2'].touched
+                "
+              >
+                Required field.
+           </mat-error>
           </div>
-      </form>
-      </div>
-    </div>
+
+          <div class="form-group">
+            <label class="input-label" for="input">{{ verifySecurityQuestionsModel.question3 }}</label>
+            <input
+              type="text"
+              formControlName="answerToSecurityQuestion3"
+              id="answerToSecurityQuestion3"
+              class="form-control"
+            />
+            <!--mat-error-->
+            <mat-error
+                  class="error"
+                  *ngIf="
+                    form.controls['answerToSecurityQuestion3'].hasError(
+                      'required'
+                    ) && form.controls['answerToSecurityQuestion3'].touched
+                  "
+                >
+                  Required field.
+             </mat-error>
+            </div>
+
+
+        <!-- cancel button-->
+        <button class="btn" routerLink="/session/forgot" color="accent">Cancel</button>
+
+        <!-- verify security questions button-->
+        <button class="btn" [disabled]="!form.valid" color="primary">Verify Security Questions</button>
+    </form>
+
 </div>
+
+
+
+
+

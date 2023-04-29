@@ -13,6 +13,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.interface';
+import { VerifySecurityQuestionModel } from '../models/verify-security-question.interface';
 
 //  Injectable
 @Injectable({
@@ -65,9 +66,18 @@ export class SessionService {
       password
     })
   }
-  // verify-security-questions
-  securityquestions(securityquestions: string): Observable<any>{
-  return this.http.post('/api/session/verify', { securityquestions });
-}
+
+  // verify security questions
+  verifySecurityQuestions(model: VerifySecurityQuestionModel, userName: String,): Observable<any>{
+    return this.http.post('/api/session/verify/users/' + userName + '/security-questions', {
+      questionText1: model.question1,
+      questionText2: model.question2,
+      questionText3: model.question3,
+      answerText1: model.answerToQuestion1,
+      answerText2: model.answerToQuestion2,
+      answerText3: model.answerToQuestion3,
+
+    })
+  }
 
 }

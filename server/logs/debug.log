@@ -29996,3 +29996,456 @@
   selectedSecurityQuestions: [],
   __v: 0
 } successfully verified
+[4/29/2023, 4:59:39 PM] server	 session-api.js - User logged in successfully
+[4/29/2023, 5:00:12 PM] server	 session-api.js - User {
+  _id: new ObjectId("64454abb3220b4ccbb5087f4"),
+  username: 'rooferdude',
+  password: '$2a$10$jMksc4SfuTBSPr5NQOsxVOFw6WsLvyyOsi1W.SvHZ5er0bUCyOIHG',
+  firstName: 'Chad',
+  lastName: 'Hutchison',
+  phoneNumber: '123-465-7890',
+  address: '321 Electric Ave',
+  isDisabled: true,
+  role: { _id: new ObjectId("64454abb3220b4ccbb5087f5"), text: 'standard' },
+  dateCreated: 2023-04-23T15:07:08.175Z,
+  selectedSecurityQuestions: [],
+  __v: 0,
+  dateModified: 2023-04-25T03:05:29.409Z,
+  email: 'me@brad.com'
+} successfully verified
+[4/29/2023, 5:00:48 PM] server	 session-api.js - User {
+  _id: new ObjectId("64454abb3220b4ccbb5087f4"),
+  username: 'rooferdude',
+  password: '$2a$10$jMksc4SfuTBSPr5NQOsxVOFw6WsLvyyOsi1W.SvHZ5er0bUCyOIHG',
+  firstName: 'Chad',
+  lastName: 'Hutchison',
+  phoneNumber: '123-465-7890',
+  address: '321 Electric Ave',
+  isDisabled: true,
+  role: { _id: new ObjectId("64454abb3220b4ccbb5087f5"), text: 'standard' },
+  dateCreated: 2023-04-23T15:07:08.175Z,
+  selectedSecurityQuestions: [],
+  __v: 0,
+  dateModified: 2023-04-25T03:05:29.409Z,
+  email: 'me@brad.com'
+} successfully verified
+[4/29/2023, 5:03:53 PM] server	 session-api.js - User {
+  _id: new ObjectId("64454abb3220b4ccbb5087f4"),
+  username: 'rooferdude',
+  password: '$2a$10$jMksc4SfuTBSPr5NQOsxVOFw6WsLvyyOsi1W.SvHZ5er0bUCyOIHG',
+  firstName: 'Chad',
+  lastName: 'Hutchison',
+  phoneNumber: '123-465-7890',
+  address: '321 Electric Ave',
+  isDisabled: true,
+  role: { _id: new ObjectId("64454abb3220b4ccbb5087f5"), text: 'standard' },
+  dateCreated: 2023-04-23T15:07:08.175Z,
+  selectedSecurityQuestions: [],
+  __v: 0,
+  dateModified: 2023-04-25T03:05:29.409Z,
+  email: 'me@brad.com'
+} successfully verified
+[4/29/2023, 5:04:45 PM] server	 session-api.js - User {
+  _id: new ObjectId("64454abb3220b4ccbb5087f4"),
+  username: 'rooferdude',
+  password: '$2a$10$jMksc4SfuTBSPr5NQOsxVOFw6WsLvyyOsi1W.SvHZ5er0bUCyOIHG',
+  firstName: 'Chad',
+  lastName: 'Hutchison',
+  phoneNumber: '123-465-7890',
+  address: '321 Electric Ave',
+  isDisabled: true,
+  role: { _id: new ObjectId("64454abb3220b4ccbb5087f5"), text: 'standard' },
+  dateCreated: 2023-04-23T15:07:08.175Z,
+  selectedSecurityQuestions: [],
+  __v: 0,
+  dateModified: 2023-04-25T03:05:29.409Z,
+  email: 'me@brad.com'
+} successfully verified
+[4/29/2023, 5:06:08 PM] server	 session-api.js - User {
+  _id: new ObjectId("64454abb3220b4ccbb5087f4"),
+  username: 'rooferdude',
+  password: '$2a$10$jMksc4SfuTBSPr5NQOsxVOFw6WsLvyyOsi1W.SvHZ5er0bUCyOIHG',
+  firstName: 'Chad',
+  lastName: 'Hutchison',
+  phoneNumber: '123-465-7890',
+  address: '321 Electric Ave',
+  isDisabled: true,
+  role: { _id: new ObjectId("64454abb3220b4ccbb5087f5"), text: 'standard' },
+  dateCreated: 2023-04-23T15:07:08.175Z,
+  selectedSecurityQuestions: [],
+  __v: 0,
+  dateModified: 2023-04-25T03:05:29.409Z,
+  email: 'me@brad.com'
+} successfully verified
+[4/29/2023, 5:13:13 PM] server	 session-api.js - User {
+  _id: new ObjectId("64454abb3220b4ccbb5087f4"),
+  username: 'rooferdude',
+  password: '$2a$10$jMksc4SfuTBSPr5NQOsxVOFw6WsLvyyOsi1W.SvHZ5er0bUCyOIHG',
+  firstName: 'Chad',
+  lastName: 'Hutchison',
+  phoneNumber: '123-465-7890',
+  address: '321 Electric Ave',
+  isDisabled: true,
+  role: { _id: new ObjectId("64454abb3220b4ccbb5087f5"), text: 'standard' },
+  dateCreated: 2023-04-23T15:07:08.175Z,
+  selectedSecurityQuestions: [],
+  __v: 0,
+  dateModified: 2023-04-25T03:05:29.409Z,
+  email: 'me@brad.com'
+} successfully verified
+[4/29/2023, 5:22:16 PM] server	 session-api.js - User {
+  _id: new ObjectId("64454abb3220b4ccbb5087f4"),
+  username: 'rooferdude',
+  password: '$2a$10$jMksc4SfuTBSPr5NQOsxVOFw6WsLvyyOsi1W.SvHZ5er0bUCyOIHG',
+  firstName: 'Chad',
+  lastName: 'Hutchison',
+  phoneNumber: '123-465-7890',
+  address: '321 Electric Ave',
+  isDisabled: true,
+  role: { _id: new ObjectId("64454abb3220b4ccbb5087f5"), text: 'standard' },
+  dateCreated: 2023-04-23T15:07:08.175Z,
+  selectedSecurityQuestions: [],
+  __v: 0,
+  dateModified: 2023-04-25T03:05:29.409Z,
+  email: 'me@brad.com'
+} successfully verified
+[4/29/2023, 5:29:24 PM] server	 session-api.js - User {
+  _id: new ObjectId("64454abb3220b4ccbb5087f4"),
+  username: 'rooferdude',
+  password: '$2a$10$jMksc4SfuTBSPr5NQOsxVOFw6WsLvyyOsi1W.SvHZ5er0bUCyOIHG',
+  firstName: 'Chad',
+  lastName: 'Hutchison',
+  phoneNumber: '123-465-7890',
+  address: '321 Electric Ave',
+  isDisabled: true,
+  role: { _id: new ObjectId("64454abb3220b4ccbb5087f5"), text: 'standard' },
+  dateCreated: 2023-04-23T15:07:08.175Z,
+  selectedSecurityQuestions: [],
+  __v: 0,
+  dateModified: 2023-04-25T03:05:29.409Z,
+  email: 'me@brad.com'
+} successfully verified
+[4/29/2023, 5:30:50 PM] server	 session-api.js - User {
+  _id: new ObjectId("64454abb3220b4ccbb5087f4"),
+  username: 'rooferdude',
+  password: '$2a$10$jMksc4SfuTBSPr5NQOsxVOFw6WsLvyyOsi1W.SvHZ5er0bUCyOIHG',
+  firstName: 'Chad',
+  lastName: 'Hutchison',
+  phoneNumber: '123-465-7890',
+  address: '321 Electric Ave',
+  isDisabled: true,
+  role: { _id: new ObjectId("64454abb3220b4ccbb5087f5"), text: 'standard' },
+  dateCreated: 2023-04-23T15:07:08.175Z,
+  selectedSecurityQuestions: [],
+  __v: 0,
+  dateModified: 2023-04-25T03:05:29.409Z,
+  email: 'me@brad.com'
+} successfully verified
+[4/29/2023, 5:30:50 PM] server	 session-api.js - User {
+  _id: new ObjectId("64454abb3220b4ccbb5087f4"),
+  username: 'rooferdude',
+  password: '$2a$10$jMksc4SfuTBSPr5NQOsxVOFw6WsLvyyOsi1W.SvHZ5er0bUCyOIHG',
+  firstName: 'Chad',
+  lastName: 'Hutchison',
+  phoneNumber: '123-465-7890',
+  address: '321 Electric Ave',
+  isDisabled: true,
+  role: { _id: new ObjectId("64454abb3220b4ccbb5087f5"), text: 'standard' },
+  dateCreated: 2023-04-23T15:07:08.175Z,
+  selectedSecurityQuestions: [],
+  __v: 0,
+  dateModified: 2023-04-25T03:05:29.409Z,
+  email: 'me@brad.com'
+} successfully verified
+[4/29/2023, 5:50:06 PM] server	 session-api.js - User {
+  _id: new ObjectId("64454abb3220b4ccbb5087f4"),
+  username: 'rooferdude',
+  password: '$2a$10$jMksc4SfuTBSPr5NQOsxVOFw6WsLvyyOsi1W.SvHZ5er0bUCyOIHG',
+  firstName: 'Chad',
+  lastName: 'Hutchison',
+  phoneNumber: '123-465-7890',
+  address: '321 Electric Ave',
+  isDisabled: true,
+  role: { _id: new ObjectId("64454abb3220b4ccbb5087f5"), text: 'standard' },
+  dateCreated: 2023-04-23T15:07:08.175Z,
+  selectedSecurityQuestions: [],
+  __v: 0,
+  dateModified: 2023-04-25T03:05:29.409Z,
+  email: 'me@brad.com'
+} successfully verified
+[4/29/2023, 5:51:14 PM] server	 session-api.js - User {
+  _id: new ObjectId("64454abb3220b4ccbb5087f4"),
+  username: 'rooferdude',
+  password: '$2a$10$jMksc4SfuTBSPr5NQOsxVOFw6WsLvyyOsi1W.SvHZ5er0bUCyOIHG',
+  firstName: 'Chad',
+  lastName: 'Hutchison',
+  phoneNumber: '123-465-7890',
+  address: '321 Electric Ave',
+  isDisabled: true,
+  role: { _id: new ObjectId("64454abb3220b4ccbb5087f5"), text: 'standard' },
+  dateCreated: 2023-04-23T15:07:08.175Z,
+  selectedSecurityQuestions: [],
+  __v: 0,
+  dateModified: 2023-04-25T03:05:29.409Z,
+  email: 'me@brad.com'
+} successfully verified
+[4/29/2023, 5:55:07 PM] server	 session-api.js - User logged in successfully
+[4/29/2023, 5:55:11 PM] server	 user-api.js - Query on all users was successful
+[4/29/2023, 5:55:17 PM] server	 user-api.js - user tester2 found successfully
+[4/29/2023, 5:55:25 PM] server	 user-api.js - Query on all users was successful
+[4/29/2023, 5:55:37 PM] server	 security-question-api.js - All security questions returned successfully
+[4/29/2023, 5:56:04 PM] server	 user-api.js - Query on all users was successful
+[4/29/2023, 5:57:40 PM] server	 user-api.js - user jaybird created successfully
+[4/29/2023, 5:57:40 PM] server	 user-api.js - Query on all users was successful
+[4/29/2023, 5:57:49 PM] server	 user-api.js - user tester2 deleted successfully
+[4/29/2023, 5:57:52 PM] server	 user-api.js - user thegreatestever deleted successfully
+[4/29/2023, 5:57:54 PM] server	 user-api.js - user spidey deleted successfully
+[4/29/2023, 6:02:32 PM] server	 security-question-api.js - All security questions returned successfully
+[4/29/2023, 6:18:48 PM] server	 security-question-api.js - All security questions returned successfully
+[4/29/2023, 6:18:50 PM] server	 user-api.js - Query on all users was successful
+[4/29/2023, 6:19:01 PM] server	 user-api.js - Query on all users was successful
+[4/29/2023, 6:19:02 PM] server	 user-api.js - user tester2 found successfully
+[4/29/2023, 6:19:04 PM] server	 user-api.js - Query on all users was successful
+[4/29/2023, 6:19:06 PM] server	 user-api.js - Query on all users was successful
+[4/29/2023, 6:19:06 PM] server	 security-question-api.js - All security questions returned successfully
+[4/29/2023, 6:19:12 PM] server	 session-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$bXxHEmi.W5Dvqip/xMT.8eflxdPs7KXWob6E02oOPT8x4z4L5PvUu',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("644d97e0886da3414f54440e"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("644d97e0886da3414f54440f"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("644d97e0886da3414f544410"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ]
+} successfully verified
+[4/29/2023, 6:37:28 PM] server	 session-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$bXxHEmi.W5Dvqip/xMT.8eflxdPs7KXWob6E02oOPT8x4z4L5PvUu',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("644d9c28886da3414f544412"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("644d9c28886da3414f544413"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("644d9c28886da3414f544414"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ]
+} successfully verified
+[4/29/2023, 6:54:25 PM] server	 session-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$bXxHEmi.W5Dvqip/xMT.8eflxdPs7KXWob6E02oOPT8x4z4L5PvUu',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("644da021baadf6d9fa5e6654"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("644da021baadf6d9fa5e6655"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("644da021baadf6d9fa5e6656"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ]
+} successfully verified
+[4/29/2023, 7:01:11 PM] server	 session-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$bXxHEmi.W5Dvqip/xMT.8eflxdPs7KXWob6E02oOPT8x4z4L5PvUu',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("644da1b7baadf6d9fa5e6658"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("644da1b7baadf6d9fa5e6659"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("644da1b7baadf6d9fa5e665a"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ]
+} successfully verified
+[4/29/2023, 7:03:50 PM] server	 session-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$bXxHEmi.W5Dvqip/xMT.8eflxdPs7KXWob6E02oOPT8x4z4L5PvUu',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("644da256fe0acbc51e25d7e8"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("644da256fe0acbc51e25d7e9"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("644da256fe0acbc51e25d7ea"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ]
+} successfully verified
+[4/29/2023, 7:03:50 PM] server	 user-api.js - user jaybird selected security questions found
+[4/29/2023, 7:04:42 PM] server	 session-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$bXxHEmi.W5Dvqip/xMT.8eflxdPs7KXWob6E02oOPT8x4z4L5PvUu',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("644da28ac2e22d141b12359d"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("644da28ac2e22d141b12359e"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("644da28ac2e22d141b12359f"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ]
+} successfully verified
+[4/29/2023, 7:05:03 PM] server	 session-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$bXxHEmi.W5Dvqip/xMT.8eflxdPs7KXWob6E02oOPT8x4z4L5PvUu',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("644da29fc2e22d141b1235a1"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("644da29fc2e22d141b1235a2"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("644da29fc2e22d141b1235a3"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ]
+} successfully verified
+[4/29/2023, 7:09:36 PM] server	 session-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$bXxHEmi.W5Dvqip/xMT.8eflxdPs7KXWob6E02oOPT8x4z4L5PvUu',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("644da3b0c2e22d141b1235a5"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("644da3b0c2e22d141b1235a6"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("644da3b0c2e22d141b1235a7"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ]
+} successfully verified

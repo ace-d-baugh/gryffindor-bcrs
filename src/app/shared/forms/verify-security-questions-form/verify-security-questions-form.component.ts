@@ -1,17 +1,21 @@
 /*
 ============================================
-; Title: verify-security-questions-form.component
+; Title: verify-security-questions-form.component.ts
 ; Author: Professor Krasso
 ; Modified by: Chad ONeal
 ; Date: 04/29/2023
-; Description: verify-security-questions-form
+; Description: verify-security-questions-form.component.ts
 ===========================================
 */
 
+//import statements
 import { Component, OnInit } from '@angular/core';
-import { Message } from 'primeng/api';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Message } from 'primeng/api';
+import { SelectedSecurityQuestion } from '../../models/selected-security-question.interface';
+import { VerifySecurityQuestionModel } from '../../models/verify-security-question.interface';
+import { UserService } from '../../services/user.service';
 import { SessionService } from '../../services/session.service';
 
 
@@ -20,34 +24,88 @@ import { SessionService } from '../../services/session.service';
   templateUrl: './verify-security-questions-form.component.html',
   styleUrls: ['./verify-security-questions-form.component.css']
 })
+
+//export class VerifySecurityQuestionsFormComponent
 export class VerifySecurityQuestionsFormComponent implements OnInit {
 
+  selectedSecurityQuestions: SelectedSecurityQuestion[];
+  verifySecurityQuestionsModel: VerifySecurityQuestionModel;
+  username: string;
   errorMessages: Message[];
 
-  form: FormGroup = this.fb.group({
-    securityquestions: [null, Validators.compose([Validators.required])]
-  });
 
-  constructor(private fb: FormBuilder, private router: Router, private sessionService: SessionService) {
+  form: FormGroup = this.fb.group({
+    answerToSecurityQuestion1: [null, Validators.compose([Validators.required])],
+    answerToSecurityQuestion2: [null, Validators.compose([Validators.required])],
+    answerToSecurityQuestion3: [null, Validators.compose([Validators.required])],
+  })
+verifySecurityQuestionModel: any;
+
+  //constructor
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private fb: FormBuilder,
+    private userService: UserService,
+    private sessionService: SessionService) {
+
+    this.username = this.route.snapshot.queryParamMap.get('username') ?? '';
     this.errorMessages = [];
+    this.verifySecurityQuestionsModel = {} as VerifySecurityQuestionModel;
+    this.selectedSecurityQuestions = [];
+      // findSelectedSecurityQuestions from userService
+    this.userService.findSelectedSecurityQuestions(this.username).subscribe({
+      next: (res) => {
+        this.selectedSecurityQuestions = res.data;
+        console.log(this.selectedSecurityQuestions);
+      },
+      error: (e) => {
+        console.log(e);
+      },
+      // complete
+      complete: () => {
+        this.verifySecurityQuestionModel.question1 = this.selectedSecurityQuestions[0].questionText;
+        this.verifySecurityQuestionModel.question2 = this.selectedSecurityQuestions[1].questionText;
+        this.verifySecurityQuestionModel.question3 = this.selectedSecurityQuestions[2].questionText;
+
+        console.log('Verify security questions model');
+        console.log(this.verifySecurityQuestionsModel);
+      }
+    })
    }
 
   ngOnInit(): void {
   }
 
-  //takes entered security questions, calls verify-security-questions api.  If questions are found, navigates to the /session/.
+// function verifySecurityQuestions for
   verifySecurityQuestions() {
-    const securityquestions = this.form.controls['securityquestions'].value;
+    this.verifySecurityQuestionsModel.answerToQuestion1 = this.form.controls['answerToSecurityQuestion1'].value;
+    this.verifySecurityQuestionsModel.answerToQuestion2 = this.form.controls['answerToSecurityQuestion2'].value;
+    this.verifySecurityQuestionsModel.answerToQuestion3 = this.form.controls['answerToSecurityQuestion3'].value;
 
-    this.sessionService.securityquestions(securityquestions).subscribe({
-      next: (res: any) => {
+    console.log(this.verifySecurityQuestionsModel);
+
+    // verifySecurityQuestions from sessionService
+    this.sessionService.verifySecurityQuestions(this.verifySecurityQuestionsModel, this.username).subscribe({
+      next: (res) => {
         console.log(res);
-        this.router.navigate(['/session/'], {queryParams: {securityquestions: securityquestions}, skipLocationChange: true});
+        if (res.message === 'success') {
+          this.router.navigate(['/session/reset-password'], { queryParams: { isAuthenticated: 'true', username: this.username }, skipLocationChange: true });
+        } else {
+          this.errorMessages = [
+            {severity: 'error', summary: 'Error', detail: 'Unable to verify security question answers'}
+          ]
+          console.log('Unable to verify security question answers');
+        }
       },
-      error: (e: { message: any; }) => {
-        this.errorMessages = [ {severity: 'error', summary: 'Error', detail: e.message }]
-        console.log(e)
+      // error
+      error: (e) => {
+        console.log(e);
       }
     })
+
+
+
   }
+
 }

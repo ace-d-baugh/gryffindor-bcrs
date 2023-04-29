@@ -101,6 +101,10 @@ const routes: Routes = [
         component: VerifyUsernameFormComponent
       },
       {
+        path: 'verify-security-questions',
+        component: VerifySecurityQuestionsFormComponent
+      },
+      {
         path: 'reset-password',
         component: ResetPasswordFormComponent
       }

@@ -209,15 +209,15 @@ const registerUserSchema = {
  *                  type: string
  *                email:
  *                  type: string
- *               selectedSecurityQuestions:
- *                 type: array
- *                items:
- *                 type: object
- *                properties:
- *                 questionText:
- *                  type: string
- *                answerText:
- *                 type: string
+ *                selectedSecurityQuestions:
+ *                  type: array
+ *                  items:
+ *                    type: object
+ *                    properties:
+ *                      questionText:
+ *                        type: string
+ *                      answerText:
+ *                        type: string
  *     responses:
  *       '200':
  *         description: User registration successful
@@ -350,6 +350,45 @@ router.get('/verify/users/:username', async (req, res) => {
  * @openapi
  * /api/session/verify/users/{username}/security-questions:
  *   post:
+ *     tags:
+ *       - Session
+ *     name: verifySecurityQuestions
+ *     description: Compares users security question answers with answers saved in Mongo.
+ *     summary: verifySecurityQuestions
+ *     parameters:
+ *       - name: userName
+ *         in: path
+ *         required: true
+ *         description: find a userName first.
+ *         scheme:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       description: User's security questions & answers save in MongoDB
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - questionText1
+ *               - questionText2
+ *               - questionText3
+ *               - answerText1
+ *               - answerText2
+ *               - answerText3
+ *             properties:
+ *               questionText1:
+ *                 type: string
+ *               questionText2:
+ *                 type: string
+ *               questionText3:
+ *                 type: string
+ *               answerText1:
+ *                 type: string
+ *               answerText2:
+ *                 type: string
+ *               answerText3:
+ *                 type: string
 */
 // Ace Coded | John Tested | Chad Approved
 router.post('/verify/users/:username/security-questions', async(req, res) => {
