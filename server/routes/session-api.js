@@ -578,7 +578,9 @@ const resetPasswordSchema = {
  */
 router.post("/users/:username/reset-password", async (req, res) => {
 
-  try {
+   try {
+
+    let password = req.body.password
 
     // if (valid) {
 
