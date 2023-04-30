@@ -45,7 +45,7 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
       Validators.compose([Validators.required]),
     ],
   });
-  verifySecurityQuestionModel: any;
+  //verifySecurityQuestionModel: any;
 
   //constructor
   constructor(
@@ -70,11 +70,11 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
       },
       // complete
       complete: () => {
-        this.verifySecurityQuestionModel.question1 =
+        this.verifySecurityQuestionsModel.question1 =
           this.selectedSecurityQuestions[0].questionText;
-        this.verifySecurityQuestionModel.question2 =
+        this.verifySecurityQuestionsModel.question2 =
           this.selectedSecurityQuestions[1].questionText;
-        this.verifySecurityQuestionModel.question3 =
+        this.verifySecurityQuestionsModel.question3 =
           this.selectedSecurityQuestions[2].questionText;
 
         console.log('Verify security questions model');

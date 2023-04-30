@@ -43,3 +43,4 @@
 [4/30/2023, 12:47:51 PM] server	 user-api.js - Error creating user in MongoDB
 [4/30/2023, 12:49:28 PM] server	 user-api.js - Validation on creating user failed
 [4/30/2023, 12:52:54 PM] server	 user-api.js - Error creating user in MongoDB
+[4/30/2023, 1:49:44 PM] server	 session-api.js - Invalid user id

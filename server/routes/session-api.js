@@ -347,7 +347,7 @@ router.post("/register", async (req, res) => {
  * /api/session/verify/users/{username}:
  *   get:
  *     tags:
- *       - username
+ *       - Session
  *     description: API for verifying that a user exists by examining their user name
  *     summary: verifyUser
  *     parameters:
@@ -549,10 +549,10 @@ const resetPasswordSchema = {
  * /api/session/users/{username}/reset-password:
  *   post:
  *     tags:
- *       - username
+ *       - Session
  *     name: Reset Password
  *     description: API to reset the password for a user name
- *     summary: resetPassword
+ *     summary: Resets the Password
  *     parameters:
  *       - in: path
  *         name: username
@@ -567,7 +567,8 @@ const resetPasswordSchema = {
  *              type: object
  *              properties:
  *                  password:
- *                    type: string
+ *                    text:
+ *                      type: string
  *     required: true 
  *     responses:
  *       '200':
@@ -577,66 +578,67 @@ const resetPasswordSchema = {
  *
  */
 router.post("/users/:username/reset-password", async (req, res) => {
+
   try {
-    const password = req.body.password;
-    // const validator = ajv.compile(resetPasswordSchema)
-    // const valid = validator(password)
 
-    // if (valid) {
-      
-    // } 
-    User.findOne({'username': req.params.username}, function(err, user) {
-      if(err) {
-        console.log(err);
-        const resetPasswordMongodbErrorResponse = new ErrorResponse(
-          "500",
-          "Internal server error",
-          err
-        );
-        res.status(500).send(resetPasswordMongodbErrorResponse.toObject());
-        errorLogger({
-          filename: myFile,
-          message: `Cannot find user ${username} on database`,
-        });
-      } else {
-        console.log(user);
-        let hashedPassword = bcrypt.hashSync(password, saltRounds);
+    let password = req.body.password;
+    const validator = ajv.compile(resetPasswordSchema)
+    const valid = validator(password)
 
-        //set the new password
-        user.set({
-          password: hashedPassword,
-        });
-
-        //save the new password for the user
-        user.save(function (err, updatedUser) {
-          if (err) {
-            console.log(err);
-            const updatedUserMongodbErrorResponse = new ErrorResponse(
-              "500",
-              "Internal server error",
-              err
-            );
-            res.status(500).send(updatedUserMongodbErrorResponse.toObject());
-            errorLogger({
-              filename: myFile,
-              message: `Error attempting to save new password for ${updatedUser} user`,
-            });
-          } else {
-            console.log(updatedUser);
-            const updatedUserPasswordResponse = new BaseResponse(
-              "200",
-              "Query successful",
-              updatedUser
-            );
-            res.json(updatedUserPasswordResponse.toObject());
-            debugLogger({
-              filename: myFile,
-              message: `Password for user ${updatedUser} reset successfully`,
-            });
-          }
-        });
-      }
-    })   
+    if (valid) {
+      User.findOne({'username': req.params.username}, function (err, user) {
+        if(err) {
+          console.log(err);
+          const resetPasswordMongodbErrorResponse = new ErrorResponse(
+            "500",
+            "Internal server error",
+            err
+          );
+          res.status(500).send(resetPasswordMongodbErrorResponse.toObject());
+          errorLogger({
+            filename: myFile,
+            message: `Cannot find user ${username} on database`,
+          });
+        } else {
+          console.log(user);
+          let hashedPassword = bcrypt.hashSync(password, saltRounds);
+  
+          //set the new password
+          user.set({
+            password: hashedPassword,
+          });
+  
+          //save the new password for the user
+          user.save(function (err, updatedUser) {
+            if (err) {
+              console.log(err);
+              const updatedUserMongodbErrorResponse = new ErrorResponse(
+                "500",
+                "Internal server error",
+                err
+              );
+              res.status(500).send(updatedUserMongodbErrorResponse.toObject());
+              errorLogger({
+                filename: myFile,
+                message: `Error attempting to save new password for ${updatedUser} user`,
+              });
+            } else {
+              console.log(updatedUser);
+              const updatedUserPasswordResponse = new BaseResponse(
+                "200",
+                "Query successful",
+                updatedUser
+              );
+              res.json(updatedUserPasswordResponse.toObject());
+              debugLogger({
+                filename: myFile,
+                message: `Password for user ${updatedUser} reset successfully`,
+              });
+            }
+          });
+        }
+      })         
+    }     
   }
   catch (e) {
     console.log(e);
