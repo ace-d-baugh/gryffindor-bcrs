@@ -567,8 +567,7 @@ const resetPasswordSchema = {
  *              type: object
  *              properties:
  *                  password:
- *                    text:
- *                      type: string
+ *                    type: string
  *     required: true
  *     responses:
  *       '200':
@@ -581,64 +580,61 @@ router.post("/users/:username/reset-password", async (req, res) => {
 
   try {
 
-    let password = req.body.password;
-    const validator = ajv.compile(resetPasswordSchema)
-    const valid = validator(password)
+    // if (valid) {
 
-    if (valid) {
-      User.findOne({'username': req.params.username}, function (err, user) {
-        if(err) {
-          console.log(err);
-          const resetPasswordMongodbErrorResponse = new ErrorResponse(
-            "500",
-            "Internal server error",
-            err
-          );
-          res.status(500).send(resetPasswordMongodbErrorResponse.toObject());
-          errorLogger({
-            filename: myFile,
-            message: `Cannot find user ${username} on database`,
-          });
-        } else {
-          console.log(user);
-          let hashedPassword = bcrypt.hashSync(password, saltRounds);
+    // }
+    User.findOne({'username': req.params.username}, function(err, user) {
+      if(err) {
+        console.log(err);
+        const resetPasswordMongodbErrorResponse = new ErrorResponse(
+          "500",
+          "Internal server error",
+          err
+        );
+        res.status(500).send(resetPasswordMongodbErrorResponse.toObject());
+        errorLogger({
+          filename: myFile,
+          message: `Cannot find user ${username} on database`,
+        });
+      } else {
+        console.log(user);
+        let hashedPassword = bcrypt.hashSync(password, saltRounds);
 
-          //set the new password
-          user.set({
-            password: hashedPassword,
-          });
+        //set the new password
+        user.set({
+          password: hashedPassword,
+        });
 
-          //save the new password for the user
-          user.save(function (err, updatedUser) {
-            if (err) {
-              console.log(err);
-              const updatedUserMongodbErrorResponse = new ErrorResponse(
-                "500",
-                "Internal server error",
-                err
-              );
-              res.status(500).send(updatedUserMongodbErrorResponse.toObject());
-              errorLogger({
-                filename: myFile,
-                message: `Error attempting to save new password for ${updatedUser} user`,
-              });
-            } else {
-              console.log(updatedUser);
-              const updatedUserPasswordResponse = new BaseResponse(
-                "200",
-                "Query successful",
-                updatedUser
-              );
-              res.json(updatedUserPasswordResponse.toObject());
-              debugLogger({
-                filename: myFile,
-                message: `Password for user ${updatedUser} reset successfully`,
-              });
-            }
-          });
-        }
-      })
-    }
+        //save the new password for the user
+        user.save(function (err, updatedUser) {
+          if (err) {
+            console.log(err);
+            const updatedUserMongodbErrorResponse = new ErrorResponse(
+              "500",
+              "Internal server error",
+              err
+            );
+            res.status(500).send(updatedUserMongodbErrorResponse.toObject());
+            errorLogger({
+              filename: myFile,
+              message: `Error attempting to save new password for ${updatedUser} user`,
+            });
+          } else {
+            console.log(updatedUser);
+            const updatedUserPasswordResponse = new BaseResponse(
+              "200",
+              "Query successful",
+              updatedUser
+            );
+            res.json(updatedUserPasswordResponse.toObject());
+            debugLogger({
+              filename: myFile,
+              message: `Password for user ${updatedUser} reset successfully`,
+            });
+          }
+        });
+      }
+    })
   }
   catch (e) {
     console.log(e);

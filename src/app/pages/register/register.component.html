@@ -16,72 +16,15 @@
   </div>
 
   <!--error messages-->
-  <!-- <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages> -->
+  <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
-  <!-- <form
+  <form
     [formGroup]="form"
     (ngSubmit)="register()"
     (keydown.enter)="$event.preventDefault()"
-  > -->
-  <form>
-    <div class="form-group">
-      <div class="form-group">
-        <label class="input-label">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          formControlName="username"
-          required
-        />
-
-        <!-- <mat-error
-          class="error"
-          *ngIf="
-            form.controls['username'].hasError('required') &&
-            form.controls['username'].touched
-          "
-        >
-          Username is a required field.
-        </mat-error> -->
-      </div>
-
-      <!--div-->
-      <div class="form-group">
-        <label class="input-label">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          formControlName="password"
-          required
-        />
-
-        <!-- <mat-error
-          class="error"
-          *ngIf="
-            form.controls['password'].hasError('required') &&
-            form.controls['password'].touched
-          "
-        >
-          Password is a required field.
-        </mat-error> -->
-      </div>
-
-      <!--errors-->
-      <!-- <mat-error
-        class="error"
-        *ngIf="
-          form.controls['password'].hasError('pattern') &&
-          form.controls['password'].touched
-        "
-      >
-        Password must be at least 8 characters, contain one letter, and one
-        number.
-      </mat-error> -->
-    </div>
-
-    <hr>
-
+  >
     <!--form group-->
+    <h2 class="center">Personal Information</h2>
     <div class="form-group">
       <label class="input-label">First Name</label>
       <input
@@ -91,7 +34,7 @@
         required
       />
 
-      <!-- <mat-error
+      <mat-error
         class="error"
         *ngIf="
           form.controls['firstName'].hasError('required') &&
@@ -99,7 +42,7 @@
         "
       >
         First name is a required field.
-      </mat-error> -->
+      </mat-error>
     </div>
 
     <!--form group-->
@@ -112,7 +55,7 @@
         required
       />
 
-      <!-- <mat-error
+      <mat-error
         class="error"
         *ngIf="
           form.controls['lastName'].hasError('required') &&
@@ -120,7 +63,7 @@
         "
       >
         Last name is a required field.
-      </mat-error> -->
+      </mat-error>
     </div>
 
     <div class="form-group">
@@ -132,7 +75,7 @@
         required
       />
 
-      <!-- <mat-error
+      <mat-error
         class="error"
         *ngIf="
           form.controls['phoneNumber'].hasError('required') &&
@@ -140,7 +83,7 @@
         "
       >
         Phone number is a required field.
-      </mat-error> -->
+      </mat-error>
     </div>
 
     <div class="form-group">
@@ -152,7 +95,7 @@
         required
       />
 
-      <!-- <mat-error
+      <mat-error
         class="error"
         *ngIf="
           form.controls['email'].hasError('required') &&
@@ -170,7 +113,7 @@
         "
       >
         Invalid email format.
-      </mat-error> -->
+      </mat-error>
     </div>
 
     <div class="form-group">
@@ -178,7 +121,7 @@
 
       <textarea matInput required formControlName="address"></textarea>
 
-      <!-- <mat-error
+      <mat-error
         class="error"
         *ngIf="
           form.controls['address'].hasError('required') &&
@@ -186,8 +129,197 @@
         "
       >
         Address is a required field.
-      </mat-error> -->
+      </mat-error>
     </div>
+
+    <hr />
+
+    <!-- Security Questions Section of Registration -->
+
+    <div class="security-questions form-group">
+      <h2 class="center">Security Questions</h2>
+      <div class="form-group">
+        <!-- Security Question 1 -->
+        <div class="questions-row">
+          <div class="question">
+            <label class="input-label">Question 1</label>
+            <select formControlName="securityQuestion1" required>
+              <option
+                *ngFor="let question of securityQuestions"
+                [value]="question.text"
+              >
+                {{ question.text }}
+              </option>
+            </select>
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['securityQuestion1'].hasError('required') &&
+                form.controls['securityQuestion1'].touched
+              "
+            >
+              Question 1 is a required field.
+            </mat-error>
+          </div>
+          <div class="answer">
+            <label class="input-label">Answer 1</label>
+            <input formControlName="answerToSecurityQuestion1" required />
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['answerToSecurityQuestion1'].hasError(
+                  'required'
+                ) && form.controls['answerToSecurityQuestion1'].touched
+              "
+            >
+              Answer 1 is a required field.
+            </mat-error>
+          </div>
+        </div>
+
+        <!-- Security Question 2 -->
+        <div class="questions-row">
+          <div class="question">
+            <label class="input-label">Question 2</label>
+            <select formControlName="securityQuestion2" required>
+              <option
+                *ngFor="let question of securityQuestions"
+                [value]="question.text"
+              >
+                {{ question.text }}
+              </option>
+            </select>
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['securityQuestion2'].hasError('required') &&
+                form.controls['securityQuestion2'].touched
+              "
+            >
+              Question 2 is a required field.
+            </mat-error>
+          </div>
+          <div class="answer">
+            <label class="input-label">Answer 2</label>
+            <input formControlName="answerToSecurityQuestion2" required />
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['answerToSecurityQuestion2'].hasError(
+                  'required'
+                ) && form.controls['answerToSecurityQuestion2'].touched
+              "
+            >
+              Answer 2 is a required field.
+            </mat-error>
+          </div>
+        </div>
+
+        <!-- Security Question 3 -->
+        <div class="questions-row">
+          <div class="question">
+            <label class="input-label">Question 3</label>
+            <select formControlName="securityQuestion3" required>
+              <option
+                *ngFor="let question of securityQuestions"
+                [value]="question.text"
+              >
+                {{ question.text }}
+              </option>
+            </select>
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['securityQuestion3'].hasError('required') &&
+                form.controls['securityQuestion3'].touched
+              "
+            >
+              Question 3 is a required field.
+            </mat-error>
+          </div>
+          <div class="answer">
+            <label class="input-label">Answer 3</label>
+            <input formControlName="answerToSecurityQuestion3" required />
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['answerToSecurityQuestion3'].hasError(
+                  'required'
+                ) && form.controls['answerToSecurityQuestion3'].touched
+              "
+            >
+              Answer 3 is a required field.
+            </mat-error>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Credentials Section of Registration -->
+    <div class="credentials form-group">
+      <h2 class="center">User Credentials</h2>
+      <div class="form-group">
+        <label class="input-label">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="username"
+          required
+        />
+
+        <mat-error
+          class="error"
+          *ngIf="
+            form.controls['username'].hasError('required') &&
+            form.controls['username'].touched
+          "
+        >
+          Username is a required field.
+        </mat-error>
+      </div>
+
+      <!--div-->
+      <div class="form-group">
+        <label class="input-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+          required
+        />
+
+        <mat-error
+          class="error"
+          *ngIf="
+            form.controls['password'].hasError('required') &&
+            form.controls['password'].touched
+          "
+        >
+          Password is a required field.
+        </mat-error>
+      </div>
+
+      <!--errors-->
+      <mat-error
+        class="error"
+        *ngIf="
+          form.controls['password'].hasError('pattern') &&
+          form.controls['password'].touched
+        "
+      >
+        Password must be at least 8 characters, contain one letter, and one
+        number.
+      </mat-error>
+    </div>
+
     <div class="buttons">
       <button class="btn" (click)="cancel()">Sign In</button>
       <button class="btn submit-button" type="submit" [disabled]="form.invalid">
