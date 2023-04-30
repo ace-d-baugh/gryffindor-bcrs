@@ -341,16 +341,17 @@ router.post("/register", async (req, res) => {
   }
 });
 
+
 /** verifyUser
  *  @openapi
- * /api/verify/users/{username}:
+ * /api/session/verify/users/{username}:
  *   get:
  *     tags:
  *       - username
  *     description: API for verifying that a user exists by examining their user name
  *     summary: verifyUser
  *     parameters:
- *         - in: path
+ *       - in: path
  *         name: username
  *         required: true
  *         description: The user name of the user to verify
@@ -479,22 +480,13 @@ router.post("/verify/users/:username/security-questions", async (req, res) => {
         errorLogger({ filename: myFile, message: "Internal server error" });
       } else {
         console.log(user);
-        const selectedSecurityQuestionOne = user.securityQuestions.find(
-          (q) => q.questionText === req.body.questionText1
-        );
-        const selectedSecurityQuestionTwo = user.securityQuestions.find(
-          (q2) => q.questionText === req.body.questionText2
-        );
-        const selectedSecurityQuestionThree = user.securityQuestions.find(
-          (q3) => q.questionText === req.body.questionText3
-        );
+        const selectedSecurityQuestionOne = user.securityQuestions.find(q1 => q.questionText === req.body.questionText1);
+        const selectedSecurityQuestionTwo = user.securityQuestions.find(q2 => q.questionText === req.body.questionText2);
+        const selectedSecurityQuestionThree = user.securityQuestions.find(q3 => q.questionText === req.body.questionText3);
 
-        const isValidAnswerOne =
-          selectedSecurityQuestionOne.answerText === req.body.answerText1;
-        const isValidAnswerTwo =
-          selectedSecurityQuestionTwo.answerText === req.body.answerText2;
-        const isValidAnswerThree =
-          selectedSecurityQuestionThree.answerText === req.body.answerText3;
+        const isValidAnswerOne = selectedSecurityQuestionOne.answerText === req.body.answerText1;
+        const isValidAnswerTwo = selectedSecurityQuestionTwo.answerText === req.body.answerText2;
+        const isValidAnswerThree = selectedSecurityQuestionThree.answerText === req.body.answerText3;
 
         if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree) {
           console.log(
@@ -537,7 +529,16 @@ router.post("/verify/users/:username/security-questions", async (req, res) => {
     res.status(500).send(verifySecurityQuestionCatchErrorResponse.toObject());
     errorLogger({ filename: myFile, message: "Internal server error" });
   }
-});
+})
+
+const resetPasswordSchema = {
+  type: 'object',
+  properties: {
+    password: { type: 'string'}
+  },
+  required: ['password'],
+  additionalProperties: false,
+}
 
 /** Reset password
  * John
@@ -545,7 +546,7 @@ router.post("/verify/users/:username/security-questions", async (req, res) => {
 /**
  * resetPassword
  * @openapi
- * /api/users/{username}/reset-password:
+ * /api/session/users/{username}/reset-password:
  *   post:
  *     tags:
  *       - username
@@ -553,12 +554,21 @@ router.post("/verify/users/:username/security-questions", async (req, res) => {
  *     description: API to reset the password for a user name
  *     summary: resetPassword
  *     parameters:
- *         - in: path
+ *       - in: path
  *         name: username
  *         required: true
  *         description: The user name of the user to verify
  *         schema:
  *            type: string
+ *     requestBody:
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                  password:
+ *                    type: string
+ *     required: true 
  *     responses:
  *       '200':
  *         description: Password reset successful
@@ -569,9 +579,14 @@ router.post("/verify/users/:username/security-questions", async (req, res) => {
 router.post("/users/:username/reset-password", async (req, res) => {
   try {
     const password = req.body.password;
+    // const validator = ajv.compile(resetPasswordSchema)
+    // const valid = validator(password)
 
-    User.findOne({ username: req.params.username }, function (err, user) {
-      if (err) {
+    // if (valid) {
+      
+    // } 
+    User.findOne({'username': req.params.username}, function(err, user) {
+      if(err) {
         console.log(err);
         const resetPasswordMongodbErrorResponse = new ErrorResponse(
           "500",
@@ -621,8 +636,9 @@ router.post("/users/:username/reset-password", async (req, res) => {
           }
         });
       }
-    });
-  } catch (e) {
+    })   
+  }
+  catch (e) {
     console.log(e);
     const resetPasswordCatchError = new ErrorResponse(
       "500",

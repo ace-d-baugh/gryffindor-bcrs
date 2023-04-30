@@ -34,3 +34,12 @@
 [4/29/2023, 6:36:17 PM] server	 user-api.js - user security-questions is not found
 [4/29/2023, 6:36:56 PM] server	 user-api.js - user security-questions is not found
 [4/29/2023, 6:54:20 PM] server	 session-api.js - User null doesn't exist
+[4/30/2023, 12:25:05 PM] server	 user-api.js - Error creating user in MongoDB
+[4/30/2023, 12:29:36 PM] server	 user-api.js - Validation on creating user failed
+[4/30/2023, 12:33:14 PM] server	 user-api.js - Validation on creating user failed
+[4/30/2023, 12:33:46 PM] server	 user-api.js - Validation on creating user failed
+[4/30/2023, 12:40:52 PM] server	 user-api.js - Validation on creating user failed
+[4/30/2023, 12:44:45 PM] server	 user-api.js - Validation on creating user failed
+[4/30/2023, 12:47:51 PM] server	 user-api.js - Error creating user in MongoDB
+[4/30/2023, 12:49:28 PM] server	 user-api.js - Validation on creating user failed
+[4/30/2023, 12:52:54 PM] server	 user-api.js - Error creating user in MongoDB
