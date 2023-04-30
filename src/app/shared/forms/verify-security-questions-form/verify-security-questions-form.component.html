@@ -68,47 +68,27 @@
       </mat-error>
     </div>
 
-        <div class="form-group">
-          <label class="input-label" for="input">{{ verifySecurityQuestionsModel.question2 }}</label>
-          <input
-            type="text"
-            formControlName="answerToSecurityQuestion2"
-            id="answerToSecurityQuestion2"
-            class="form-control"
-          />
-          <!--mat-error-->
-          <mat-error
-                class="error"
-                *ngIf="
-                  form.controls['answerToSecurityQuestion2'].hasError(
-                    'required'
-                  ) && form.controls['answerToSecurityQuestion2'].touched
-                "
-              >
-                Required field.
-           </mat-error>
-        </div>
-
-        <div class="form-group">
-            <label class="input-label" for="input">{{ verifySecurityQuestionsModel.question3 }}</label>
-            <input
-              type="text"
-              formControlName="answerToSecurityQuestion3"
-              id="answerToSecurityQuestion3"
-              class="form-control"
-            />
-            <!--mat-error-->
-            <mat-error
-                  class="error"
-                  *ngIf="
-                    form.controls['answerToSecurityQuestion3'].hasError(
-                      'required'
-                    ) && form.controls['answerToSecurityQuestion3'].touched
-                  "
-                >
-                  Required field.
-             </mat-error>
-          </div>
+    <div class="form-group">
+      <label class="input-label" for="input">{{
+        verifySecurityQuestionsModel.question3
+      }}</label>
+      <input
+        type="text"
+        formControlName="answerToSecurityQuestion3"
+        id="answerToSecurityQuestion3"
+        class="form-control"
+      />
+      <!--mat-error-->
+      <mat-error
+        class="error"
+        *ngIf="
+          form.controls['answerToSecurityQuestion3'].hasError('required') &&
+          form.controls['answerToSecurityQuestion3'].touched
+        "
+      >
+        Required field.
+      </mat-error>
+    </div>
 
     <!-- verify security questions button-->
     <button class="btn" [disabled]="!form.valid" color="primary">
