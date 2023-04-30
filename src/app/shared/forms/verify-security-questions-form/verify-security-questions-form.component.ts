@@ -45,7 +45,7 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
       Validators.compose([Validators.required]),
     ],
   });
-
+  //verifySecurityQuestionModel: any;
 
   //constructor
   constructor(

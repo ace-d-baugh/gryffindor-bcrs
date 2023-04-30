@@ -347,7 +347,7 @@ router.post("/register", async (req, res) => {
  * /api/session/verify/users/{username}:
  *   get:
  *     tags:
- *       - username
+ *       - Session
  *     description: API for verifying that a user exists by examining their user name
  *     summary: verifyUser
  *     parameters:
@@ -549,10 +549,10 @@ const resetPasswordSchema = {
  * /api/session/users/{username}/reset-password:
  *   post:
  *     tags:
- *       - username
+ *       - Session
  *     name: Reset Password
  *     description: API to reset the password for a user name
- *     summary: resetPassword
+ *     summary: Resets the Password
  *     parameters:
  *       - in: path
  *         name: username
@@ -568,7 +568,7 @@ const resetPasswordSchema = {
  *              properties:
  *                  password:
  *                    type: string
- *     required: true 
+ *     required: true
  *     responses:
  *       '200':
  *         description: Password reset successful
@@ -577,14 +577,12 @@ const resetPasswordSchema = {
  *
  */
 router.post("/users/:username/reset-password", async (req, res) => {
+
   try {
-    const password = req.body.password;
-    // const validator = ajv.compile(resetPasswordSchema)
-    // const valid = validator(password)
 
     // if (valid) {
-      
-    // } 
+
+    // }
     User.findOne({'username': req.params.username}, function(err, user) {
       if(err) {
         console.log(err);
@@ -636,7 +634,7 @@ router.post("/users/:username/reset-password", async (req, res) => {
           }
         });
       }
-    })   
+    })
   }
   catch (e) {
     console.log(e);

@@ -552,25 +552,19 @@ router.delete("/:id", async (req, res) => {
 /**
  * FindSelectedSecurityQuestions
  * @openapi
- * /api/users/{username}/security-questions/:
+ * /api/users/{username}/security-questions:
  *   get:
  *     tags:
  *       - Users
  *     description: Returns selected security questions for a user
  *     summary: findSelectedSecurityQuestions
  *     parameters:
- *       - name: username
- *         in: path
+ *       - in: path
+ *         name: username
  *         description: username to query
  *         required: true
  *         schema:
  *           type: string
- *     requestBody:
- *       description: Array of selected security questions
- *       content:
- *         application/json:
- *           schema:
- *
  *     responses:
  *       '200':
  *         description: Selected security questions returned
@@ -584,7 +578,7 @@ router.delete("/:id", async (req, res) => {
  *         description: Not Found
  */
 // Ace Coded | John Tested | Chad Approved
-router.get("/:username/security-questions/", async (req, res) => {
+router.get("/:username/security-questions", async (req, res) => {
   try {
     // Find user by username
     User.findOne({ username: req.params.username }, function (err, user) {

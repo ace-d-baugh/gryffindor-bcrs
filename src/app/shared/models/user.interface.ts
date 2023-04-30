@@ -9,6 +9,8 @@
 =====================================================
 */
 
+import { SelectedSecurityQuestion } from "./selected-security-question.interface";
+
 //export interface
 export interface User {
   _id?: string;
