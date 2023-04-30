@@ -1,3 +1,12 @@
+/*
+============================================
+; Title: error-interceptor.ts
+; Author: Professor Krasso
+; Modified by: Ace Baugh
+; Date: 04/29/2023
+; Description: error-interceptor.ts
+===========================================
+*/
 
 //import statements required for interceptor
 import { Injectable } from '@angular/core';

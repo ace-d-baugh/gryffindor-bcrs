@@ -8,12 +8,14 @@
 ===========================================
 */
 
+//imoport statements
 import { Component, OnInit } from '@angular/core';
 import { Message } from 'primeng/api';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SessionService } from '../../services/session.service';
 
+//export component
 @Component({
   selector: 'app-verify-username-form',
   templateUrl: './verify-username-form.component.html',
@@ -26,6 +28,7 @@ export class VerifyUsernameFormComponent implements OnInit {
     username: [null, Validators.compose([Validators.required])],
   });
 
+  //  constructor
   constructor(
     private fb: FormBuilder,
     private router: Router,

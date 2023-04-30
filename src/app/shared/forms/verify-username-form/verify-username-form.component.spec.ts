@@ -1,7 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*
+============================================
+; Title: verify-username-form.component.spec.ts
+; Author: Professor Krasso
+; Modified by: John Vanhessche
+; Date: 04/29/2023
+; Description: verify-username-form.component.spec.ts
+===========================================
+*/
 
+// import statements
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { VerifyUsernameFormComponent } from './verify-username-form.component';
 
+// test suite
 describe('VerifyUsernameFormComponent', () => {
   let component: VerifyUsernameFormComponent;
   let fixture: ComponentFixture<VerifyUsernameFormComponent>;
@@ -11,6 +22,7 @@ describe('VerifyUsernameFormComponent', () => {
       declarations: [VerifyUsernameFormComponent],
     }).compileComponents();
 
+    // create component and test fixture
     fixture = TestBed.createComponent(VerifyUsernameFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

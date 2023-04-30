@@ -19,6 +19,7 @@
 
   <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
+  <!--forms container for username field-->
   <div class="form-container">
     <div class="m2">
       <form [formGroup]="form" (ngSubmit)="verifyUser()" #usernameForm>
@@ -36,6 +37,7 @@
           </div>
           <br /><br />
 
+          <!-- cancel button-->
           <button class="btn" routerLink="/session/sign-in" color="accent">
             Cancel
           </button>
