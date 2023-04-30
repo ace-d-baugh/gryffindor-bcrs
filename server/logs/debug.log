@@ -30354,3 +30354,169 @@
     }
   ]
 } successfully verified
+[4/30/2023, 2:43:07 PM] server	 session-api.js - User {
+  _id: new ObjectId("64471a7d2511e967842c9aba"),
+  username: 'mozart',
+  password: '$2a$10$RcxCGf8pTqmLqvgy2pVbguMKEjh6tp1oPGxhnUNWUSpH7GswQVvVC',
+  firstName: 'Wolfgang',
+  lastName: 'Mozart',
+  phoneNumber: '987-456-2310',
+  address: '654 Main St, Vienna, Austria',
+  email: 'mozart@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("64471a7d2511e967842c9abb") },
+  dateCreated: 2023-04-25T00:00:47.128Z,
+  selectedSecurityQuestions: [],
+  __v: 0
+} successfully verified
+[4/30/2023, 2:43:12 PM] server	 session-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$E5aWGQmyX1kBuPff6N88FuRXKp6KjUsvtRblGBUb6KQP2tShIED.y',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("644ec4d0654ff394c765f1f0"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("644ec4d0654ff394c765f1f1"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("644ec4d0654ff394c765f1f2"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ]
+} successfully verified
+[4/30/2023, 2:44:14 PM] server	 session-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$E5aWGQmyX1kBuPff6N88FuRXKp6KjUsvtRblGBUb6KQP2tShIED.y',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("644ec50e654ff394c765f1f4"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("644ec50e654ff394c765f1f5"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("644ec50e654ff394c765f1f6"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ]
+} successfully verified
+[4/30/2023, 2:59:18 PM] server	 session-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$E5aWGQmyX1kBuPff6N88FuRXKp6KjUsvtRblGBUb6KQP2tShIED.y',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("644ec896654ff394c765f1f8"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("644ec896654ff394c765f1f9"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("644ec896654ff394c765f1fa"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ]
+} successfully verified
+[4/30/2023, 3:08:22 PM] server	 session-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$E5aWGQmyX1kBuPff6N88FuRXKp6KjUsvtRblGBUb6KQP2tShIED.y',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("644ecab6c049d5bd9a0e2d67"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("644ecab6c049d5bd9a0e2d68"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("644ecab6c049d5bd9a0e2d69"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ]
+} successfully verified
+[4/30/2023, 3:11:41 PM] server	 session-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$E5aWGQmyX1kBuPff6N88FuRXKp6KjUsvtRblGBUb6KQP2tShIED.y',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("644ecb7d05d7f4ce2d27a679"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("644ecb7d05d7f4ce2d27a67a"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("644ecb7d05d7f4ce2d27a67b"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ]
+} successfully verified
+[4/30/2023, 3:11:41 PM] server	 user-api.js - user jaybird selected security questions found
