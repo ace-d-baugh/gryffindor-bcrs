@@ -541,25 +541,19 @@ router.delete("/:id", async (req, res) => {
 /**
  * FindSelectedSecurityQuestions
  * @openapi
- * /api/users/selectedSecurityQuestions/{username}:
+  * /api/users/selectedSecurityQuestions/{username}:
  *   get:
  *     tags:
  *       - Users
  *     description: Returns selected security questions for a user
  *     summary: findSelectedSecurityQuestions
  *     parameters:
- *       - name: username
- *         in: path
+ *       - in: path
+ *         name: username
  *         description: username to query
  *         required: true
  *         schema:
  *           type: string
- *     requestBody:
- *       description: Array of selected security questions
- *       content:
- *         application/json:
- *           schema:
- *
  *     responses:
  *       '200':
  *         description: Selected security questions returned

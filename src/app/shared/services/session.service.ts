@@ -68,8 +68,8 @@ export class SessionService {
   }
 
   // verify security questions
-  verifySecurityQuestions(model: VerifySecurityQuestionModel, userName: String,): Observable<any>{
-    return this.http.post('/api/session/verify/users/' + userName + '/security-questions', {
+  verifySecurityQuestions(model: VerifySecurityQuestionModel, username: String,): Observable<any>{
+    return this.http.post('/api/session/verify/users/' + username + '/security-questions', {
       questionText1: model.question1,
       questionText2: model.question2,
       questionText3: model.question3,

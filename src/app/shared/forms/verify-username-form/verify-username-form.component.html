@@ -25,7 +25,7 @@
             <form [formGroup]="form" (ngSubmit)="verifyUser()" #usernameForm>
                 <div class="form-group">
                     <label class="input-label" for="text">User Name*</label>
-                    <input 
+                    <input
                         type="text"
                         formControlName="username"
                         required
@@ -34,11 +34,11 @@
                             User name is a required field
                         </div>
                     <br /><br />
-                    
+
                     <button class="btn" routerLink="/session/sign-in" color="accent">Cancel</button>
-                    <button class="btn" [disabled]="!form.valid" color="primary">Forgot Password</button>                    
+                    <button class="btn" routerLink="/session/verify-security-questions" [disabled]="!form.valid" color="primary">Forgot Password</button>
                 </div>
             </form>
         </div>
-    </div>    
+    </div>
 </div>

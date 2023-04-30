@@ -14,6 +14,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const createError = require("http-errors");
 
+
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
@@ -30,6 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../dist/bcrs")));
 app.use("/", express.static(path.join(__dirname, "../dist/bcrs")));
+
 
 // default server port value.
 const PORT = process.env.PORT || 3000;

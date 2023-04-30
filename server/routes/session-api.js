@@ -344,6 +344,20 @@ router.get('/verify/users/:username', async (req, res) => {
   }
 })
 
+const verifySecurityQuestionsSchema = {
+  type: "object",
+  properties: {
+    questionText1: { type: "string" },
+    answerText1: { type: "string" },
+    questionText2: { type: "string" },
+    answerText2: { type: "string" },
+    questionText3: { type: "string" },
+    answerText3: { type: "string" },
+  },
+  required: ["questionText1", "answerText1", "questionText2", "answerText2", "questionText3", "answerText3"],
+  additionalProperties: false,
+};
+
 
 /**
  * Verify security question
@@ -356,11 +370,11 @@ router.get('/verify/users/:username', async (req, res) => {
  *     description: Compares users security question answers with answers saved in Mongo.
  *     summary: verifySecurityQuestions
  *     parameters:
- *       - name: userName
+ *       - name: username
  *         in: path
  *         required: true
  *         description: find a userName first.
- *         scheme:
+ *         schema:
  *           type: string
  *     requestBody:
  *       required: true
@@ -389,9 +403,9 @@ router.get('/verify/users/:username', async (req, res) => {
  *                 type: string
  *               answerText3:
  *                 type: string
-*/
+ */
 // Ace Coded | John Tested | Chad Approved
-router.post('/verify/users/:username/security-questions', async(req, res) => {
+router.post('/verify/users/{username}/security-questions', async(req, res) => {
   try {
     User.findOne({'username': req.params.username}, function(err, user) {
       if (err) {
@@ -399,26 +413,43 @@ router.post('/verify/users/:username/security-questions', async(req, res) => {
         const verifySecurityQuestionMongodbErrorResponse = new ErrorResponse(500, 'Internal server error', err);
         res.status(500).send(verifySecurityQuestionMongodbErrorResponse.toObject());
         errorLogger({filename: myFile, message: "Internal server error"})
+      } else if (!user) {
+        const noUserFoundResponse = new ErrorResponse(404, 'User not found');
+        res.status(404).send(noUserFoundResponse.toObject());
+        errorLogger({filename: myFile, message: "User not found"})
       } else {
         console.log(user);
-        const selectedSecurityQuestionOne = user.securityQuestions.find(q => q.questionText === req.body.questionText1);
-        const selectedSecurityQuestionTwo = user.securityQuestions.find(q2 => q.questionText === req.body.questionText2);
-        const selectedSecurityQuestionThree = user.securityQuestions.find(q3 => q.questionText === req.body.questionText3);
 
-        const isValidAnswerOne = selectedSecurityQuestionOne.answerText === req.body.answerText1;
-        const isValidAnswerTwo = selectedSecurityQuestionTwo.answerText === req.body.answerText2;
-        const isValidAnswerThree = selectedSecurityQuestionThree.answerText === req.body.answerText3;
-
-        if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree) {
-          console.log(`User ${user.username} answered all security questions correctly`);
-          const validSecurityQuestionsResponse = new BaseResponse(200, 'Success', user);
-          res.json(validSecurityQuestionsResponse.toObject());
-          debugLogger({filename: myFile, message: "User answered all security questions correctly"})
+        if (!user.securityQuestions) {
+          const noSecurityQuestionsResponse = new ErrorResponse(500, 'No security questions found for user');
+          res.status(500).send(noSecurityQuestionsResponse.toObject());
+          errorLogger({filename: myFile, message: "No security questions found for user"})
         } else {
-          console.log(`User ${user.username} answered one or more security questions incorrectly`);
-          const invalidSecurityQuestionsResponse = new BaseResponse(400, 'Error: One or more security questions were answered incorrectly', user);
-          res.json(invalidSecurityQuestionsResponse.toObject());
-          errorLogger({filename: myFile, message: "User answered one or more security questions incorrectly"})
+          const selectedSecurityQuestionOne = user.securityQuestions.find(q => q.questionText === req.body.questionText1);
+          const selectedSecurityQuestionTwo = user.securityQuestions.find(q2 => q2.questionText === req.body.questionText2);
+          const selectedSecurityQuestionThree = user.securityQuestions.find(q3 => q3.questionText === req.body.questionText3);
+
+          if (!selectedSecurityQuestionOne || !selectedSecurityQuestionTwo || !selectedSecurityQuestionThree) {
+            const questionNotFoundError = new ErrorResponse(500, 'One or more security questions not found');
+            res.status(500).send(questionNotFoundError.toObject());
+            errorLogger({filename: myFile, message: "One or more security questions not found"})
+          } else {
+            const isValidAnswerOne = selectedSecurityQuestionOne.answerText === req.body.answerText1;
+            const isValidAnswerTwo = selectedSecurityQuestionTwo.answerText === req.body.answerText2;
+            const isValidAnswerThree = selectedSecurityQuestionThree.answerText === req.body.answerText3;
+
+            if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree) {
+              console.log(`User ${user.username} answered all security questions correctly`);
+              const validSecurityQuestionsResponse = new BaseResponse(200, 'Success', user);
+              res.json(validSecurityQuestionsResponse.toObject());
+              debugLogger({filename: myFile, message: "User answered all security questions correctly"})
+            } else {
+              console.log(`User ${user.username} answered one or more security questions incorrectly`);
+              const invalidSecurityQuestionsResponse = new BaseResponse(400, 'Error: One or more security questions were answered incorrectly', user);
+              res.json(invalidSecurityQuestionsResponse.toObject());
+              errorLogger({filename: myFile, message: "User answered one or more security questions incorrectly"})
+            }
+          }
         }
       }
     })
@@ -429,6 +460,7 @@ router.post('/verify/users/:username/security-questions', async(req, res) => {
     errorLogger({filename: myFile, message: "Internal server error"})
   }
 })
+
 
 
 
