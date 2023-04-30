@@ -347,7 +347,7 @@ router.post("/register", async (req, res) => {
  * /api/session/verify/users/{username}:
  *   get:
  *     tags:
- *       - username
+ *       - Session
  *     description: API for verifying that a user exists by examining their user name
  *     summary: verifyUser
  *     parameters:
@@ -418,22 +418,6 @@ router.get("/verify/users/:username", async (req, res) => {
   }
 });
 
-
-const verifySecurityQuestionsSchema = {
-  type: "object",
-  properties: {
-    questionText1: { type: "string" },
-    answerText1: { type: "string" },
-    questionText2: { type: "string" },
-    answerText2: { type: "string" },
-    questionText3: { type: "string" },
-    answerText3: { type: "string" },
-  },
-  required: ["questionText1", "answerText1", "questionText2", "answerText2", "questionText3", "answerText3"],
-  additionalProperties: false,
-};
-
-
 /**
  * Verify security question
  * @openapi
@@ -448,7 +432,7 @@ const verifySecurityQuestionsSchema = {
  *       - name: username
  *         in: path
  *         required: true
- *         description: find a userName first.
+ *         description: find a username first.
  *         scheme:
  *           type: string
  *     requestBody:
@@ -480,7 +464,7 @@ const verifySecurityQuestionsSchema = {
  *                 type: string
  */
 // Ace Coded | John Tested | Chad Approved
-router.post('/verify/users/{username}/security-questions', async(req, res) => {
+router.post("/verify/users/:username/security-questions", async (req, res) => {
   try {
     User.findOne({ username: req.params.username }, function (err, user) {
       if (err) {
@@ -496,18 +480,13 @@ router.post('/verify/users/{username}/security-questions', async(req, res) => {
         errorLogger({ filename: myFile, message: "Internal server error" });
       } else {
         console.log(user);
-        const selectedSecurityQuestionOne = user.securityQuestions.find(q => q.questionText === req.body.questionText1);
+        const selectedSecurityQuestionOne = user.securityQuestions.find(q1 => q.questionText === req.body.questionText1);
         const selectedSecurityQuestionTwo = user.securityQuestions.find(q2 => q.questionText === req.body.questionText2);
         const selectedSecurityQuestionThree = user.securityQuestions.find(q3 => q.questionText === req.body.questionText3);
 
-          if (!selectedSecurityQuestionOne || !selectedSecurityQuestionTwo || !selectedSecurityQuestionThree) {
-            const questionNotFoundError = new ErrorResponse(500, 'One or more security questions not found');
-            res.status(500).send(questionNotFoundError.toObject());
-            errorLogger({filename: myFile, message: "One or more security questions not found"})
-          } else {
-            const isValidAnswerOne = selectedSecurityQuestionOne.answerText === req.body.answerText1;
-            const isValidAnswerTwo = selectedSecurityQuestionTwo.answerText === req.body.answerText2;
-            const isValidAnswerThree = selectedSecurityQuestionThree.answerText === req.body.answerText3;
+        const isValidAnswerOne = selectedSecurityQuestionOne.answerText === req.body.answerText1;
+        const isValidAnswerTwo = selectedSecurityQuestionTwo.answerText === req.body.answerText2;
+        const isValidAnswerThree = selectedSecurityQuestionThree.answerText === req.body.answerText3;
 
         if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree) {
           console.log(
@@ -539,7 +518,7 @@ router.post('/verify/users/{username}/security-questions', async(req, res) => {
           });
         }
       }
-    };
+    });
   } catch (e) {
     console.log(e);
     const verifySecurityQuestionCatchErrorResponse = new ErrorResponse(
@@ -551,7 +530,6 @@ router.post('/verify/users/{username}/security-questions', async(req, res) => {
     errorLogger({ filename: myFile, message: "Internal server error" });
   }
 })
-
 
 const resetPasswordSchema = {
   type: 'object',
@@ -571,10 +549,10 @@ const resetPasswordSchema = {
  * /api/session/users/{username}/reset-password:
  *   post:
  *     tags:
- *       - username
+ *       - Session
  *     name: Reset Password
  *     description: API to reset the password for a user name
- *     summary: resetPassword
+ *     summary: Resets the Password
  *     parameters:
  *       - in: path
  *         name: username
@@ -589,7 +567,8 @@ const resetPasswordSchema = {
  *              type: object
  *              properties:
  *                  password:
- *                    type: string
+ *                    text:
+ *                      type: string
  *     required: true
  *     responses:
  *       '200':
@@ -599,66 +578,67 @@ const resetPasswordSchema = {
  *
  */
 router.post("/users/:username/reset-password", async (req, res) => {
+
   try {
-    const password = req.body.password;
-    // const validator = ajv.compile(resetPasswordSchema)
-    // const valid = validator(password)
 
-    // if (valid) {
+    let password = req.body.password;
+    const validator = ajv.compile(resetPasswordSchema)
+    const valid = validator(password)
 
-    // }
-    User.findOne({'username': req.params.username}, function(err, user) {
-      if(err) {
-        console.log(err);
-        const resetPasswordMongodbErrorResponse = new ErrorResponse(
-          "500",
-          "Internal server error",
-          err
-        );
-        res.status(500).send(resetPasswordMongodbErrorResponse.toObject());
-        errorLogger({
-          filename: myFile,
-          message: `Cannot find user ${username} on database`,
-        });
-      } else {
-        console.log(user);
-        let hashedPassword = bcrypt.hashSync(password, saltRounds);
+    if (valid) {
+      User.findOne({'username': req.params.username}, function (err, user) {
+        if(err) {
+          console.log(err);
+          const resetPasswordMongodbErrorResponse = new ErrorResponse(
+            "500",
+            "Internal server error",
+            err
+          );
+          res.status(500).send(resetPasswordMongodbErrorResponse.toObject());
+          errorLogger({
+            filename: myFile,
+            message: `Cannot find user ${username} on database`,
+          });
+        } else {
+          console.log(user);
+          let hashedPassword = bcrypt.hashSync(password, saltRounds);
 
-        //set the new password
-        user.set({
-          password: hashedPassword,
-        });
+          //set the new password
+          user.set({
+            password: hashedPassword,
+          });
 
-        //save the new password for the user
-        user.save(function (err, updatedUser) {
-          if (err) {
-            console.log(err);
-            const updatedUserMongodbErrorResponse = new ErrorResponse(
-              "500",
-              "Internal server error",
-              err
-            );
-            res.status(500).send(updatedUserMongodbErrorResponse.toObject());
-            errorLogger({
-              filename: myFile,
-              message: `Error attempting to save new password for ${updatedUser} user`,
-            });
-          } else {
-            console.log(updatedUser);
-            const updatedUserPasswordResponse = new BaseResponse(
-              "200",
-              "Query successful",
-              updatedUser
-            );
-            res.json(updatedUserPasswordResponse.toObject());
-            debugLogger({
-              filename: myFile,
-              message: `Password for user ${updatedUser} reset successfully`,
-            });
-          }
-        });
-      }
-    })
+          //save the new password for the user
+          user.save(function (err, updatedUser) {
+            if (err) {
+              console.log(err);
+              const updatedUserMongodbErrorResponse = new ErrorResponse(
+                "500",
+                "Internal server error",
+                err
+              );
+              res.status(500).send(updatedUserMongodbErrorResponse.toObject());
+              errorLogger({
+                filename: myFile,
+                message: `Error attempting to save new password for ${updatedUser} user`,
+              });
+            } else {
+              console.log(updatedUser);
+              const updatedUserPasswordResponse = new BaseResponse(
+                "200",
+                "Query successful",
+                updatedUser
+              );
+              res.json(updatedUserPasswordResponse.toObject());
+              debugLogger({
+                filename: myFile,
+                message: `Password for user ${updatedUser} reset successfully`,
+              });
+            }
+          });
+        }
+      })
+    }
   }
   catch (e) {
     console.log(e);
