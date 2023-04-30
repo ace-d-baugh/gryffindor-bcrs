@@ -101,15 +101,15 @@ export class RegisterComponent implements OnInit {
     this.selectedSecurityQuestions = [
       {
         questionText: form.securityQuestion1,
-        answerText: form.securityQuestion1Answer,
+        answerText: form.answerToSecurityQuestion1,
       },
       {
         questionText: form.securityQuestion2,
-        answerText: form.securityQuestion2Answer,
+        answerText: form.answerToSecurityQuestion2,
       },
       {
         questionText: form.securityQuestion3,
-        answerText: form.securityQuestion3Answer,
+        answerText: form.answerToSecurityQuestion3,
       },
     ];
     console.log(this.selectedSecurityQuestions);

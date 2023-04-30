@@ -63,7 +63,7 @@ export class SignInComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.cookieService.set('sessionuser', res.data.username, 1);
-        this.router.navigate(['/main']);
+        this.router.navigate(['main/']);
       },
       error: (e) => {
         this.errorMessages = [

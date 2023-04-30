@@ -407,7 +407,8 @@ form {
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
   background-color: var(--color-primary-dark-4);
   color: var(--color-white);
@@ -419,7 +420,6 @@ textarea {
   font-weight: 700;
 }
 
-
 input:hover,
 textarea:hover {
   background-color: var(--color-white);
@@ -429,13 +429,27 @@ textarea:hover {
 input:focus,
 input:valid,
 textarea:focus,
-textarea:valid {
+textarea:valid,
+select:focus,
+select:valid {
   outline: none;
   border: 1px solid var(--color-accent);
   background-color: var(--color-white);
   color: var(--color-primary-dark);
 }
 
+option {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+option:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
 
 table {
   border-collapse: collapse;
@@ -737,6 +751,22 @@ main {
 
 .float-right {
   float: right;
+}
+
+.questions-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  flex: 1fr 1fr;
+}
+
+.question,
+.answer {
+  flex: 1;
+  flex-direction: column;
 }
 
 footer {

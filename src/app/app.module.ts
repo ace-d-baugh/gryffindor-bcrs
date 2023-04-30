@@ -62,6 +62,8 @@ import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form
 import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
 import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component';
 import { ErrorInterceptor } from './shared/error.interceptor';
+import { CommonModule } from '@angular/common';
+import { RegisterComponent } from './pages/register/register.component';
 
 //module
 @NgModule({
@@ -85,6 +87,7 @@ import { ErrorInterceptor } from './shared/error.interceptor';
     VerifyUsernameFormComponent,
     ResetPasswordFormComponent,
     VerifySecurityQuestionsFormComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -94,16 +97,9 @@ import { ErrorInterceptor } from './shared/error.interceptor';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatToolbarModule,
-    MatCardModule,
-    MessageModule,
-    MessagesModule,
-    MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
     MatMenuModule,
     MatCardModule,
     MatFormFieldModule,
@@ -118,6 +114,7 @@ import { ErrorInterceptor } from './shared/error.interceptor';
     ToastModule,
     MatDividerModule,
     MenuModule,
+    CommonModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
