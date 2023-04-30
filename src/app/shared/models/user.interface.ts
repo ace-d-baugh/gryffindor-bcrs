@@ -11,12 +11,14 @@
 
 //export interface
 export interface User {
-    _id?: string;
-    username: string;
-    password?: string;
-    firstName: string;
-    lastName: string;
-    phoneNumber: string;
-    address: string;
-    email: string
+  _id?: string;
+  username: string;
+  password?: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  address: string;
+  email: string;
+  role?: string;
+  selectedSecurityQuestions?: any;
 }

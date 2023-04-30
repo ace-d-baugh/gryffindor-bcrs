@@ -21,6 +21,7 @@ import { SecurityQuestionListComponent } from './pages/security-question-list/se
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
+import { AuthGuard } from './auth.guard';
 import { ServerErrorComponent } from './pages/server-error/server-error.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -30,6 +31,7 @@ import { BadRequestComponent } from './pages/bad-request/bad-request.component';
 import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
 import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
 import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 // routes
 const routes: Routes = [
@@ -75,6 +77,7 @@ const routes: Routes = [
         component: UserDetailsComponent,
       },
     ],
+    canActivate: [AuthGuard],
   },
   {
     path: 'session',
@@ -89,6 +92,10 @@ const routes: Routes = [
         component: SignInComponent,
       },
       {
+        path: 'register',
+        component: RegisterComponent,
+      },
+      {
         path: 'not-found',
         component: NotFoundComponent,
       },
@@ -98,16 +105,16 @@ const routes: Routes = [
       },
       {
         path: 'forgot',
-        component: VerifyUsernameFormComponent
+        component: VerifyUsernameFormComponent,
       },
       {
         path: 'verify-security-questions',
-        component: VerifySecurityQuestionsFormComponent
+        component: VerifySecurityQuestionsFormComponent,
       },
       {
         path: 'reset-password',
-        component: ResetPasswordFormComponent
-      }
+        component: ResetPasswordFormComponent,
+      },
     ],
   },
   // a 404 page for everything not found

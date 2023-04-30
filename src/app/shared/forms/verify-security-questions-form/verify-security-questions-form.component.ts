@@ -18,28 +18,34 @@ import { VerifySecurityQuestionModel } from '../../models/verify-security-questi
 import { UserService } from '../../services/user.service';
 import { SessionService } from '../../services/session.service';
 
-
 @Component({
   selector: 'app-verify-security-questions-form',
   templateUrl: './verify-security-questions-form.component.html',
-  styleUrls: ['./verify-security-questions-form.component.css']
+  styleUrls: ['./verify-security-questions-form.component.css'],
 })
 
 //export class VerifySecurityQuestionsFormComponent
 export class VerifySecurityQuestionsFormComponent implements OnInit {
-
   selectedSecurityQuestions: SelectedSecurityQuestion[];
   verifySecurityQuestionsModel: VerifySecurityQuestionModel;
   username: string;
   errorMessages: Message[];
 
-
   form: FormGroup = this.fb.group({
-    answerToSecurityQuestion1: [null, Validators.compose([Validators.required])],
-    answerToSecurityQuestion2: [null, Validators.compose([Validators.required])],
-    answerToSecurityQuestion3: [null, Validators.compose([Validators.required])],
-  })
-verifySecurityQuestionModel: any;
+    answerToSecurityQuestion1: [
+      null,
+      Validators.compose([Validators.required]),
+    ],
+    answerToSecurityQuestion2: [
+      null,
+      Validators.compose([Validators.required]),
+    ],
+    answerToSecurityQuestion3: [
+      null,
+      Validators.compose([Validators.required]),
+    ],
+  });
+  verifySecurityQuestionModel: any;
 
   //constructor
   constructor(
@@ -47,13 +53,13 @@ verifySecurityQuestionModel: any;
     private router: Router,
     private fb: FormBuilder,
     private userService: UserService,
-    private sessionService: SessionService) {
-
+    private sessionService: SessionService
+  ) {
     this.username = this.route.snapshot.queryParamMap.get('username') ?? '';
     this.errorMessages = [];
     this.verifySecurityQuestionsModel = {} as VerifySecurityQuestionModel;
     this.selectedSecurityQuestions = [];
-      // findSelectedSecurityQuestions from userService
+    // findSelectedSecurityQuestions from userService
     this.userService.findSelectedSecurityQuestions(this.username).subscribe({
       next: (res) => {
         this.selectedSecurityQuestions = res.data;
@@ -64,48 +70,58 @@ verifySecurityQuestionModel: any;
       },
       // complete
       complete: () => {
-        this.verifySecurityQuestionModel.question1 = this.selectedSecurityQuestions[0].questionText;
-        this.verifySecurityQuestionModel.question2 = this.selectedSecurityQuestions[1].questionText;
-        this.verifySecurityQuestionModel.question3 = this.selectedSecurityQuestions[2].questionText;
+        this.verifySecurityQuestionModel.question1 =
+          this.selectedSecurityQuestions[0].questionText;
+        this.verifySecurityQuestionModel.question2 =
+          this.selectedSecurityQuestions[1].questionText;
+        this.verifySecurityQuestionModel.question3 =
+          this.selectedSecurityQuestions[2].questionText;
 
         console.log('Verify security questions model');
         console.log(this.verifySecurityQuestionsModel);
-      }
-    })
-   }
-
-  ngOnInit(): void {
+      },
+    });
   }
 
-// function verifySecurityQuestions for
+  ngOnInit(): void {}
+
+  // function verifySecurityQuestions for
   verifySecurityQuestions() {
-    this.verifySecurityQuestionsModel.answerToQuestion1 = this.form.controls['answerToSecurityQuestion1'].value;
-    this.verifySecurityQuestionsModel.answerToQuestion2 = this.form.controls['answerToSecurityQuestion2'].value;
-    this.verifySecurityQuestionsModel.answerToQuestion3 = this.form.controls['answerToSecurityQuestion3'].value;
+    this.verifySecurityQuestionsModel.answerToQuestion1 =
+      this.form.controls['answerToSecurityQuestion1'].value;
+    this.verifySecurityQuestionsModel.answerToQuestion2 =
+      this.form.controls['answerToSecurityQuestion2'].value;
+    this.verifySecurityQuestionsModel.answerToQuestion3 =
+      this.form.controls['answerToSecurityQuestion3'].value;
 
     console.log(this.verifySecurityQuestionsModel);
 
     // verifySecurityQuestions from sessionService
-    this.sessionService.verifySecurityQuestions(this.verifySecurityQuestionsModel, this.username).subscribe({
-      next: (res) => {
-        console.log(res);
-        if (res.message === 'success') {
-          this.router.navigate(['/session/reset-password'], { queryParams: { isAuthenticated: 'true', username: this.username }, skipLocationChange: true });
-        } else {
-          this.errorMessages = [
-            {severity: 'error', summary: 'Error', detail: 'Unable to verify security question answers'}
-          ]
-          console.log('Unable to verify security question answers');
-        }
-      },
-      // error
-      error: (e) => {
-        console.log(e);
-      }
-    })
-
-
-
+    this.sessionService
+      .verifySecurityQuestions(this.verifySecurityQuestionsModel, this.username)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          if (res.message === 'success') {
+            this.router.navigate(['/session/reset-password'], {
+              queryParams: { isAuthenticated: 'true', username: this.username },
+              skipLocationChange: true,
+            });
+          } else {
+            this.errorMessages = [
+              {
+                severity: 'error',
+                summary: 'Error',
+                detail: 'Unable to verify security question answers',
+              },
+            ];
+            console.log('Unable to verify security question answers');
+          }
+        },
+        // error
+        error: (e) => {
+          console.log(e);
+        },
+      });
   }
-
 }

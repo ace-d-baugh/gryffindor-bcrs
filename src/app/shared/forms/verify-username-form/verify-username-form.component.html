@@ -9,36 +9,41 @@
 -->
 
 <div class="main-container">
+  <!--main card title-->
+  <div class="content-title center">
+    <h1>Forgot Password</h1>
+    <h3>Fields marked with an asterisk (*) are required.</h3>
+  </div>
 
-    <!--main card title-->
-    <div class="content-title center">
-        <h1>Forgot Password</h1>
-        <h3>Fields marked with an asterisk (*) are required.</h3>
-    </div>
+  <br />
 
-    <br />
+  <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
-    <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+  <div class="form-container">
+    <div class="m2">
+      <form [formGroup]="form" (ngSubmit)="verifyUser()" #usernameForm>
+        <div class="form-group">
+          <label class="input-label" for="text">User Name*</label>
+          <input type="text" formControlName="username" required />
+          <div
+            class="error"
+            *ngIf="
+              form.controls['username'].hasError('required') &&
+              form.controls['username'].touched
+            "
+          >
+            User name is a required field
+          </div>
+          <br /><br />
 
-    <div class="form-container">
-        <div class="m2">
-            <form [formGroup]="form" (ngSubmit)="verifyUser()" #usernameForm>
-                <div class="form-group">
-                    <label class="input-label" for="text">User Name*</label>
-                    <input 
-                        type="text"
-                        formControlName="username"
-                        required
-                        />
-                        <div class="error" *ngIf="form.controls['username'].hasError('required') && form.controls['username'].touched">
-                            User name is a required field
-                        </div>
-                    <br /><br />
-                    
-                    <button class="btn" routerLink="/session/sign-in" color="accent">Cancel</button>
-                    <button class="btn" [disabled]="!form.valid" color="primary">Forgot Password</button>                    
-                </div>
-            </form>
+          <button class="btn" routerLink="/session/sign-in" color="accent">
+            Cancel
+          </button>
+          <button class="btn" [disabled]="!form.valid" color="primary">
+            Forgot Password
+          </button>
         </div>
-    </div>    
+      </form>
+    </div>
+  </div>
 </div>

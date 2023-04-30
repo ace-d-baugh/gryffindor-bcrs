@@ -17,36 +17,43 @@ import { SessionService } from '../../services/session.service';
 @Component({
   selector: 'app-verify-username-form',
   templateUrl: './verify-username-form.component.html',
-  styleUrls: ['./verify-username-form.component.css']
+  styleUrls: ['./verify-username-form.component.css'],
 })
 export class VerifyUsernameFormComponent implements OnInit {
-
   errorMessages: Message[];
 
   form: FormGroup = this.fb.group({
-    username: [null, Validators.compose([Validators.required])]
+    username: [null, Validators.compose([Validators.required])],
   });
 
-  constructor(private fb: FormBuilder, private router: Router, private sessionService: SessionService) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private sessionService: SessionService
+  ) {
     this.errorMessages = [];
-   }
-
-  ngOnInit(): void {
   }
 
-  //takes entered user name, calls verifyusername api.  If user found, navigates to the /session/verify-security-questions form.
+  ngOnInit(): void {}
+
+  //takes entered user name, calls verifyUsername api.  If user found, navigates to the /session/verify-security-questions form.
   verifyUser() {
     const username = this.form.controls['username'].value;
 
-    this.sessionService.verifyusername(username).subscribe({
+    this.sessionService.verifyUsername(username).subscribe({
       next: (res) => {
         console.log(res);
-        this.router.navigate(['/session/verify-security-questions'], {queryParams: {username: username}, skipLocationChange: true});        
+        this.router.navigate(['/session/verify-security-questions'], {
+          queryParams: { username: username },
+          skipLocationChange: true,
+        });
       },
       error: (e) => {
-        this.errorMessages = [ {severity: 'error', summary: 'Error', detail: e.message }]
-        console.log(e)
-      }
-    })
+        this.errorMessages = [
+          { severity: 'error', summary: 'Error', detail: e.message },
+        ];
+        console.log(e);
+      },
+    });
   }
 }

@@ -31,7 +31,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         url: err.url
       };
 
-      console.log('httpInterceptor error; origin:$(error.url);message:$(error.message);httpCode:$(error.httpCode)');
+      console.log(`httpInterceptor error; origin:${error.url};message:${error.message};httpCode:${error.httpCode}`);
 
       return throwError(() => error);
     }))

@@ -55,7 +55,7 @@ export class SignInComponent implements OnInit {
    * details: calls the session service to signin
    */
   signin() {
-    alert
+    alert;
     const username = this.signinForm.controls['username'].value;
     const password = this.signinForm.controls['password'].value;
 

@@ -50,9 +50,17 @@ const createUserSchema = {
       type: "string",
     },
   },
-  required: ["username", "password", "firstName", "lastName", "phoneNumber", "email", "address"],
+  required: [
+    "username",
+    "password",
+    "firstName",
+    "lastName",
+    "phoneNumber",
+    "email",
+    "address",
+  ],
   additionalProperties: false,
-}
+};
 
 const updateUserSchema = {
   type: "object",
@@ -75,7 +83,7 @@ const updateUserSchema = {
   },
   required: ["firstName", "lastName", "phoneNumber", "email", "address"],
   additionalProperties: false,
-}
+};
 
 /**
  * FindAll
@@ -583,9 +591,7 @@ router.get("/selectedSecurityQuestions/:username", async (req, res) => {
           new ErrorResponse(500, "Internal server error", err);
         res
           .status(500)
-          .send(
-            findSelectedSecurityQuestionsMongodbErrorResponse.toObject()
-          );
+          .send(findSelectedSecurityQuestionsMongodbErrorResponse.toObject());
         errorLogger({
           filename: myFile,
           message: `user ${req.params.username} not found`,
