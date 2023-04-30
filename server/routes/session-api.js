@@ -480,9 +480,9 @@ router.post("/verify/users/:username/security-questions", async (req, res) => {
         errorLogger({ filename: myFile, message: "Internal server error" });
       } else {
         console.log(user);
-        const selectedSecurityQuestionOne = user.securityQuestions.find(q1 => q.questionText === req.body.questionText1);
-        const selectedSecurityQuestionTwo = user.securityQuestions.find(q2 => q.questionText === req.body.questionText2);
-        const selectedSecurityQuestionThree = user.securityQuestions.find(q3 => q.questionText === req.body.questionText3);
+        const selectedSecurityQuestionOne = user.selectedSecurityQuestions.find(q1 => q1.questionText === req.body.questionText1);
+        const selectedSecurityQuestionTwo = user.selectedSecurityQuestions.find(q2 => q2.questionText === req.body.questionText2);
+        const selectedSecurityQuestionThree = user.selectedSecurityQuestions.find(q3 => q3.questionText === req.body.questionText3);
 
         const isValidAnswerOne = selectedSecurityQuestionOne.answerText === req.body.answerText1;
         const isValidAnswerTwo = selectedSecurityQuestionTwo.answerText === req.body.answerText2;
