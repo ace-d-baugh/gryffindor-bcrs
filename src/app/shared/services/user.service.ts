@@ -61,7 +61,7 @@ export class UserService {
     return this.http.delete('/api/users/' + userId);
   }
 
-  // call findUserByUsername API
+  // find selected security questions
   findSelectedSecurityQuestions(username: string): Observable<any> {
     return this.http.get('/api/users/' + username + '/security-questions');
   }

@@ -30047,3 +30047,68 @@
   dateCreated: 2023-04-29T21:49:14.138Z,
   _id: new ObjectId("644d92d4886da3414f5443e6")
 } reset successfully
+[4/30/2023, 4:14:27 PM] server	 session-api.js - User {
+  _id: new ObjectId("644ec41e78417e22dc4b23a3"),
+  username: 'sillyface',
+  password: '$2a$10$IQVJXhAlepSWQ4S5XJOOpuoSzAnrOp87eQu.hnhYEXjE4Rupg0cLi',
+  firstName: 'Silly',
+  lastName: 'Face',
+  phoneNumber: '3409857',
+  address: 'sdfr;lkgj034',
+  email: 'sdfklgj@sdflkjg.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644ec41e78417e22dc4b23a4") },
+  selectedSecurityQuestions: [
+    {
+      questionText: 'Who was your favorite elementry school teacher?',
+      answerText: 'df;lgkj',
+      _id: new ObjectId("644ec41e78417e22dc4b23a5")
+    },
+    {
+      questionText: ' What is the name of your favorite teacher?',
+      answerText: 'dfgbhf',
+      _id: new ObjectId("644ec41e78417e22dc4b23a6")
+    },
+    {
+      questionText: ' What was the name of the first album you ever purchased?',
+      answerText: 'dfgbsdfth',
+      _id: new ObjectId("644ec41e78417e22dc4b23a7")
+    }
+  ],
+  dateCreated: 2023-04-30T19:37:17.768Z,
+  __v: 0
+} successfully verified
+[4/30/2023, 4:14:27 PM] server	 user-api.js - user sillyface selected security questions found
+[4/30/2023, 4:14:49 PM] server	 security-question-api.js - All security questions returned successfully
+[4/30/2023, 4:16:44 PM] server	 session-api.js - User {
+  _id: new ObjectId("644ecc875e2f88394a7cfbfb"),
+  username: 'dontlookatme',
+  password: '$2a$10$rUyRjMlNw6RdeIWiIKAANeQxRwhaznWinpbmrvAtDzqd49F7oYAl.',
+  firstName: "Don't Look",
+  lastName: 'At Me',
+  phoneNumber: '02349857',
+  address: 'dfslkjmgnbslkdfjng',
+  email: '4938fdsk@gmail.com',
+  isDisabled: false,
+  role: { text: 'standard', _id: new ObjectId("644ecc875e2f88394a7cfbfc") },
+  selectedSecurityQuestions: [
+    {
+      questionText: 'Who was your favorite elementry school teacher?',
+      answerText: 'first',
+      _id: new ObjectId("644ecc875e2f88394a7cfbfd")
+    },
+    {
+      questionText: ' What is the name of your favorite teacher?',
+      answerText: 'second',
+      _id: new ObjectId("644ecc875e2f88394a7cfbfe")
+    },
+    {
+      questionText: ' What is your favorite vacation spot?',
+      answerText: 'third',
+      _id: new ObjectId("644ecc875e2f88394a7cfbff")
+    }
+  ],
+  dateCreated: 2023-04-30T20:09:25.157Z,
+  __v: 0
+} successfully verified
+[4/30/2023, 4:16:44 PM] server	 user-api.js - user dontlookatme selected security questions found
