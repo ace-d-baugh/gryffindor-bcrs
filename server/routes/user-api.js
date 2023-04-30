@@ -48,11 +48,19 @@ const createUserSchema = {
     },
     address: {
       type: "string",
-    },
+    },    
   },
-  required: ["username", "password", "firstName", "lastName", "phoneNumber", "email", "address"],
+  required: [
+    "username",
+    "password",
+    "firstName",
+    "lastName",
+    "phoneNumber",
+    "email",
+    "address",
+  ],
   additionalProperties: false,
-}
+};
 
 const updateUserSchema = {
   type: "object",
@@ -75,7 +83,7 @@ const updateUserSchema = {
   },
   required: ["firstName", "lastName", "phoneNumber", "email", "address"],
   additionalProperties: false,
-}
+};
 
 /**
  * FindAll
@@ -217,6 +225,8 @@ router.get("/:id", async (req, res) => {
  *        content:
  *          application/json:
  *            schema:
+ *              required:
+ *                - text
  *              properties:
  *                username:
  *                  type: string
@@ -233,13 +243,12 @@ router.get("/:id", async (req, res) => {
  *                address:
  *                  type: string
  *                role:
- *                  type: object
- *                  properties:
- *                    text:
- *                      type: string
+ *                  type: string
  *     responses:
  *       '200':
  *         description: Query successful
+ *       '400':
+ *         description: Validation Error
  *       '500':
  *         description: Internal server error
  *       '501':
@@ -254,10 +263,12 @@ router.post("/", async (req, res) => {
 
     if (valid) {
       //hash password entered
-      hashedPassword = bcrypt.hashSync(newUser.password, saltRounds); //salt/hash password
+      let hashedPassword = bcrypt.hashSync(newUser.password, saltRounds); //salt/hash password
       standardRole = {
         text: "standard",
       };
+
+      console.log(standardRole)
 
       //defining new user object from info entered on screen
       createNewUser = {
@@ -577,9 +588,7 @@ router.get("/selectedSecurityQuestions/:username", async (req, res) => {
           new ErrorResponse(500, "Internal server error", err);
         res
           .status(500)
-          .send(
-            findSelectedSecurityQuestionsMongodbErrorResponse.toObject()
-          );
+          .send(findSelectedSecurityQuestionsMongodbErrorResponse.toObject());
         errorLogger({
           filename: myFile,
           message: `user ${req.params.username} not found`,

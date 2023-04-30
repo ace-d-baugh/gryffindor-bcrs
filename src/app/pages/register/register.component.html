@@ -1,28 +1,29 @@
 <!--
 ============================================
-; Title: user-create.component.html for BCRS
+; Title: register.component.html
 ; Author: Professor Krasso
-; Modified by: Chad ONeal
-; Date: 04/24/2023
-; Description: user-create.component.html for BCRS
+; Modified by: Ace Baugh
+; Date: 04/30/2023
+; Description: register component
 ===========================================
 -->
 
 <!--main container-->
 <div class="main-container">
   <div class="content-title center">
-    <h1>Create User Form</h1>
+    <h1>Account Registration Form</h1>
     <h3>Fields marked with an asterisk (*) are required</h3>
   </div>
 
   <!--error messages-->
-  <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+  <!-- <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages> -->
 
-  <form
+  <!-- <form
     [formGroup]="form"
-    (ngSubmit)="createUser()"
+    (ngSubmit)="register()"
     (keydown.enter)="$event.preventDefault()"
-  >
+  > -->
+  <form>
     <div class="form-group">
       <div class="form-group">
         <label class="input-label">Username</label>
@@ -33,7 +34,7 @@
           required
         />
 
-        <mat-error
+        <!-- <mat-error
           class="error"
           *ngIf="
             form.controls['username'].hasError('required') &&
@@ -41,7 +42,7 @@
           "
         >
           Username is a required field.
-        </mat-error>
+        </mat-error> -->
       </div>
 
       <!--div-->
@@ -54,7 +55,7 @@
           required
         />
 
-        <mat-error
+        <!-- <mat-error
           class="error"
           *ngIf="
             form.controls['password'].hasError('required') &&
@@ -62,11 +63,11 @@
           "
         >
           Password is a required field.
-        </mat-error>
+        </mat-error> -->
       </div>
 
       <!--errors-->
-      <mat-error
+      <!-- <mat-error
         class="error"
         *ngIf="
           form.controls['password'].hasError('pattern') &&
@@ -75,8 +76,10 @@
       >
         Password must be at least 8 characters, contain one letter, and one
         number.
-      </mat-error>
+      </mat-error> -->
     </div>
+
+    <hr>
 
     <!--form group-->
     <div class="form-group">
@@ -88,7 +91,7 @@
         required
       />
 
-      <mat-error
+      <!-- <mat-error
         class="error"
         *ngIf="
           form.controls['firstName'].hasError('required') &&
@@ -96,7 +99,7 @@
         "
       >
         First name is a required field.
-      </mat-error>
+      </mat-error> -->
     </div>
 
     <!--form group-->
@@ -109,7 +112,7 @@
         required
       />
 
-      <mat-error
+      <!-- <mat-error
         class="error"
         *ngIf="
           form.controls['lastName'].hasError('required') &&
@@ -117,7 +120,7 @@
         "
       >
         Last name is a required field.
-      </mat-error>
+      </mat-error> -->
     </div>
 
     <div class="form-group">
@@ -129,7 +132,7 @@
         required
       />
 
-      <mat-error
+      <!-- <mat-error
         class="error"
         *ngIf="
           form.controls['phoneNumber'].hasError('required') &&
@@ -137,7 +140,7 @@
         "
       >
         Phone number is a required field.
-      </mat-error>
+      </mat-error> -->
     </div>
 
     <div class="form-group">
@@ -149,7 +152,7 @@
         required
       />
 
-      <mat-error
+      <!-- <mat-error
         class="error"
         *ngIf="
           form.controls['email'].hasError('required') &&
@@ -167,7 +170,7 @@
         "
       >
         Invalid email format.
-      </mat-error>
+      </mat-error> -->
     </div>
 
     <div class="form-group">
@@ -175,7 +178,7 @@
 
       <textarea matInput required formControlName="address"></textarea>
 
-      <mat-error
+      <!-- <mat-error
         class="error"
         *ngIf="
           form.controls['address'].hasError('required') &&
@@ -183,12 +186,12 @@
         "
       >
         Address is a required field.
-      </mat-error>
+      </mat-error> -->
     </div>
     <div class="buttons">
-      <button class="btn" (click)="cancel()">Cancel</button>
+      <button class="btn" (click)="cancel()">Sign In</button>
       <button class="btn submit-button" type="submit" [disabled]="form.invalid">
-        Create User
+        Register
       </button>
     </div>
   </form>

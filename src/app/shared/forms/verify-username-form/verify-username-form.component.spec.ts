@@ -8,9 +8,8 @@ describe('VerifyUsernameFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VerifyUsernameFormComponent ]
-    })
-    .compileComponents();
+      declarations: [VerifyUsernameFormComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(VerifyUsernameFormComponent);
     component = fixture.componentInstance;

@@ -17,7 +17,7 @@ import { VerifySecurityQuestionModel } from '../models/verify-security-question.
 
 //  Injectable
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SessionService {
   // verify username
@@ -29,15 +29,15 @@ export class SessionService {
   }
 
   //  constructor
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   /**
    * Description: This function will call the API to login a user
    */
   signin(username: string, password: string): Observable<any> {
     return this.http.post('/api/session/signin', {
       username,
-      password
-    })
+      password,
+    });
   }
 
   /**
@@ -52,32 +52,36 @@ export class SessionService {
       phoneNumber: user.phoneNumber,
       address: user.address,
       email: user.email,
-    })
+      selectedSecurityQuestions: user.selectedSecurityQuestions,
+    });
   }
 
-
   // verify username
-  verifyusername(username: string): Observable<any>{
+  verifyUsername(username: string): Observable<any> {
     return this.http.get('/api/session/verify/users/' + username);
   }
 
   updatePassword(password: string, username: string): Observable<any> {
     return this.http.post('/api/session/users' + username + '/reset-password', {
-      password
-    })
+      password,
+    });
   }
 
   // verify security questions
-  verifySecurityQuestions(model: VerifySecurityQuestionModel, username: String,): Observable<any>{
-    return this.http.post('/api/session/verify/users/' + username + '/security-questions', {
-      questionText1: model.question1,
-      questionText2: model.question2,
-      questionText3: model.question3,
-      answerText1: model.answerToQuestion1,
-      answerText2: model.answerToQuestion2,
-      answerText3: model.answerToQuestion3,
-
-    })
+  verifySecurityQuestions(
+    model: VerifySecurityQuestionModel,
+    username: String
+  ): Observable<any> {
+    return this.http.post(
+      '/api/session/verify/users/' + username + '/security-questions',
+      {
+        questionText1: model.question1,
+        questionText2: model.question2,
+        questionText3: model.question3,
+        answerText1: model.answerToQuestion1,
+        answerText2: model.answerToQuestion2,
+        answerText3: model.answerToQuestion3,
+      }
+    );
   }
-
 }
