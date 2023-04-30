@@ -38,8 +38,7 @@ export class BaseLayoutComponent implements OnInit {
     private confirmationService: ConfirmationService,
     private messageService: MessageService
   ) {
-    this.sessionName = this.cookieService.get('sessionuser');
-
+    this.sessionName = this.cookieService.get('sessionUser');
   }
 
   ngOnInit(): void {}
