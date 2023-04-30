@@ -53,7 +53,7 @@ export class ResetPasswordFormComponent implements OnInit {
     this.sessionService.updatePassword(password, this.username).subscribe({
       next: (res) => {
         this.cookieService.set('sessionUser', this.username, 1);
-        this.router.navigate(['/']);
+        this.router.navigate(['/main/']);
       },
       error: (e) => {
         console.log(e);

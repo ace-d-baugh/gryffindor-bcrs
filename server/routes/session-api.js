@@ -341,7 +341,6 @@ router.post("/register", async (req, res) => {
   }
 });
 
-
 /** verifyUser
  *  @openapi
  * /api/session/verify/users/{username}:
@@ -480,13 +479,23 @@ router.post("/verify/users/:username/security-questions", async (req, res) => {
         errorLogger({ filename: myFile, message: "Internal server error" });
       } else {
         console.log(user);
-        const selectedSecurityQuestionOne = user.selectedSecurityQuestions.find(q1 => q1.questionText === req.body.questionText1);
-        const selectedSecurityQuestionTwo = user.selectedSecurityQuestions.find(q2 => q2.questionText === req.body.questionText2);
-        const selectedSecurityQuestionThree = user.selectedSecurityQuestions.find(q3 => q3.questionText === req.body.questionText3);
+        const selectedSecurityQuestionOne = user.selectedSecurityQuestions.find(
+          (q1) => q1.questionText === req.body.questionText1
+        );
+        const selectedSecurityQuestionTwo = user.selectedSecurityQuestions.find(
+          (q2) => q2.questionText === req.body.questionText2
+        );
+        const selectedSecurityQuestionThree =
+          user.selectedSecurityQuestions.find(
+            (q3) => q3.questionText === req.body.questionText3
+          );
 
-        const isValidAnswerOne = selectedSecurityQuestionOne.answerText === req.body.answerText1;
-        const isValidAnswerTwo = selectedSecurityQuestionTwo.answerText === req.body.answerText2;
-        const isValidAnswerThree = selectedSecurityQuestionThree.answerText === req.body.answerText3;
+        const isValidAnswerOne =
+          selectedSecurityQuestionOne.answerText === req.body.answerText1;
+        const isValidAnswerTwo =
+          selectedSecurityQuestionTwo.answerText === req.body.answerText2;
+        const isValidAnswerThree =
+          selectedSecurityQuestionThree.answerText === req.body.answerText3;
 
         if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree) {
           console.log(
@@ -529,16 +538,16 @@ router.post("/verify/users/:username/security-questions", async (req, res) => {
     res.status(500).send(verifySecurityQuestionCatchErrorResponse.toObject());
     errorLogger({ filename: myFile, message: "Internal server error" });
   }
-})
+});
 
 const resetPasswordSchema = {
-  type: 'object',
+  type: "object",
   properties: {
-    password: { type: 'string'}
+    password: { type: "string" },
   },
-  required: ['password'],
+  required: ["password"],
   additionalProperties: false,
-}
+};
 
 /** Reset password
  * John
@@ -577,16 +586,14 @@ const resetPasswordSchema = {
  *
  */
 router.post("/users/:username/reset-password", async (req, res) => {
-
-   try {
-
-    let password = req.body.password
+  try {
+    let password = req.body.password;
 
     // if (valid) {
 
     // }
-    User.findOne({'username': req.params.username}, function(err, user) {
-      if(err) {
+    User.findOne({ username: req.params.username }, function (err, user) {
+      if (err) {
         console.log(err);
         const resetPasswordMongodbErrorResponse = new ErrorResponse(
           "500",
@@ -636,9 +643,8 @@ router.post("/users/:username/reset-password", async (req, res) => {
           }
         });
       }
-    })
-  }
-  catch (e) {
+    });
+  } catch (e) {
     console.log(e);
     const resetPasswordCatchError = new ErrorResponse(
       "500",
