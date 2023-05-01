@@ -56,3 +56,4 @@
 [5/1/2023, 12:31:42 PM] server	 session-api.js - Internal server error
 [5/1/2023, 1:44:36 PM] server	 session-api.js - Invalid user id
 [5/1/2023, 1:45:34 PM] server	 session-api.js - User null doesn't exist
+[5/1/2023, 2:55:11 PM] server	 session-api.js - User answered one or more security questions incorrectly
