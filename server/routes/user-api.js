@@ -561,7 +561,7 @@ router.delete("/:id", async (req, res) => {
  *     parameters:
  *       - in: path
  *         name: username
- *         description: username to query
+ *         description: search username to find selected security questions
  *         required: true
  *         schema:
  *           type: string
@@ -581,8 +581,21 @@ router.delete("/:id", async (req, res) => {
 router.get("/:username/security-questions", async (req, res) => {
   try {
     // Find user by username
-    User.findOne({ username: req.params.username }, function (err, user) {
-      if (err) {
+    User.findOne({ 'username': req.params.username }, function (err, user) {
+      if (user === null) {
+        const findSelectedSecurityQuestionsNotFoundResponse = new ErrorResponse(
+          404,
+          "User not found",
+          err
+        );
+        res
+          .status(404)
+          .send(findSelectedSecurityQuestionsNotFoundResponse.toObject());
+        errorLogger({
+          filename: myFile,
+          message: `user ${req.params.username} not found`,
+        });
+      } else if (err) {
         console.log(err);
         const findSelectedSecurityQuestionsMongodbErrorResponse =
           new ErrorResponse(500, "Internal server error", err);
@@ -594,7 +607,6 @@ router.get("/:username/security-questions", async (req, res) => {
           message: `user ${req.params.username} not found`,
         });
       } else {
-        console.log(user);
         const findSelectedSecurityQuestionsResponse = new BaseResponse(
           200,
           "Query successful",
