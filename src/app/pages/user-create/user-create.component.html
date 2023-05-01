@@ -185,11 +185,11 @@
         Address is a required field.
       </mat-error>
     </div>
-    <div class="buttons">
-      <button class="btn" (click)="cancel()">Cancel</button>
+    <div class="buttons reverse split">
       <button class="btn submit-button" type="submit" [disabled]="form.invalid">
         Create User
       </button>
+      <button class="btn" (click)="cancel()">Cancel</button>
     </div>
   </form>
 </div>

@@ -17,4 +17,11 @@ import { Component } from '@angular/core';
   templateUrl: './server-error.component.html',
   styleUrls: ['./server-error.component.css'],
 })
-export class ServerErrorComponent {}
+export class ServerErrorComponent {
+
+  constructor() {}
+
+  goBack() {
+    window.history.back();
+  }
+}

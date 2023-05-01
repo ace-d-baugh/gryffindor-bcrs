@@ -17,4 +17,10 @@ import { Component } from '@angular/core';
   templateUrl: './bad-request.component.html',
   styleUrls: ['./bad-request.component.css'],
 })
-export class BadRequestComponent {}
+export class BadRequestComponent {
+  constructor() {}
+
+  goBack() {
+    window.history.back();
+  }
+}

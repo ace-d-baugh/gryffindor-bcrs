@@ -108,11 +108,11 @@
     </div>
 
     <!--City-->
-    <div class="buttons">
-      <button class="btn" (click)="cancel()" color="accent">Cancel</button>
-      <button class="btn" [disabled]="!form.valid" color="primary">
+    <div class="buttons reverse split">
+      <button class="btn" [disabled]="!form.valid">
         Submit
       </button>
+      <button class="btn" (click)="cancel()">Cancel</button>
     </div>
 
   </form>
