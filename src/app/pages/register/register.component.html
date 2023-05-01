@@ -24,7 +24,7 @@
     (keydown.enter)="$event.preventDefault()"
   >
     <!--form group-->
-    <h2 class="center">Personal Information</h2>
+    <h2 class="center m1">Personal Information</h2>
     <div class="form-group">
       <label class="input-label">First Name*</label>
       <input
@@ -137,7 +137,7 @@
     <!-- Security Questions Section of Registration -->
 
     <div class="security-questions form-group">
-      <h2 class="center">Security Questions</h2>
+      <h2 class="center m1">Security Questions</h2>
       <div class="form-group">
         <!-- Security Question 1 -->
         <div class="questions-row">
@@ -277,7 +277,7 @@
 
     <!-- Credentials Section of Registration -->
     <div class="credentials form-group">
-      <h2 class="center">User Credentials</h2>
+      <h2 class="center m1">User Credentials</h2>
       <div class="form-group">
         <label class="input-label">Username*</label>
         <input
@@ -332,11 +332,11 @@
       </mat-error>
     </div>
 
-    <div class="buttons">
-      <button class="btn" (click)="cancel()">Sign In</button>
+    <div class="buttons reverse split">
       <button class="btn submit-button" type="submit" [disabled]="form.invalid">
         Register
       </button>
+      <button class="btn" (click)="cancel()">Sign In</button>
     </div>
   </form>
 </div>

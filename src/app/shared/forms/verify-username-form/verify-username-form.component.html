@@ -35,15 +35,15 @@
           >
             User name is a required field
           </div>
-          <br /><br />
-
-          <!-- cancel button-->
-          <button class="btn" routerLink="/session/sign-in" color="accent">
-            Cancel
-          </button>
-          <button class="btn" [disabled]="!form.valid" color="primary">
-            Forgot Password
-          </button>
+          <div class="buttons reverse split">
+            <button class="btn" [disabled]="!form.valid">
+              Forgot Password
+            </button>
+            <!-- cancel button-->
+            <button class="btn" routerLink="/session/sign-in">
+              Cancel
+            </button>
+          </div>
         </div>
       </form>
     </div>

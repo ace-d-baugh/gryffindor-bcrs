@@ -90,9 +90,15 @@
       </mat-error>
     </div>
 
-    <!-- verify security questions button-->
-    <button class="btn" [disabled]="!form.valid" color="primary">
-      Verify Security Questions
-    </button>
+    <div class="buttons reverse split">
+      <!-- verify security questions button-->
+      <button class="btn" [disabled]="!form.valid">
+        Verify Security Questions
+      </button>
+      <!-- cancel button-->
+      <button class="btn" routerLink="/session/sign-in">
+        Cancel
+      </button>
+    </div>
   </form>
 </div>

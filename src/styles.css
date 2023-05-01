@@ -769,6 +769,14 @@ main {
   flex-direction: column;
 }
 
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.split {
+  justify-content: space-between;
+}
+
 footer {
   background: linear-gradient(
     transparent,
