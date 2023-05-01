@@ -34,6 +34,9 @@ export class RegisterComponent implements OnInit {
   user: User;
   errorMessages: Message[] = [];
   selectedSecurityQuestions: SelectedSecurityQuestion[];
+  questionList1: SecurityQuestion[];
+  questionList2: SecurityQuestion[];
+  questionList3: SecurityQuestion[];
 
   //form group
   form: FormGroup = this.fb.group({
@@ -80,11 +83,16 @@ export class RegisterComponent implements OnInit {
     this.selectedSecurityQuestions = [];
     this.errorMessages = [];
     this.user = {} as User;
+    this.questionList1 = [];
+    this.questionList2 = [];
+    this.questionList3 = [];
 
     this.securityQuestionService.findAllSecurityQuestions().subscribe({
       next: (res) => {
         this.securityQuestions = res.data;
-        console.log(this.securityQuestions);
+        this.questionList1 = this.securityQuestions;
+        this.questionList2 = this.securityQuestions;
+        this.questionList3 = this.securityQuestions;
       },
       error: (err) => {
         console.log(err);
@@ -145,5 +153,35 @@ export class RegisterComponent implements OnInit {
   //cancel function
   cancel(): void {
     this.router.navigate(['/session/sign-in']);
+  }
+
+  // update security question options
+  updateSecurityQuestionOptions(): void {
+
+    if (this.form.value.securityQuestion1) {
+      this.questionList2 = this.securityQuestions.filter(
+        (question) =>
+          question.text !== this.form.value.securityQuestion1 &&
+          question.text !== this.form.value.securityQuestion3
+      );
+      this.questionList3 = this.securityQuestions.filter(
+        (question) =>
+          question.text !== this.form.value.securityQuestion1 &&
+          question.text !== this.form.value.securityQuestion2
+      );
+    }
+
+    if (this.form.value.securityQuestion2) {
+      this.questionList1 = this.securityQuestions.filter(
+        (question) =>
+          question.text !== this.form.value.securityQuestion2 &&
+          question.text !== this.form.value.securityQuestion3
+      );
+      this.questionList3 = this.securityQuestions.filter(
+        (question) =>
+          question.text !== this.form.value.securityQuestion1 &&
+          question.text !== this.form.value.securityQuestion2
+      );
+    }
   }
 }

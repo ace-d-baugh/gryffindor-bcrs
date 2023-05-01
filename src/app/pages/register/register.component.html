@@ -143,9 +143,9 @@
         <div class="questions-row">
           <div class="question">
             <label class="input-label">Question 1</label>
-            <select formControlName="securityQuestion1" required>
+            <select formControlName="securityQuestion1" required (change)="updateSecurityQuestionOptions()">
               <option
-                *ngFor="let question of securityQuestions"
+                *ngFor="let question of questionList1"
                 [value]="question.text"
               >
                 {{ question.text }}
@@ -183,9 +183,9 @@
         <div class="questions-row">
           <div class="question">
             <label class="input-label">Question 2</label>
-            <select formControlName="securityQuestion2" required>
+            <select formControlName="securityQuestion2" required (change)="updateSecurityQuestionOptions()">
               <option
-                *ngFor="let question of securityQuestions"
+                *ngFor="let question of questionList2"
                 [value]="question.text"
               >
                 {{ question.text }}
@@ -223,9 +223,9 @@
         <div class="questions-row">
           <div class="question">
             <label class="input-label">Question 3</label>
-            <select formControlName="securityQuestion3" required>
+            <select formControlName="securityQuestion3" required (change)="updateSecurityQuestionOptions()">
               <option
-                *ngFor="let question of securityQuestions"
+                *ngFor="let question of questionList3"
                 [value]="question.text"
               >
                 {{ question.text }}
