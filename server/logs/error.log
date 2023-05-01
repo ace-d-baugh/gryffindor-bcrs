@@ -44,3 +44,12 @@
 [4/30/2023, 12:49:28 PM] server	 user-api.js - Validation on creating user failed
 [4/30/2023, 12:52:54 PM] server	 user-api.js - Error creating user in MongoDB
 [4/30/2023, 1:49:44 PM] server	 session-api.js - Invalid user id
+[4/30/2023, 8:59:19 PM] server	 session-api.js - User answered one or more security questions incorrectly
+[5/1/2023, 11:20:08 AM] server	 session-api.js - User null doesn't exist
+[5/1/2023, 11:23:09 AM] server	 session-api.js - User null doesn't exist
+[5/1/2023, 11:25:27 AM] server	 session-api.js - User null doesn't exist
+[5/1/2023, 11:26:04 AM] server	 session-api.js - User null doesn't exist
+[5/1/2023, 11:27:56 AM] server	 session-api.js - User null doesn't exist
+[5/1/2023, 11:28:53 AM] server	 session-api.js - User null doesn't exist
+[5/1/2023, 11:29:04 AM] server	 session-api.js - User null doesn't exist
+[5/1/2023, 11:29:14 AM] server	 session-api.js - User null doesn't exist
