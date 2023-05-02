@@ -66,3 +66,6 @@
 [5/2/2023, 9:14:34 AM] server	 role-api.js - The field was blank, or the data could not be read
 [5/2/2023, 9:14:42 AM] server	 role-api.js - The field was blank, or the data could not be read
 [5/2/2023, 9:15:38 AM] server	 role-api.js - Entered role is not unique
+[5/2/2023, 2:52:41 PM] server	 user-api.js - User null not found
+[5/2/2023, 2:53:58 PM] server	 user-api.js - User jarybird not found
+[5/2/2023, 3:00:12 PM] server	 user-api.js - User jaybirdd not found

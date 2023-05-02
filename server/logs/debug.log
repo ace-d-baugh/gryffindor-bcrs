@@ -30969,3 +30969,40 @@
 [5/2/2023, 9:08:15 AM] server	 role-api.js - The role was added successfully
 [5/2/2023, 9:13:33 AM] server	 role-api.js - The role was added successfully
 [5/2/2023, 9:15:33 AM] server	 role-api.js - The role was added successfully
+[5/2/2023, 1:54:11 PM] server	 user-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$q56ceuTv2/sR/wDrwElw3eHIK8cz7WxTcJ9IWbAj6zvSGbxlXb60C',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: true,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("64515c53095680e093813162"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("64515c53095680e093813163"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("64515c53095680e093813164"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ],
+  dateModified: 2023-05-01T01:09:33.501Z
+} role is { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") }
+[5/2/2023, 1:56:00 PM] server	 user-api.js - User jaybird role is { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") }
+[5/2/2023, 1:57:25 PM] server	 user-api.js - User jaybird role is standard
+[5/2/2023, 2:01:56 PM] server	 user-api.js - User jaybird role is standard
+[5/2/2023, 2:52:33 PM] server	 user-api.js - User jaybird role is standard
+[5/2/2023, 2:53:53 PM] server	 user-api.js - User jaybird role is standard
+[5/2/2023, 3:00:03 PM] server	 user-api.js - User jaybird role is standard

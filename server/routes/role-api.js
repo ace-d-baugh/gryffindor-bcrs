@@ -73,6 +73,7 @@ const myfile = 'role-api.js'
  *       '500':
  *         description: Internal server error/MongoDB Exception
  */
+//john Coded |   Tested|     Approved
 
 const createRoleSchema = {
     type: 'object',

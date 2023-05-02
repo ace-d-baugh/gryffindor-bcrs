@@ -17,6 +17,7 @@ const BaseResponse = require("../services/base-response");
 const { debugLogger, errorLogger } = require("../logs/logger");
 const Ajv = require("ajv");
 const bcrypt = require("bcryptjs");
+const role = require("../models/role");
 const saltRounds = 10;
 
 // Configurations
@@ -632,6 +633,80 @@ router.get("/:username/security-questions", async (req, res) => {
     errorLogger({ filename: myFile, message: "Internal server error" });
   }
 });
+
+/**
+ * findUserRole
+ */
+/**
+ * FindUserRole
+ * @openapi
+ * /api/users/{username}/role:
+ *   get:
+ *     tags:
+ *       - Users
+ *     description: Returns selected role a user
+ *     summary: findUserRole
+ *     parameters:
+ *       - in: path
+ *         name: username
+ *         description: search username to find selected role
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: Role for user returned
+ *       '404':
+ *         description: Bad Request/Invalid User
+ *       '500':
+ *         description: Internal Server/MongoDB Exception
+ * 
+ */
+// John Coded |  Tested |  Approved
+
+router.get('/:username/role', async (req, res) => {
+
+  try
+  {
+    //looks up username on database
+    User.findOne({'username': req.params.username}, function(err, user)
+    {
+      if(err)
+      {
+        //if error getting data from Mongo
+        console.log(err)
+        const findUserRoleMongodbErrorResponse = new ErrorResponse('500', 'Internal Server Error', err);
+        res.status(500).send(findUserRoleMongodbErrorResponse.toObject());
+        errorLogger({filename: myFile, message: `Error retrieving user ${user.username} from Mongo`})
+      }
+      else 
+      {
+        if (user)
+        {
+           //if user not null, return user role to BaseResponse.
+          console.log(user);
+          const findUserRoleResponse = new BaseResponse('200', 'Query Successful', user.role.text);
+          res.json(findUserRoleResponse.toObject());
+          debugLogger({filename: myFile, message: `User ${user.username} role is ${user.role.text}`})
+        }
+        else
+        {
+          //if user is null, send a 404 error.
+          console.log(user)
+          const findUserRoleResponseError = new ErrorResponse('404', 'Bad Request or invalid user name', user)
+          res.status(404).send(findUserRoleResponseError.toObject());
+          errorLogger({filename: myFile, message: `User ${req.params.username} not found`})
+        }
+      }
+    })
+  }
+  catch(e)
+  {
+    console.log(e);
+    const findUserRoleCatchErrorResponse = new ErrorResponse('500', 'Internal Server Error', e.message);
+    res.status(500).send(findUserRoleCatchErrorResponse.toObject())
+  }
+})
 
 // Export the router
 module.exports = router;
