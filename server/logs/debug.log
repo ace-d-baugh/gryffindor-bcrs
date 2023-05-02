@@ -31006,3 +31006,8 @@
 [5/2/2023, 2:52:33 PM] server	 user-api.js - User jaybird role is standard
 [5/2/2023, 2:53:53 PM] server	 user-api.js - User jaybird role is standard
 [5/2/2023, 3:00:03 PM] server	 user-api.js - User jaybird role is standard
+[5/2/2023, 3:25:18 PM] server	 user-api.js - User mozart role is standard
+[5/2/2023, 3:25:26 PM] server	 user-api.js - User bach role is standard
+[5/2/2023, 3:49:30 PM] server	 user-api.js - user tester900 created successfully
+[5/2/2023, 3:52:47 PM] server	 user-api.js - Query on all users was successful
+[5/2/2023, 3:55:46 PM] server	 user-api.js - user tester900 updated successfully

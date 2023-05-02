@@ -69,3 +69,6 @@
 [5/2/2023, 2:52:41 PM] server	 user-api.js - User null not found
 [5/2/2023, 2:53:58 PM] server	 user-api.js - User jarybird not found
 [5/2/2023, 3:00:12 PM] server	 user-api.js - User jaybirdd not found
+[5/2/2023, 3:45:52 PM] server	 user-api.js - Validation on creating user failed
+[5/2/2023, 3:57:16 PM] server	 user-api.js - Validation of updates failed
+[5/2/2023, 4:11:54 PM] server	 user-api.js - User undefined not found

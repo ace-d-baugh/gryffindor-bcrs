@@ -50,6 +50,9 @@ const createUserSchema = {
     address: {
       type: "string",
     },
+    role: {
+      type: "string"
+    },
   },
   required: [
     "username",
@@ -59,6 +62,7 @@ const createUserSchema = {
     "phoneNumber",
     "email",
     "address",
+    "role",
   ],
   additionalProperties: false,
 };
@@ -80,6 +84,9 @@ const updateUserSchema = {
     },
     address: {
       type: "string",
+    },
+    role: {
+      type: "string"
     },
   },
   required: ["firstName", "lastName", "phoneNumber", "email", "address"],
@@ -368,13 +375,18 @@ router.post("/", async (req, res) => {
  *                    type: string
  *                  address:
  *                    type: string
+ *                  role:
+ *                    type: string
  *      responses:
  *          '200':
  *              description: Document updated
+ *          '400':
+ *              description: Bad request, doesn't match schema
+ *          '404':
+ *              description: Bad request/Invalid User
  *          '500':
- *              description: Server Exception
- *          '501':
- *              description: MongoDB Exception
+ *              description: Internal Server/MongoDb Exception
+ *         
  */
 // Chad Coded | John & Ace Tested & Approved
 router.put("/:id", async (req, res) => {
@@ -398,45 +410,59 @@ router.put("/:id", async (req, res) => {
             message: `User ${req.params.id} not found`,
           });
         } else {
-          console.log(user);
 
-          user.set({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            phoneNumber: req.body.phoneNumber,
-            address: req.body.address,
-            email: req.body.email,
-            "role.text": req.body.role,
-            dateModified: new Date(),
-          });
+          if (user) 
+          {
+            console.log(user);
 
-          user.save(function (err, savedUser) {
-            if (err) {
-              console.log(err);
-              const saveUserMongodbErrorResponse = new ErrorResponse(
-                500,
-                "Internal server error",
-                err
-              );
-              res.status(500).send(saveUserMongodbErrorResponse.toObject());
-              errorLogger({
-                filename: myFile,
-                message: "Validation of updates failed",
-              });
-            } else {
-              console.log(savedUser);
-              const saveUserResponse = new BaseResponse(
-                200,
-                "Query successful",
-                savedUser
-              );
-              res.json(saveUserResponse.toObject());
-              debugLogger({
-                filename: myFile,
-                message: `user ${savedUser.username} updated successfully`,
-              });
-            }
-          });
+            user.set({
+              firstName: req.body.firstName,
+              lastName: req.body.lastName,
+              phoneNumber: req.body.phoneNumber,
+              address: req.body.address,
+              email: req.body.email,
+              "role.text": req.body.role,
+              dateModified: new Date(),
+            });
+
+            user.save(function (err, savedUser) {
+              if (err) 
+              {
+                console.log(err);
+                const saveUserMongodbErrorResponse = new ErrorResponse(
+                  500,
+                  "Internal server error",
+                  err
+                );
+                res.status(500).send(saveUserMongodbErrorResponse.toObject());
+                errorLogger({
+                  filename: myFile,
+                  message: "Validation of updates failed",
+                });
+              } 
+              else 
+              {
+                console.log(savedUser);
+                const saveUserResponse = new BaseResponse(
+                  200,
+                  "Query successful",
+                  savedUser
+                );
+                res.json(saveUserResponse.toObject());
+                debugLogger({
+                  filename: myFile,
+                  message: `user ${savedUser.username} updated successfully`,
+                });
+              }
+            });
+          }
+          else
+          {
+            console.log(user)
+            const updateUserByIdErrorResponse = new ErrorResponse('404', 'Bad Request or invalid user name', user)
+            res.status(404).send(updateUserByIdErrorResponse.toObject());
+            errorLogger({filename: myFile, message: `User ${req.params.username} not found`})
+          }
         }
       });
     } else {
