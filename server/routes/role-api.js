@@ -59,7 +59,7 @@ const myfile = 'role-api.js'
  *         application/json:
  *           schema:
  *             required:
- *               - security Question
+ *               - new role text
  *             properties:
  *              text:
  *                type: string
