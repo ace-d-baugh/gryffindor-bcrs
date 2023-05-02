@@ -393,11 +393,11 @@ router.get("/verify/users/:username", async (req, res) => {
           });
         } else {
           const invalidUsernameResponse = new BaseResponse(
-            "400",
-            "Invalid username",
+            "418",
+            " Invalid username",
             req.params.username
           );
-          res.status(400).send(invalidUsernameResponse.toObject());
+          res.status(418).send(invalidUsernameResponse.toObject());
           errorLogger({
             filename: myFile,
             message: `User ${user} doesn't exist`,
