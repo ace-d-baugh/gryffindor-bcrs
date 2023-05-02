@@ -617,31 +617,48 @@ router.post("/users/:username/reset-password", async (req, res) => {
         }
         else
         {
-          console.log(user);
-          let hashedPassword = bcrypt.hashSync(sessionResetPassword.password, saltRounds);
+          if (user) {
+            console.log(user);
+            let hashedPassword = bcrypt.hashSync(sessionResetPassword.password, saltRounds);
 
-          //set the new password
-          user.set({
-            password: hashedPassword,
-          });
+            //set the new password
+            user.set({
+              password: hashedPassword,
+            });
 
-          //save the new password for the user
-          user.save(function (err, updatedUser) {
-            if (err)
-            {
-              console.log(err);
-              const updatedUserMongodbErrorResponse = new ErrorResponse("500", "Internal server error", err);
-              res.status(500).send(updatedUserMongodbErrorResponse.toObject());
-              errorLogger({filename: myFile, message: `Error attempting to save new password for ${updatedUser} user`,});
-            }
-            else
-            {
-              console.log(updatedUser);
-              const updatedUserPasswordResponse = new BaseResponse("200", "Query successful", updatedUser);
-              res.json(updatedUserPasswordResponse.toObject());
-              debugLogger({filename: myFile, message: `Password for user ${updatedUser} reset successfully`,});
-            }
-          });
+            //save the new password for the user
+            user.save(function (err, updatedUser) {
+              if (err)
+              {
+                console.log(err);
+                const updatedUserMongodbErrorResponse = new ErrorResponse("500", "Internal server error", err);
+                res.status(500).send(updatedUserMongodbErrorResponse.toObject());
+                errorLogger({filename: myFile, message: `Error attempting to save new password for ${updatedUser} user`,});
+              }
+              else
+              {
+                console.log(updatedUser);
+                const updatedUserPasswordResponse = new BaseResponse("200", "Query successful", updatedUser);
+                res.json(updatedUserPasswordResponse.toObject());
+                debugLogger({filename: myFile, message: `Password for user ${updatedUser} reset successfully`,});
+              }
+            });
+
+          } else {
+            const resetPasswordNotFoundResponse = new ErrorResponse(
+              404,
+              "User not found",
+              null
+            );
+            res
+              .status(404)
+              .send(resetPasswordNotFoundResponse.toObject());
+            errorLogger({
+              filename: myFile,
+              message: `User ${req.params.username} not found`,
+            });
+          }
+
         }
       });
     }
