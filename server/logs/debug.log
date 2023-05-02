@@ -30966,3 +30966,6 @@
 [5/1/2023, 7:59:37 PM] server	 user-api.js - user mozart found successfully
 [5/1/2023, 7:59:40 PM] server	 user-api.js - Query on all users was successful
 [5/2/2023, 8:58:57 AM] server	 role-api.js - The role was added successfully
+[5/2/2023, 9:08:15 AM] server	 role-api.js - The role was added successfully
+[5/2/2023, 9:13:33 AM] server	 role-api.js - The role was added successfully
+[5/2/2023, 9:15:33 AM] server	 role-api.js - The role was added successfully

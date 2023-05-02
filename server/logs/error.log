@@ -61,3 +61,8 @@
 [5/1/2023, 7:52:21 PM] server	 session-api.js - User jaybirdd not found
 [5/1/2023, 7:52:44 PM] server	 session-api.js - User null doesn't exist
 [5/2/2023, 8:59:16 AM] server	 role-api.js - Entered role is not unique
+[5/2/2023, 9:11:15 AM] server	 role-api.js - The field was blank, or the data could not be read
+[5/2/2023, 9:11:32 AM] server	 role-api.js - The field was blank, or the data could not be read
+[5/2/2023, 9:14:34 AM] server	 role-api.js - The field was blank, or the data could not be read
+[5/2/2023, 9:14:42 AM] server	 role-api.js - The field was blank, or the data could not be read
+[5/2/2023, 9:15:38 AM] server	 role-api.js - Entered role is not unique
