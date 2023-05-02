@@ -60,3 +60,4 @@
 [5/1/2023, 8:41:02 PM] server	 session-api.js - User jaybirdd not found
 [5/1/2023, 7:52:21 PM] server	 session-api.js - User jaybirdd not found
 [5/1/2023, 7:52:44 PM] server	 session-api.js - User null doesn't exist
+[5/2/2023, 8:59:16 AM] server	 role-api.js - Entered role is not unique

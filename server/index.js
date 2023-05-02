@@ -21,6 +21,7 @@ const swaggerUi = require("swagger-ui-express");
 const SecurityQuestionRoute = require("./routes/security-question-api");
 const UserRoute = require("./routes/user-api");
 const Session = require("./routes/session-api");
+const Roles = require("./routes/role-api");
 
 const app = express(); // Express variable.
 
@@ -74,6 +75,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 app.use("/api/security-questions", SecurityQuestionRoute);
 app.use("/api/users", UserRoute);
 app.use("/api/session", Session);
+app.use("/api/role", Roles);
 
 // Error handler for 404 errors
 app.use(function (req, res, next) {
