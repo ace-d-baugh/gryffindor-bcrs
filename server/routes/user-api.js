@@ -459,9 +459,9 @@ router.put("/:id", async (req, res) => {
           else
           {
             console.log(user)
-            const updateUserByIdErrorResponse = new ErrorResponse('404', 'Bad Request or invalid user name', user)
+            const updateUserByIdErrorResponse = new ErrorResponse('404', 'Bad Request or invalid id', user)
             res.status(404).send(updateUserByIdErrorResponse.toObject());
-            errorLogger({filename: myFile, message: `User ${req.params.username} not found`})
+            errorLogger({filename: myFile, message: `User id: ${req.params.id} not found`})
           }
         }
       });
