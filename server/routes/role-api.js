@@ -97,7 +97,8 @@ router.post('/', async (req, res) => {
             Role.findOne({'text': req.body.text}, function(err, role)
             {
                 if(err) 
-                {
+                {   
+                    //if an error is thrown while checking the database.
                     console.log(err)
                     const findMongodbError = new ErrorResponse(500, 'Internal Server Error', err);
                     res.status(500).send(findMongodbError.toObject());
