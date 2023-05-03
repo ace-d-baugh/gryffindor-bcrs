@@ -343,7 +343,7 @@ router.put("/:id", async (req, res) => {
       );
       console.log(securityQuestionValidationError);
       res.json(securityQuestionValidationError.toObject());
-      errorLogger({filename: myfile, message: "Message doesn't match expected schema"})
+      errorLogger({filename: myfile, message: "Input doesn't match expected schema"})
     }
   } catch (e) {
     console.log(e);
