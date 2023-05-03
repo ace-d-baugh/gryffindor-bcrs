@@ -296,7 +296,7 @@ router.post("/", async (req, res) => {
  *     tags:
  *       - Roles
  *     description: Update a role by id
- *     summary: updateSecurityQuestions
+ *     summary: updateRole
  *     parameters:
  *       - name: id
  *         in: path
@@ -320,6 +320,16 @@ router.post("/", async (req, res) => {
  *         description: MongoDB Exception
  */
 // Ace Coded | John Tested | Chad Approved
+
+const roleSchema = {
+  type: "object",
+  properties: {
+    text: { type: "string" },
+  },
+  required: ["text"],
+  additionalProperties: false,
+};
+
 router.put("/:roleId", async (req, res) => {
   try {
 

@@ -31018,5 +31018,15 @@
 [5/3/2023, 8:02:06 AM] server	 role-api.js - Query was successful
 [5/3/2023, 8:02:32 AM] server	 role-api.js - user undefined deleted successfully
 [5/3/2023, 8:05:59 AM] server	 role-api.js - user undefined deleted successfully
+<<<<<<< HEAD
 [5/3/2023, 1:42:25 PM] server	 invoice-api.js - Query successful
 [5/3/2023, 1:47:12 PM] server	 invoice-api.js - Query successful
+=======
+[5/3/2023, 11:59:10 AM] server	 role-api.js - The role was added successfully
+[5/3/2023, 12:03:10 PM] server	 user-api.js - User tester6 role is standard
+[5/3/2023, 12:04:04 PM] server	 role-api.js - Query was successful
+[5/3/2023, 1:39:58 PM] server	 role-api.js - The role was updated successfully
+[5/3/2023, 1:40:24 PM] server	 role-api.js - The role was updated successfully
+[5/3/2023, 1:42:20 PM] server	 role-api.js - Query was successful
+[5/3/2023, 2:18:07 PM] server	 role-api.js - The role was updated successfully
+>>>>>>> d1a006d5e62d7affd668ab264ebbeececdcec4f6

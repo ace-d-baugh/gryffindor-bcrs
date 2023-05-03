@@ -81,3 +81,11 @@
 [5/2/2023, 5:22:06 PM] server	 user-api.js - User 6451775a8d9403bc2c8f63f7 not found
 [5/2/2023, 5:22:22 PM] server	 user-api.js - User id: 6451775a8d9403bc2c8f63f7 not found
 [5/3/2023, 7:58:34 AM] server	 role-api.js - Entered role is not unique
+[5/3/2023, 11:59:14 AM] server	 role-api.js - Entered role is not unique
+[5/3/2023, 12:01:20 PM] server	 user-api.js - User tester03 not found
+[5/3/2023, 12:06:05 PM] server	 role-api.js - Internal server error
+[5/3/2023, 1:40:09 PM] server	 role-api.js - Error updating role on Mongo
+[5/3/2023, 1:48:02 PM] server	 role-api.js - Input doesn't match expected schema
+[5/3/2023, 1:50:40 PM] server	 role-api.js - Error updating role on Mongo
+[5/3/2023, 2:19:42 PM] server	 role-api.js - Input doesn't match expected schema
+[5/3/2023, 2:20:47 PM] server	 role-api.js - Error updating role on Mongo
