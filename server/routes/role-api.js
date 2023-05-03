@@ -24,7 +24,48 @@ const myfile = 'role-api.js'
 
 /**
  * FindAll
+ * @openapi
+ * /api/role:
+ *   get:
+ *     tags:
+ *       - Roles
+ *     description: API for returning all roles that are not disabled
+ *     summary: findAll
+ *     responses:
+ *       200:
+ *         description: A list of roles that are not disabled
+ *       500:
+ *         description: Internal server error
  */
+// Ace Coded | John Tested | Chad Approved
+router.get("/", async (req, res) => {
+  try {
+    // find all roles, or return an error message
+    Role.find({})
+    .where('isDisabled')
+    .equals(false)
+    .exec(function (err, roles) {
+      if (err) {
+        console.log(err);
+        const findAllRolesMongoDBErrorResponse = new BaseResponse('500','Internal Server Error', err);
+        res.status(500).send(findAllRolesMongoDBErrorResponse.toObject());
+        errorLogger({filename: myfile, message: "Internal Server Error"})
+      } else {
+        console.log(roles);
+        const findAllRolesResponse = new BaseResponse('200','Query Successful', roles);
+        res.json(findAllRolesResponse.toObject());
+        debugLogger({filename: myfile, message: "Query was successful"})
+      }
+    })
+  } catch (e) {
+    // internal Server Error
+    console.log(e);
+    const findAllRolesCatchErrorResponse = new BaseResponse('500','Internal Server Error', e.message);
+    res.status(500).send(findAllRolesCatchErrorResponse.toObject());
+    errorLogger({filename: myfile, message: "Internal Server Error"})
+  }
+});
+
 
 /**
  * FindById
