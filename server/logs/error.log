@@ -72,3 +72,11 @@
 [5/2/2023, 3:45:52 PM] server	 user-api.js - Validation on creating user failed
 [5/2/2023, 3:57:16 PM] server	 user-api.js - Validation of updates failed
 [5/2/2023, 4:11:54 PM] server	 user-api.js - User undefined not found
+[5/2/2023, 5:15:56 PM] server	 user-api.js - User undefined not found
+[5/2/2023, 5:16:40 PM] server	 user-api.js - User undefined not found
+[5/2/2023, 5:19:01 PM] server	 user-api.js - User undefined not found
+[5/2/2023, 5:20:12 PM] server	 user-api.js - User undefined not found
+[5/2/2023, 5:20:54 PM] server	 user-api.js - User undefined not found
+[5/2/2023, 5:21:11 PM] server	 user-api.js - User undefined not found
+[5/2/2023, 5:22:06 PM] server	 user-api.js - User 6451775a8d9403bc2c8f63f7 not found
+[5/2/2023, 5:22:22 PM] server	 user-api.js - User id: 6451775a8d9403bc2c8f63f7 not found
