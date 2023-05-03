@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="a" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 187.5 186.5">
+  <defs>
+    <style>
+      .b {
+        fill: #231f20;
+      }
+    </style>
+  </defs>
+  <path class="b" d="m36,35.12v116h116V35.12H36Zm94.38,96.38H57.62V57.25h72.75v74.25Z"/>
+  <rect class="b" y="59.88" width="32" height="14"/>
+  <rect class="b" x="155.5" y="59.88" width="32" height="14"/>
+  <rect class="b" x="155.5" y="83.38" width="32" height="14"/>
+  <rect class="b" x="155.5" y="106.88" width="32" height="14"/>
+  <rect class="b" y="83.38" width="32" height="14"/>
+  <rect class="b" y="106.88" width="32" height="14"/>
+  <rect class="b" x="73.75" y="154.5" width="14" height="32"/>
+  <rect class="b" x="101" y="154.5" width="14" height="32"/>
+  <rect class="b" x="101" width="14" height="32"/>
+  <rect class="b" x="73.75" width="14" height="32"/>
+  <path class="b" d="m94,63.25c-8.67,12-17.33,24-26,36,5.67.08,11.33.17,17,.25.08,7.17.17,14.33.25,21.5h18.5c-.17-7.5-.33-15-.5-22.5h15.25c-8.17-11.75-16.33-23.5-24.5-35.25Z"/>
+</svg>
