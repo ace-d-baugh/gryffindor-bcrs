@@ -31018,3 +31018,5 @@
 [5/3/2023, 8:02:06 AM] server	 role-api.js - Query was successful
 [5/3/2023, 8:02:32 AM] server	 role-api.js - user undefined deleted successfully
 [5/3/2023, 8:05:59 AM] server	 role-api.js - user undefined deleted successfully
+[5/3/2023, 1:42:25 PM] server	 invoice-api.js - Query successful
+[5/3/2023, 1:47:12 PM] server	 invoice-api.js - Query successful

@@ -41,7 +41,7 @@ const myfile = "invoice-api.js";
  *         description: Internal server error
  */
 // Ace Coded | John Tested | Chad Approved
-router.get("/purchase-graph", async (req, res) => {
+router.get("/purchases-graph", async (req, res) => {
   try {
     Invoice.aggregate(
       [
@@ -66,7 +66,6 @@ router.get("/purchase-graph", async (req, res) => {
       function (err, purchaseGraph) {
         if (err) {
           console.log(err);
-          errorLogger.error(err);
           const findPurchaseGraphMongodbErrorResponse = new ErrorResponse(
             "500",
             "Internal server error",
@@ -78,7 +77,6 @@ router.get("/purchase-graph", async (req, res) => {
           errorLogger({ filename: myfile, message: "Internal server error" });
         } else {
           console.log(purchaseGraph);
-          debugLogger.debug(purchaseGraph);
           const findPurchaseGraphResponse = new BaseResponse(
             "200",
             "Query successful",
@@ -91,7 +89,6 @@ router.get("/purchase-graph", async (req, res) => {
     );
   } catch (e) {
     console.log(e);
-    errorLogger.error(e);
     const findPurchaseGraphCatchErrorResponse = new ErrorResponse(
       "500",
       "Internal server error",
