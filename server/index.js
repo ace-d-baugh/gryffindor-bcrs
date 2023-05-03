@@ -22,6 +22,7 @@ const SecurityQuestionRoute = require("./routes/security-question-api");
 const UserRoute = require("./routes/user-api");
 const Session = require("./routes/session-api");
 const Roles = require("./routes/role-api");
+const Invoice = require("./routes/invoice-api");
 
 const app = express(); // Express variable.
 
@@ -76,6 +77,7 @@ app.use("/api/security-questions", SecurityQuestionRoute);
 app.use("/api/users", UserRoute);
 app.use("/api/session", Session);
 app.use("/api/role", Roles);
+app.use("/api/invoices", Invoice);
 
 // Error handler for 404 errors
 app.use(function (req, res, next) {

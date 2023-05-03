@@ -14,23 +14,16 @@ const express = require("express");
 const Invoice = require("../models/invoice");
 const ErrorResponse = require("../services/error-response");
 const BaseResponse = require("../services/base-response");
-const Ajv = require("ajv");
 const { debugLogger, errorLogger } = require("../logs/logger");
-const router = require("./role-api");
-
 
 // Configurations
 const router = express.Router();
-const ajv = new Ajv()
-const myfile = 'invoice-api.js'
-
+const myfile = "invoice-api.js";
 
 /**
  * Create Invoice
  */
 // Chad Coded | John Tested | Ace Approved
-
-
 
 /**
  * FindPurchaseByService
@@ -48,51 +41,54 @@ const myfile = 'invoice-api.js'
  *         description: Internal server error
  */
 // Ace Coded | John Tested | Chad Approved
-router.get('/purchase-graph', async(req, res) => {
+router.get("/purchase-graph", async (req, res) => {
   try {
-    Invoice.aggregate([
-      {
-        $unwind: "$lineItems"
-      },
-      {
-        $group:
+    Invoice.aggregate(
+      [
         {
-          _id: {
-            'title': "$lineItems.title",
-            'price': "$lineItems.price"
+          $unwind: "$lineItems",
+        },
+        {
+          $group: {
+            _id: {
+              title: "$lineItems.title",
+              price: "$lineItems.price",
+            },
+            count: { $sum: 1 },
           },
-          count: { $sum: 1 }
-        }
-      },
-      {
-        $sort:
+        },
         {
-          "_id.title": 1
+          $sort: {
+            "_id.title": 1,
+          },
+        },
+      ],
+      function (err, purchaseGraph) {
+        if (err) {
+          console.log(err);
+          errorLogger.error(err);
+          const findPurchaseGraphMongodbErrorResponse = new ErrorResponse(
+            "500",
+            "Internal server error",
+            err
+          );
+          res
+            .status(500)
+            .send(findPurchaseGraphMongodbErrorResponse.toObject());
+          errorLogger({ filename: myfile, message: "Internal server error" });
+        } else {
+          console.log(purchaseGraph);
+          debugLogger.debug(purchaseGraph);
+          const findPurchaseGraphResponse = new BaseResponse(
+            "200",
+            "Query successful",
+            purchaseGraph
+          );
+          res.json(findPurchaseGraphResponse.toObject());
+          debugLogger({ filename: myfile, message: "Query successful" });
         }
       }
-    ], function(err, purchaseGraph) {
-      if (err) {
-        console.log(err);
-        errorLogger.error(err);
-        const findPurchaseGraphMongodbErrorResponse = new ErrorResponse(
-          "500",
-          "Internal server error",
-          err
-        );
-        res.status(500).send(findPurchaseGraphMongodbErrorResponse.toObject());
-        errorLogger({filename: myfile, message: "Internal server error"});
-      } else {
-        console.log(purchaseGraph);
-        debugLogger.debug(purchaseGraph);
-        const findPurchaseGraphResponse = new BaseResponse(
-          "200",
-          "Query successful",
-          purchaseGraph
-        );
-        res.json(findPurchaseGraphResponse.toObject());
-        debugLogger({filename: myfile, message: "Query successful"});
-      }
-    })
+    );
   } catch (e) {
     console.log(e);
     errorLogger.error(e);
@@ -102,8 +98,9 @@ router.get('/purchase-graph', async(req, res) => {
       e.message
     );
     res.status(500).send(findPurchaseGraphCatchErrorResponse.toObject());
-    errorLogger({filename: myfile, message: "Internal server error"});
+    errorLogger({ filename: myfile, message: "Internal server error" });
   }
 });
 
-
+// Export the router
+module.exports = router;
