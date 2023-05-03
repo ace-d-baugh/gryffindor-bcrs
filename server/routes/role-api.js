@@ -26,19 +26,66 @@ const myfile = 'role-api.js'
  * FindAll
  */
 
-
-
-
-
-
 /**
  * FindById
+ * @openapi
+ * /api/role/{id}:
+ *   get:
+ *     tags:
+ *       - Roles
+ *     description: Finds role by ID
+ *     summary: findRoleById
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         description: Id of the role to find.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: Very nice, great success!
+ *       '500':
+ *         description: Server Exception
+ *       '501':
+ *         description: MongoDB Exception
  */
-
-
-
-
-
+// Chad Coded | John Tested | Ace Approved
+router.get("/:id", async (req, res) => {
+  try {
+    // find a role by _id, or return an error message
+    Role.findOne({ _id: req.params.id },function (err, role) {
+        if (err) {
+          console.log(err);
+          //const findByIdMongoDBErrorResponse = new BaseResponse(501,`${config.mongoServerError}:${err.message}`, null);
+          const findByIdMongoDBErrorResponse = new BaseResponse(501,"Invalid id and/or request", null);
+          console.log(findByIdMongoDBErrorResponse.toObject());
+          res.status(501).send(findByIdMongoDBErrorResponse.toObject());
+          errorLogger({filename: myfile, message: `${req.params.id}: Invalid id and/or request`})
+        } else {
+          const findByIdResponse = new BaseResponse(
+            200,
+            `Role ID was found.`,
+            Role
+          );
+          console.log(findByIdResponse.toObject());
+          res.json(findByIdResponse.toObject());
+          debugLogger({filename: myfile, message: "Query was successful"})
+        }
+      }
+    );
+  } catch (e) {
+    // internal Server Error
+    const findByIdErrorResponse = new ErrorResponse(
+      500,
+      `${config.serverError}:${err.message}`,
+      null
+    );
+    console.log(findByIdErrorResponse.toObject());
+    res.status(500).send(findByIdErrorResponse.toObject());
+    errorLogger({filename: myfile, message: "Internal Server Error"})
+  }
+});
 
 
 /**
@@ -74,7 +121,6 @@ const myfile = 'role-api.js'
  *         description: Internal server error/MongoDB Exception
  */
 //john Coded |   Tested|     Approved
-
 const createRoleSchema = {
     type: 'object',
     properties: {
@@ -91,27 +137,27 @@ router.post('/', async (req, res) => {
         const enteredRole = req.body
         const validator = ajv.compile(createRoleSchema)
         const valid = validator(enteredRole)
-        
+
         if(valid)
         {
             //checks to see if what the user entered is already on the database.
             Role.findOne({'text': req.body.text}, function(err, role)
             {
-                if(err) 
-                {   
+                if(err)
+                {
                     //if an error is thrown while checking the database.
                     console.log(err)
                     const findMongodbError = new ErrorResponse(500, 'Internal Server Error', err);
                     res.status(500).send(findMongodbError.toObject());
                     errorLogger({filename: myfile, message: "Could not request role data from Mongo"})
-                } 
-                else 
+                }
+                else
                 {
                     console.log(role)
                 }
 
                 //if entered role is unique
-                if(!role) 
+                if(!role)
                 {
                     //defines newRole to be added
                     const newRole = {text: req.body.text}
@@ -126,8 +172,8 @@ router.post('/', async (req, res) => {
                             const createMongodbErrorResponse = new ErrorResponse(500, 'Internal Server Error', err);
                             res.status(500).send(createMongodbErrorResponse.toObject());
                             errorLogger({filename: myfile, message: "Error creating role on Mongo"})
-                        } 
-                        else                         
+                        }
+                        else
                         {
                             //return message that role was created successfully
                             console.log(role)
@@ -136,7 +182,7 @@ router.post('/', async (req, res) => {
                             debugLogger({filename: myfile, message: "The role was added successfully"})
                         }
                     })
-                }                
+                }
                 else
                 {
                     //if the entered role already exists, return an error.
@@ -146,8 +192,8 @@ router.post('/', async (req, res) => {
                     errorLogger({filename: myfile, message: "Entered role is not unique"})
                 }
             })
-        }        
-        else 
+        }
+        else
         {
             //if the user didn't enter anything in the field
             const inputRoleError = new ErrorResponse(404, "Bad Request.  Input doesn't match Schema");
@@ -176,8 +222,92 @@ router.post('/', async (req, res) => {
 
 
 /**
- * DeleteRole
+ * deleteRole
+ * @openapi
+ * /api/role/{id}:
+ *  delete:
+ *      tags:
+ *          - Roles
+ *      description: Deletes a role by ID
+ *      summary: deleteRole
+ *      parameters:
+ *          - in: path
+ *            name: id
+ *            description: ID of role to delete
+ *            required: yes
+ *            schema:
+ *              type: string
+ *      responses:
+ *          '200':
+ *              description: Very nice, great success!
+ *          '500':
+ *              description: Server Exception
+ *          '501':
+ *              description: MongoDB Exception
  */
+// Chad Coded | Ace Tested | John Approved
+router.delete("/:id", async (req, res) => {
+  try {
+    Role.findOne({ _id: req.params.id }, function (err, role) {
+      if (err) {
+        console.log(err);
+        const deleteRoleMongodbErrorResponse = new ErrorResponse(
+          500,
+          "Internal sever error",
+          err
+        );
+        res.status(500).send(deleteRoleMongodbErrorResponse.toObject());
+        errorLogger({
+          filename: myFile,
+          message: `role ${req.params.id} not found`,
+        });
+      } else {
+        console.log(Role);
+
+        role.set({
+          isDisabled: true,
+          dateModified: new Date(),
+        });
+
+        role.save(function (err, savedRole) {
+          if (err) {
+            console.log(err);
+            const savedRoleMongodbErrorResponse = new ErrorResponse(
+              500,
+              "Internal server error",
+              err
+            );
+            res.json(savedRoleMongodbErrorResponse.toObject());
+            errorLogger({ filename: myFile, message: "Unable to delete role" });
+          } else {
+            console.log(savedRole);
+            const savedRoleResponse = new BaseResponse(
+              200,
+              "Query successful",
+              savedRole
+            );
+            res.json(savedRoleResponse.toObject());
+            debugLogger({
+              filename: myfile,
+              message: `user ${savedRole.username} deleted successfully`,
+            });
+          }
+        });
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    const deleteRoleCatchErrorResponse = new ErrorResponse(
+      500,
+      "Internal server error",
+      e.message
+    );
+    res.status(500).send(deleteRoleCatchErrorResponse.toObject());
+    errorLogger({ filename: myFile, message: "Internal server error" });
+  }
+});
+
+
 
 
 module.exports = router;
