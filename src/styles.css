@@ -755,7 +755,7 @@ main {
 
 .questions-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 1rem;
   align-items: center;
   margin-bottom: 1rem;
@@ -775,6 +775,40 @@ main {
 
 .split {
   justify-content: space-between;
+}
+
+.services {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.services-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.service .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.service-img {
+  width: 150px;
+  height: 150px;
 }
 
 footer {
