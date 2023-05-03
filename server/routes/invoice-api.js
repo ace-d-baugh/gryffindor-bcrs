@@ -20,10 +20,92 @@ const { debugLogger, errorLogger } = require("../logs/logger");
 const router = express.Router();
 const myfile = "invoice-api.js";
 
+
 /**
- * Create Invoice
+ * createInvoice
+ * @openapi
+ * /api/invoices/{username}:
+ *   post:
+ *     tags:
+ *       - Invoices
+ *     summary: createInvoice
+ *     description:  Creates new invoice for a user.
+ *     parameters:
+ *       - name: username
+ *         in: path
+ *         required: true
+ *         description: username tied to an invoice
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - lineItems
+ *               - partsAmount
+ *               - laborAmount
+ *               - lineItemTotal
+ *               - total
+ *             properties:
+ *               lineItems:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   required:
+ *                     - title
+ *                     - price
+ *                   properties:
+ *                     title:
+ *                       type: string
+ *                     price:
+ *                       type: number
+ *               partsAmount:
+ *                 type: number
+ *               laborAmount:
+ *                 type: number
+ *               lineItemTotal:
+ *                 type: number
+ *               total:
+ *                 type: number
+ *     responses:
+ *       '200':
+ *         description: Very nice, great success!
+ *       '500':
+ *         description: Server exception
+ *       '501':
+ *         description: MongoDB exception
  */
 // Chad Coded | John Tested | Ace Approved
+router.post('/:username', async (req, res) => {
+  try {
+    const newInvoice = {
+      username: req.params.username,
+      lineItems: req.body.lineItems,
+      partsAmount: req.body.partsAmount,
+      laborAmount: req.body.laborAmount,
+      lineItemTotal: req.body.lineItemTotal,
+      total: req.body.total,
+    };
+    // Creates a new invoice
+    Invoice.create(newInvoice, (err, invoice) => {
+      if (err) {
+        const response = logResponse(501, err);
+        res.status(501).send(response);
+      } else {
+        // Invoice successfully created
+        const response = logResponse(200, invoice);
+        res.json(response);
+      }
+    });
+  } catch (err) {
+    const response = logResponse(500, err);
+    res.status(500).send(response);
+  }
+});
+
+
 
 /**
  * FindPurchaseByService
