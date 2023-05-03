@@ -31014,3 +31014,7 @@
 [5/2/2023, 5:16:20 PM] server	 user-api.js - user tester900 updated successfully
 [5/2/2023, 5:16:29 PM] server	 user-api.js - user tester900 updated successfully
 [5/2/2023, 5:22:51 PM] server	 user-api.js - user tester900 updated successfully
+[5/3/2023, 7:58:29 AM] server	 role-api.js - The role was added successfully
+[5/3/2023, 8:02:06 AM] server	 role-api.js - Query was successful
+[5/3/2023, 8:02:32 AM] server	 role-api.js - user undefined deleted successfully
+[5/3/2023, 8:05:59 AM] server	 role-api.js - user undefined deleted successfully

@@ -121,6 +121,8 @@ router.get("/:id", async (req, res) => {
  *         description: Internal server error/MongoDB Exception
  */
 //john Coded |   Tested|     Approved
+
+//create role schema
 const createRoleSchema = {
     type: 'object',
     properties: {
@@ -258,7 +260,7 @@ router.delete("/:id", async (req, res) => {
         );
         res.status(500).send(deleteRoleMongodbErrorResponse.toObject());
         errorLogger({
-          filename: myFile,
+          filename: myfile,
           message: `role ${req.params.id} not found`,
         });
       } else {
