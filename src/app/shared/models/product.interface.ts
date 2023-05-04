@@ -12,6 +12,8 @@
 export interface Product {
     id: number;
     title: string;
+    subtitle: string;
+    icon: string;
     price: number;
     checked: boolean;
 }
