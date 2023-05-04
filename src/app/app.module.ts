@@ -66,6 +66,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './pages/register/register.component';
 import { ChartModule } from 'primeng/chart';
 import { RoleListComponent } from './pages/role-list/role-list.component';
+import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 
 //module
 @NgModule({
@@ -90,7 +91,8 @@ import { RoleListComponent } from './pages/role-list/role-list.component';
     ResetPasswordFormComponent,
     VerifySecurityQuestionsFormComponent,
     RegisterComponent,
-    RoleListComponent
+    RoleListComponent,
+    RoleDetailsComponent
   ],
   imports: [
     BrowserModule,
