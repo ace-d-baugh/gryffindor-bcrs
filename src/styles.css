@@ -724,6 +724,19 @@ main {
   cursor: pointer;
 }
 
+.role-create {
+  position: absolute;
+  top: 1.7rem;
+  right: 0.5rem;
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  border: none;
+  padding: 0.5rem 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 .contact-content {
   max-width: 1200px;
   display: flex;

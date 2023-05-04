@@ -32,6 +32,7 @@ import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form
 import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
 import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { RoleListComponent } from './pages/role-list/role-list.component';
 
 // routes
 const routes: Routes = [
@@ -76,6 +77,10 @@ const routes: Routes = [
         path: 'users/user-details/:userId',
         component: UserDetailsComponent,
       },
+      {
+        path: 'role-list',
+        component: RoleListComponent,
+      }
     ],
   },
   {

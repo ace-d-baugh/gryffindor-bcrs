@@ -1,3 +1,15 @@
+/*
+=====================================================
+; File Name: product.service.ts
+; Project: Gryffindor - Bob's Computer Repair Shop
+; Author: Richard Krasso
+; Date: 05/03/2023
+; File Description: product.service.ts
+; Modifications: John Vanhessche
+=====================================================
+*/
+
+
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.interface';
 

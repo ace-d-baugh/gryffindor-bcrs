@@ -65,6 +65,7 @@ import { ErrorInterceptor } from './shared/error.interceptor';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './pages/register/register.component';
 import { ChartModule } from 'primeng/chart';
+import { RoleListComponent } from './pages/role-list/role-list.component';
 
 //module
 @NgModule({
@@ -88,7 +89,8 @@ import { ChartModule } from 'primeng/chart';
     VerifyUsernameFormComponent,
     ResetPasswordFormComponent,
     VerifySecurityQuestionsFormComponent,
-    RegisterComponent
+    RegisterComponent,
+    RoleListComponent
   ],
   imports: [
     BrowserModule,

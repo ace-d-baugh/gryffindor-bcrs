@@ -1,10 +1,10 @@
 /*
 ============================================
-; Title: user-create.component.css for BCRS
+; Title: session.service.ts
 ; Author: Professor Krasso
 ; Modified by: John Vanhessche
-; Date: 03/25/2023
-; Description: user-create.component.css for BCRS
+; Date: 05/02/2023
+; Description: session.service.ts
 ===========================================
 */
 
