@@ -64,6 +64,7 @@ import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-secu
 import { ErrorInterceptor } from './shared/error.interceptor';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './pages/register/register.component';
+import { ChartModule } from 'primeng/chart';
 
 //module
 @NgModule({
@@ -114,7 +115,8 @@ import { RegisterComponent } from './pages/register/register.component';
     ToastModule,
     MatDividerModule,
     MenuModule,
-    CommonModule
+    CommonModule,
+    ChartModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
