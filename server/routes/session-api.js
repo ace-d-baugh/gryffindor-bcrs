@@ -70,6 +70,9 @@ const sessionSigninSchema = {
  *         description: MongoDB Exception.
  */
 // Chad Coded | Ace Tested | John Approved
+
+/* TODO: Give error message for invalid username and/or password to user instead of 400/404 page */
+
 router.post("/signin", (req, res) => {
   try {
     const sessionSignin = req.body;
