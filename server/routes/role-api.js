@@ -125,7 +125,7 @@ router.get("/:id", async (req, res) => {
         const findByIdResponse = new BaseResponse(
           200,
           `Role ID was found.`,
-          Role
+          role
         );
         console.log(findByIdResponse.toObject());
         res.json(findByIdResponse.toObject());

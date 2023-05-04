@@ -89,3 +89,5 @@
 [5/3/2023, 1:50:40 PM] server	 role-api.js - Error updating role on Mongo
 [5/3/2023, 2:19:42 PM] server	 role-api.js - Input doesn't match expected schema
 [5/3/2023, 2:20:47 PM] server	 role-api.js - Error updating role on Mongo
+[5/4/2023, 1:43:55 PM] server	 role-api.js - Entered role is not unique
+[5/4/2023, 2:03:46 PM] server	 role-api.js - ${roleId}: Invalid id and/or request

@@ -27,7 +27,7 @@ export class RoleService {
 
   findRoleById(roleId: string): Observable<any>
   {
-    return this.http.get(`/api/role/${roleId}`);
+    return this.http.get('/api/role/' + roleId);
   }
 
   createRole(role: Role): Observable<any>

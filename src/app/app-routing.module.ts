@@ -33,6 +33,7 @@ import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/r
 import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RoleListComponent } from './pages/role-list/role-list.component';
+import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 
 // routes
 const routes: Routes = [
@@ -80,6 +81,10 @@ const routes: Routes = [
       {
         path: 'role-list',
         component: RoleListComponent,
+      },
+      {
+        path: 'role-details/:roleId',
+        component: RoleDetailsComponent
       }
     ],
   },

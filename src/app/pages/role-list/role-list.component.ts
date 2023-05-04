@@ -1,3 +1,14 @@
+/*
+=====================================================
+; File Name: role-list.component.ts
+; Project: Gryffindor - Bob's Computer Repair Shop
+; Author: Richard Krasso
+; Date: 05/04/2023
+; File Description: role-list.component
+; Modifications: John Vanhessche
+=====================================================
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { Role } from 'src/app/shared/models/role.interface';
 import { RoleService } from 'src/app/shared/services/role.service';
