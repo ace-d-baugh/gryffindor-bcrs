@@ -26,7 +26,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         this.router.navigate(['/session/not-found']);
       }
 
-      if ([400, 401].indexOf(err.status) !== -1) {
+      if ([400].indexOf(err.status) !== -1) {
         this.router.navigate(['/session/bad-request']);
       }
 
