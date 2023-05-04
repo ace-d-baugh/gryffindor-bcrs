@@ -45,7 +45,9 @@ export class RegisterComponent implements OnInit {
       null,
       Validators.compose([
         Validators.required,
-        Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$'),
+        Validators.pattern(
+          '^(?=.*[A-Za-z])(?=.*\\d)(?=.*[A-Z])[A-Za-z\\d]{8,}$'
+        ),
       ]),
     ],
     firstName: [null, Validators.compose([Validators.required])],
@@ -157,7 +159,6 @@ export class RegisterComponent implements OnInit {
 
   // update security question options
   updateSecurityQuestionOptions(): void {
-
     if (this.form.value.securityQuestion1) {
       this.questionList2 = this.securityQuestions.filter(
         (question) =>

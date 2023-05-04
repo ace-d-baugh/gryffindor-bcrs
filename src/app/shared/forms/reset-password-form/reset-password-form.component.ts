@@ -28,7 +28,9 @@ export class ResetPasswordFormComponent implements OnInit {
       null,
       Validators.compose([
         Validators.required,
-        Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$'),
+        Validators.pattern(
+          '^(?=.*[A-Za-z])(?=.*\\d)(?=.*[A-Z])[A-Za-z\\d]{8,}$'
+        ),
       ]),
     ],
   });
