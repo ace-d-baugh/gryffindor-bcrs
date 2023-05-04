@@ -358,11 +358,13 @@ a {
 
 
 .card-title {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-accent);
 }
 
 .card-subtitle {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 .card-body {
@@ -373,8 +375,9 @@ a {
   background-color: var(--color-primary-dark-4);
   color: var(--color-primary);
   padding: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   text-align: center;
+  font-weight: 700;
 }
 
 
@@ -796,7 +799,7 @@ main {
 .services {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
   align-items: center;
   margin-bottom: 1rem;
@@ -806,11 +809,36 @@ main {
 .services-row {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 1rem;
   align-items: center;
   margin-bottom: 1rem;
   flex-wrap: wrap;
+}
+
+.service .card,
+.service .card-header,
+.service .card-body,
+.service .card-footer {
+  cursor: pointer;
+}
+
+.services-checkbox {
+  display: none;
+}
+
+.services-checkbox:checked + label .card {
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 0 0 5px var(--color-accent);
+}
+
+.services-checkbox:checked + label .card-header {
+  background: var(--color-primary-dark);
+}
+
+
+.service .card-header {
+  width: 200px;
 }
 
 .service .card-body {
@@ -823,8 +851,8 @@ main {
 }
 
 .service-img {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   filter: var(--svg-color);
 }
 
