@@ -124,8 +124,7 @@ router.post("/signin", (req, res) => {
               console.log("Invalid password: Please try again");
               const invalidPasswordResponse = new BaseResponse(
                 401,
-                "Invalid password",
-                "Please try again",
+                "Invalid username or password. Please try again.",
                 user
               );
               res.status(401).send(invalidPasswordResponse.toObject());
@@ -143,8 +142,7 @@ router.post("/signin", (req, res) => {
             );
             const invalidUsernameResponse = new BaseResponse(
               401,
-              "Invalid username",
-              "Please try again",
+              "Invalid username or password. Please try again.",
               null
             );
             res.status(401).send(invalidUsernameResponse.toObject());
