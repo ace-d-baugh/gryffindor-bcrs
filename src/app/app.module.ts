@@ -67,7 +67,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ChartModule } from 'primeng/chart';
 import { RoleListComponent } from './pages/role-list/role-list.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
-
+import { InvoiceSummaryComponent } from './shared/invoice-summary/invoice-summary.component';
+import { MatListModule } from '@angular/material/list';
 //module
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { RoleDetailsComponent } from './pages/role-details/role-details.componen
     VerifySecurityQuestionsFormComponent,
     RegisterComponent,
     RoleListComponent,
-    RoleDetailsComponent
+    RoleDetailsComponent,
+    InvoiceSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -120,7 +122,8 @@ import { RoleDetailsComponent } from './pages/role-details/role-details.componen
     MatDividerModule,
     MenuModule,
     CommonModule,
-    ChartModule
+    ChartModule,
+    MatListModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
