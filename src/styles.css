@@ -786,6 +786,10 @@ main {
   float: right;
 }
 
+.security-questions {
+  transition: 0.5s ease-in-out;
+}
+
 .questions-row,
 .personal-info-row,
 .user-cred-row {
@@ -798,12 +802,7 @@ main {
   flex: 1fr 1fr;
 }
 
-.question-2 {
-  opacity: 0;
-  transition: opacity .5s ease-in-out;
-}
-
-.question-2.fade-in {
+.security-questions.fade-in {
   opacity: 1;
 }
 

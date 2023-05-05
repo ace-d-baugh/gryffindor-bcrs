@@ -19,12 +19,27 @@ import { CookieService } from 'ngx-cookie-service';
 import { SecurityQuestionService } from 'src/app/shared/services/security-question.service';
 import { SelectedSecurityQuestion } from 'src/app/shared/models/selected-security-question.interface';
 import { SessionService } from 'src/app/shared/session.service';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
+
+
+const fadeAnimation = trigger('fade', [
+  state('void', style({ opacity: 0 })),
+  state('*', style({ opacity: 1 })),
+  transition('void => *, * => void', [animate('1s ease-in-out')]),
+]);
 
 //component
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
+  animations: [fadeAnimation],
 })
 
 //export class
@@ -159,7 +174,6 @@ export class RegisterComponent implements OnInit {
 
   // update security question options
   updateSecurityQuestionOptions(): void {
-
     // If Question 1 is changed
     if (this.form.value.securityQuestion1) {
       // If Questions 2 & 3 have not been selected yet
@@ -168,23 +182,18 @@ export class RegisterComponent implements OnInit {
         this.form.value.securityQuestion3 === null
       ) {
         // Question 2 list is equal to security questions minus what was selected from Question 1
-        this.questionList2 = this.securityQuestions
-        .filter(
-          (question) =>
-          question.text !== this.form.value.securityQuestion1
+        this.questionList2 = this.securityQuestions.filter(
+          (question) => question.text !== this.form.value.securityQuestion1
         );
         // Question 3 List is unchanged
       }
       // If question 3 has not been selected yet but 1 & 2 have
-      if (
-        this.form.value.securityQuestion3 === null
-      ) {
-        this.questionList3 = this.securityQuestions
-        .filter(
+      if (this.form.value.securityQuestion3 === null) {
+        this.questionList3 = this.securityQuestions.filter(
           (question) =>
-          question.text !== this.form.value.securityQuestion1 &&
-          question.text !== this.form.value.securityQuestion2
-        )
+            question.text !== this.form.value.securityQuestion1 &&
+            question.text !== this.form.value.securityQuestion2
+        );
       }
       // If answers have been chosen
       this.questionList2 = this.securityQuestions.filter(
@@ -237,4 +246,6 @@ export class RegisterComponent implements OnInit {
       );
     }
   }
+
+
 }

@@ -127,11 +127,6 @@
       </div>
     </div>
 
-
-
-
-
-
     <div class="form-group">
       <label class="input-label">Address*</label>
 
@@ -152,7 +147,7 @@
 
     <div
       class="security-questions form-group"
-      *ngIf="form.controls['address'].valid"
+      [@fade] *ngIf="form.controls['address'].valid"
     >
       <hr />
 
@@ -205,7 +200,7 @@
         <!-- Security Question 2 -->
         <div
           class="questions-row"
-          *ngIf="form.controls['securityQuestion1'].valid"
+          [@fade] *ngIf="form.controls['securityQuestion1'].valid"
         >
           <div class="question">
             <label class="input-label">Question 2*</label>
@@ -252,7 +247,7 @@
         <!-- Security Question 3 -->
         <div
           class="questions-row"
-          *ngIf="form.controls['securityQuestion2'].valid"
+          [@fade] *ngIf="form.controls['securityQuestion2'].valid"
         >
           <div class="question">
             <label class="input-label">Question 3*</label>
@@ -301,7 +296,7 @@
     <!-- Credentials Section of Registration -->
     <div
       class="credentials form-group"
-      *ngIf="form.controls['answerToSecurityQuestion3'].valid"
+      [@fade] *ngIf="form.controls['answerToSecurityQuestion3'].valid"
     >
       <hr />
       <h2 class="center m1">User Credentials</h2>
