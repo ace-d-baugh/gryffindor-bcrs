@@ -25,7 +25,11 @@
   >
     <!--form group-->
     <h2 class="center m1">Personal Information</h2>
-    <div class="form-group">
+
+    <div class="personal-info">
+      <div class="personal-info-row">
+        <div class="personal-info-first-name">
+              <div class="form-group">
       <label class="input-label">First Name*</label>
       <input
         type="text"
@@ -45,8 +49,9 @@
       </mat-error>
     </div>
 
-    <!--form group-->
-    <div class="form-group">
+        </div>
+        <div class="personal-info-last-name">
+              <div class="form-group">
       <label class="input-label">Last Name*</label>
       <input
         type="text"
@@ -66,7 +71,10 @@
       </mat-error>
     </div>
 
-    <div class="form-group">
+        </div>
+      </div>
+      <div class="personal-info-row">
+        <div class="personal-info-phone"><div class="form-group">
       <label class="input-label">Phone Number*</label>
       <input
         type="text"
@@ -84,9 +92,9 @@
       >
         Phone number is a required field.
       </mat-error>
-    </div>
-
-    <div class="form-group">
+    </div></div>
+        <div class="personal-info-email">
+          <div class="form-group">
       <label class="input-label">Email*</label>
       <input
         type="text"
@@ -115,6 +123,14 @@
         Invalid email format.
       </mat-error>
     </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
 
     <div class="form-group">
       <label class="input-label">Address*</label>
@@ -132,11 +148,14 @@
       </mat-error>
     </div>
 
-    <hr />
-
     <!-- Security Questions Section of Registration -->
 
-    <div class="security-questions form-group">
+    <div
+      class="security-questions form-group"
+      *ngIf="form.controls['address'].valid"
+    >
+      <hr />
+
       <h2 class="center m1">Security Questions</h2>
       <div class="form-group">
         <!-- Security Question 1 -->
@@ -184,7 +203,10 @@
         </div>
 
         <!-- Security Question 2 -->
-        <div class="questions-row">
+        <div
+          class="questions-row"
+          *ngIf="form.controls['securityQuestion1'].valid"
+        >
           <div class="question">
             <label class="input-label">Question 2*</label>
             <select
@@ -228,7 +250,10 @@
         </div>
 
         <!-- Security Question 3 -->
-        <div class="questions-row">
+        <div
+          class="questions-row"
+          *ngIf="form.controls['securityQuestion2'].valid"
+        >
           <div class="question">
             <label class="input-label">Question 3*</label>
             <select
@@ -273,69 +298,78 @@
       </div>
     </div>
 
-    <hr />
-
     <!-- Credentials Section of Registration -->
-    <div class="credentials form-group">
+    <div
+      class="credentials form-group"
+      *ngIf="form.controls['answerToSecurityQuestion3'].valid"
+    >
+      <hr />
       <h2 class="center m1">User Credentials</h2>
-      <div class="form-group">
-        <label class="input-label">Username*</label>
-        <input
-          type="text"
-          class="form-control"
-          formControlName="username"
-          required
-        />
+      <div class="user-cred">
+        <div class="user-cred-row">
+          <div class="user-cred-username">
+            <div class="form-group">
+              <label class="input-label">Username*</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="username"
+                required
+              />
 
-        <mat-error
-          class="error"
-          *ngIf="
-            form.controls['username'].hasError('required') &&
-            form.controls['username'].touched
-          "
-        >
-          Username is a required field.
-        </mat-error>
+              <mat-error
+                class="error"
+                *ngIf="
+                  form.controls['username'].hasError('required') &&
+                  form.controls['username'].touched
+                "
+              >
+                Username is a required field.
+              </mat-error>
+            </div>
+          </div>
+          <div class="user-cred-password">
+            <div class="form-group">
+              <label class="input-label">Password*</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                required
+              />
+
+              <mat-error
+                class="error"
+                *ngIf="
+                  form.controls['password'].hasError('required') &&
+                  form.controls['password'].touched
+                "
+              >
+                Password is a required field.
+              </mat-error>
+            </div>
+
+            <!--errors-->
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['password'].hasError('pattern') &&
+                form.controls['password'].touched
+              "
+            >
+              Password must be at least 8 characters, contain one letter, and
+              one number.
+            </mat-error>
+          </div>
+        </div>
       </div>
-
-      <!--div-->
-      <div class="form-group">
-        <label class="input-label">Password*</label>
-        <input
-          type="password"
-          class="form-control"
-          formControlName="password"
-          required
-        />
-
-        <mat-error
-          class="error"
-          *ngIf="
-            form.controls['password'].hasError('required') &&
-            form.controls['password'].touched
-          "
-        >
-          Password is a required field.
-        </mat-error>
-      </div>
-
-      <!--errors-->
-      <mat-error
-        class="error"
-        *ngIf="
-          form.controls['password'].hasError('pattern') &&
-          form.controls['password'].touched
-        "
-      >
-        Password must be at least 8 characters, contain one letter, and one
-        number.
-      </mat-error>
     </div>
 
     <div class="buttons reverse split">
       <button class="btn submit-button" type="submit" [disabled]="form.invalid">
         Register
       </button>
+      <button class="btn" type="reset">Clear Form</button>
       <button class="btn" (click)="cancel()">Sign In</button>
     </div>
   </form>

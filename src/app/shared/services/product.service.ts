@@ -36,7 +36,7 @@ export class ProductService {
         title: 'Expelliaramus Infestatio',
         subtitle: 'Spyware Removal',
         icon: 'spyware-removal',
-        price: 99.9,
+        price: 99.90,
         checked: false,
       },
       {
@@ -68,7 +68,7 @@ export class ProductService {
         title: 'Scourgify Tastaturum',
         subtitle: 'Keyboard Cleaning',
         icon: 'keyboard-cleaning',
-        price: 45.0,
+        price: 45.00,
         checked: false,
       },
       {
@@ -83,7 +83,7 @@ export class ProductService {
         id: 107,
         title: 'Salvio Backupio',
         subtitle: 'Data Backup & Transfer',
-        icon: 'data-backup-transfer',
+        icon: 'data-backup-and-transfer',
         price: 99.99,
         checked: false,
       },

@@ -33,33 +33,31 @@ export class HomeComponent implements OnInit {
   products: Product[];
   lineItems: LineItem[];
   invoice: Invoice;
-  errorMessage: Message[];
-  successMessage: Message[];
+  errorMessages: Message[];
+  successMessages: Message[];
 
   constructor(private cookieService: CookieService, private productService: ProductService, private invoiceService: InvoiceService, private dialogRef: MatDialog) {
 
-    this.username = this.cookieService.get('sessionuser') ?? '';
+    this.username = this.cookieService.get('sessionUser') ?? '';
     this.products = [];
     this.lineItems = [];
     this.invoice = {} as Invoice;
-    this.errorMessage = [];
-    this.successMessage = [];
+    this.errorMessages = [];
+    this.successMessages = [];
 
     this.products = this.productService.getProducts();
 
     this.invoice = new Invoice(this.username);
-
-    console.log(this.products)
   }
 
   ngOnInit(): void {}
 
   generateInvoice() {
-    console.log('generateInvoice() this.invoice');
-    console.log(this.invoice);
+    // console.log('generateInvoice() this.invoice');
+    // console.log(this.invoice);
 
-    console.log('generateInvoice() this.products');
-    console.log(this.products);
+    // console.log('generateInvoice() this.products');
+    // console.log(this.products);
 
     for (let product of this.products) {
       if (product.checked) {
@@ -72,6 +70,8 @@ export class HomeComponent implements OnInit {
 
       console.log('lineItems.length > 0; this.invoice');
       console.log(this.invoice);
+
+    }
 
       // const dialogRef = this.dialogRef.open(InvoiceSummaryDialogComponent, {
       //   data: {
@@ -89,7 +89,7 @@ export class HomeComponent implements OnInit {
       //         this.reloadProducts();
       //         this.clearLineItems();
       //         this.invoice.clear();
-      //         this.successMessage = [{
+      //         this.successMessages = [{
       //           severity: 'success',
       //           summary: 'Success',
       //           detail: 'Your order has been processed successfully.'}
@@ -106,13 +106,13 @@ export class HomeComponent implements OnInit {
       //     this.invoice.clear();
       //   }
       // })
-    } else {
-    this.errorMessage = [{
-      severity: 'error',
-      summary: 'Error',
-      detail: 'Invoice Cancelled'
-      }]
-    }
+  //   } else {
+  //   this.errorMessages = [{
+  //     severity: 'error',
+  //     summary: 'Error',
+  //     detail: 'Invoice Cancelled'
+  //     }]
+  //   }
   }
 
 

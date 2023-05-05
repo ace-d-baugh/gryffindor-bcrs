@@ -21,8 +21,6 @@
       <div class="nav-link" routerLink="/main/about">About</div>
       <div class="nav-link" *ngIf="!sessionName" routerLink="/session/sign-in">Services</div>
       <div class="nav-link" *ngIf="sessionName" routerLink="/main/">Services</div>
-      <div class="nav-link" routerLink="/main/services">Services</div>
-      <!-- This is for testing purposes -->
       <div class="nav-link" routerLink="/main/contact">Contact</div>
       <!-- if not signed in, show sign-in link -->
       <div class="nav-link" routerLink="/session/sign-in" *ngIf="!sessionName">Sign-In</div>

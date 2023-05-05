@@ -786,7 +786,9 @@ main {
   float: right;
 }
 
-.questions-row {
+.questions-row,
+.personal-info-row,
+.user-cred-row {
   display: flex;
   justify-content: space-around;
   gap: 1rem;
@@ -796,8 +798,23 @@ main {
   flex: 1fr 1fr;
 }
 
+.question-2 {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+
+.question-2.fade-in {
+  opacity: 1;
+}
+
 .question,
-.answer {
+.answer,
+.personal-info-first-name,
+.personal-info-last-name,
+.personal-info-phone,
+.personal-info-email,
+.user-cred-username,
+.user-cred-password {
   flex: 1;
   flex-direction: column;
 }
@@ -813,11 +830,8 @@ main {
 .services {
   width: 100%;
   display: flex;
-  justify-content: center;
   gap: 1rem;
-  align-items: center;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .services-row {
@@ -826,7 +840,6 @@ main {
   justify-content: space-around;
   gap: 1rem;
   align-items: center;
-  margin-bottom: 1rem;
   flex-wrap: wrap;
 }
 

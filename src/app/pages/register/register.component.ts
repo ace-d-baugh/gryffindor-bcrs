@@ -159,7 +159,34 @@ export class RegisterComponent implements OnInit {
 
   // update security question options
   updateSecurityQuestionOptions(): void {
+
+    // If Question 1 is changed
     if (this.form.value.securityQuestion1) {
+      // If Questions 2 & 3 have not been selected yet
+      if (
+        this.form.value.securityQuestion2 === null &&
+        this.form.value.securityQuestion3 === null
+      ) {
+        // Question 2 list is equal to security questions minus what was selected from Question 1
+        this.questionList2 = this.securityQuestions
+        .filter(
+          (question) =>
+          question.text !== this.form.value.securityQuestion1
+        );
+        // Question 3 List is unchanged
+      }
+      // If question 3 has not been selected yet but 1 & 2 have
+      if (
+        this.form.value.securityQuestion3 === null
+      ) {
+        this.questionList3 = this.securityQuestions
+        .filter(
+          (question) =>
+          question.text !== this.form.value.securityQuestion1 &&
+          question.text !== this.form.value.securityQuestion2
+        )
+      }
+      // If answers have been chosen
       this.questionList2 = this.securityQuestions.filter(
         (question) =>
           question.text !== this.form.value.securityQuestion1 &&
@@ -172,7 +199,17 @@ export class RegisterComponent implements OnInit {
       );
     }
 
+    // If Question 2 is changed
     if (this.form.value.securityQuestion2) {
+      // If question 3 has not been selected yet but 1 & 2 have
+      if (this.form.value.securityQuestion3 === null) {
+        this.questionList3 = this.securityQuestions.filter(
+          (question) =>
+            question.text !== this.form.value.securityQuestion1 &&
+            question.text !== this.form.value.securityQuestion2
+        );
+      }
+      // If answers have been chosen
       this.questionList1 = this.securityQuestions.filter(
         (question) =>
           question.text !== this.form.value.securityQuestion2 &&
@@ -182,6 +219,21 @@ export class RegisterComponent implements OnInit {
         (question) =>
           question.text !== this.form.value.securityQuestion1 &&
           question.text !== this.form.value.securityQuestion2
+      );
+    }
+
+    // If Question 3 is changed
+    if (this.form.value.securityQuestion3) {
+      // If answers have been chosen
+      this.questionList1 = this.securityQuestions.filter(
+        (question) =>
+          question.text !== this.form.value.securityQuestion2 &&
+          question.text !== this.form.value.securityQuestion3
+      );
+      this.questionList2 = this.securityQuestions.filter(
+        (question) =>
+          question.text !== this.form.value.securityQuestion1 &&
+          question.text !== this.form.value.securityQuestion3
       );
     }
   }

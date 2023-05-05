@@ -9,239 +9,68 @@
 -->
 
 <div class="main-container">
-  <h1 class="center mb2">Bob's Computer Repair Services</h1>
-  <h3 class="center mb">Choose from some of our prefix services</h3>
-  <div class="services">
-    <!-- Service row 1 -->
-    <div class="services-row">
+  <h1 class="center mb">Bob's Computer Repair Services</h1>
+  <h3 class="center mb">Choose from some of our a la carte services</h3>
+
+  <form class="services" #invoiceForm="ngForm" (submit)="generateInvoice();">
+
+    <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+    <p-messages [(value)]="successMessages" [enableService]="false"></p-messages>
+
+    <h2 class="mb">Services</h2>
+    <div class="services-row mb2">
+    <div *ngFor="let product of products">
       <!-- Service card 1 -->
-      <input
-        type="checkbox"
-        id="checkbox-1"
-        name="checkbox-1"
-        value="password-reset"
-        class="services-checkbox"
-      />
-      <label for="checkbox-1">
-        <div class="service card">
-          <div class="card-header">
-            <div class="card-title">Obliviate Memorium</div>
-            <div class="card-subtitle">Password Reset</div>
+      <div class="service-container">
+        <input
+          type="checkbox"
+          id="{{ product.icon }}"
+          [name]="product.title"
+          value="{{ product.price }}"
+          class="services-checkbox"
+          [(ngModel)]="product.checked"
+        />
+        <label for="{{ product.icon }}">
+          <div class="service card">
+            <div class="card-header">
+              <div class="card-title">{{ product.title }}</div>
+              <div class="card-subtitle">{{ product.subtitle }}</div>
+            </div>
+            <div class="card-body">
+              <img
+                src="./assets/images/{{ product.icon }}.svg"
+                class="service-img"
+              />
+            </div>
+            <div class="card-footer">
+              <h3 class="card-footer-text">£{{ product.price.toFixed(2) }}</h3>
+            </div>
           </div>
-          <div class="card-body">
-            <img src="./assets/images/password-reset.svg" class="service-img" />
-          </div>
-          <div class="card-footer">
-            <h3 class="card-footer-text">£39.99</h3>
-          </div>
-        </div>
-      </label>
-      <!-- Service card 2 -->
-      <input
-        type="checkbox"
-        id="checkbox-2"
-        name="checkbox-2"
-        value="spyware-removal"
-        class="services-checkbox"
-      />
-      <label for="checkbox-2">
-        <div class="service card">
-          <div class="card-header">
-            <div class="card-title">Expelliarmus Infestatio</div>
-            <div class="card-subtitle">Spyware Removal</div>
-          </div>
-          <div class="card-body">
-            <img
-              src="./assets/images/spyware-removal.svg"
-              class="service-img"
-            />
-          </div>
-          <div class="card-footer">
-            <h3 class="card-footer-text">£99.90</h3>
-          </div>
-        </div>
-      </label>
-      <!-- Service card 3 -->
-      <input
-        type="checkbox"
-        id="checkbox-3"
-        name="checkbox-3"
-        value="ram-upgrade"
-        class="services-checkbox"
-      />
-      <label for="checkbox-3">
-        <div class="service card">
-          <div class="card-header">
-            <div class="card-title">Accio Computo Potentia</div>
-            <div class="card-subtitle">RAM Upgrade</div>
-          </div>
-          <div class="card-body">
-            <img src="./assets/images/ram-upgrade.svg" class="service-img" />
-          </div>
-          <div class="card-footer">
-            <h3 class="card-footer-text">£129.99</h3>
-          </div>
-        </div>
-      </label>
-      <!-- Service card 4 -->
-      <input
-        type="checkbox"
-        id="checkbox-4"
-        name="checkbox-4"
-        value="software-installation"
-        class="services-checkbox"
-      />
-      <label for="checkbox-4">
-        <div class="service card">
-          <div class="card-header">
-            <div class="card-title">Expecto Softwareum</div>
-            <div class="card-subtitle">Software Installation</div>
-          </div>
-          <div class="card-body">
-            <img
-              src="./assets/images/software-installation.svg"
-              class="service-img"
-            />
-          </div>
-          <div class="card-footer">
-            <h3 class="card-footer-text">£49.90</h3>
-          </div>
-        </div>
-      </label>
-      <!-- Service card 5 -->
-      <input
-        type="checkbox"
-        id="checkbox-5"
-        name="checkbox-5"
-        value="pc-tune-up"
-        class="services-checkbox"
-      />
-      <label for="checkbox-5">
-        <div class="service card">
-          <div class="card-header">
-            <div class="card-title">Reparo Computum</div>
-            <div class="card-subtitle">PC Tune-up</div>
-          </div>
-          <div class="card-body">
-            <img src="./assets/images/pc-tune-up.svg" class="service-img" />
-          </div>
-          <div class="card-footer">
-            <h3 class="card-footer-text">£89.99</h3>
-          </div>
-        </div>
-      </label>
-      <!-- Service card 6 -->
-      <input
-        type="checkbox"
-        id="checkbox-6"
-        name="checkbox-6"
-        value="keyboard-cleaning"
-        class="services-checkbox"
-      />
-      <label for="checkbox-6">
-        <div class="service card">
-          <div class="card-header">
-            <div class="card-title">Scourgify Tastaturum</div>
-            <div class="card-subtitle">Keyboard Cleaning</div>
-          </div>
-          <div class="card-body">
-            <img
-              src="./assets/images/keyboard-cleaning.svg"
-              class="service-img"
-            />
-          </div>
-          <div class="card-footer">
-            <h3 class="card-footer-text">£45.00</h3>
-          </div>
-        </div>
-      </label>
-      <!-- Service card 7 -->
-      <input
-        type="checkbox"
-        id="checkbox-7"
-        name="checkbox-7"
-        value="disk-clean-up"
-        class="services-checkbox"
-      />
-      <label for="checkbox-7">
-        <div class="service card">
-          <div class="card-header">
-            <div class="card-title">Evanesco Discum</div>
-            <div class="card-subtitle">Disk Clean-up</div>
-          </div>
-          <div class="card-body">
-            <img src="./assets/images/disk-clean-up.svg" class="service-img" />
-          </div>
-          <div class="card-footer">
-            <h3 class="card-footer-text">£149.99</h3>
-          </div>
-        </div>
-      </label>
-      <!-- Service card 8 -->
-      <input
-        type="checkbox"
-        id="checkbox-8"
-        name="checkbox-8"
-        value="data-backup-and-transfer"
-        class="services-checkbox"
-      />
-      <label for="checkbox-8">
-        <div class="service card">
-          <div class="card-header">
-            <div class="card-title">Salvio Backupio</div>
-            <div class="card-subtitle">Data Backup and Transfer</div>
-          </div>
-          <div class="card-body">
-            <img
-              src="./assets/images/data-backup-and-transfer.svg"
-              class="service-img"
-            />
-          </div>
-          <div class="card-footer">
-            <h3 class="card-footer-text">£99.99</h3>
-          </div>
-        </div>
-      </label>
-      <!-- Service card 9 -->
-      <input
-        type="checkbox"
-        id="checkbox-9"
-        name="checkbox-9"
-        value="operating-system-reinstallation"
-        class="services-checkbox"
-      />
-      <label for="checkbox-9">
-        <div class="service card">
-          <div class="card-header">
-            <div class="card-title">Reinstallatio Systemus</div>
-            <div class="card-subtitle">Operating System Reinstallation</div>
-          </div>
-          <div class="card-body">
-            <img
-              src="./assets/images/operating-system-reinstallation.svg"
-              class="service-img"
-            />
-          </div>
-          <div class="card-footer">
-            <h3 class="card-footer-text">£109.99</h3>
-          </div>
-        </div>
-      </label>
+        </label>
+      </div>
+    </div>
+    </div>
+
+    <div class="standard-fees">
+      <h2 class="form-title mb">Standard Fees</h2>
+      <div class="form-group">
+        <label for="numPartsAmount" class="input-label">Parts</label>
+        <input type="number" id="numPartsAmount" name="numPartsAmount" class="form-control" [(ngModel)]="invoice.partsAmount" min="0" />
+      </div>
+      <div class="form-group">
+        <label for="numLaborHours" class="input-label">Labor @ 50/hr</label>
+        <input type="number" id="numLaborHours" name="numLaborHours" class="form-control" [(ngModel)]="invoice.laborHours" min="0"/>
+      </div>
     </div>
 
 
-    <form>
-      <div class="form-title">Form Title</div>
-      <div class="form-group">
-        <label for="input" class="input-label">Input</label>
-        <input type="text" id="input" name="input" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label class="input-label" for="textarea">Textarea</label>
-        <textarea id="textarea" class="form-control"></textarea>
-      </div>
-    </form>
-  </div>
+    <div class="buttons reverse split">
+      <!-- Clear the form -->
+      <button class="btn m3">Order Services</button>
+      <button class="btn m3" type="reset">Clear</button>
+    </div>
+
+  </form>
   <div class="action-container center">
     <button class="btn m3" routerLink="/">Go To Landing</button>
   </div>

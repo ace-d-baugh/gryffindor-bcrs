@@ -36,6 +36,27 @@ const sessionSigninSchema = {
   additionalProperties: false,
 };
 
+const verifySecurityQuestionsSchema = {
+  type: "object",
+  properties: {
+    questionText1: { type: "string" },
+    answerText1: { type: "string" },
+    questionText2: { type: "string" },
+    answerText2: { type: "string" },
+    questionText3: { type: "string" },
+    answerText3: { type: "string" },
+  },
+  required: [
+    "questionText1",
+    "answerText1",
+    "questionText2",
+    "answerText2",
+    "questionText3",
+    "answerText3",
+  ],
+  additionalProperties: false,
+};
+
 /**
  * Signin
  * @openapi
@@ -70,9 +91,6 @@ const sessionSigninSchema = {
  *         description: MongoDB Exception.
  */
 // Chad Coded | Ace Tested | John Approved
-
-/* TODO: Give error message for invalid username and/or password to user instead of 400/404 page */
-
 router.post("/signin", (req, res) => {
   try {
     const sessionSignin = req.body;
@@ -477,69 +495,90 @@ router.get("/verify/users/:username", async (req, res) => {
 // Ace Coded | John Tested | Chad Approved
 router.post("/verify/users/:username/security-questions", async (req, res) => {
   try {
-    User.findOne({ username: req.params.username }, function (err, user) {
-      if (err) {
-        console.log(err);
-        const verifySecurityQuestionMongodbErrorResponse = new ErrorResponse(
-          500,
-          "Internal server error",
-          err
-        );
-        res
-          .status(500)
-          .send(verifySecurityQuestionMongodbErrorResponse.toObject());
-        errorLogger({ filename: myFile, message: "Internal server error" });
-      } else {
-        console.log(user);
-        const selectedSecurityQuestionOne = user.selectedSecurityQuestions.find(
-          (q1) => q1.questionText === req.body.questionText1
-        );
-        const selectedSecurityQuestionTwo = user.selectedSecurityQuestions.find(
-          (q2) => q2.questionText === req.body.questionText2
-        );
-        const selectedSecurityQuestionThree =
-          user.selectedSecurityQuestions.find(
-            (q3) => q3.questionText === req.body.questionText3
-          );
 
-        const isValidAnswerOne =
-          selectedSecurityQuestionOne.answerText === req.body.answerText1;
-        const isValidAnswerTwo =
-          selectedSecurityQuestionTwo.answerText === req.body.answerText2;
-        const isValidAnswerThree =
-          selectedSecurityQuestionThree.answerText === req.body.answerText3;
+    let verifySecurityQuestions = req.body;
 
-        if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree) {
-          console.log(
-            `User ${user.username} answered all security questions correctly`
+    const validator = ajv.compile(verifySecurityQuestionsSchema);
+    const valid = validator(verifySecurityQuestions);
+
+    if (!valid) {
+      console.log("Invalid request", validator.errors);
+      const verifySecurityQuestionsInvalidRequest = new ErrorResponse(
+        400,
+        "Invalid request",
+        validator.errors
+      );
+      res.status(400).send(verifySecurityQuestionsInvalidRequest.toObject());
+      errorLogger({
+        filename: myFile,
+        message: "Invalid request",
+        data: verifySecurityQuestionsInvalidRequest.toObject(),
+      });
+    } else {
+      User.findOne({ username: req.params.username }, function (err, user) {
+        if (err) {
+          console.log(err);
+          const verifySecurityQuestionMongodbErrorResponse = new ErrorResponse(
+            500,
+            "Internal server error",
+            err
           );
-          const validSecurityQuestionsResponse = new BaseResponse(
-            200,
-            "Success",
-            user
-          );
-          res.json(validSecurityQuestionsResponse.toObject());
-          debugLogger({
-            filename: myFile,
-            message: "User answered all security questions correctly",
-          });
+          res
+            .status(500)
+            .send(verifySecurityQuestionMongodbErrorResponse.toObject());
+          errorLogger({ filename: myFile, message: "Internal server error" });
         } else {
-          console.log(
-            `User ${user.username} answered one or more security questions incorrectly`
+          console.log(user);
+          const selectedSecurityQuestionOne = user.selectedSecurityQuestions.find(
+            (q1) => q1.questionText === req.body.questionText1
           );
-          const invalidSecurityQuestionsResponse = new BaseResponse(
-            400,
-            "Error: One or more security questions were answered incorrectly",
-            user
+          const selectedSecurityQuestionTwo = user.selectedSecurityQuestions.find(
+            (q2) => q2.questionText === req.body.questionText2
           );
-          res.json(invalidSecurityQuestionsResponse.toObject());
-          errorLogger({
-            filename: myFile,
-            message: "User answered one or more security questions incorrectly",
-          });
+          const selectedSecurityQuestionThree =
+            user.selectedSecurityQuestions.find(
+              (q3) => q3.questionText === req.body.questionText3
+            );
+
+          const isValidAnswerOne =
+            selectedSecurityQuestionOne.answerText === req.body.answerText1;
+          const isValidAnswerTwo =
+            selectedSecurityQuestionTwo.answerText === req.body.answerText2;
+          const isValidAnswerThree =
+            selectedSecurityQuestionThree.answerText === req.body.answerText3;
+
+          if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree) {
+            console.log(
+              `User ${user.username} answered all security questions correctly`
+            );
+            const validSecurityQuestionsResponse = new BaseResponse(
+              200,
+              "Success",
+              user
+            );
+            res.json(validSecurityQuestionsResponse.toObject());
+            debugLogger({
+              filename: myFile,
+              message: "User answered all security questions correctly",
+            });
+          } else {
+            console.log(
+              `User ${user.username} answered one or more security questions incorrectly`
+            );
+            const invalidSecurityQuestionsResponse = new BaseResponse(
+              400,
+              "Error: One or more security questions were answered incorrectly",
+              user
+            );
+            res.json(invalidSecurityQuestionsResponse.toObject());
+            errorLogger({
+              filename: myFile,
+              message: "User answered one or more security questions incorrectly",
+            });
+          }
         }
-      }
-    });
+      });
+    }
   } catch (e) {
     console.log(e);
     const verifySecurityQuestionCatchErrorResponse = new ErrorResponse(
