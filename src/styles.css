@@ -786,10 +786,6 @@ main {
   float: right;
 }
 
-.security-questions {
-  transition: 0.5s ease-in-out;
-}
-
 .questions-row,
 .personal-info-row,
 .user-cred-row {
@@ -802,10 +798,6 @@ main {
   flex: 1fr 1fr;
 }
 
-.security-questions.fade-in {
-  opacity: 1;
-}
-
 .question,
 .answer,
 .personal-info-first-name,
@@ -816,6 +808,11 @@ main {
 .user-cred-password {
   flex: 1;
   flex-direction: column;
+}
+
+.registration-form input,
+select, option {
+  font-size: 1rem;
 }
 
 .reverse {
