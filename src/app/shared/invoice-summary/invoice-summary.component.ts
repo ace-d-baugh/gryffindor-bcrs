@@ -8,18 +8,19 @@
 =====================================================
 */
 
-//import statements
-import { Component, OnInit, Inject } from '@angular/core';
+// Import statements
+import { Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Invoice } from '../models/invoice';
 
+// Export component
 @Component({
   selector: 'app-invoice-summary',
   templateUrl: './invoice-summary.component.html',
-  styleUrls: ['./invoice-summary.component.css']
+  styleUrls: ['./invoice-summary.component.css'],
 })
-
-//export class and controls
+// Export class
 export class InvoiceSummaryComponent implements OnInit {
   invoice: Invoice;
   username: string;
@@ -27,9 +28,8 @@ export class InvoiceSummaryComponent implements OnInit {
   total: number;
   labor: number;
   parts: number;
-lineItem: any;
 
-  //constructor
+  // Constructor
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
     this.invoice = {} as Invoice;
     this.invoice = data.invoice;
@@ -39,6 +39,7 @@ lineItem: any;
     this.labor = 0;
     this.parts = 0;
 
+    //  Set the values
     this.username = this.invoice.getUsername();
     this.orderDate = this.invoice.getOrderDate();
     this.parts = this.invoice.partsAmount;
@@ -46,9 +47,7 @@ lineItem: any;
     this.total = this.invoice.getTotal();
 
     console.log(this.invoice);
-   }
-
-  ngOnInit(): void {
   }
 
+  ngOnInit(): void {}
 }

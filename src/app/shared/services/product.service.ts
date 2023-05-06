@@ -9,7 +9,7 @@
 =====================================================
 */
 
-
+// Import Injectable
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.interface';
 
@@ -17,10 +17,12 @@ import { Product } from '../models/product.interface';
   providedIn: 'root'
 })
 
+// Export class
 export class ProductService {
 
   products: Product[];
 
+  // Constructor
   constructor() {
     this.products = [
       {
@@ -29,6 +31,7 @@ export class ProductService {
         subtitle: 'Password Reset',
         icon: 'password-reset',
         price: 39.99,
+        labor: 1,
         checked: false,
       },
       {
@@ -37,6 +40,7 @@ export class ProductService {
         subtitle: 'Spyware Removal',
         icon: 'spyware-removal',
         price: 99.90,
+        labor: 1,
         checked: false,
       },
       {
@@ -45,6 +49,7 @@ export class ProductService {
         subtitle: 'RAM Upgrade',
         icon: 'ram-upgrade',
         price: 129.99,
+        labor: 1,
         checked: false,
       },
       {
@@ -53,6 +58,7 @@ export class ProductService {
         subtitle: 'Software Installation',
         icon: 'software-installation',
         price: 49.99,
+        labor: 1,
         checked: false,
       },
       {
@@ -61,6 +67,7 @@ export class ProductService {
         subtitle: 'PC Tune-Up',
         icon: 'pc-tune-up',
         price: 89.99,
+        labor: 1,
         checked: false,
       },
       {
@@ -69,6 +76,7 @@ export class ProductService {
         subtitle: 'Keyboard Cleaning',
         icon: 'keyboard-cleaning',
         price: 45.00,
+        labor: 1,
         checked: false,
       },
       {
@@ -77,6 +85,7 @@ export class ProductService {
         subtitle: 'Disk Clean-up',
         icon: 'disk-clean-up',
         price: 149.99,
+        labor: 1,
         checked: false,
       },
       {
@@ -85,6 +94,7 @@ export class ProductService {
         subtitle: 'Data Backup & Transfer',
         icon: 'data-backup-and-transfer',
         price: 99.99,
+        labor: 1,
         checked: false,
       },
       {
@@ -93,11 +103,13 @@ export class ProductService {
         subtitle: 'Operating System Reinstallation',
         icon: 'operating-system-reinstallation',
         price: 109.99,
+        labor: 1,
         checked: false,
       },
     ];
   }
 
+  // Get products
   getProducts() {
     return this.products;
   }

@@ -1,10 +1,10 @@
 /*
 ============================================
-; Title: app.component.css for nodebucket
+; Title: app.component.css for BCRS
 ; Author: Professor Krasso
 ; Modified by: Chad ONeal
 ; Date: 03/25/2023
-; Description: app.component.css for nodebucket
+; Description: app.component.css for BCRS
 ===========================================
 */
 

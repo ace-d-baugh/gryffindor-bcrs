@@ -7,3 +7,7 @@
 ; Modifications: Chad ONeal
 =====================================================
 */
+
+mat-card {
+  border-radius: 0;
+}
