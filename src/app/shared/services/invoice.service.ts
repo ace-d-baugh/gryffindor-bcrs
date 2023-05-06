@@ -29,7 +29,7 @@ export class InvoiceService {
   // Create invoice
   createInvoice(username: string, invoice: Invoice): Observable<any> {
     console.log('Username:', username);
-  console.log('Invoice:', invoice);
+    console.log('Invoice:', invoice);
 
     return this.http.post(`/api/invoices/${username}`, {
       username: username,

@@ -31199,3 +31199,95 @@
 [5/6/2023, 4:50:40 PM] server	 session-api.js - User logged in successfully
 [5/6/2023, 4:50:59 PM] server	 session-api.js - User logged in successfully
 [5/6/2023, 4:51:57 PM] server	 session-api.js - User logged in successfully
+[5/6/2023, 5:28:05 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:31:55 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:32:10 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:32:35 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:34:09 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:34:29 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:35:13 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:35:32 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:36:50 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:37:26 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:38:40 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:39:29 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:39:41 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:40:04 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:42:55 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:43:20 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:44:03 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:44:35 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:45:04 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:45:27 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:45:41 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:46:06 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:46:25 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:46:58 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:48:38 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:49:25 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:50:11 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:50:25 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:50:40 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:51:31 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:52:27 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:53:08 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:53:18 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:53:27 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:53:39 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:53:49 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:53:59 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:54:11 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:55:55 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:57:19 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:57:36 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:57:57 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:58:35 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 5:58:51 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:03:07 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:04:24 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:05:01 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:05:47 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:05:57 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:06:07 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:06:16 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:08:27 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:09:04 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:09:15 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:13:29 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:14:32 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:15:06 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:27:43 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:39:18 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:42:39 PM] server	 role-api.js - Query was successful
+[5/6/2023, 6:43:40 PM] server	 role-api.js - Query was successful
+[5/6/2023, 6:47:01 PM] server	 role-api.js - Query was successful
+[5/6/2023, 6:47:11 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 6:47:20 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 6:47:31 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 6:53:49 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 6:54:19 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 6:56:15 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 6:57:52 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 6:59:50 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 7:00:54 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 7:01:33 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 7:01:38 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 7:01:41 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 7:03:00 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 7:03:34 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 7:04:19 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 7:04:40 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 7:05:14 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 7:19:52 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 7:23:30 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 7:24:03 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 7:33:26 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 7:34:21 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 7:35:09 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 7:35:14 PM] server	 user-api.js - Query on all users was successful
+[5/6/2023, 7:35:18 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 7:37:42 PM] server	 session-api.js - User logged in successfully
+[5/6/2023, 7:37:47 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 7:40:57 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 7:41:11 PM] server	 invoice-api.js - Query successful
+[5/6/2023, 7:41:45 PM] server	 invoice-api.js - Query successful

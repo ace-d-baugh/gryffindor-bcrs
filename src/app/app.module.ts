@@ -69,6 +69,7 @@ import { RoleListComponent } from './pages/role-list/role-list.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 import { InvoiceSummaryComponent } from './shared/invoice-summary/invoice-summary.component';
 import { MatListModule } from '@angular/material/list';
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
 //module
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { MatListModule } from '@angular/material/list';
     RegisterComponent,
     RoleListComponent,
     RoleDetailsComponent,
-    InvoiceSummaryComponent
+    InvoiceSummaryComponent,
+    PurchasesByServiceGraphComponent
   ],
   imports: [
     BrowserModule,

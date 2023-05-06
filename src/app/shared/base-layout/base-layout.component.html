@@ -67,12 +67,25 @@
             <mat-icon>help</mat-icon>
             Security Questions
           </button>
-        </mat-menu>
+         </mat-menu>
 
-        <button mat-menu-item (click)="signout()" class="user-menu-item">
-          <mat-icon>logout</mat-icon>
-          Sign out
+        <button mat-menu-item [matMenuTriggerFor]="reports" class="user-menu-item">
+          <mat-icon>report</mat-icon>
+          Reports
         </button>
+
+        <mat-menu #reports="matMenu" class="user-menu">
+
+          <button mat-menu-item routerLink="/main/graph" class="user-menu-item">
+            <mat-icon>pie_chart</mat-icon>
+            Purchases by Services Graph
+          </button>
+      </mat-menu>
+
+      <button mat-menu-item (click)="signout()" class="user-menu-item">
+        <mat-icon>logout</mat-icon>
+        Sign out
+      </button>
       </mat-menu>
     </div>
   </header>

@@ -19,6 +19,7 @@ import {
   MessageService,
 } from 'primeng/api';
 
+
 // export class
 @Component({
   selector: 'app-base-layout',
@@ -30,6 +31,7 @@ export class BaseLayoutComponent implements OnInit {
   sessionName: string;
   currentYear: number = new Date().getFullYear();
   role: any;
+  reports: any;
 
   //  constructor
   constructor(
