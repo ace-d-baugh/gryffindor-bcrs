@@ -19,8 +19,7 @@ import { Router } from '@angular/router';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { InvoiceService } from 'src/app/shared/services/invoice.service';
 import { MatDialog } from '@angular/material/dialog';
-// import { InvoiceSummaryDialogComponent } from 'src/app/shared/invoice-dialog/invoice-summary-dialog.component';
-
+import { InvoiceSummaryComponent } from 'src/app/shared/invoice-summary/invoice-summary.component';
 
 @Component({
   selector: 'app-home',
@@ -71,49 +70,49 @@ export class HomeComponent implements OnInit {
       console.log('lineItems.length > 0; this.invoice');
       console.log(this.invoice);
 
+      const dialogRef = this.dialogRef.open(InvoiceSummaryComponent, {
+        data: {
+          invoice: this.invoice,
+        },
+        disableClose: true,
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === 'confirm') {
+          this.invoiceService.createInvoice(this.username, this.invoice).subscribe({
+            next: (res) => {
+              console.log('Invoice Created');
+              this.reloadProducts();
+              this.clearLineItems();
+              this.invoice.clear();
+              this.successMessages = [{
+                severity: 'success',
+                summary: 'Success',
+                detail: 'Your order has been processed successfully.'}
+              ]
+            },
+            error: (e) => {
+              console.log(e);
+            }
+          })
+        } else {
+          console.log('Order Cancelled');
+          this.reloadProducts();
+          this.clearLineItems();
+          this.invoice.clear();
+        }
+      })
+    } else {
+      this.errorMessages = [
+        {
+          severity: 'error',
+          summary: 'Error',
+          detail: 'You must select at least one service.'
+        }
+      ]
     }
-
-      // const dialogRef = this.dialogRef.open(InvoiceSummaryDialogComponent, {
-      //   data: {
-      //     invoice: this.invoice,
-      //   },
-      //   disableClose: true,
-      //   width: '800px',
-      // });
-
-      // dialogRef.afterClosed().subscribe(result => {
-      //   if (result === 'confirm') {
-      //     this.invoiceService.createInvoice(this.username, this.invoice).subscribe({
-      //       next: (res) => {
-      //         console.log('Invoice Created');
-      //         this.reloadProducts();
-      //         this.clearLineItems();
-      //         this.invoice.clear();
-      //         this.successMessages = [{
-      //           severity: 'success',
-      //           summary: 'Success',
-      //           detail: 'Your order has been processed successfully.'}
-      //         ]
-      //       },
-      //       error: (e) => {
-      //         console.log(e);
-      //       }
-      //     })
-      //   } else {
-      //     console.log('Order Cancelled');
-      //     this.reloadProducts();
-      //     this.clearLineItems();
-      //     this.invoice.clear();
-      //   }
-      // })
-  //   } else {
-  //   this.errorMessages = [{
-  //     severity: 'error',
-  //     summary: 'Error',
-  //     detail: 'Invoice Cancelled'
-  //     }]
-  //   }
   }
+
 
 
   reloadProducts() {
