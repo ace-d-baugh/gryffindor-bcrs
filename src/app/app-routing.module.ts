@@ -21,7 +21,6 @@ import { SecurityQuestionListComponent } from './pages/security-question-list/se
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
-import { AuthGuard } from './auth.guard';
 import { ServerErrorComponent } from './pages/server-error/server-error.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -34,6 +33,7 @@ import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-secu
 import { RegisterComponent } from './pages/register/register.component';
 import { RoleListComponent } from './pages/role-list/role-list.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
+import { AuthGuard } from './shared/auth.guard';
 
 // routes
 const routes: Routes = [
@@ -87,6 +87,7 @@ const routes: Routes = [
         component: RoleDetailsComponent
       }
     ],
+    canActivate: [AuthGuard],
   },
   {
     path: 'session',
