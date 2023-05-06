@@ -31176,6 +31176,7 @@
 [5/4/2023, 2:24:05 PM] server	 role-api.js - Query was successful
 [5/4/2023, 2:24:21 PM] server	 role-api.js - Query was successful
 <<<<<<< HEAD
+<<<<<<< HEAD
 [5/6/2023, 3:31:55 PM] server	 session-api.js - User logged in successfully
 [5/6/2023, 3:36:54 PM] server	 session-api.js - User logged in successfully
 [5/6/2023, 3:37:58 PM] server	 user-api.js - Query on all users was successful
@@ -31291,3 +31292,6 @@
 [5/6/2023, 7:40:57 PM] server	 invoice-api.js - Query successful
 [5/6/2023, 7:41:11 PM] server	 invoice-api.js - Query successful
 [5/6/2023, 7:41:45 PM] server	 invoice-api.js - Query successful
+=======
+>>>>>>> 16e2f8559534c207be26e1cc36f2b6bbd3bea7de
+[5/6/2023, 7:44:06 PM] server	 invoice-api.js - Query successful
