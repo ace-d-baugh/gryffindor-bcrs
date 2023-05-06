@@ -12,9 +12,9 @@
 
 <!--create time stamp when user pulled from MongoDB-->
       <mat-card class="card">
-      <mat-card-title mat-dialog-title style="text-align: center">
+      <h1 class="center mb">
         {{ username }} please confirm you order.
-      </mat-card-title>
+      </h1>
     </mat-card><br>
 
     <div mat-dialog-content>
@@ -22,16 +22,16 @@
         <div fxFlex>
           <!--services-->
           <mat-card class="card">
-            <mat-card-title>Services</mat-card-title>
+            <h2>Services</h2>
             <mat-card-content>
               <!-- display lineItem title and price -->
               <div *ngFor="let lineItem of invoice.getLineItems()">
                 <mat-list>
-                  <mat-list-item>
+                  <h2>
                     {{ lineItem.title }}:
                     <div fxFlex></div>
-                    {{ lineItem.price | currency: 'EUR':'symbol':'1.2-2' }}&nbsp;EUR
-                  </mat-list-item>
+                    {{ lineItem.price | currency: 'EUR':'symbol':     '1.2-2' }}
+                  </h2>
                 </mat-list>
               </div>
             </mat-card-content>
@@ -41,15 +41,15 @@
         <!-- labor -->
         <div fxFlex>
           <mat-card class="card">
-            <mat-card-title>Labor</mat-card-title>
+            <h2>Labor</h2>
             <mat-card-content>
               <mat-list>
-                <mat-list-item *ngFor="let lineItem of invoice.getLineItems()">
-                  Labor ({{ lineItem.title }})hours
+                <h2 *ngFor="let lineItem of invoice.getLineItems()">
+                  {{ lineItem.title }}
                   @ 50/hr:
                   <div fxFlex></div>
-                  {{ lineItem.labor * 50 | currency: 'EUR':'symbol':'1.2-2' }}&nbsp;EUR
-                </mat-list-item>
+                  {{ lineItem.labor * 50 | currency: 'EUR':'symbol':'1.2-2' }}
+                </h2>
               </mat-list>
             </mat-card-content>
           </mat-card>
@@ -58,14 +58,14 @@
         <div fxFlex>
           <!-- total -->
           <mat-card class="card">
-            <mat-card-title>Total</mat-card-title>
+            <h2>Total</h2>
             <mat-card-content>
               <mat-list>
-                <mat-list-item>
+                <h2>
                   &nbsp;
                   <div fxFlex></div>
-                  Total charges: {{ total | currency:'EUR':'symbol':'1.2-2' }}&nbsp;EUR
-                </mat-list-item>
+                  Total charges: {{ total | currency:'EUR':'symbol':'1.2-2' }}
+                </h2>
               </mat-list>
             </mat-card-content>
           </mat-card>
@@ -83,6 +83,8 @@
 </div>
 </div>
 
-```
+
+
+
 
 
