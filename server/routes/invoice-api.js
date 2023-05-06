@@ -88,20 +88,29 @@ router.post('/:username', async (req, res) => {
       lineItemTotal: req.body.lineItemTotal,
       total: req.body.total,
     };
+
+    // Function to create a response object
+    function createResponse(status, data) {
+      return {
+        status,
+        data,
+      };
+    }
+
     // Creates a new invoice
     Invoice.create(newInvoice, (err, invoice) => {
       if (err) {
-        const response = logResponse(501, err);
-        res.status(501).send(response);
+        const responseObj = createResponse(501, err);
+        res.status(501).send(responseObj);
       } else {
         // Invoice successfully created
-        const response = logResponse(200, invoice);
-        res.json(response);
+        const responseObj = createResponse(200, invoice);
+        res.json(responseObj);
       }
     });
   } catch (err) {
-    const response = logResponse(500, err);
-    res.status(500).send(response);
+    const responseObj = createResponse(500, err);
+    res.status(500).send(responseObj);
   }
 });
 

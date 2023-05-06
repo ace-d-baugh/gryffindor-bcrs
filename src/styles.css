@@ -907,3 +907,9 @@ footer {
   color: var(--color-white);
   font-weight: 700;
 }
+
+mat-dialog-container {
+  background-color: var(--color-white) !important;
+  border-radius: 0;
+
+}

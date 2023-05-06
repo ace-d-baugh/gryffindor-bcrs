@@ -7,3 +7,15 @@
 ; Modifications: Chad ONeal
 =====================================================
 */
+
+mat-card {
+  border-radius: 0;
+  opacity: 77%;
+  background-color: none;
+}
+
+.buttons.reverse.split {
+  margin-bottom: 2%;
+}
+
+
