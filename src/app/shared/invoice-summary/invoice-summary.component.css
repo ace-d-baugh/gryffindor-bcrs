@@ -14,7 +14,8 @@ mat-card {
   background-color: none;
 }
 
-.invoice-container {
-  background-color: #f5deb3;;
+.buttons.reverse.split {
+  margin-bottom: 2%;
 }
+
 
