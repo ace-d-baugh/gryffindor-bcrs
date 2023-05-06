@@ -87,7 +87,6 @@ const routes: Routes = [
         component: RoleDetailsComponent
       }
     ],
-    canActivate: [AuthGuard],
   },
   {
     path: 'session',
