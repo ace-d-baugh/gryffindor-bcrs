@@ -15,7 +15,11 @@
       <h1 class="center mb">
         {{ username }} please confirm you order.
       </h1>
-    </mat-card><br>
+    </mat-card>
+    <mat-card-subtitle style="text-align: center;">
+      Order date: {{ orderDate | date }}
+    </mat-card-subtitle>
+    <br>
 
     <div mat-dialog-content>
       <div fxLayout="column" fxLayoutGap="10px">
@@ -74,10 +78,10 @@
     </div>
 
 <div mat-dialog-actions class="buttons reverse split">
-  <button matDialogClose="cancel" class="btn m3">
+  <button matDialogClose="confirm" class="btn m3">
     Confirm Order
   </button>
-  <button matDialogClose="confirm" class="btn m3">
+  <button matDialogClose="cancel" class="btn m3">
     Cancel
   </button>
 </div>

@@ -91,3 +91,7 @@
 [5/3/2023, 2:20:47 PM] server	 role-api.js - Error updating role on Mongo
 [5/4/2023, 1:43:55 PM] server	 role-api.js - Entered role is not unique
 [5/4/2023, 2:03:46 PM] server	 role-api.js - ${roleId}: Invalid id and/or request
+[5/6/2023, 3:54:27 PM] server	 session-api.js - Invalid user id
+[5/6/2023, 3:54:47 PM] server	 session-api.js - Invalid credentials entered
+[5/6/2023, 3:59:26 PM] server	 session-api.js - Invalid credentials entered
+[5/6/2023, 3:59:39 PM] server	 session-api.js - Invalid credentials entered

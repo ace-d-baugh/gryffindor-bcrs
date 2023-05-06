@@ -78,7 +78,6 @@ const myfile = "invoice-api.js";
  *         description: MongoDB exception
  */
 // Chad Coded | John Tested | Ace Approved
-// Chad Coded | John Tested | Ace Approved
 router.post('/:username', async (req, res) => {
   try {
     const newInvoice = {
@@ -114,7 +113,6 @@ router.post('/:username', async (req, res) => {
     res.status(500).send(responseObj);
   }
 });
-
 
 
 
