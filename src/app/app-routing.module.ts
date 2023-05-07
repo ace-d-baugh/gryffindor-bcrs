@@ -34,7 +34,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { RoleListComponent } from './pages/role-list/role-list.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 import { AuthGuard } from './shared/auth.guard';
-
+import { PrintLayoutComponent } from './pages/print-layout/print-layout.component';
+import { InvoiceSummaryComponent } from './shared/invoice-summary/invoice-summary.component';
 
 // routes
 const routes: Routes = [
@@ -86,6 +87,21 @@ const routes: Routes = [
       {
         path: 'role-details/:roleId',
         component: RoleDetailsComponent
+      },
+      {
+        path: "graph",
+        component: PurchasesByServiceGraphComponent,
+      },
+      {
+        path: 'print',
+        outlet: 'print',
+        component: PrintLayoutComponent,
+        children: [
+          {
+            path: 'invoice',
+            component: InvoiceSummaryComponent
+          }
+        ]
       }
     ],
   },
