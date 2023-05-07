@@ -52,6 +52,25 @@
       </mat-error>
     </div>
 
+    <!-- Role Options -->
+    <div class="form-group">
+      <label class="input-label">Role</label>
+      <select formControlName="role" required>
+        <option *ngFor="let role of roles" [value]="role.text">
+          {{ role.text }}
+        </option>
+      </select>
+
+      <mat-error
+        *ngIf="
+          form.controls['role'].hasError('required') &&
+          form.controls['role'].touched
+        "
+      >
+        Role is a required field
+      </mat-error>
+    </div>
+
     <!--Phone number-->
     <div class="form-group">
       <label class="input-label">Phone number</label>
