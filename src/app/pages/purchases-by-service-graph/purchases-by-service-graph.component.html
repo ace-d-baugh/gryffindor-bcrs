@@ -1,22 +1,29 @@
+<!--
+============================================
+; Title: purchase-by-service-graph.component.html
+; Author: Professor Krasso
+; Date: 05/06/2023
+; Modified By: Chad ONeal
+; Description: purchase-by-service-graph.component.html
+;===========================================
+-->
+
+<div class="purchase-graph">
 
 
+  <mat-card class="card">
+    <h1>
+      Purchases by Services Graph<br />
+    </h1><br>
+      <h3 class="subtitle">
+        You can hide or show items by selecting their label
+      </h3><br>
+      <hr>
 
-  <div class="purchase-graph">
+    <div>
+    <p-chart height="550" width="550" type="pie" [data]='data' [style]="{'font-size': '128px'}">
+    </p-chart>
+    </div>
+  </mat-card>
 
-
-    <mat-card class="card">
-      <h1>
-        Purchases by Services Graph<br />
-      </h1><br>
-        <h3 class="subtitle">
-          You can hide or show items by selecting their label
-        </h3><br>
-        <hr>
-
-      <div>
-      <p-chart height="550" width="550" type="pie" [data]='data' [style]="{'font-size': '128px'}">
-      </p-chart>
-      </div>
-    </mat-card>
-
-  </div>
+</div>

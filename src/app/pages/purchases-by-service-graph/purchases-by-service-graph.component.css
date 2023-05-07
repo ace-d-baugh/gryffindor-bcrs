@@ -7,6 +7,7 @@ h3 {
 }
 
 .purchase-graph{
-  width: 1400px;
+  width: 1600px;
   opacity: 88%;
+  border-radius: 0;
 }
