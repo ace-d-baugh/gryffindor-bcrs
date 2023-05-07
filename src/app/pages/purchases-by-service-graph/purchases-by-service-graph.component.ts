@@ -25,6 +25,7 @@ export class PurchasesByServiceGraphComponent implements OnInit {
   data: any;
   itemCount: string[];
   labels: string [];
+  options: any;
 
   constructor(private invoiceService: InvoiceService) {
     this.purchases = {};
@@ -36,17 +37,18 @@ export class PurchasesByServiceGraphComponent implements OnInit {
       next: (res) => {
         this.purchases = res.data;
 
-        console.log(this.purchases)
+        console.log(this.purchases);
 
         //splits services and item count
-        for (const item of this.purchases)  {
-          console.log('Item object')
-          console.log(item._id)
+        for (const item of this.purchases) {
+          console.log('Item object');
+          console.log(item._id);
 
           let title = item._id.title;
+          let subtitle = item._id.subtitle;
           let count = item.count;
 
-          this.labels.push(title);
+          this.labels.push(`${title} (${subtitle})`);
           this.itemCount.push(count);
         }
 
@@ -56,42 +58,40 @@ export class PurchasesByServiceGraphComponent implements OnInit {
           datasets: [
             {
               backgroundColor: [
-                '#740001',
-                '#ae0001',
-                '#BA4422',
-                '#FF8C00',
-                '#D3A625',
-                '#EEBA30',
-                '#FFDB58',
-                '#D4BC92',
-                '#8B4513',
-                '#fff',
+                '#74000188',
+                '#EEBA3088',
+                '#ae000188',
+                '#FFDB5888',
+                '#BA442288',
+                '#D4BC9288',
+                '#FF8C0088',
+                '#8B451388',
+                '#D3A62588',
               ],
               hoverBackgroundColor: [
-                '#740001',
-                '#ae0001',
-                '#BA4422',
-                '#FF8C00',
-                '#D3A625',
-                '#EEBA30',
-                '#FFDB58',
-                '#D4BC92',
-                '#8B4513',
-                '#21706',
+                '#740001CC',
+                '#EEBA30CC',
+                '#ae0001CC',
+                '#FFDB58CC',
+                '#BA4422CC',
+                '#D4BC92CC',
+                '#FF8C00CC',
+                '#8B4513CC',
+                '#D3A625CC',
               ],
-              data: this.itemCount
+              data: this.itemCount,
             },
-          ]
+          ],
         };
 
         console.log('Data object');
         console.log(this.data);
       },
       error: (e) => {
-        console.log(e)
-      }
-    })
-   }
+        console.log(e);
+      },
+    });
+  }
 
   ngOnInit(): void {
   }
