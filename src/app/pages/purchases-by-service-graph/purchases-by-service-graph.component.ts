@@ -11,14 +11,6 @@
 //import statements
 import { Component, OnInit } from '@angular/core';
 import { InvoiceService } from 'src/app/shared/services/invoice.service';
-import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
-import {
-  ConfirmationService,
-  ConfirmEventType,
-  MessageService,
-} from 'primeng/api';
-
 
 //component that pulls invoice info into graph
 @Component({
