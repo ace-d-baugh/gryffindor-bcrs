@@ -36,6 +36,7 @@ import { RoleDetailsComponent } from './pages/role-details/role-details.componen
 import { AuthGuard } from './shared/auth.guard';
 import { PrintLayoutComponent } from './pages/print-layout/print-layout.component';
 import { InvoiceSummaryComponent } from './shared/invoice-summary/invoice-summary.component';
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
 
 // routes
 const routes: Routes = [
