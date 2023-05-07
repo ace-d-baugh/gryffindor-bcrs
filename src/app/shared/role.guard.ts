@@ -8,7 +8,6 @@
 ============================================
 */
 
-// import statements
 import { Injectable } from "@angular/core";
 import {
   ActivatedRouteSnapshot,
@@ -20,45 +19,29 @@ import {
 import { map, Observable } from "rxjs";
 import { CookieService } from "ngx-cookie-service";
 import { RoleService } from "./services/role.service";
-import { Role } from "./models/role.interface";
+import { Role } from './models/role.interface';
 
-// injectable
 @Injectable({
   providedIn: "root",
 })
 export class RoleGuard implements CanActivate {
-  // role variable set to type role, from our role interface
-  role: Role;
-
-  // constructor
   constructor(
     private router: Router,
     private cookieService: CookieService,
     private roleService: RoleService
-  ) {
-    // construct this.role as empty role object
-    this.role = {} as Role;
+  ) {}
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> {
+    return this.roleService.findUserRole(this.cookieService.get("sessionUser")).pipe(
+      map((res) => {
+        const userRole = res.data.text;
+        if (userRole === "admin") {
+          return true;
+        } else {
+          return this.router.createUrlTree(['/']);
+        }
+      })
+    );
   }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.roleService
-      .findUserRole(this.cookieService.get("sessionuser"))
-      .pipe(
-        map((res) => {
-          // assign the res data to role variable
-          this.role = res.data;
-          // console f/ checks
-          console.log("User role: " + this.role.text);
-          console.log(this.role);
-          // if statement to see if user role is an admin
-          if (res.data.text === "admin") {
-            return true;
-          } else {
-            // if user isn't an admin, redirect them home
-            this.router.navigate(["/"]);
-            return false;
-          }
-        })
-      );
-  }
 }

@@ -10,7 +10,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Role } from '../models/role.interface';
 
 @Injectable({
@@ -49,9 +49,12 @@ export class RoleService {
     return this.http.delete(`/api/role/${roleId}`);
   }
 
-  findUserRole(username: string): Observable<any>
+  findUserRole(userName: string): Observable<any>
   {
-    console.log('username from the findUserRole api' + username);
-    return this.http.get(`/api/user/${username}/role`);
-  }
+    return this.http.get(`/api/users/${userName}/role`).pipe(
+      map((res) => {
+        return res;
+      }
+    ));
+}
 }
