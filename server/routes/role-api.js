@@ -453,37 +453,94 @@ router.delete("/:id", async (req, res) => {
           message: `role ${req.params.id} not found`,
         });
       } else {
-        console.log(Role);
+        console.log(role);
 
-        role.set({
-          isDisabled: true,
-          dateModified: new Date(),
-        });
+        /**
+         * Aggregates the user collection to find the users with the role id
+         */
+        User.aggregate(
+          [
+            {
+              $lookup: {
+                from: "roles",
+                localField: "role.text",
+                foreignField: "text",
+                as: "userRoles",
+              },
+            },
+            {
+              $match: {
+                "userRoles.text": role.text,
+              },
+            },
+          ], function(err, users) {
+            console.log("***This is the users array***");
+            console.log(users);
+            if (err) {
+              console.log("***This is error message***");
+              console.log(err);
+              const deleteRoleMongodbErrorResponse = new ErrorResponse(
+                500,
+                "Internal sever error",
+                err
+              );
+              res.status(500).send(deleteRoleMongodbErrorResponse.toObject());
+              errorLogger({
+                filename: myfile,
+                message: `role ${req.params.id} not found`,
+              });
+            } else {
+              console.log("***Look at the user length***");
+              // if the users array is greater than 0, the role is in use and cannot be disabled
+              if (users.length > 0) {
+                console.log("***User Length is BIG***");
+                console.log(`Role ${role.text} is in use and cannot be deleted`);
+                const userRoleInUseResponse = new BaseResponse(
+                  400,
+                  `Role ${role.text} is in use and cannot be deleted`,
+                  role
+                );
+                res.json(userRoleInUseResponse.toObject());
+                errorLogger({
+                  filename: myfile,
+                  message: `Role ${role.text} is in use and cannot be deleted`,
+                });
+              } else {
+                console.log("***There are no Users***");
+                console.log(`Role ${role.text} is not in use and can be deleted`);
 
-        role.save(function (err, savedRole) {
-          if (err) {
-            console.log(err);
-            const savedRoleMongodbErrorResponse = new ErrorResponse(
-              500,
-              "Internal server error",
-              err
-            );
-            res.json(savedRoleMongodbErrorResponse.toObject());
-            errorLogger({ filename: myFile, message: "Unable to delete role" });
-          } else {
-            console.log(savedRole);
-            const savedRoleResponse = new BaseResponse(
-              200,
-              "Query successful",
-              savedRole
-            );
-            res.json(savedRoleResponse.toObject());
-            debugLogger({
-              filename: myfile,
-              message: `user ${savedRole.username} deleted successfully`,
-            });
+                role.set({
+                  isDisabled: true,
+                });
+
+                role.save(function (err, savedRole) {
+                  if (err) {
+                    console.log(err);
+                    const savedRoleMongodbErrorResponse = new ErrorResponse(
+                      500,
+                      "Internal server error",
+                      err
+                    );
+                    res.status(500).send(savedRoleMongodbErrorResponse.toObject());
+                    errorLogger({ filename: myFile, message: "Unable to delete role" });
+                  } else {
+                    console.log(savedRole);
+                    const savedRoleResponse = new BaseResponse(
+                      200,
+                      `Role '${role.text}' deletion successful`,
+                      savedRole
+                    );
+                    res.json(savedRoleResponse.toObject());
+                    debugLogger({
+                      filename: myfile,
+                      message: `user ${savedRole.username} deleted successfully`,
+                    });
+                  }
+                });
+              }
+            }
           }
-        });
+        );
       }
     });
   } catch (e) {
