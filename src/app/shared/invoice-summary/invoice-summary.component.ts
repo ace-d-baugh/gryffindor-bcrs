@@ -50,4 +50,9 @@ export class InvoiceSummaryComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  printPage() 
+  {
+    window.print();
+  }
 }
