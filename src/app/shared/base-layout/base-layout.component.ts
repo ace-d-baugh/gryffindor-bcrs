@@ -49,28 +49,20 @@ export class BaseLayoutComponent implements OnInit {
   signout() {
     this.confirmationService.confirm({
       message: 'Are you sure you want to proceed?',
-      header: 'Sign out confirmation',
+      header: 'Log out confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.cookieService.deleteAll();
-        this.router.navigate(['/session/sign-in']);
+        this.cookieService.deleteAll()
+        this.router.navigate(['/session/sign-in'])
       },
       reject: (type: any) => {
         switch (type) {
           case ConfirmEventType.REJECT:
-            this.messageService.add({
-              severity: 'info',
-              summary: 'Cancelled',
-              detail: 'Sign out cancelled',
-            });
-            break;
-          case ConfirmEventType.CANCEL:
-            this.messageService.add({
-              severity: 'info',
-              summary: 'Cancelled',
-              detail: 'Sign out cancelled',
-            });
-            break;
+            this.messageService.add({ severity: 'info', summary: 'Cancelled', detail: 'Signout cancelled' });
+            break
+            case ConfirmEventType.CANCEL:
+            this.messageService.add({ severity: 'info', summary: 'Cancelled', detail: 'Signout out cancelled' });
+            break
         }
       },
     });

@@ -99,3 +99,5 @@
 [5/6/2023, 7:36:27 PM] server	 session-api.js - Invalid credentials entered
 =======
 >>>>>>> 16e2f8559534c207be26e1cc36f2b6bbd3bea7de
+[5/7/2023, 11:19:07 AM] server	 role-api.js - Entered role is not unique
+[5/7/2023, 11:30:09 AM] server	 user-api.js - User rooferdudeee not found
