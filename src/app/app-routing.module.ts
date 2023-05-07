@@ -33,7 +33,7 @@ import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-secu
 import { RegisterComponent } from './pages/register/register.component';
 import { RoleListComponent } from './pages/role-list/role-list.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
-import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+import { AuthGuard } from './shared/auth.guard';
 
 
 // routes
@@ -86,11 +86,7 @@ const routes: Routes = [
       {
         path: 'role-details/:roleId',
         component: RoleDetailsComponent
-      },
-      {
-        path: "graph",
-        component: PurchasesByServiceGraphComponent,
-      },
+      }
     ],
   },
   {
