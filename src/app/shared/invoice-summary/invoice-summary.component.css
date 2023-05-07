@@ -18,4 +18,17 @@ mat-card {
   margin-bottom: 2%;
 }
 
+#print-info {
+  display: block;
+ 
+}
+
+#print-btn {
+  display: block;
+}
+
+#print-div {
+  align-items: center;
+}
+
 
