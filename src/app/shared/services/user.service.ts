@@ -50,6 +50,7 @@ export class UserService {
     return this.http.put('/api/users/' + userId, {
       firstName: user.firstName,
       lastName: user.lastName,
+      role: user.role?.text,
       phoneNumber: user.phoneNumber,
       address: user.address,
       email: user.email,
