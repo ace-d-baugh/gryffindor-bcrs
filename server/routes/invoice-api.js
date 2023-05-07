@@ -55,6 +55,7 @@ const myfile = "invoice-api.js";
  *                   type: object
  *                   required:
  *                     - title
+ *                     - subtitle
  *                     - price
  *                   properties:
  *                     title:
@@ -143,6 +144,7 @@ router.get("/purchases-graph", async (req, res) => {
           $group: {
             _id: {
               title: "$lineItems.title",
+              subtitle: "$lineItems.subtitle",
               price: "$lineItems.price",
             },
             count: { $sum: 1 },

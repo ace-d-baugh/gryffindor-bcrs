@@ -16,6 +16,7 @@ const Schema = mongoose.Schema;
 //line item schema
 let LineItemSchema = new Schema({
   title: { type: String },
+  subtitle: { type: String },
   price: { type: Number },
 });
 

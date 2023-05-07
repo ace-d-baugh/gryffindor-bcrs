@@ -12,6 +12,6 @@
 // Export interface
 export interface LineItem {
   title: string;
+  subtitle: string;
   price: number;
-  labor: number;
 }

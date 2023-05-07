@@ -94,6 +94,8 @@ export class HomeComponent implements OnInit {
         if (result === 'confirm') {
           this.invoiceService.createInvoice(this.username, this.invoice).subscribe({
             next: (res) => {
+
+              // Make this instead go to a Thank You page with an option to print the invoice
               console.log('Invoice Created');
               this.reloadProducts();
               this.clearLineItems();

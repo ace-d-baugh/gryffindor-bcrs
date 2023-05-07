@@ -8,87 +8,80 @@
 =====================================================
 -->
 
-<div class="base-container">
+<div class="invoice-container">
+  <!--user pulled from MongoDB-->
+  <div>
+    <h1 class="center mb">{{ username }}, please confirm you order.</h1>
+  </div>
+  <div class="center">
+    <h4 class="mb">Order date: {{ orderDate | date }}</h4>
+  </div>
 
-<!--user pulled from MongoDB-->
-    <mat-card class="card">
-      <h1 class="center mb">
-        {{ username }} please confirm you order.
-      </h1>
-    </mat-card>
-    <mat-card-subtitle style="text-align: center;">
-      Order date: {{ orderDate | date }}
-    </mat-card-subtitle>
-    <br>
-
-    <div mat-dialog-content>
-      <div fxLayout="column" fxLayoutGap="10px">
-        <div fxFlex>
-          <!--services-->
-          <mat-card class="card">
-            <h2>Services</h2>
-            <mat-card-content>
-              <!-- display lineItem title and price -->
-              <div *ngFor="let lineItem of invoice.getLineItems()">
-                <mat-list>
-                  <h2>
-                    {{ lineItem.title }}:
-                    <div fxFlex></div>
-                    {{ lineItem.price | currency: 'EUR':'symbol':     '1.2-2' }}
-                  </h2>
-                </mat-list>
-              </div>
-            </mat-card-content>
-          </mat-card>
-        </div><br>
-
-        <!-- labor -->
-        <div fxFlex>
-          <mat-card class="card">
-            <h2>Labor</h2>
-            <mat-card-content>
-              <mat-list>
-                <h2 *ngFor="let lineItem of invoice.getLineItems()">
-                  {{ lineItem.title }}
-                  @ 50/hr:
-                  <div fxFlex></div>
-                  {{ lineItem.labor * 50 | currency: 'EUR':'symbol':'1.2-2' }}
-                </h2>
-              </mat-list>
-            </mat-card-content>
-          </mat-card>
-        </div><br>
-
-        <div fxFlex>
-          <!-- total -->
-          <mat-card class="card">
-            <h2>Total</h2>
-            <mat-card-content>
-              <mat-list>
-                <h2>
-                  &nbsp;
-                  <div fxFlex></div>
-                  Total charges: {{ total | currency:'EUR':'symbol':'1.2-2' }}
-                </h2>
-              </mat-list>
-            </mat-card-content>
-          </mat-card>
-         </div><br>
+  <!--services-->
+  <div class="invoice-services">
+    <h2 class="mb">Services</h2>
+    <div class="services-list">
+      <!-- display lineItem title and price -->
+      <div *ngFor="let lineItem of invoice.getLineItems()" class="line-item p1">
+        <div class="flex split">
+          <h3>
+            {{ lineItem.title }}:
+            <h5>{{ lineItem.subtitle }}</h5>
+          </h3>
+          <h3>
+            {{ lineItem.price | currency : "GBP" : "symbol" : "1.2-2" }}
+          </h3>
+        </div>
       </div>
     </div>
+  </div>
 
-<div mat-dialog-actions class="buttons reverse split">
-  <button matDialogClose="confirm" class="btn m3">
-    Confirm Order
-  </button>
-  <button matDialogClose="cancel" class="btn m3">
-    Cancel
-  </button>
+  <hr />
+
+  <!--Parts-->
+  <div class="invoice-parts">
+    <h2 class="mb">Parts</h2>
+    <div class="parts-list">
+      <div class="flex split">
+        <h3>
+          Price of Parts Needed
+        </h3>
+        <h3>
+          {{ parts | currency : "GBP" : "symbol" : "1.2-2" }}
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- labor -->
+  <div class="invoice-labor">
+    <h2 class="mb">Labor</h2>
+    <div class="flex split">
+      <h3>Labor Hours @ 50/hr:</h3>
+      <h3>
+        {{ labor * 50 | currency : "GBP" : "symbol" : "1.2-2" }}
+      </h3>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- total -->
+  <div>
+    <h2 class="mb">Total</h2>
+    <div>
+      <div class="line-item split">
+        <h3>Total charges:</h3>
+        <h3>
+          {{ total | currency : "GBP" : "symbol" : "1.2-2" }}
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="buttons reverse split">
+    <button matDialogClose="confirm" class="btn m3">Confirm Order</button>
+    <button matDialogClose="cancel" class="btn m3">Cancel</button>
+  </div>
 </div>
-</div>
-
-
-
-
-
-
