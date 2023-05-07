@@ -12,7 +12,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Role } from 'src/app/shared/models/role.interface';
 import { RoleService } from 'src/app/shared/services/role.service';
-import { ConfirmationService, ConfirmEventType } from 'primeng/api';
+import { ConfirmationService, ConfirmEventType, MessageService } from 'primeng/api';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Message } from 'primeng/api';
 
@@ -20,7 +20,7 @@ import { Message } from 'primeng/api';
   selector: 'app-role-list',
   templateUrl: './role-list.component.html',
   styleUrls: ['./role-list.component.css'],
-  providers: [ConfirmationService]
+  providers: [ConfirmationService, MessageService]
 })
 export class RoleListComponent implements OnInit {
 
@@ -31,7 +31,7 @@ export class RoleListComponent implements OnInit {
     text: [null, Validators.compose([Validators.required])],
   });
 
-  constructor(private roleService: RoleService, private confirmationService: ConfirmationService, private fb: FormBuilder) 
+  constructor(private roleService: RoleService, private confirmationService: ConfirmationService, private fb: FormBuilder, private messageService: MessageService)
   {
     this.roles = [];
     this.errorMessages = [];
@@ -39,26 +39,26 @@ export class RoleListComponent implements OnInit {
     this.roleService.findAllRoles().subscribe
     (
       {
-       next: (res) => 
-       {
-        this.roles = res.data;
-       },
-       error: (e) =>
-       {
-        console.log(e);
-       } 
+        next: (res) =>
+        {
+          this.roles = res.data;
+        },
+        error: (e) =>
+        {
+          console.log(e);
+        }
       }
     )
   }
 
   ngOnInit(): void {
   }
-  
+
   //Client side method for creating a new role
-  create() 
+  create()
   {
-    const newRole: Role = 
-    {      
+    const newRole: Role =
+    {
       //sets newRole to the data the user enters into the form
       text: this.roleForm.controls['text'].value
     }
@@ -68,27 +68,27 @@ export class RoleListComponent implements OnInit {
     this.roleService.createRole(newRole).subscribe
     (
       {
-        next: (res) => 
+        next: (res) =>
         {
-          if (res.data) 
+          if (res.data)
           {
             //if res.data is good (200), adds to the role array
             this.roles.push(res.data);
           }
-          else          
+          else
           {
             //if res data is not good, returns error back to the user
-            this.errorMessages = 
+            this.errorMessages =
             [
               { severity: 'error', summary: 'Error', detail: res.message}
             ]
           }
         },
-        error: (e) => 
+        error: (e) =>
         {
           console.log(e)
         },
-        complete: () => 
+        complete: () =>
         {
           this.roleForm.controls['text'].setErrors({'Incorrect': false})
         }
@@ -104,17 +104,18 @@ export class RoleListComponent implements OnInit {
         message: 'Are you sure you want to delete this record?',
         header: 'Confirmation',
         icon: 'pi pi-exclamation-triangle',
-        accept: () => 
+        accept: () =>
         {
-          this.roleService.deleteRole(roleId).subscribe 
+          this.roleService.deleteRole(roleId).subscribe
           (
             {
-              next: (res) => 
+              next: (res) =>
               {
                 console.log('Role deleted successfully');
                 this.roles = this.roles.filter(role => role._id != roleId);
+                this.messageService.add({severity: 'success', summary: 'Success', detail: 'Role deleted successfully'});
               },
-              error: (e) => 
+              error: (e) =>
               {
                 console.log(e)
               }
@@ -123,7 +124,7 @@ export class RoleListComponent implements OnInit {
         },
         reject: (type: any) =>
         {
-          switch(type) 
+          switch(type)
           {
             case ConfirmEventType.REJECT:
               console.log('User rejected this operation');
