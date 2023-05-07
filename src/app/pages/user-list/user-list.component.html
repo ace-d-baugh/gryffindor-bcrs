@@ -8,11 +8,19 @@
 ;===========================================
 -->
 
+<p-confirmDialog
+    [baseZIndex]="10000"
+    rejectButtonStyleClass="p-button-text"
+></p-confirmDialog>
+
 <div class="main-container">
   <div class="content-title center">
     <h1>Users Configuration Page!</h1>
     <h3>To add a new record select the Add User button</h3>
   </div>
+  <br>
+
+  <p-messages [(value)]="errorMessages"></p-messages>
 
   <div class="center m2">
     <button class="btn" routerLink="/main/users/create/new">Add User</button>
