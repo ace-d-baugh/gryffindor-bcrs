@@ -53,8 +53,6 @@ export class RoleService {
   {
     return this.http.get(`/api/users/${username}/role`).pipe(
       map((res) => {
-        console.log("This is the findUserRole: " + JSON.stringify(res));
-
         return res;
       }
     ));

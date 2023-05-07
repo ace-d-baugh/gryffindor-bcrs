@@ -32,7 +32,6 @@ export class RoleGuard implements CanActivate {
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> {
-    console.log("Session User Name " + this.cookieService.get('sessionUser'));
     return this.roleService.findUserRole(this.cookieService.get("sessionUser")).pipe(
       map((res) => {
         const userRole = res.data.text;

@@ -41,8 +41,6 @@ export class PurchasesByServiceGraphComponent implements OnInit {
 
         //splits services and item count
         for (const item of this.purchases) {
-          console.log('Item object');
-          console.log(item._id);
 
           let title = item._id.title;
           let subtitle = item._id.subtitle;
@@ -151,8 +149,6 @@ export class PurchasesByServiceGraphComponent implements OnInit {
           responsive: true,
         };
 
-        console.log('Data object');
-        console.log(this.data);
       },
       error: (e) => {
         console.log(e);

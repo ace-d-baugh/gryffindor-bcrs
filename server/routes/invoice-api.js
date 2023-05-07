@@ -59,8 +59,13 @@ const myfile = "invoice-api.js";
  *                   properties:
  *                     title:
  *                       type: string
+ *                       required: true
+ *                     subtitle:
+ *                       type: string
+ *                       required: true
  *                     price:
  *                       type: number
+ *                       required: true
  *               partsAmount:
  *                 type: number
  *               laborAmount:
