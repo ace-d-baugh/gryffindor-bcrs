@@ -41,15 +41,13 @@
   <!--Parts-->
   <div class="invoice-parts">
     <h2 class="mb">Parts</h2>
-    <div class="parts-list">
-      <div class="flex split">
+      <div class="flex split p1">
         <h3>
           Price of Parts Needed
         </h3>
         <h3>
           {{ parts | currency : "GBP" : "symbol" : "1.2-2" }}
         </h3>
-      </div>
     </div>
   </div>
 
@@ -58,7 +56,7 @@
   <!-- labor -->
   <div class="invoice-labor">
     <h2 class="mb">Labor</h2>
-    <div class="flex split">
+    <div class="flex split p1">
       <h3>Labor Hours @ 50/hr:</h3>
       <h3>
         {{ labor | currency : "GBP" : "symbol" : "1.2-2" }}
@@ -69,14 +67,14 @@
   <hr />
 
   <!-- total -->
-  <div>
+  <div class="invoice-total mb2">
     <h2 class="mb">Total</h2>
     <div>
-      <div class="line-item split">
+      <div class="flex split p1">
         <h3>Total charges:</h3>
-        <h3>
+        <h2>
           {{ total | currency : "GBP" : "symbol" : "1.2-2" }}
-        </h3>
+        </h2>
       </div>
     </div>
   </div>
