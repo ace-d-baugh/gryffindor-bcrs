@@ -15,10 +15,38 @@ const Invoice = require("../models/invoice");
 const ErrorResponse = require("../services/error-response");
 const BaseResponse = require("../services/base-response");
 const { debugLogger, errorLogger } = require("../logs/logger");
+const Ajv = require('ajv');
 
 // Configurations
 const router = express.Router();
+const ajv = new Ajv();
 const myfile = "invoice-api.js";
+
+const invoiceSchema = {
+  type: "object",
+  required: ["lineItems", "partsAmount", "laborAmount", "lineItemTotal", "total"],
+  additionalProperties: false,
+  properties: {
+    lineItems: {
+      type: "array",
+      items: {
+        type: "object",
+        required: ["title", "subtitle", "price"],
+        additionalProperties: false,
+        properties: {
+          title: { type: "string" },
+          subtitle: { type: "string" },
+          price: { type: "number" },
+        },
+      },
+    },
+    partsAmount: { type: "number" },
+    laborAmount: { type: "number" },
+    lineItemTotal: { type: "number" },
+    total: { type: "number" },
+  },
+};
+
 
 /**
  * createInvoice
@@ -59,13 +87,10 @@ const myfile = "invoice-api.js";
  *                   properties:
  *                     title:
  *                       type: string
- *                       required: true
  *                     subtitle:
  *                       type: string
- *                       required: true
  *                     price:
  *                       type: number
- *                       required: true
  *               partsAmount:
  *                 type: number
  *               laborAmount:
@@ -85,37 +110,79 @@ const myfile = "invoice-api.js";
 // Chad Coded | John Tested | Ace Approved
 router.post("/:username", async (req, res) => {
   try {
-    const newInvoice = {
-      username: req.params.username,
-      lineItems: req.body.lineItems,
-      partsAmount: req.body.partsAmount,
-      laborAmount: req.body.laborAmount,
-      lineItemTotal: req.body.lineItemTotal,
-      total: req.body.total,
-    };
 
-    // Function to create a response object
-    function createResponse(status, data) {
-      return {
-        status,
-        data,
+    // Validate the request body
+    const incomingInvoice = req.body;
+    const validator = ajv.compile(invoiceSchema);
+    const valid = validator(incomingInvoice);
+
+    // If the request body is valid proceed with creating the invoice
+    if (valid) {
+      // Create a new invoice object
+      const newInvoice = {
+        username: req.params.username,
+        lineItems: req.body.lineItems,
+        partsAmount: req.body.partsAmount,
+        laborAmount: req.body.laborAmount,
+        lineItemTotal: req.body.lineItemTotal,
+        total: req.body.total,
       };
-    }
 
-    // Creates a new invoice
-    Invoice.create(newInvoice, (err, invoice) => {
-      if (err) {
-        const responseObj = createResponse(501, err);
-        res.status(501).send(responseObj);
-      } else {
-        // Invoice successfully created
-        const responseObj = createResponse(200, invoice);
-        res.json(responseObj);
+      // Function to create a response object
+      function createResponse(status, data) {
+        return {
+          status,
+          data,
+        };
       }
-    });
-  } catch (err) {
-    const responseObj = createResponse(500, err);
-    res.status(500).send(responseObj);
+
+      // Creates a new invoice
+      Invoice.create(newInvoice, (err, invoice) => {
+        if (err) {
+          console.log(err);
+          const createInvoiceMongodbErrorResponse = new ErrorResponse(
+            "500",
+            "Internal server error",
+            err
+          );
+          res
+            .status(500)
+            .send(createInvoiceMongodbErrorResponse.toObject());
+          errorLogger({ filename: myfile, message: "Internal server error" });
+        } else {
+          // Invoice successfully created
+          console.log(invoice);
+          const createInvoiceResponse = new BaseResponse(
+            "200",
+            "Query successful",
+            invoice
+          );
+          res.json(createInvoiceResponse.toObject());
+          debugLogger({ filename: myfile, message: "Invoice created" });
+        }
+      });
+    } else {
+      // Body does not match schema
+      console.log("Body does not match schema");
+      const invoiceValidationError = new ErrorResponse(
+        "400",
+        "Bad request",
+        `Invalid request, body does not match schema ${req.body}`
+      );
+      console.log(invoiceValidationError)
+      errorLogger({ filename: myfile, message: "Bad request, input does not match schema" });
+      res.json(invoiceValidationError.toObject());
+    }
+  } catch (e) {
+    // Server exception
+    console.log(e);
+    const createInvoiceCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e.message
+    );
+    res.status(500).send(createInvoiceCatchErrorResponse.toObject());
+    errorLogger({ filename: myfile, message: "Internal server error" });
   }
 });
 
