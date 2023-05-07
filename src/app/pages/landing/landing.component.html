@@ -24,51 +24,6 @@
       <div class="nav-link" routerLink="/main/contact">Contact</div>
       <!-- if not signed in, show sign-in link -->
       <div class="nav-link" routerLink="/session/sign-in" *ngIf="!sessionName">Sign-In</div>
-
-      <button [matMenuTriggerFor]="session" mat-icon-button class="ml-xs" *ngIf="sessionName">
-        <mat-icon>person</mat-icon>
-      </button>
-
-      <mat-menu #session="matMenu" x-position="before" class="user-menu">
-        <button
-          mat-menu-item
-          style="text-align: center; font-weight: bold"
-        >
-          Welcome {{ sessionName }}
-        </button>
-
-        <mat-divider></mat-divider>
-
-        <button mat-menu-item [matMenuTriggerFor]="configs" class="user-menu-item">
-          <mat-icon>settings</mat-icon>
-          Configurations
-        </button>
-
-        <mat-menu #configs="matMenu" class="user-menu">
-          <!-- users list -->
-
-          <button mat-menu-item routerLink="/main/users" class="user-menu-item">
-            <mat-icon>supervisor_account</mat-icon>
-            User List
-          </button>
-
-          <button mat-menu-item routerLink="/main/role-list" class="user-menu-item">
-            <mat-icon>supervised_user_circle</mat-icon>
-            Roles
-          </button>
-
-          <!-- security questions -->
-          <button mat-menu-item routerLink="/main/security-question-list" class="user-menu-item">
-            <mat-icon>help</mat-icon>
-            Security Questions
-          </button>
-        </mat-menu>
-
-        <button mat-menu-item (click)="signout()" class="user-menu-item">
-          <mat-icon>logout</mat-icon>
-          Sign out
-        </button>
-      </mat-menu>
     </div>
   </header>
   <div>

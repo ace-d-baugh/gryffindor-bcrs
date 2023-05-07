@@ -710,13 +710,11 @@ router.get("/:username/role", async (req, res) => {
       } else {
         if (user != null) {
           //if user not null, return user role to BaseResponse.
-          console.log(user);
           const findUserRoleResponse = new BaseResponse(
             "200",
             "Query Successful",
             user.role
           );
-          console.log("This is the User Role: " + user.role.text);
           res.json(findUserRoleResponse.toObject());
           debugLogger({
             filename: myFile,
