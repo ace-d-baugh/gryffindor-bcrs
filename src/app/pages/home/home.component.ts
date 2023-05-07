@@ -9,7 +9,6 @@
 =====================================================
 */
 
-
 // import statements
 import { Component, OnInit } from '@angular/core';
 import { LineItem } from 'src/app/shared/models/line-item.interface';
@@ -32,7 +31,6 @@ import { InvoiceSummaryComponent } from 'src/app/shared/invoice-summary/invoice-
 
 // export class
 export class HomeComponent implements OnInit {
-
   username: string;
   products: Product[];
   lineItems: LineItem[];
@@ -41,8 +39,12 @@ export class HomeComponent implements OnInit {
   successMessages: Message[];
 
   // constructor
-  constructor(private cookieService: CookieService, private productService: ProductService, private invoiceService: InvoiceService, private dialogRef: MatDialog) {
-
+  constructor(
+    private cookieService: CookieService,
+    private productService: ProductService,
+    private invoiceService: InvoiceService,
+    private dialogRef: MatDialog
+  ) {
     this.username = this.cookieService.get('sessionUser') ?? '';
     this.products = [];
     this.lineItems = [];
@@ -90,26 +92,29 @@ export class HomeComponent implements OnInit {
       });
 
       // after dialog is closed
-      dialogRef.afterClosed().subscribe(result => {
+      dialogRef.afterClosed().subscribe((result) => {
         if (result === 'confirm') {
-          this.invoiceService.createInvoice(this.username, this.invoice).subscribe({
-            next: (res) => {
-
-              // Make this instead go to a Thank You page with an option to print the invoice
-              console.log('Invoice Created');
-              this.reloadProducts();
-              this.clearLineItems();
-              this.invoice.clear();
-              this.successMessages = [{
-                severity: 'success',
-                summary: 'Success',
-                detail: 'Your order has been processed successfully.'}
-              ]
-            },
-            error: (e) => {
-              console.log(e);
-            }
-          })
+          this.invoiceService
+            .createInvoice(this.username, this.invoice)
+            .subscribe({
+              next: (res) => {
+                // Make this instead go to a Thank You page with an option to print the invoice
+                console.log('Invoice Created');
+                this.reloadProducts();
+                this.clearLineItems();
+                this.invoice.clear();
+                this.successMessages = [
+                  {
+                    severity: 'success',
+                    summary: 'Success',
+                    detail: 'Your order has been processed successfully.',
+                  },
+                ];
+              },
+              error: (e) => {
+                console.log(e);
+              },
+            });
           // if result is cancel
         } else {
           console.log('Order Cancelled');
@@ -117,14 +122,16 @@ export class HomeComponent implements OnInit {
           this.clearLineItems();
           this.invoice.clear();
         }
-      })
+      });
       // if line items are less than 0
     } else {
-      this.errorMessages = [{
-        severity: 'error',
-        summary: 'Error',
-        detail: 'Invoice Cancelled'
-      }]
+      this.errorMessages = [
+        {
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Invoice Cancelled',
+        },
+      ];
     }
   }
 

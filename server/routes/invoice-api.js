@@ -20,7 +20,6 @@ const { debugLogger, errorLogger } = require("../logs/logger");
 const router = express.Router();
 const myfile = "invoice-api.js";
 
-
 /**
  * createInvoice
  * @openapi
@@ -79,7 +78,7 @@ const myfile = "invoice-api.js";
  *         description: MongoDB exception
  */
 // Chad Coded | John Tested | Ace Approved
-router.post('/:username', async (req, res) => {
+router.post("/:username", async (req, res) => {
   try {
     const newInvoice = {
       username: req.params.username,
@@ -114,8 +113,6 @@ router.post('/:username', async (req, res) => {
     res.status(500).send(responseObj);
   }
 });
-
-
 
 /**
  * FindPurchaseByService

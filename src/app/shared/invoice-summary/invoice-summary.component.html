@@ -41,13 +41,11 @@
   <!--Parts-->
   <div class="invoice-parts">
     <h2 class="mb">Parts</h2>
-      <div class="flex split p1">
-        <h3>
-          Price of Parts Needed
-        </h3>
-        <h3>
-          {{ parts | currency : "GBP" : "symbol" : "1.2-2" }}
-        </h3>
+    <div class="flex split p1">
+      <h3>Price of Parts Needed</h3>
+      <h3>
+        {{ parts | currency : "GBP" : "symbol" : "1.2-2" }}
+      </h3>
     </div>
   </div>
 
@@ -79,11 +77,13 @@
     </div>
   </div>
   <div class="buttons reverse split">
-    <button matDialogClose="confirm" class="btn m3">Confirm Order</button>           
+    <button matDialogClose="confirm" class="btn m3">Confirm Order</button>
     <button matDialogClose="cancel" class="btn m3">Cancel</button>
   </div>
   <div class="buttons split" id="print-div">
-    <h3 class ="print-info">Thank you for your order! Click here to print a copy for your records >>>></h3>
+    <h3 class="print-info">
+      Thank you for your order! Click here to print a copy for your records >>>>
+    </h3>
     <button (click)="printPage()" class="btn m3 print-info">Print</button>
   </div>
 </div>

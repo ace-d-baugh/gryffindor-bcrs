@@ -17,7 +17,7 @@ const lineItemDocument = require("../schemas/line-item");
 
 // invoiceSchema model
 const invoiceSchema = new Schema({
-  userName: { type: String },
+  username: { type: String },
   lineItems: [lineItemDocument],
   partsAmount: { type: Number },
   laborAmount: { type: Number },

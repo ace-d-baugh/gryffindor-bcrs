@@ -17,7 +17,7 @@ export class Invoice {
   private username: string;
   private lineItems: LineItem[];
   private orderDate: string;
-  private LABOR_RATE: number = 50.00;
+  private LABOR_RATE: number = 50.0;
 
   partsAmount: number;
   laborHours: number;
@@ -73,7 +73,11 @@ export class Invoice {
 
   // get total
   getTotal(): number {
-    return Number(this.partsAmount) + Number(this.getLaborAmount()) + Number(this.getLineItemTotal());
+    return (
+      Number(this.partsAmount) +
+      Number(this.getLaborAmount()) +
+      Number(this.getLineItemTotal())
+    );
   }
 
   // clears the invoice

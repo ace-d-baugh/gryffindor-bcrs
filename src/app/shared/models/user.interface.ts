@@ -9,8 +9,8 @@
 =====================================================
 */
 
-import { SelectedSecurityQuestion } from "./selected-security-question.interface";
-import { Role } from "./role.interface";
+import { SelectedSecurityQuestion } from './selected-security-question.interface';
+import { Role } from './role.interface';
 
 //export interface
 export interface User {

@@ -49,10 +49,12 @@ export class RoleService {
     return this.http.delete(`/api/role/${roleId}`);
   }
 
-  findUserRole(userName: string): Observable<any>
+  findUserRole(username: string): Observable<any>
   {
-    return this.http.get(`/api/users/${userName}/role`).pipe(
+    return this.http.get(`/api/users/${username}/role`).pipe(
       map((res) => {
+        console.log("This is the findUserRole: " + JSON.stringify(res));
+
         return res;
       }
     ));

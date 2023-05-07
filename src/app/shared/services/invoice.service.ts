@@ -17,14 +17,13 @@ import { HttpClient } from '@angular/common/http';
 
 // Injectable
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 
 // Export class
 export class InvoiceService {
-
   // Constructor
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // Create invoice
   createInvoice(username: string, invoice: Invoice): Observable<any> {
@@ -38,7 +37,7 @@ export class InvoiceService {
       laborAmount: invoice.getLaborAmount(),
       lineItemTotal: invoice.getLineItemTotal(),
       total: invoice.getTotal(),
-    })
+    });
   }
 
   // Find purchase by service for the graph

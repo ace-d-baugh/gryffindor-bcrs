@@ -51,8 +51,7 @@ export class InvoiceSummaryComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  printPage() 
-  {
+  printPage() {
     window.print();
   }
 }

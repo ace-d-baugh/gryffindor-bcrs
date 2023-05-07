@@ -332,13 +332,11 @@ const roleSchema = {
 
 router.put("/:roleId", async (req, res) => {
   try {
-
     const updateRole = req.body;
     const validator = ajv.compile(roleSchema);
     const valid = validator(updateRole);
 
-    if (valid)
-    {
+    if (valid) {
       //finds the role by id
       Role.findOne({ _id: req.params.roleId }, function (err, role) {
         if (err) {
@@ -404,12 +402,15 @@ router.put("/:roleId", async (req, res) => {
     }
   } catch (e) {
     console.log(e);
-    const updateRoleCatchErrorResponse = new ErrorResponse('500', 'Internal Server Error', e.message)
-    res.status(500).send(updateRoleCatchErrorResponse.toObject())
-    errorLogger({filename: myfile, message: 'Internal server error'})
+    const updateRoleCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal Server Error",
+      e.message
+    );
+    res.status(500).send(updateRoleCatchErrorResponse.toObject());
+    errorLogger({ filename: myfile, message: "Internal server error" });
   }
 });
-
 
 /**
  * deleteRole

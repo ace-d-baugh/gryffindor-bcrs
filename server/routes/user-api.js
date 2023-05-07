@@ -51,7 +51,7 @@ const createUserSchema = {
       type: "string",
     },
     role: {
-      type: "string"
+      type: "string",
     },
   },
   required: [
@@ -86,7 +86,7 @@ const updateUserSchema = {
       type: "string",
     },
     role: {
-      type: "string"
+      type: "string",
     },
   },
   required: ["firstName", "lastName", "phoneNumber", "email", "address"],
@@ -276,7 +276,7 @@ router.post("/", async (req, res) => {
         text: "standard",
       };
 
-      console.log(standardRole)
+      console.log(standardRole);
 
       //defining new user object from info entered on screen
       createNewUser = {
@@ -386,7 +386,7 @@ router.post("/", async (req, res) => {
  *              description: Bad request/Invalid User
  *          '500':
  *              description: Internal Server/MongoDb Exception
- *         
+ *
  */
 // Chad Coded | John & Ace Tested & Approved
 router.put("/:id", async (req, res) => {
@@ -410,9 +410,7 @@ router.put("/:id", async (req, res) => {
             message: `User ${req.params.id} not found`,
           });
         } else {
-
-          if (user) 
-          {
+          if (user) {
             console.log(user);
 
             user.set({
@@ -426,8 +424,7 @@ router.put("/:id", async (req, res) => {
             });
 
             user.save(function (err, savedUser) {
-              if (err) 
-              {
+              if (err) {
                 console.log(err);
                 const saveUserMongodbErrorResponse = new ErrorResponse(
                   500,
@@ -439,9 +436,7 @@ router.put("/:id", async (req, res) => {
                   filename: myFile,
                   message: "Validation of updates failed",
                 });
-              } 
-              else 
-              {
+              } else {
                 console.log(savedUser);
                 const saveUserResponse = new BaseResponse(
                   200,
@@ -455,13 +450,18 @@ router.put("/:id", async (req, res) => {
                 });
               }
             });
-          }
-          else
-          {
-            console.log(user)
-            const updateUserByIdErrorResponse = new ErrorResponse('404', 'Bad Request or invalid id', user)
+          } else {
+            console.log(user);
+            const updateUserByIdErrorResponse = new ErrorResponse(
+              "404",
+              "Bad Request or invalid id",
+              user
+            );
             res.status(404).send(updateUserByIdErrorResponse.toObject());
-            errorLogger({filename: myFile, message: `User id: ${req.params.id} not found`})
+            errorLogger({
+              filename: myFile,
+              message: `User id: ${req.params.id} not found`,
+            });
           }
         }
       });
@@ -608,7 +608,7 @@ router.delete("/:id", async (req, res) => {
 router.get("/:username/security-questions", async (req, res) => {
   try {
     // Find user by username
-    User.findOne({ 'username': req.params.username }, function (err, user) {
+    User.findOne({ username: req.params.username }, function (err, user) {
       if (user === null) {
         const findSelectedSecurityQuestionsNotFoundResponse = new ErrorResponse(
           404,
@@ -686,53 +686,68 @@ router.get("/:username/security-questions", async (req, res) => {
  *         description: Bad Request/Invalid User
  *       '500':
  *         description: Internal Server/MongoDB Exception
- * 
+ *
  */
 // John Coded |  Tested |  Approved
 
-router.get('/:username/role', async (req, res) => {
-
-  try
-  {
+router.get("/:username/role", async (req, res) => {
+  try {
     //looks up username on database
-    User.findOne({'username': req.params.username}, function(err, user)
-    {
-      if(err)
-      {
+    User.findOne({ username: req.params.username }, function (err, user) {
+      if (err) {
         //if error getting data from Mongo
-        console.log(err)
-        const findUserRoleMongodbErrorResponse = new ErrorResponse('500', 'Internal Server Error', err);
+        console.log(err);
+        const findUserRoleMongodbErrorResponse = new ErrorResponse(
+          "500",
+          "Internal Server Error",
+          err
+        );
         res.status(500).send(findUserRoleMongodbErrorResponse.toObject());
-        errorLogger({filename: myFile, message: `Error retrieving user ${user.username} from Mongo`})
-      }
-      else 
-      {
-        if (user)
-        {
-           //if user not null, return user role to BaseResponse.
+        errorLogger({
+          filename: myFile,
+          message: `Error retrieving user ${user.username} from Mongo`,
+        });
+      } else {
+        if (user != null) {
+          //if user not null, return user role to BaseResponse.
           console.log(user);
-          const findUserRoleResponse = new BaseResponse('200', 'Query Successful', user.role.text);
+          const findUserRoleResponse = new BaseResponse(
+            "200",
+            "Query Successful",
+            user.role
+          );
+          console.log("This is the User Role: " + user.role.text);
           res.json(findUserRoleResponse.toObject());
-          debugLogger({filename: myFile, message: `User ${user.username} role is ${user.role.text}`})
-        }
-        else
-        {
+          debugLogger({
+            filename: myFile,
+            message: `User ${user.username} role is ${user.role.text}`,
+          });
+        } else {
           //if user is null, send a 404 error.
-          console.log(user)
-          const findUserRoleResponseError = new ErrorResponse('404', 'Bad Request or invalid user name', user)
+          console.log(user);
+          const findUserRoleResponseError = new ErrorResponse(
+            "404",
+            "Bad Request or invalid user name",
+            user
+          );
           res.status(404).send(findUserRoleResponseError.toObject());
-          errorLogger({filename: myFile, message: `User ${req.params.username} not found`})
+          errorLogger({
+            filename: myFile,
+            message: `User ${req.params.username} not found`,
+          });
         }
       }
-    })
-  }
-  catch(e)
-  {
+    });
+  } catch (e) {
     console.log(e);
-    const findUserRoleCatchErrorResponse = new ErrorResponse('500', 'Internal Server Error', e.message);
-    res.status(500).send(findUserRoleCatchErrorResponse.toObject())
+    const findUserRoleCatchErrorResponse = new ErrorResponse(
+      "500",
+      "Internal Server Error",
+      e.message
+    );
+    res.status(500).send(findUserRoleCatchErrorResponse.toObject());
   }
-})
+});
 
 // Export the router
 module.exports = router;

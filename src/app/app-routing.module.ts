@@ -88,12 +88,12 @@ const routes: Routes = [
       },
       {
         path: 'role-details/:roleId',
-        component: RoleDetailsComponent
+        component: RoleDetailsComponent,
       },
       {
-        path: "graph",
+        path: 'graph',
         component: PurchasesByServiceGraphComponent,
-        canActivate: [RoleGuard]
+        canActivate: [RoleGuard],
       },
       {
         path: 'print',
@@ -102,10 +102,10 @@ const routes: Routes = [
         children: [
           {
             path: 'invoice',
-            component: InvoiceSummaryComponent
-          }
-        ]
-      }
+            component: InvoiceSummaryComponent,
+          },
+        ],
+      },
     ],
   },
   {

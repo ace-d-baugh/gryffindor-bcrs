@@ -27,7 +27,6 @@ import {
   animate,
 } from '@angular/animations';
 
-
 const fadeAnimation = trigger('fade', [
   state('void', style({ opacity: 0 })),
   state('*', style({ opacity: 1 })),
@@ -246,6 +245,4 @@ export class RegisterComponent implements OnInit {
       );
     }
   }
-
-
 }
