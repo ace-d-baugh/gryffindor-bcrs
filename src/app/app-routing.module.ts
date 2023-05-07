@@ -37,6 +37,7 @@ import { AuthGuard } from './shared/auth.guard';
 import { PrintLayoutComponent } from './pages/print-layout/print-layout.component';
 import { InvoiceSummaryComponent } from './shared/invoice-summary/invoice-summary.component';
 import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+import { RoleGuard } from './shared/role.guard';
 
 // routes
 const routes: Routes = [
@@ -92,6 +93,7 @@ const routes: Routes = [
       {
         path: "graph",
         component: PurchasesByServiceGraphComponent,
+        canActivate: [RoleGuard]
       },
       {
         path: 'print',
