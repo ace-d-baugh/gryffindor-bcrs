@@ -80,8 +80,75 @@ export class PurchasesByServiceGraphComponent implements OnInit {
                 '#D3A625CC',
               ],
               data: this.itemCount,
+              borderColor: '#210706',
+              borderWidth: 1,
+              hoverBorderColor: '#EEBA30',
+              hoverBorderWidth: 3,
+              hoverOffset: 50,
             },
           ],
+        };
+
+        //options for graph
+        this.options = {
+          layout: {
+            padding: {
+              left: 20,
+              right: 0,
+              top: 0,
+              bottom: 0,
+            },
+          },
+          plugins: {
+            legend: {
+              title: {
+                display: true,
+                text: 'Services',
+                font: {
+                  size: 24,
+                  family: 'Philosopher, sans-serif',
+                  weight: 'bold',
+                },
+                color: '#740001',
+              },
+              position: 'right',
+              labels: {
+                font: {
+                  size: 16,
+                  family: 'Lato, sans-serif',
+                  weight: 'bold',
+                },
+                color: '#740001',
+                boxWidth: 20,
+                boxHeight: 20,
+                padding: 15,
+                usePointStyle: true,
+                pointStyle: 'triangle',
+              },
+            },
+            tooltip: {
+              enabled: true,
+              backgroundColor: '#740001',
+              usePointStyle: true,
+              pointStyle: 'triangle',
+              titleColor: '#F5DEB3',
+              titleFont: {
+                size: 14,
+                family: 'Lato, sans-serif',
+                weight: 'bold',
+              },
+              bodyColor: '#F5DEB3',
+              bodyFont: {
+                size: 14,
+                family: 'Lato, sans-serif',
+                weight: 'bold',
+              },
+              cornerRadius: 0,
+              borderColor: '#F5DEB3',
+              borderWidth: 1,
+            },
+          },
+          responsive: true,
         };
 
         console.log('Data object');
