@@ -1,3 +1,12 @@
+/*
+=====================================================
+; File Name: purchase-by-service-graph.component.css
+; Project: Gryffindor - Bob's Computer Repair Shop
+; Author: Chad ONeal
+; Date: 05/06/2023
+=====================================================
+*/
+
 h1 {
   text-align: center;
 }
@@ -7,6 +16,7 @@ h3 {
 }
 
 .purchase-graph{
-  width: 1400px;
+  width: 1600px;
   opacity: 88%;
+  border-radius: 0;
 }

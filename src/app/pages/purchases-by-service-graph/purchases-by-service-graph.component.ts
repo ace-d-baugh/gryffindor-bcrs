@@ -1,13 +1,16 @@
+/*
+============================================
+; Title: purchases-by-service-graph.component.ts
+; Author: Professor Krasso
+; Modified by: Chad ONeal
+; Date: 05/06/2023
+; Description: purchases-by-service-graph.component.ts
+===========================================
+*/
+
+//import statements
 import { Component, OnInit } from '@angular/core';
 import { InvoiceService } from 'src/app/shared/services/invoice.service';
-import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
-import {
-  ConfirmationService,
-  ConfirmEventType,
-  MessageService,
-} from 'primeng/api';
-
 
 //component that pulls invoice info into graph
 @Component({
@@ -53,22 +56,28 @@ export class PurchasesByServiceGraphComponent implements OnInit {
           datasets: [
             {
               backgroundColor: [
-                '#F1E8B8',
-                '#F9E784',
-                '#E58F65',
-                '#D05353',
-                '#fcba03',
-                '#f0c75e',
-                '#7d6729'
+                '#740001',
+                '#ae0001',
+                '#BA4422',
+                '#FF8C00',
+                '#D3A625',
+                '#EEBA30',
+                '#FFDB58',
+                '#D4BC92',
+                '#8B4513',
+                '#fff',
               ],
               hoverBackgroundColor: [
-                '#F1E8B8',
-                '#F9E784',
-                '#E58F65',
-                '#D05353',
-                '#fcba03',
-                '#f0c75e',
-                '#7d6729'
+                '#740001',
+                '#ae0001',
+                '#BA4422',
+                '#FF8C00',
+                '#D3A625',
+                '#EEBA30',
+                '#FFDB58',
+                '#D4BC92',
+                '#8B4513',
+                '#21706',
               ],
               data: this.itemCount
             },
