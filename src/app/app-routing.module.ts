@@ -64,30 +64,37 @@ const routes: Routes = [
       {
         path: 'security-question-list',
         component: SecurityQuestionListComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'security-question-details/:questionId',
         component: SecurityQuestionDetailsComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'users',
         component: UserListComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'users/create/new',
         component: UserCreateComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'users/user-details/:userId',
         component: UserDetailsComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'role-list',
         component: RoleListComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'role-details/:roleId',
         component: RoleDetailsComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'graph',

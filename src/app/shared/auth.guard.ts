@@ -38,7 +38,7 @@ export class AuthGuard implements CanActivate {
     | boolean
     | UrlTree {
     // check if session user exists
-    const sessionUser = this.cookieService.get('session_user');
+    const sessionUser = this.cookieService.get('sessionUser');
     if (sessionUser) {
       return true;
     } else {
