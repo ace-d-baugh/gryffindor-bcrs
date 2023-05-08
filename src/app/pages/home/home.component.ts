@@ -3,7 +3,7 @@
 ; File Name: home.component.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; File Description: Home component
 ; Modifications: Ace Baugh
 =====================================================
@@ -43,7 +43,8 @@ export class HomeComponent implements OnInit {
     private cookieService: CookieService,
     private productService: ProductService,
     private invoiceService: InvoiceService,
-    private dialogRef: MatDialog
+    private dialogRef: MatDialog,
+    private router: Router
   ) {
     this.username = this.cookieService.get('sessionUser') ?? '';
     this.products = [];
@@ -51,6 +52,7 @@ export class HomeComponent implements OnInit {
     this.invoice = {} as Invoice;
     this.errorMessages = [];
     this.successMessages = [];
+
 
     // get all products
     this.products = this.productService.getProducts();
@@ -81,7 +83,6 @@ export class HomeComponent implements OnInit {
       this.invoice.setLineItems(this.lineItems);
 
       console.log('lineItems.length > 0; this.invoice');
-      console.log(this.invoice);
 
       const dialogRef = this.dialogRef.open(InvoiceSummaryComponent, {
         data: {
@@ -100,16 +101,8 @@ export class HomeComponent implements OnInit {
               next: (res) => {
                 // Make this instead go to a Thank You page with an option to print the invoice
                 console.log('Invoice Created');
+                this.router.navigate(['/main/thank-you'], { state: { invoice: this.invoice, total: this.invoice.getTotal() } });
                 this.reloadProducts();
-                this.clearLineItems();
-                this.invoice.clear();
-                this.successMessages = [
-                  {
-                    severity: 'success',
-                    summary: 'Success',
-                    detail: 'Your order has been processed successfully.',
-                  },
-                ];
               },
               error: (e) => {
                 console.log(e);

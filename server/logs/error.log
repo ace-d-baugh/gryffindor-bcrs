@@ -101,3 +101,35 @@
 >>>>>>> 16e2f8559534c207be26e1cc36f2b6bbd3bea7de
 [5/7/2023, 11:19:07 AM] server	 role-api.js - Entered role is not unique
 [5/7/2023, 11:30:09 AM] server	 user-api.js - User rooferdudeee not found
+[5/8/2023, 12:50:52 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 1:20:13 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 1:23:06 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 1:24:50 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 1:25:22 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 1:26:24 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 1:27:38 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 1:29:24 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 1:31:07 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 1:33:35 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 1:35:28 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 1:36:10 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 1:40:59 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 1:45:24 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 1:54:20 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 2:13:20 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 2:16:54 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 2:17:53 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 2:18:03 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 2:24:36 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 2:26:51 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 2:27:40 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 2:32:42 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 2:36:47 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 2:39:00 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 2:41:04 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 2:53:36 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 3:05:03 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 3:09:01 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 3:11:35 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 3:13:16 PM] server	 invoice-api.js - Bad request, input does not match schema
+[5/8/2023, 3:34:58 PM] server	 invoice-api.js - Bad request, input does not match schema

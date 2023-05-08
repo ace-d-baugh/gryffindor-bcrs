@@ -2,7 +2,7 @@
 ============================================
 ; Title: BCRS
 ; Author: Professor Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; Modified By: Ace Baugh
 ; Description: Home Component
 ;===========================================
@@ -19,11 +19,17 @@
     <div class="navbar">
       <div class="nav-link" routerLink="/">Home</div>
       <div class="nav-link" routerLink="/main/about">About</div>
-      <div class="nav-link" *ngIf="!sessionName" routerLink="/session/sign-in">Services</div>
-      <div class="nav-link" *ngIf="sessionName" routerLink="/main/">Services</div>
+      <div class="nav-link" *ngIf="!sessionName" routerLink="/session/sign-in">
+        Services
+      </div>
+      <div class="nav-link" *ngIf="sessionName" routerLink="/main/">
+        Services
+      </div>
       <div class="nav-link" routerLink="/main/contact">Contact</div>
       <!-- if not signed in, show sign-in link -->
-      <div class="nav-link" routerLink="/session/sign-in" *ngIf="!sessionName">Sign-In</div>
+      <div class="nav-link" routerLink="/session/sign-in" *ngIf="!sessionName">
+        Sign-In
+      </div>
     </div>
   </header>
   <div>
@@ -37,10 +43,18 @@
           potential!
         </div>
         <div class="hero-action-button">
-          <button class="btn hero-button" *ngIf="!sessionName" routerLink="/session/sign-in">
+          <button
+            class="btn hero-button"
+            *ngIf="!sessionName"
+            routerLink="/session/sign-in"
+          >
             ACCIO SERVICE
           </button>
-          <button class="btn hero-button" *ngIf="sessionName" routerLink="/main">
+          <button
+            class="btn hero-button"
+            *ngIf="sessionName"
+            routerLink="/main"
+          >
             ACCIO SERVICE
           </button>
         </div>
@@ -82,10 +96,18 @@
             personalized magical service!
           </p>
           <div class="about-action-button">
-            <button class="btn about-button" *ngIf="!sessionName" routerLink="/session/sign-in">
+            <button
+              class="btn about-button"
+              *ngIf="!sessionName"
+              routerLink="/session/sign-in"
+            >
               ACCIO SERVICE
             </button>
-            <button class="btn about-button" *ngIf="sessionName" routerLink="/main">
+            <button
+              class="btn about-button"
+              *ngIf="sessionName"
+              routerLink="/main"
+            >
               ACCIO SERVICE
             </button>
           </div>

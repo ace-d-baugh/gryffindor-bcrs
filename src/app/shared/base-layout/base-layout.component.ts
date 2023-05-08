@@ -3,7 +3,7 @@
 ; File Name: base-layout.component.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; File Description: Base layout component
 ; Modifications: Chad ONeal
 =====================================================
@@ -19,7 +19,6 @@ import {
   MessageService,
 } from 'primeng/api';
 
-
 // export class
 @Component({
   selector: 'app-base-layout',
@@ -29,6 +28,7 @@ import {
 })
 export class BaseLayoutComponent implements OnInit {
   sessionName: string;
+  sessionRole: string;
   currentYear: number = new Date().getFullYear();
   role: any;
   reports: any;
@@ -41,6 +41,7 @@ export class BaseLayoutComponent implements OnInit {
     private messageService: MessageService
   ) {
     this.sessionName = this.cookieService.get('sessionUser');
+    this.sessionRole = this.cookieService.get('sessionRole');
   }
 
   ngOnInit(): void {}
@@ -52,17 +53,25 @@ export class BaseLayoutComponent implements OnInit {
       header: 'Log out confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.cookieService.deleteAll()
-        this.router.navigate(['/session/sign-in'])
+        this.cookieService.deleteAll();
+        this.router.navigate(['/session/sign-in']);
       },
       reject: (type: any) => {
         switch (type) {
           case ConfirmEventType.REJECT:
-            this.messageService.add({ severity: 'info', summary: 'Cancelled', detail: 'Signout cancelled' });
-            break
-            case ConfirmEventType.CANCEL:
-            this.messageService.add({ severity: 'info', summary: 'Cancelled', detail: 'Signout out cancelled' });
-            break
+            this.messageService.add({
+              severity: 'info',
+              summary: 'Cancelled',
+              detail: 'Signout cancelled',
+            });
+            break;
+          case ConfirmEventType.CANCEL:
+            this.messageService.add({
+              severity: 'info',
+              summary: 'Cancelled',
+              detail: 'Signout out cancelled',
+            });
+            break;
         }
       },
     });

@@ -3,7 +3,7 @@
 ; File Name: app.module.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; File Description: App module
 ; Modifications: Ace Baugh
 =====================================================
@@ -48,7 +48,7 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { BadRequestComponent } from './pages/bad-request/bad-request.component';
-
+import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -70,7 +70,6 @@ import { RoleDetailsComponent } from './pages/role-details/role-details.componen
 import { InvoiceSummaryComponent } from './shared/invoice-summary/invoice-summary.component';
 import { MatListModule } from '@angular/material/list';
 import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
-import { PrintLayoutComponent } from './pages/print-layout/print-layout.component';
 //module
 @NgModule({
   declarations: [
@@ -88,6 +87,7 @@ import { PrintLayoutComponent } from './pages/print-layout/print-layout.componen
     UserCreateComponent,
     AboutComponent,
     ContactComponent,
+    ThankYouComponent,
     UserDetailsComponent,
     BadRequestComponent,
     VerifyUsernameFormComponent,
@@ -98,7 +98,6 @@ import { PrintLayoutComponent } from './pages/print-layout/print-layout.componen
     RoleDetailsComponent,
     InvoiceSummaryComponent,
     PurchasesByServiceGraphComponent,
-    PrintLayoutComponent,
   ],
   imports: [
     BrowserModule,

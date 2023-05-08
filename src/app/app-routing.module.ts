@@ -3,7 +3,7 @@
 ; File Name: app-routing.module.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; File Description: App routing module
 ; Modifications: Ace Baugh, John Vanhessche, Chad ONeal
 =====================================================
@@ -25,6 +25,7 @@ import { ServerErrorComponent } from './pages/server-error/server-error.componen
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { BadRequestComponent } from './pages/bad-request/bad-request.component';
 import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
@@ -34,7 +35,6 @@ import { RegisterComponent } from './pages/register/register.component';
 import { RoleListComponent } from './pages/role-list/role-list.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 import { AuthGuard } from './shared/auth.guard';
-import { PrintLayoutComponent } from './pages/print-layout/print-layout.component';
 import { InvoiceSummaryComponent } from './shared/invoice-summary/invoice-summary.component';
 import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
 import { RoleGuard } from './shared/role.guard';
@@ -51,8 +51,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        // component: ServicesComponent,
-        component: HomeComponent, // depricate
+        component: HomeComponent,
       },
       {
         path: 'about',
@@ -96,15 +95,8 @@ const routes: Routes = [
         canActivate: [RoleGuard],
       },
       {
-        path: 'print',
-        outlet: 'print',
-        component: PrintLayoutComponent,
-        children: [
-          {
-            path: 'invoice',
-            component: InvoiceSummaryComponent,
-          },
-        ],
+        path: 'thank-you',
+        component: ThankYouComponent,
       },
     ],
   },

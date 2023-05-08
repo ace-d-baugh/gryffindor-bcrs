@@ -3,7 +3,7 @@
 ; File Name: error-response.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; File Description: This is the error response class
 ; Modifications: Ace Baugh
 =====================================================

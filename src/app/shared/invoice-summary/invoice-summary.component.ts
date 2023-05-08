@@ -45,13 +45,8 @@ export class InvoiceSummaryComponent implements OnInit {
     this.parts = this.invoice.partsAmount;
     this.labor = this.invoice.getLaborAmount();
     this.total = this.invoice.getTotal();
-
-    console.log(this.invoice);
   }
 
   ngOnInit(): void {}
 
-  printPage() {
-    window.print();
-  }
 }

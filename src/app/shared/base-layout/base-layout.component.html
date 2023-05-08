@@ -2,7 +2,7 @@
 ============================================
 ; Title: base-layout.component.html
 ; Author: Professor Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; Modified By: Chad ONeal
 ; Description: Base Layout Component
 ;===========================================
@@ -89,7 +89,9 @@
           </button>
         </mat-menu>
 
+        <!-- If the user is an admin, show the admin menu -->
         <button
+          *ngIf="sessionRole === 'admin'"
           mat-menu-item
           [matMenuTriggerFor]="reports"
           class="user-menu-item"

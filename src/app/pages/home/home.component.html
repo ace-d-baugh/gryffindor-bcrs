@@ -2,7 +2,7 @@
 ============================================
 ; Title: home.component.html
 ; Author: Professor Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; Modified By: Ace Baugh
 ; Description: Home Component
 ;===========================================
@@ -12,64 +12,83 @@
   <h1 class="center mb">Bob's Computer Repair Services</h1>
   <h3 class="center mb">Choose from some of our a la carte services</h3>
 
-  <form class="services" #invoiceForm="ngForm" (submit)="generateInvoice();">
-
+  <form class="services" #invoiceForm="ngForm" (submit)="generateInvoice()">
     <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
-    <p-messages [(value)]="successMessages" [enableService]="false"></p-messages>
+    <p-messages
+      [(value)]="successMessages"
+      [enableService]="false"
+    ></p-messages>
 
     <h2 class="mb">Services</h2>
     <div class="services-row mb2">
-    <div *ngFor="let product of products">
-      <!-- Service card 1 -->
-      <div class="service-container">
-        <input
-          type="checkbox"
-          id="{{ product.icon }}"
-          [name]="product.title"
-          value="{{ product.price }}"
-          class="services-checkbox"
-          [(ngModel)]="product.checked"
-        />
-        <label for="{{ product.icon }}">
-          <div class="service card">
-            <div class="card-header">
-              <div class="card-title">{{ product.title }}</div>
-              <div class="card-subtitle">{{ product.subtitle }}</div>
+      <div *ngFor="let product of products">
+        <!-- Service card 1 -->
+        <div class="service-container">
+          <input
+            type="checkbox"
+            id="{{ product.icon }}"
+            [name]="product.title"
+            value="{{ product.price }}"
+            class="services-checkbox"
+            [(ngModel)]="product.checked"
+          />
+          <label for="{{ product.icon }}">
+            <div class="service card">
+              <div class="card-header">
+                <div class="card-title">{{ product.title }}</div>
+                <div class="card-subtitle">{{ product.subtitle }}</div>
+              </div>
+              <div class="card-body">
+                <img
+                  src="./assets/images/{{ product.icon }}.svg"
+                  alt="products icons"
+                  class="service-img"
+                />
+              </div>
+              <div class="card-footer">
+                <h3 class="card-footer-text">
+                  £{{ product.price.toFixed(2) }}
+                </h3>
+              </div>
             </div>
-            <div class="card-body">
-              <img
-                src="./assets/images/{{ product.icon }}.svg" alt="products icons"
-                class="service-img"
-              />
-            </div>
-            <div class="card-footer">
-              <h3 class="card-footer-text">£{{ product.price.toFixed(2) }}</h3>
-            </div>
-          </div>
-        </label>
+          </label>
+        </div>
       </div>
-    </div>
     </div>
 
     <div class="standard-fees">
       <h2 class="form-title mb">Standard Fees</h2>
       <div class="form-group">
         <label for="numPartsAmount" class="input-label">Price for Parts</label>
-        <input type="number" id="numPartsAmount" name="numPartsAmount" class="form-control" [(ngModel)]="invoice.partsAmount" min="0" />
+        <input
+          type="number"
+          id="numPartsAmount"
+          name="numPartsAmount"
+          class="form-control"
+          [(ngModel)]="invoice.partsAmount"
+          min="0"
+        />
       </div>
       <div class="form-group">
-        <label for="numLaborHours" class="input-label">Labor Hours @ 50/hr</label>
-        <input type="number" id="numLaborHours" name="numLaborHours" class="form-control" [(ngModel)]="invoice.laborHours" min="0"/>
+        <label for="numLaborHours" class="input-label"
+          >Labor Hours @ 50/hr</label
+        >
+        <input
+          type="number"
+          id="numLaborHours"
+          name="numLaborHours"
+          class="form-control"
+          [(ngModel)]="invoice.laborHours"
+          min="0"
+        />
       </div>
     </div>
-
 
     <div class="buttons reverse split">
       <!-- Clear the form -->
       <button class="btn m3">Order Services</button>
       <button class="btn m3" type="reset">Clear</button>
     </div>
-
   </form>
   <div class="action-container center">
     <button class="btn m3" routerLink="/">Go To Landing</button>

@@ -31216,3 +31216,27 @@
 [5/7/2023, 11:44:18 AM] server	 role-api.js - Query was successful
 [5/7/2023, 11:45:21 AM] server	 session-api.js - User logged in successfully
 [5/7/2023, 11:46:18 AM] server	 session-api.js - User logged in successfully
+[5/8/2023, 10:13:13 AM] server	 role-api.js - Query was successful
+[5/8/2023, 10:13:19 AM] server	 user-api.js - Query on all users was successful
+[5/8/2023, 10:23:52 AM] server	 user-api.js - user metaljames1 found successfully
+[5/8/2023, 10:23:52 AM] server	 role-api.js - Query was successful
+[5/8/2023, 10:30:07 AM] server	 user-api.js - Query on all users was successful
+[5/8/2023, 10:31:42 AM] server	 role-api.js - Query was successful
+[5/8/2023, 11:19:49 AM] server	 session-api.js - User logged in successfully
+[5/8/2023, 1:55:38 PM] server	 user-api.js - User mozart role is standard
+[5/8/2023, 1:55:45 PM] server	 user-api.js - User mozart role is standard
+[5/8/2023, 1:55:52 PM] server	 user-api.js - User mozart role is standard
+[5/8/2023, 2:10:58 PM] server	 session-api.js - User logged in successfully
+[5/8/2023, 2:11:05 PM] server	 user-api.js - Query on all users was successful
+[5/8/2023, 2:11:08 PM] server	 user-api.js - user bach found successfully
+[5/8/2023, 2:11:08 PM] server	 role-api.js - Query was successful
+[5/8/2023, 2:11:14 PM] server	 user-api.js - user bach updated successfully
+[5/8/2023, 2:11:14 PM] server	 user-api.js - Query on all users was successful
+[5/8/2023, 2:12:02 PM] server	 user-api.js - Query on all users was successful
+[5/8/2023, 2:12:17 PM] server	 session-api.js - User logged in successfully
+[5/8/2023, 2:12:30 PM] server	 user-api.js - User bach role is admin
+[5/8/2023, 2:12:30 PM] server	 invoice-api.js - Query successful
+[5/8/2023, 2:13:31 PM] server	 user-api.js - User bach role is admin
+[5/8/2023, 2:13:32 PM] server	 invoice-api.js - Query successful
+[5/8/2023, 2:18:20 PM] server	 user-api.js - User bach role is admin
+[5/8/2023, 2:18:20 PM] server	 invoice-api.js - Query successful

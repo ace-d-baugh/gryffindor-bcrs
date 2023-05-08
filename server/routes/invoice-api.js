@@ -3,7 +3,7 @@
 ; File Name: invoice-api.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; File Description: API for invoices
 ; Modifications: Ace Baugh, Chad ONeal, John Vanhessche
 =====================================================
@@ -15,7 +15,7 @@ const Invoice = require("../models/invoice");
 const ErrorResponse = require("../services/error-response");
 const BaseResponse = require("../services/base-response");
 const { debugLogger, errorLogger } = require("../logs/logger");
-const Ajv = require('ajv');
+const Ajv = require("ajv");
 
 // Configurations
 const router = express.Router();
@@ -24,7 +24,13 @@ const myfile = "invoice-api.js";
 
 const invoiceSchema = {
   type: "object",
-  required: ["lineItems", "partsAmount", "laborAmount", "lineItemTotal", "total"],
+  required: [
+    "lineItems",
+    "partsAmount",
+    "laborAmount",
+    "lineItemTotal",
+    "total",
+  ],
   additionalProperties: false,
   properties: {
     lineItems: {
@@ -46,7 +52,6 @@ const invoiceSchema = {
     total: { type: "number" },
   },
 };
-
 
 /**
  * createInvoice
@@ -110,7 +115,8 @@ const invoiceSchema = {
 // Chad Coded | John Tested | Ace Approved
 router.post("/:username", async (req, res) => {
   try {
-
+    console.log(req.params.username)
+    console.log("Request body: ", req.body);
     // Validate the request body
     const incomingInvoice = req.body;
     const validator = ajv.compile(invoiceSchema);
@@ -128,14 +134,6 @@ router.post("/:username", async (req, res) => {
         total: req.body.total,
       };
 
-      // Function to create a response object
-      function createResponse(status, data) {
-        return {
-          status,
-          data,
-        };
-      }
-
       // Creates a new invoice
       Invoice.create(newInvoice, (err, invoice) => {
         if (err) {
@@ -145,9 +143,7 @@ router.post("/:username", async (req, res) => {
             "Internal server error",
             err
           );
-          res
-            .status(500)
-            .send(createInvoiceMongodbErrorResponse.toObject());
+          res.status(500).send(createInvoiceMongodbErrorResponse.toObject());
           errorLogger({ filename: myfile, message: "Internal server error" });
         } else {
           // Invoice successfully created
@@ -169,8 +165,11 @@ router.post("/:username", async (req, res) => {
         "Bad request",
         `Invalid request, body does not match schema ${req.body}`
       );
-      console.log(invoiceValidationError)
-      errorLogger({ filename: myfile, message: "Bad request, input does not match schema" });
+      console.log(invoiceValidationError);
+      errorLogger({
+        filename: myfile,
+        message: "Bad request, input does not match schema",
+      });
       res.json(invoiceValidationError.toObject());
     }
   } catch (e) {

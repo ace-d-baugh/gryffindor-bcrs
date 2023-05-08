@@ -3,7 +3,7 @@
 ; File Name: landing.component.css
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; File Description: Landing page CSS
 ; Modifications: Ace Baugh
 =====================================================
@@ -30,7 +30,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 1;
-  color: #F5DEB3;
+  color: #f5deb3;
 }
 
 /*stylings for the company logo*/
@@ -70,8 +70,8 @@ header {
 /*  stylings for the navbar links when hovered over*/
 .nav-link:hover {
   color: #740001;
-  background-color: #F5DEB3;
-  box-shadow: 0 .5rem 3rem #740001CC;
+  background-color: #f5deb3;
+  box-shadow: 0 0.5rem 3rem #740001cc;
 }
 
 /*stylings for the navbar links when active*/
@@ -90,7 +90,7 @@ header {
   justify-content: center;
   align-items: start;
   margin: 0 2rem;
-  color: #F5DEB3;
+  color: #f5deb3;
   padding: 2rem;
 }
 
@@ -118,7 +118,7 @@ header {
 
 /*stylings for the hero image button*/
 .btn {
-  background-color: #F5DEB3;
+  background-color: #f5deb3;
   color: #740001;
   border: none;
 }
@@ -128,7 +128,7 @@ header {
   padding: 1.75rem;
   font-size: 1.75rem;
   font-weight: 700;
-  box-shadow: 1rem 1rem #EEBA30;
+  box-shadow: 1rem 1rem #eeba30;
 }
 
 /*stylings for the hero image button when hovered over*/
@@ -140,24 +140,24 @@ header {
   width: 30rem;
   height: 18rem;
   padding: 1rem;
-  color: #F5DEB3;
+  color: #f5deb3;
 }
 
 /*stylings for the hero image button when hovered over*/
 .hero-review-rating {
-  color: #EEBA30;
+  color: #eeba30;
   font-size: 2rem;
   display: flex;
 }
 
 /*stylings for the hero image button when hovered over*/
 .rating-star {
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
 }
 
 /*  stylings for the hero image button when hovered over*/
 .hero-review-body {
-  padding: 1rem .25rem;
+  padding: 1rem 0.25rem;
 }
 
 /*stylings for the hero image button when hovered over*/
@@ -174,7 +174,7 @@ header {
 
 /*  stylings for the hero image button when hovered over*/
 .about {
-  background-color: #F5DEB3CC;
+  background-color: #f5deb3cc;
   width: 100%;
   padding: 5rem;
   color: #210706;
@@ -211,7 +211,7 @@ header {
 .about-text a:hover {
   color: #740001;
   border: 1px solid #210706;
-  box-shadow: .25rem .25rem #EEBA30;
+  box-shadow: 0.25rem 0.25rem #eeba30;
 }
 
 /*stylings for the hero image button when hovered over*/
@@ -223,7 +223,7 @@ header {
 /*stylings for the hero image button when hovered over*/
 .about-button {
   padding: 1rem;
-  box-shadow: .5rem .5rem #EEBA30;
+  box-shadow: 0.5rem 0.5rem #eeba30;
   font-weight: 700;
   font-size: 1rem;
   border: 1px solid #210706;
@@ -231,21 +231,29 @@ header {
 
 /*stylings for the hero image button when hovered over*/
 .reviews {
-  background-image: linear-gradient(290deg, #F5DEB3 0%, #F5DEB3 40%, transparent 40%, transparent 60%, #F5DEB3 60%, #F5DEB3 100%);
+  background-image: linear-gradient(
+    290deg,
+    #f5deb3 0%,
+    #f5deb3 40%,
+    transparent 40%,
+    transparent 60%,
+    #f5deb3 60%,
+    #f5deb3 100%
+  );
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   gap: 1rem;
-  border-bottom: 3rem solid #EEBA30;
+  border-bottom: 3rem solid #eeba30;
   border-top: 3rem solid #740001;
   padding: 2rem;
 }
 
 /*stylings for the hero image button when hovered over*/
 .landing-review {
-  background-color: #F5DEB3;
+  background-color: #f5deb3;
   border: 5px solid #740001;
   width: 22rem;
   height: 20rem;
@@ -256,7 +264,7 @@ header {
 /*stylings for the hero image button when hovered over*/
 .landing-review-body {
   font-size: 1rem;
-  padding: .25rem .25rem;
+  padding: 0.25rem 0.25rem;
 }
 
 /*  stylings for the hero image button when hovered over*/
@@ -275,7 +283,7 @@ header {
 /*stylings for the hero image button when hovered over*/
 .contact {
   width: 100%;
-  background: #F5DEB3CC;
+  background: #f5deb3cc;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -324,7 +332,7 @@ header {
 /*stylings for the hero image button when hovered over*/
 .phone-side a:hover {
   color: #740001;
-  box-shadow: .25rem .25rem #EEBA30;
+  box-shadow: 0.25rem 0.25rem #eeba30;
 }
 
 /*stylings for the hero image button when hovered over*/
@@ -338,13 +346,12 @@ header {
 }
 
 /*stylings for the hero image button when hovered over*/
->>>>>>> a41fe1ada16abb5c6afd881b10611efa4db22b12
-.footer {
+>>>>>>>a41fe1ada16abb5c6afd881b10611efa4db22b12 .footer {
   background: linear-gradient(transparent, #21070688, #210706cc, #210706ff);
   display: flex;
   justify-content: center;
   padding: 1rem;
   width: 100%;
-  color: #F5DEB3;
+  color: #f5deb3;
   font-weight: 700;
 }

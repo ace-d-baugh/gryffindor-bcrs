@@ -943,18 +943,34 @@ footer {
 }
 
 @media print {
-  .invoice-container {
-    color: black;
+  .main-container{
+    box-shadow: none;
+    margin: 0 auto;
+
   }
+
+  .thank-you-container {
+    color: black;
+    margin-top: -100px;
+  }
+
   hr {
     border: 1px solid black;
     box-shadow: none;
   }
+
+  header,
+  footer,
   .do-not-print {
     display: none;
   }
 
-  .print-this {
-    display: block;
+  .line-item {
+    border-bottom: 1px solid black;
   }
+
+  .line-item:last-child {
+    margin-bottom: 1rem;
+  }
+
 }
