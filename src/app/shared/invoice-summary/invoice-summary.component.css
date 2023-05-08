@@ -8,27 +8,7 @@
 =====================================================
 */
 
-mat-card {
-  border-radius: 0;
-  opacity: 77%;
-  background-color: none;
-}
 
-.buttons.reverse.split {
-  margin-bottom: 2%;
-}
 
-#print-info {
-  display: block;
- 
-}
-
-#print-btn {
-  display: block;
-}
-
-#print-div {
-  align-items: center;
-}
 
 

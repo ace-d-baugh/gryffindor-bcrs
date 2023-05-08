@@ -916,6 +916,16 @@ option {
   box-shadow: 0 0 10px var(--color-primary-dark-3);
 }
 
+mat-dialog-container {
+  background-color: var(--color-white) !important;
+  border-radius: 0;
+}
+
+.print-info {
+  display: flex;
+  align-items: center;
+}
+
 footer {
   background: linear-gradient(
     transparent,
@@ -931,7 +941,15 @@ footer {
   font-weight: 700;
 }
 
-mat-dialog-container {
-  background-color: var(--color-white) !important;
-  border-radius: 0;
+@media print {
+  .invoice-container {
+    color: black;
+  }
+  hr {
+    border: 1px solid black;
+    box-shadow: none;
+  }
+  .do-not-print {
+    display: none;
+  }
 }
