@@ -474,10 +474,8 @@ router.delete("/:id", async (req, res) => {
               },
             },
           ], function(err, users) {
-            console.log("***This is the users array***");
             console.log(users);
             if (err) {
-              console.log("***This is error message***");
               console.log(err);
               const deleteRoleMongodbErrorResponse = new ErrorResponse(
                 500,
@@ -490,10 +488,8 @@ router.delete("/:id", async (req, res) => {
                 message: `role ${req.params.id} not found`,
               });
             } else {
-              console.log("***Look at the user length***");
               // if the users array is greater than 0, the role is in use and cannot be disabled
               if (users.length > 0) {
-                console.log("***User Length is BIG***");
                 console.log(`Role ${role.text} is in use and cannot be deleted`);
                 const userRoleInUseResponse = new BaseResponse(
                   400,
@@ -506,7 +502,6 @@ router.delete("/:id", async (req, res) => {
                   message: `Role ${role.text} is in use and cannot be deleted`,
                 });
               } else {
-                console.log("***There are no Users***");
                 console.log(`Role ${role.text} is not in use and can be deleted`);
 
                 role.set({

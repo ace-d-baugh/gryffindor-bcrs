@@ -111,14 +111,16 @@ export class RoleListComponent implements OnInit {
             {
               next: (res) =>
               {
-                console.log('Role deleted successfully');
-                this.roles = this.roles.filter(role => role._id != roleId);
-                this.messageService.add({severity: 'success', summary: 'Success', detail: 'Role deleted successfully'});
+                // If res contains a 400 error, it will return the error message to the user
+                if (JSON.stringify(res).includes("400"))
+                {
+                  this.messageService.add({severity: 'error', summary: 'Error', detail: 'Role is in use and cannot be deleted'});
+                  return;
+                } else {
+                  this.roles = this.roles.filter(role => role._id != roleId);
+                  this.messageService.add({severity: 'success', summary: 'Success', detail: 'Role deleted successfully'});
+                }
               },
-              error: (e) =>
-              {
-                console.log(e)
-              }
             }
           )
         },
