@@ -35,15 +35,12 @@ const invoiceSchema = {
   properties: {
     lineItems: {
       type: "array",
-      items: {
-        type: "object",
-        required: ["title", "subtitle", "price"],
-        additionalProperties: false,
-        properties: {
-          title: { type: "string" },
-          subtitle: { type: "string" },
-          price: { type: "number" },
-        },
+      additionalProperties: false,
+      required: ["title", "subtitle", "price"],
+      properties: {
+        title: { type: "string" },
+        subtitle: { type: "string" },
+        price: { type: "number" },
       },
     },
     partsAmount: { type: "number" },
@@ -115,8 +112,18 @@ const invoiceSchema = {
 // Chad Coded | John Tested | Ace Approved
 router.post("/:username", async (req, res) => {
   try {
-    console.log(req.params.username)
-    console.log("Request body: ", req.body);
+    // Create a new invoice object
+    const newInvoice = {
+      username: req.params.username,
+      lineItems: req.body.lineItems,
+      partsAmount: req.body.partsAmount,
+      laborAmount: req.body.laborAmount,
+      lineItemTotal: req.body.lineItemTotal,
+      total: req.body.total,
+    };
+
+    console.log(newInvoice);
+
     // Validate the request body
     const incomingInvoice = req.body;
     const validator = ajv.compile(invoiceSchema);
@@ -124,16 +131,6 @@ router.post("/:username", async (req, res) => {
 
     // If the request body is valid proceed with creating the invoice
     if (valid) {
-      // Create a new invoice object
-      const newInvoice = {
-        username: req.params.username,
-        lineItems: req.body.lineItems,
-        partsAmount: req.body.partsAmount,
-        laborAmount: req.body.laborAmount,
-        lineItemTotal: req.body.lineItemTotal,
-        total: req.body.total,
-      };
-
       // Creates a new invoice
       Invoice.create(newInvoice, (err, invoice) => {
         if (err) {

@@ -38,8 +38,6 @@ export class ThankYouComponent implements OnInit {
     this.invoice = history.state.invoice;
     // If invoice is null, redirect to home page
     if (this.invoice) {
-      console.log(JSON.stringify(this.invoice));
-      console.log(this.invoice.username);
       this.username = this.invoice.username;
       this.orderDate = this.invoice.orderDate;
       this.parts = this.invoice.partsAmount;

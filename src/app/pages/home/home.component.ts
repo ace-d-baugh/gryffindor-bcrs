@@ -65,12 +65,6 @@ export class HomeComponent implements OnInit {
 
   // generate invoice
   generateInvoice() {
-    console.log('generateInvoice() this.invoice');
-    console.log(this.invoice);
-
-    console.log('generateInvoice() this.products');
-    console.log(this.products);
-
     // clear line items
     for (let product of this.products) {
       if (product.checked) {
@@ -81,8 +75,6 @@ export class HomeComponent implements OnInit {
     // if line items are greater than 0
     if (this.lineItems.length > 0) {
       this.invoice.setLineItems(this.lineItems);
-
-      console.log('lineItems.length > 0; this.invoice');
 
       const dialogRef = this.dialogRef.open(InvoiceSummaryComponent, {
         data: {
@@ -99,8 +91,7 @@ export class HomeComponent implements OnInit {
             .createInvoice(this.username, this.invoice)
             .subscribe({
               next: (res) => {
-                // Make this instead go to a Thank You page with an option to print the invoice
-                console.log('Invoice Created');
+                // This goes to a Thank You page with an option to print the invoice
                 this.router.navigate(['/main/thank-you'], { state: { invoice: this.invoice, total: this.invoice.getTotal() } });
                 this.reloadProducts();
               },
