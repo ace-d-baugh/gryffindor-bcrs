@@ -926,6 +926,10 @@ mat-dialog-container {
   align-items: center;
 }
 
+.print-this {
+  display: none;
+}
+
 footer {
   background: linear-gradient(
     transparent,
@@ -951,5 +955,9 @@ footer {
   }
   .do-not-print {
     display: none;
+  }
+
+  .print-this {
+    display: block;
   }
 }
