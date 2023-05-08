@@ -887,9 +887,6 @@ option {
   display: flex;
 }
 
-.line-item {
-}
-
 .line-item:nth-child(odd) {
   background-color: var(--color-primary-dark-4);
 }

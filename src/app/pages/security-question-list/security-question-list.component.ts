@@ -15,6 +15,8 @@ import { ConfirmationService, ConfirmEventType } from 'primeng/api';
 import { SecurityQuestionService } from 'src/app/shared/services/security-question.service';
 import { SecurityQuestion } from 'src/app/shared/models/security-question.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { Message } from 'primeng/api';
 
 //export class
 @Component({
@@ -27,6 +29,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //export class
 export class SecurityQuestionListComponent implements OnInit {
   securityQuestions: SecurityQuestion[];
+  errorMessages: Message[];
 
   sqForm: FormGroup = this.fb.group({
     text: [null, Validators.compose([Validators.required])],
@@ -35,9 +38,11 @@ export class SecurityQuestionListComponent implements OnInit {
   constructor(
     private securityQuestionService: SecurityQuestionService,
     private confirmationService: ConfirmationService,
+    private messageService: MessageService,
     private fb: FormBuilder
   ) {
     this.securityQuestions = [];
+    this.errorMessages = [];
 
     this.securityQuestionService.findAllSecurityQuestions().subscribe({
       next: (res) => {
@@ -85,6 +90,8 @@ export class SecurityQuestionListComponent implements OnInit {
             this.securityQuestions = this.securityQuestions.filter(
               (sq) => sq._id !== sqId
             );
+            this.errorMessages = [{severity:'success', summary: 'Success', detail: 'Security question deleted successfully'}];
+
           },
           error: (e) => {
             console.log(e);
