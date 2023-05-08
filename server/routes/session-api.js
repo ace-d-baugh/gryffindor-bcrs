@@ -109,7 +109,6 @@ router.post("/signin", (req, res) => {
           res.status(500).send(signinMongodbErrorResponse.toObject());
           errorLogger({ filename: myfile, message: "Internal server error" });
         } else {
-          console.log(user);
           /**
            * Description: If the user is found, compare the password
            */
@@ -119,7 +118,6 @@ router.post("/signin", (req, res) => {
               user.password
             );
 
-            console.log(passwordIsValid);
             /**
              * if password is valid, return the user
              */
@@ -139,7 +137,6 @@ router.post("/signin", (req, res) => {
               /**
                * If password is invalid, return an error
                */
-              console.log("Invalid password: Please try again");
               const invalidPasswordResponse = new BaseResponse(
                 401,
                 "Invalid username or password. Please try again.",
@@ -155,9 +152,6 @@ router.post("/signin", (req, res) => {
             /**
              * if username is invalid, return an error
              */
-            console.log(
-              `Invalid username: ${req.body.username}. Please try again`
-            );
             const invalidUsernameResponse = new BaseResponse(
               401,
               "Invalid username or password. Please try again.",
@@ -326,7 +320,6 @@ router.post("/register", async (req, res) => {
               }
             });
           } else {
-            console.log(`Username ${req.body.username} already exists`);
             const alreadyExistsUserResponse = new BaseResponse(
               "400",
               `The username: ${req.body.username} is already in use.`,
@@ -399,7 +392,6 @@ router.get("/verify/users/:username", async (req, res) => {
         });
       } else {
         if (user) {
-          console.log(user);
           const verifyUserResponse = new BaseResponse(
             "200",
             "Query successful",
@@ -527,7 +519,6 @@ router.post("/verify/users/:username/security-questions", async (req, res) => {
             .send(verifySecurityQuestionMongodbErrorResponse.toObject());
           errorLogger({ filename: myFile, message: "Internal server error" });
         } else {
-          console.log(user);
           const selectedSecurityQuestionOne =
             user.selectedSecurityQuestions.find(
               (q1) => q1.questionText === req.body.questionText1
@@ -661,7 +652,6 @@ router.post("/users/:username/reset-password", async (req, res) => {
           });
         } else {
           if (user) {
-            console.log(user);
             let hashedPassword = bcrypt.hashSync(
               sessionResetPassword.password,
               saltRounds

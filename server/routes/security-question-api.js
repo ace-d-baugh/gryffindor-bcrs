@@ -67,8 +67,6 @@ router.get("/", async (req, res) => {
           res.status(500).send(findAllMongodbErrorResponse.toObject());
           errorLogger({ filename: myfile, message: err });
         } else {
-          // Log the security questions
-          console.log(securityQuestions);
           // Create a new base response object
           const findAllResponse = new BaseResponse(
             200,
@@ -219,7 +217,6 @@ router.post("/", async (req, res) => {
               message: "Message could not be created",
             });
           } else {
-            console.log(securityQuestion);
             const createSecurityQuestionResponse = new BaseResponse(
               200,
               "Query successful",
@@ -312,7 +309,6 @@ router.put("/:id", async (req, res) => {
               message: "Message could not be updated",
             });
           } else {
-            console.log(securityQuestion);
 
             securityQuestion.set({
               text: req.body.text,
@@ -331,7 +327,6 @@ router.put("/:id", async (req, res) => {
                   message: "Internal server error",
                 });
               } else {
-                console.log(savedSecurityQuestion);
                 const savedSecurityQuestionResponse = new BaseResponse(
                   200,
                   "Query successful",
@@ -433,7 +428,6 @@ router.delete("/:id", async (req, res) => {
                 message: "Could not be deleted",
               });
             } else {
-              // console.log(savedSecurityQuestion);
 
               const deleteByIdResponse = new BaseResponse(
                 200,

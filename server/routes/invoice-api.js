@@ -122,8 +122,6 @@ router.post("/:username", async (req, res) => {
       total: req.body.total,
     };
 
-    console.log(newInvoice);
-
     // Validate the request body
     const incomingInvoice = req.body;
     const validator = ajv.compile(invoiceSchema);
@@ -144,7 +142,6 @@ router.post("/:username", async (req, res) => {
           errorLogger({ filename: myfile, message: "Internal server error" });
         } else {
           // Invoice successfully created
-          console.log(invoice);
           const createInvoiceResponse = new BaseResponse(
             "200",
             "Query successful",
@@ -234,7 +231,6 @@ router.get("/purchases-graph", async (req, res) => {
             .send(findPurchaseGraphMongodbErrorResponse.toObject());
           errorLogger({ filename: myfile, message: "Internal server error" });
         } else {
-          console.log(purchaseGraph);
           const findPurchaseGraphResponse = new BaseResponse(
             "200",
             "Query successful",

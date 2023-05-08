@@ -129,7 +129,6 @@ router.get("/", async (req, res) => {
           res.status(500).send(findAllMongodbErrorResponse.toObject());
           errorLogger({ filename: myFile, message: "Internal server error" });
         } else {
-          console.log(users);
           const findAllUsersResponse = new BaseResponse(
             200,
             "Query successful",
@@ -192,7 +191,6 @@ router.get("/:id", async (req, res) => {
           message: `user ${req.params.id} is not found`,
         });
       } else {
-        console.log(user);
         const findByIdResponse = new BaseResponse(
           200,
           "Query successful",
@@ -276,7 +274,6 @@ router.post("/", async (req, res) => {
         text: "standard",
       };
 
-      console.log(standardRole);
 
       //defining new user object from info entered on screen
       createNewUser = {
@@ -305,7 +302,6 @@ router.post("/", async (req, res) => {
             message: "Error creating user in MongoDB",
           });
         } else {
-          console.log(user);
           const createUserResponse = new BaseResponse(
             200,
             "Query successful",
@@ -411,7 +407,6 @@ router.put("/:id", async (req, res) => {
           });
         } else {
           if (user) {
-            console.log(user);
 
             user.set({
               firstName: req.body.firstName,
@@ -451,7 +446,6 @@ router.put("/:id", async (req, res) => {
               }
             });
           } else {
-            console.log(user);
             const updateUserByIdErrorResponse = new ErrorResponse(
               "404",
               "Bad Request or invalid id",
@@ -531,7 +525,6 @@ router.delete("/:id", async (req, res) => {
           message: `user ${req.params.id} not found`,
         });
       } else {
-        console.log(user);
 
         user.set({
           isDisabled: true,
@@ -549,7 +542,6 @@ router.delete("/:id", async (req, res) => {
             res.json(savedUserMongodbErrorResponse.toObject());
             errorLogger({ filename: myFile, message: "Unable to delete user" });
           } else {
-            console.log(savedUser);
             const savedUserResponse = new BaseResponse(
               200,
               "Query successful",
@@ -722,7 +714,6 @@ router.get("/:username/role", async (req, res) => {
           });
         } else {
           //if user is null, send a 404 error.
-          console.log(user);
           const findUserRoleResponseError = new ErrorResponse(
             "404",
             "Bad Request or invalid user name",

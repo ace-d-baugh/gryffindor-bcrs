@@ -136,7 +136,6 @@ export class RegisterComponent implements OnInit {
         answerText: form.answerToSecurityQuestion3,
       },
     ];
-    console.log(this.selectedSecurityQuestions);
 
     this.user = {
       username: form.username,
@@ -148,11 +147,9 @@ export class RegisterComponent implements OnInit {
       email: form.email,
       selectedSecurityQuestions: this.selectedSecurityQuestions,
     };
-    console.log(this.user);
 
     this.sessionService.register(this.user).subscribe({
       next: (res) => {
-        console.log(res);
         this.cookieService.set('sessionUser', this.user.username, 1);
         this.router.navigate(['main/']);
       },

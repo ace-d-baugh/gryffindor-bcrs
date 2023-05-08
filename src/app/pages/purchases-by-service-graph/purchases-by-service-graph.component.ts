@@ -37,8 +37,6 @@ export class PurchasesByServiceGraphComponent implements OnInit {
       next: (res) => {
         this.purchases = res.data;
 
-        console.log(this.purchases);
-
         //splits services and item count
         for (const item of this.purchases) {
 

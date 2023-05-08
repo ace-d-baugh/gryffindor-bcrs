@@ -73,9 +73,6 @@ export class UserDetailsComponent implements OnInit {
         this.form.controls['address'].setValue(this.user.address);
         this.form.controls['email'].setValue(this.user.email);
 
-        //  log user
-        console.log(this.user);
-
         //  find all roles
         this.roleService.findAllRoles().subscribe({
           next: (res) => {

@@ -55,7 +55,6 @@ router.get("/", async (req, res) => {
           res.status(500).send(findAllRolesMongoDBErrorResponse.toObject());
           errorLogger({ filename: myfile, message: "Internal Server Error" });
         } else {
-          console.log(roles);
           const findAllRolesResponse = new BaseResponse(
             "200",
             "Query Successful",
@@ -235,7 +234,6 @@ router.post("/", async (req, res) => {
               });
             } else {
               //return message that role was created successfully
-              console.log(role);
               const createRoleResponse = new BaseResponse(
                 200,
                 "Query Successful",
@@ -352,7 +350,6 @@ router.put("/:roleId", async (req, res) => {
             message: "Error updating role on Mongo",
           });
         } else {
-          console.log(role);
 
           role.set({
             text: req.body.text,
@@ -453,7 +450,6 @@ router.delete("/:id", async (req, res) => {
           message: `role ${req.params.id} not found`,
         });
       } else {
-        console.log(role);
 
         /**
          * Aggregates the user collection to find the users with the role id
@@ -474,7 +470,6 @@ router.delete("/:id", async (req, res) => {
               },
             },
           ], function(err, users) {
-            console.log(users);
             if (err) {
               console.log(err);
               const deleteRoleMongodbErrorResponse = new ErrorResponse(
@@ -519,7 +514,6 @@ router.delete("/:id", async (req, res) => {
                     res.status(500).send(savedRoleMongodbErrorResponse.toObject());
                     errorLogger({ filename: myFile, message: "Unable to delete role" });
                   } else {
-                    console.log(savedRole);
                     const savedRoleResponse = new BaseResponse(
                       200,
                       `Role '${role.text}' deletion successful`,
