@@ -8,6 +8,7 @@
 ===========================================
 */
 
+//import statements
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
@@ -20,16 +21,21 @@ export class RoleService {
 
   constructor(private http: HttpClient) {  }
 
+  //class methods
+
+  //find all roles
   findAllRoles(): Observable<any>
   {
     return this.http.get('/api/role');
   }
 
+  //find role by id
   findRoleById(roleId: string): Observable<any>
   {
     return this.http.get('/api/role/' + roleId);
   }
 
+  //create role
   createRole(role: Role): Observable<any>
   {
     return this.http.post(`/api/role`,{
@@ -37,6 +43,7 @@ export class RoleService {
     });
   }
 
+  //update role
   updateRole(roleId: string, role: Role): Observable<any>
   {
     return this.http.put(`/api/role/${roleId}`, {
@@ -44,11 +51,13 @@ export class RoleService {
     });
   }
 
+  //delete role
   deleteRole(roleId: string): Observable<any>
   {
     return this.http.delete(`/api/role/${roleId}`);
   }
 
+  //fund user role
   findUserRole(username: string): Observable<any>
   {
     return this.http.get(`/api/users/${username}/role`).pipe(
@@ -56,5 +65,5 @@ export class RoleService {
         return res;
       }
     ));
-}
+  }
 }
