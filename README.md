@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
 
+## Live Testing
+
+Navigate to [Render](https://gryffindor-bcrs.onrender.com/#/). Then use the following users to test the application:
+##### Standard User
+- `username: [mozart]`
+- `password: [Password01]` 
+
+##### Admin User
+- `username: [bach]`
+- `password: [Password01]`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
