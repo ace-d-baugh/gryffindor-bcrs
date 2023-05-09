@@ -22,6 +22,7 @@ const router = express.Router();
 const ajv = new Ajv();
 const myfile = "security-question-api.js";
 
+//data validation schema for creating/updating security questions api's [createSecurityQuestion, updateSecurityQuestion]
 const securityQuestionsSchema = {
   type: "object",
   properties: {
@@ -197,32 +198,38 @@ router.get("/:id", async (req, res) => {
 // John Coded | Chad Tested | Ace Approved
 router.post("/", async (req, res) => {
   try {
+    //data validation.  Verifies that the user entered the required text for the security question.
     const newSecurityQuestion = req.body;
     const validator = ajv.compile(securityQuestionsSchema);
     const valid = validator(newSecurityQuestion);
 
+    //If what the user entered is valid..... creates security question to Mongo.
     if (valid) {
       SecurityQuestion.create(
         newSecurityQuestion,
         function (err, securityQuestion) {
           if (err) {
+            //error if having an issue talking to Mongo.
             console.log(err);
             const createSecurityQuestionMongodbErrorResponse =
               new ErrorResponse(500, "Internal server error", err);
             res
               .status(500)
               .send(createSecurityQuestionMongodbErrorResponse.toObject());
+              //Log error
             errorLogger({
               filename: myfile,
               message: "Message could not be created",
             });
           } else {
+            //if creation was successful....
             const createSecurityQuestionResponse = new BaseResponse(
               200,
               "Query successful",
               securityQuestion
             );
             res.json(createSecurityQuestionResponse.toObject());
+            //Log success message.
             debugLogger({
               filename: myfile,
               message: `${securityQuestion} was added successfully`,
@@ -231,12 +238,14 @@ router.post("/", async (req, res) => {
         }
       );
     } else {
+      //captures error if valid is not true - user data doesn't pass validation.
       const securityQuestionValidationError = new ErrorResponse(
         400,
         "Bad Request",
         `Input doesn't match expected Schema ${req.body}`
       );
       console.log(securityQuestionValidationError);
+      //Log error
       errorLogger({
         filename: myfile,
         message: "Bad request, input doesn't match schema",
@@ -244,6 +253,7 @@ router.post("/", async (req, res) => {
       res.json(securityQuestionValidationError.toObject());
     }
   } catch (e) {
+    //Error for try/catch
     console.log(e);
     const createSecurityQuestionCatchErrorResponse = new ErrorResponse(
       500,
@@ -251,6 +261,7 @@ router.post("/", async (req, res) => {
       e.message
     );
     res.status(500).send(createSecurityQuestionCatchErrorResponse.toObject());
+    //Log error
     errorLogger({ filename: myfile, message: "Internal Server Error" });
   }
 });

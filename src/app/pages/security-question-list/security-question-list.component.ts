@@ -100,6 +100,7 @@ export class SecurityQuestionListComponent implements OnInit {
       },
       reject: (type: any) => {
         switch (type) {
+          //if user does anything other than confirm delete.
           case ConfirmEventType.REJECT:
             console.log('User rejected this operation');
             break;

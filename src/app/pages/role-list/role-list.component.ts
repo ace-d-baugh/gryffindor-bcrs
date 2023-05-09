@@ -9,6 +9,7 @@
 =====================================================
 */
 
+//import required components.  
 import { Component, OnInit } from '@angular/core';
 import { Role } from 'src/app/shared/models/role.interface';
 import { RoleService } from 'src/app/shared/services/role.service';
@@ -22,8 +23,10 @@ import { Message } from 'primeng/api';
   styleUrls: ['./role-list.component.css'],
   providers: [ConfirmationService, MessageService]
 })
+
 export class RoleListComponent implements OnInit {
 
+  //declaring data types
   roles: Role[];
   errorMessages: Message[];
 
@@ -36,6 +39,7 @@ export class RoleListComponent implements OnInit {
     this.roles = [];
     this.errorMessages = [];
 
+    //calls api for finding all roles.
     this.roleService.findAllRoles().subscribe
     (
       {
@@ -96,6 +100,7 @@ export class RoleListComponent implements OnInit {
     )
   }
 
+  //method for deleting role by id.
   delete(roleId: string)
   {
     this.confirmationService.confirm
@@ -128,6 +133,7 @@ export class RoleListComponent implements OnInit {
         {
           switch(type)
           {
+            //if user does something other than confirm delete.
             case ConfirmEventType.REJECT:
               console.log('User rejected this operation');
               break;

@@ -23,6 +23,7 @@ import { Message } from 'primeng/api';
   templateUrl: './security-question-details.component.html',
   styleUrls: ['./security-question-details.component.css'],
 })
+
 export class SecurityQuestionDetailsComponent implements OnInit {
   question: SecurityQuestion;
   questionId: string;

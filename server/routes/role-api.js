@@ -187,7 +187,7 @@ const createRoleSchema = {
 
 router.post("/", async (req, res) => {
   try {
-    //verifies the user entered something into the field.
+    //data verification.  verifies the user entered something into the field.
     const enteredRole = req.body;
     const validator = ajv.compile(createRoleSchema);
     const valid = validator(enteredRole);
@@ -204,6 +204,7 @@ router.post("/", async (req, res) => {
             err
           );
           res.status(500).send(findMongodbError.toObject());
+          //Log error
           errorLogger({
             filename: myfile,
             message: "Could not request role data from Mongo",
@@ -228,6 +229,7 @@ router.post("/", async (req, res) => {
                 err
               );
               res.status(500).send(createMongodbErrorResponse.toObject());
+              //Log error
               errorLogger({
                 filename: myfile,
                 message: "Error creating role on Mongo",
@@ -240,6 +242,7 @@ router.post("/", async (req, res) => {
                 role
               );
               res.json(createRoleResponse.toObject());
+              //Log success message.
               debugLogger({
                 filename: myfile,
                 message: "The role was added successfully",
@@ -255,6 +258,7 @@ router.post("/", async (req, res) => {
             null
           );
           res.status(400).send(roleAlreadyExists.toObject());
+          //Log error
           errorLogger({
             filename: myfile,
             message: "Entered role is not unique",
@@ -269,6 +273,7 @@ router.post("/", async (req, res) => {
       );
       console.log(inputRoleError);
       res.json(inputRoleError.toObject());
+      //Log error
       errorLogger({
         filename: myfile,
         message: "The field was blank, or the data could not be read",
@@ -282,6 +287,7 @@ router.post("/", async (req, res) => {
       e.message
     );
     res.status(500).send(createRoleCatchErrorResponse.toObject());
+    //Log error
     errorLogger({ filename: myfile, message: "Internal server error" });
   }
 });
@@ -544,4 +550,5 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+//Export module.
 module.exports = router;

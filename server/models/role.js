@@ -9,12 +9,15 @@
 =====================================================
 */
 
+//imports for Mongoose
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
+//roleSchema model for adding roles to db.
 const roleSchema = new Schema({
     text: {type: String, unique: true},
     isDisabled: {type: Boolean, default: false}
 }, {collection: 'roles'} )
 
+//exporting the module.
 module.exports = mongoose.model('Role', roleSchema);

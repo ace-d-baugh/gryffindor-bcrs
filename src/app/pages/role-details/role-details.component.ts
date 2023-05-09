@@ -9,6 +9,7 @@
 =====================================================
 */
 
+//import components
 import { Component, OnInit } from '@angular/core';
 import { Role } from 'src/app/shared/models/role.interface';
 import { Message } from 'primeng/api';
@@ -21,8 +22,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './role-details.component.html',
   styleUrls: ['./role-details.component.css']
 })
+
 export class RoleDetailsComponent implements OnInit {
 
+  //define data types
   role: Role;
   roleId: string;
   errorMessages: Message[];
@@ -37,6 +40,7 @@ export class RoleDetailsComponent implements OnInit {
     this.role = {} as Role;
     this.errorMessages = [];
 
+    //api call to find role by Id.  
     this.roleService.findRoleById(this.roleId).subscribe
     (
       {
@@ -65,6 +69,7 @@ export class RoleDetailsComponent implements OnInit {
     this.router.navigate(['/main/role-list'])
   }
 
+  //saves new role based on user text.
   save() 
   {
     const updatedRole: Role =

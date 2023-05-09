@@ -25,7 +25,7 @@ const router = express.Router();
 const ajv = new Ajv();
 const myFile = "user-api.js";
 
-// Schema
+// Data validation schema for createUser api.
 const createUserSchema = {
   type: "object",
   properties: {
@@ -67,6 +67,7 @@ const createUserSchema = {
   additionalProperties: false,
 };
 
+//Data validation schema for updateUser api.
 const updateUserSchema = {
   type: "object",
   properties: {
@@ -115,11 +116,13 @@ const updateUserSchema = {
 // John Coded | Chad Tested | Ace Approved
 router.get("/", async (req, res) => {
   try {
+    //Returns a list of all users, excluding those where isDisabled = true.
     User.find({})
       .where("isDisabled")
       .equals(false)
       .exec(function (err, users) {
         if (err) {
+          //if error communicating to Mongo
           console.log(err);
           const findAllMongodbErrorResponse = new ErrorResponse(
             500,
@@ -127,14 +130,17 @@ router.get("/", async (req, res) => {
             err
           );
           res.status(500).send(findAllMongodbErrorResponse.toObject());
+          //Log error
           errorLogger({ filename: myFile, message: "Internal server error" });
         } else {
+          //If users are found
           const findAllUsersResponse = new BaseResponse(
             200,
             "Query successful",
             users
           );
           res.json(findAllUsersResponse.toObject());
+          //Log successful return from Mongo
           debugLogger({
             filename: myFile,
             message: "Query on all users was successful",
@@ -142,12 +148,14 @@ router.get("/", async (req, res) => {
         }
       });
   } catch (e) {
+    //catch try errors
     const findAllCatchErrorResponse = new ErrorResponse(
       500,
       "Internal server error",
       e.message
     );
     res.status(500).send(findAllCatchErrorResponse.toObject());
+    //Log error
     errorLogger({ filename: myFile, message: "Internal server error" });
   }
 });
@@ -263,6 +271,7 @@ router.get("/:id", async (req, res) => {
 // John Coded | Chad Tested | Ace Approved
 router.post("/", async (req, res) => {
   try {
+    //Data validation.  Verifies that the user has entered a valid username.
     const newUser = req.body;
     const validator = ajv.compile(createUserSchema);
     const valid = validator(newUser);
@@ -273,7 +282,6 @@ router.post("/", async (req, res) => {
       standardRole = {
         text: "standard",
       };
-
 
       //defining new user object from info entered on screen
       createNewUser = {
@@ -297,17 +305,20 @@ router.post("/", async (req, res) => {
             err
           );
           res.status(500).send(createUserMongodbErrorResponse.toObject());
+          //Log error
           errorLogger({
             filename: myFile,
             message: "Error creating user in MongoDB",
           });
         } else {
+          //If user created successfully
           const createUserResponse = new BaseResponse(
             200,
             "Query successful",
             user
           );
           res.json(createUserResponse.toObject());
+          //Log success
           debugLogger({
             filename: myFile,
             message: `user ${user.username} created successfully`,
@@ -315,6 +326,7 @@ router.post("/", async (req, res) => {
         }
       });
     } else {
+      //capture error is user name is not valid.
       const createUserValidationError = new ErrorResponse(
         400,
         "Validation Error",
@@ -322,12 +334,14 @@ router.post("/", async (req, res) => {
       );
       console.log(createUserValidationError);
       res.json(createUserValidationError.toObject());
+      //Log error
       errorLogger({
         filename: myFile,
         message: "Validation on creating user failed",
       });
     }
   } catch (e) {
+    //catch try error
     console.log(e);
     const createUserCatchErrorResponse = new ErrorResponse(
       500,
@@ -335,6 +349,7 @@ router.post("/", async (req, res) => {
       e.message
     );
     res.status(500).send(createUserCatchErrorResponse.toObject());
+    //Log error
     errorLogger({ filename: myFile, message: "Internal server error" });
   }
 });
@@ -695,6 +710,7 @@ router.get("/:username/role", async (req, res) => {
           err
         );
         res.status(500).send(findUserRoleMongodbErrorResponse.toObject());
+        //Log error
         errorLogger({
           filename: myFile,
           message: `Error retrieving user ${user.username} from Mongo`,
@@ -708,6 +724,7 @@ router.get("/:username/role", async (req, res) => {
             user.role
           );
           res.json(findUserRoleResponse.toObject());
+          //Log success message.
           debugLogger({
             filename: myFile,
             message: `User ${user.username} role is ${user.role.text}`,
@@ -720,6 +737,7 @@ router.get("/:username/role", async (req, res) => {
             user
           );
           res.status(404).send(findUserRoleResponseError.toObject());
+          //Log error
           errorLogger({
             filename: myFile,
             message: `User ${req.params.username} not found`,

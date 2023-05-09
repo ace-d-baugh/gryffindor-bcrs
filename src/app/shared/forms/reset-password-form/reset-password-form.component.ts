@@ -8,6 +8,7 @@
 ===========================================
 */
 
+//import components
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,6 +20,7 @@ import { SessionService } from '../../services/session.service';
   templateUrl: './reset-password-form.component.html',
   styleUrls: ['./reset-password-form.component.css'],
 })
+
 export class ResetPasswordFormComponent implements OnInit {
   isAuthenticated: string;
   username: string;
@@ -49,6 +51,7 @@ export class ResetPasswordFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //method for updating password.  
   updatePassword() {
     const password = this.form.controls['password'].value;
 

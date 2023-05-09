@@ -25,7 +25,7 @@ const myFile = "session-api.js";
 
 // Configurations
 
-//Datavalidation schema
+//Datavalidation schemas
 const sessionSigninSchema = {
   type: "object",
   properties: {
@@ -377,8 +377,10 @@ router.post("/register", async (req, res) => {
 /* John */
 router.get("/verify/users/:username", async (req, res) => {
   try {
+    //Takes user name entered and finds on the database.
     User.findOne({ username: req.params.username }, function (err, user) {
       if (err) {
+        //return error if the user doesn't exist on the database
         console.log(err);
         const verifyMongodbErrorResponse = new ErrorResponse(
           "500",
@@ -386,11 +388,13 @@ router.get("/verify/users/:username", async (req, res) => {
           err
         );
         res.status(500).send(verifyMongodbErrorResponse.toObject());
+        //Log error
         errorLogger({
           filename: myFile,
           message: `Error retrieving ${user} from database`,
         });
       } else {
+        //return success if user was successfully found on the database.
         if (user) {
           const verifyUserResponse = new BaseResponse(
             "200",
@@ -398,17 +402,21 @@ router.get("/verify/users/:username", async (req, res) => {
             user
           );
           res.json(verifyUserResponse.toObject());
+          //Log success message.
           debugLogger({
             filename: myFile,
             message: `User ${user} successfully verified`,
           });
         } else {
+          //if user cannot be found due to an invalid username.  Instead of a 404 we are 
+          //returning a 418 to return a "invalid username", rather than an interceptor message.
           const invalidUsernameResponse = new BaseResponse(
             "418",
             " Invalid username",
             req.params.username
           );
           res.status(418).send(invalidUsernameResponse.toObject());
+          //Log error
           errorLogger({
             filename: myFile,
             message: `User ${user} doesn't exist`,
@@ -417,6 +425,7 @@ router.get("/verify/users/:username", async (req, res) => {
       }
     });
   } catch (e) {
+    //catch try errors
     console.log(e);
     const verifyUserCatchErrorResponse = new ErrorResponse(
       "500",
@@ -424,6 +433,7 @@ router.get("/verify/users/:username", async (req, res) => {
       e.message
     );
     res.status(500).send(verifyUserCatchErrorResponse.toObject());
+    //Log error
     errorLogger({ filename: myFile, message: "Internal Server Error" });
   }
 });
@@ -584,6 +594,7 @@ router.post("/verify/users/:username/security-questions", async (req, res) => {
   }
 });
 
+//Data verification schema for resetPassword. 
 const resetPasswordSchema = {
   type: "object",
   properties: {
@@ -631,13 +642,15 @@ const resetPasswordSchema = {
  */
 router.post("/users/:username/reset-password", async (req, res) => {
   try {
+    //Data validation.  Verifies the user entered a valid password.
     const sessionResetPassword = req.body;
-    // let password = req.body.password;
     const validator = ajv.compile(resetPasswordSchema);
     const valid = validator(sessionResetPassword);
 
+    //if the password passes data validation, find the username on the database.
     if (valid) {
       User.findOne({ username: req.params.username }, function (err, user) {
+        //if there's an error communicating with the database.
         if (err) {
           console.log(err);
           const resetPasswordMongodbErrorResponse = new ErrorResponse(
@@ -646,11 +659,13 @@ router.post("/users/:username/reset-password", async (req, res) => {
             err
           );
           res.status(500).send(resetPasswordMongodbErrorResponse.toObject());
+          //Log error
           errorLogger({
             filename: myFile,
             message: `Cannot find user ${username} on database`,
           });
         } else {
+          //If the database lookup returns successful, encrypt entered password.
           if (user) {
             let hashedPassword = bcrypt.hashSync(
               sessionResetPassword.password,
@@ -665,6 +680,7 @@ router.post("/users/:username/reset-password", async (req, res) => {
             //save the new password for the user
             user.save(function (err, updatedUser) {
               if (err) {
+                //if error communicating with the database during save.
                 console.log(err);
                 const updatedUserMongodbErrorResponse = new ErrorResponse(
                   "500",
@@ -674,11 +690,13 @@ router.post("/users/:username/reset-password", async (req, res) => {
                 res
                   .status(500)
                   .send(updatedUserMongodbErrorResponse.toObject());
+                  //Log error
                 errorLogger({
                   filename: myFile,
                   message: `Error attempting to save new password for ${updatedUser} user`,
                 });
               } else {
+                //if success saving user, return success message.
                 console.log(updatedUser);
                 const updatedUserPasswordResponse = new BaseResponse(
                   "200",
@@ -686,6 +704,7 @@ router.post("/users/:username/reset-password", async (req, res) => {
                   updatedUser
                 );
                 res.json(updatedUserPasswordResponse.toObject());
+                //Log success.
                 debugLogger({
                   filename: myFile,
                   message: `Password for user ${updatedUser} reset successfully`,
@@ -693,12 +712,14 @@ router.post("/users/:username/reset-password", async (req, res) => {
               }
             });
           } else {
+            //If username cannot be found return error.
             const resetPasswordNotFoundResponse = new ErrorResponse(
               404,
               "User not found",
               null
             );
             res.status(404).send(resetPasswordNotFoundResponse.toObject());
+            //Log error
             errorLogger({
               filename: myFile,
               message: `User ${req.params.username} not found`,
@@ -708,6 +729,7 @@ router.post("/users/:username/reset-password", async (req, res) => {
       });
     }
   } catch (e) {
+    //error for try statement.
     console.log(e);
     const resetPasswordCatchError = new ErrorResponse(
       "500",
@@ -715,12 +737,9 @@ router.post("/users/:username/reset-password", async (req, res) => {
       e.message
     );
     res.status(500).send(resetPasswordCatchError.toObject());
+    //Log error
     errorLogger({ filename: myFile, message: "Internal server error" });
   }
 });
-
-/**
- * User Sign-out
- */
 
 module.exports = router;
