@@ -8,6 +8,7 @@
 ===========================================
 */
 
+//import statements
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
@@ -19,35 +20,49 @@ import { Role } from '../models/role.interface';
 export class RoleService {
   constructor(private http: HttpClient) {}
 
-  findAllRoles(): Observable<any> {
+  //class methods
+
+  //find all roles
+  findAllRoles(): Observable<any>
+  {
     return this.http.get('/api/role');
   }
 
-  findRoleById(roleId: string): Observable<any> {
+  //find role by id
+  findRoleById(roleId: string): Observable<any>
+  {
     return this.http.get('/api/role/' + roleId);
   }
 
-  createRole(role: Role): Observable<any> {
-    return this.http.post(`/api/role`, {
-      text: role.text,
+  //create role
+  createRole(role: Role): Observable<any>
+  {
+    return this.http.post(`/api/role`,{
+      text: role.text
     });
   }
 
-  updateRole(roleId: string, role: Role): Observable<any> {
+  //update role
+  updateRole(roleId: string, role: Role): Observable<any>
+  {
     return this.http.put(`/api/role/${roleId}`, {
       text: role.text,
     });
   }
 
-  deleteRole(roleId: string): Observable<any> {
+  //delete role
+  deleteRole(roleId: string): Observable<any>
+  {
     return this.http.delete(`/api/role/${roleId}`);
   }
 
-  findUserRole(username: string): Observable<any> {
+  //fund user role
+  findUserRole(username: string): Observable<any>
+  {
     return this.http.get(`/api/users/${username}/role`).pipe(
       map((res) => {
         return res;
-      })
-    );
+      }
+    ));
   }
 }
