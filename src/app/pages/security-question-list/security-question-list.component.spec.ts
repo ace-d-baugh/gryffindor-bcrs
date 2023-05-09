@@ -3,7 +3,7 @@
 ; Title: app.component.css for BCRS
 ; Author: Professor Krasso
 ; Modified by: Chad ONeal
-; Date: 03/25/2023
+; Date: 05/08/2023
 ; Description: app.component.css for BCRS
 ===========================================
 */
@@ -19,9 +19,8 @@ describe('SecurityQuestionListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SecurityQuestionListComponent ]
-    })
-    .compileComponents();
+      declarations: [SecurityQuestionListComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SecurityQuestionListComponent);
     component = fixture.componentInstance;

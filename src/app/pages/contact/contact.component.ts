@@ -11,7 +11,7 @@
 
 import { Component } from '@angular/core';
 
-// NotFound component
+// Contact component
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',

@@ -2,8 +2,8 @@
 ============================================
 ; Title: styles.css for BCRS
 ; Author: Professor Krasso
-; Modified by: Ace Baugh 04/24/2023
-; Date: 03/25/2023
+; Modified by: Ace Baugh 05/08/2023
+; Date: 05/08/2023
 ; Description: styles.css for BCRS
 ===========================================
 */
@@ -943,10 +943,9 @@ footer {
 }
 
 @media print {
-  .main-container{
+  .main-container {
     box-shadow: none;
     margin: 0 auto;
-
   }
 
   .thank-you-container {
@@ -972,5 +971,4 @@ footer {
   .line-item:last-child {
     margin-bottom: 1rem;
   }
-
 }

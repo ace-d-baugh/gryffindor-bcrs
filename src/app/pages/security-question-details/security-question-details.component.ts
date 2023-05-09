@@ -3,7 +3,7 @@
 ; File Name: security-question-details.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/22/2023
+; Date: 05/08/2023
 ; File Description: security-question-details.component
 ; Modifications: John Vanhessche
 =====================================================
@@ -23,7 +23,6 @@ import { Message } from 'primeng/api';
   templateUrl: './security-question-details.component.html',
   styleUrls: ['./security-question-details.component.css'],
 })
-
 export class SecurityQuestionDetailsComponent implements OnInit {
   question: SecurityQuestion;
   questionId: string;

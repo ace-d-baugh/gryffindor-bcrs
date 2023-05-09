@@ -3,7 +3,7 @@
 ; File Name: invoice.summary.component.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 05/04/2023
+; Date: 05/08/2023
 ; Modifications: Chad ONeal
 =====================================================
 */
@@ -48,5 +48,4 @@ export class InvoiceSummaryComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
 }

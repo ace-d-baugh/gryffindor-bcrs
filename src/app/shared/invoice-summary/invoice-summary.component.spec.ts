@@ -3,7 +3,7 @@
 ; File Name: invoice.summary.component.spec.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 05/04/2023
+; Date: 05/08/2023
 ; Modifications: Chad ONeal
 =====================================================
 */
@@ -19,9 +19,8 @@ describe('InvoiceSummaryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InvoiceSummaryComponent ]
-    })
-    .compileComponents();
+      declarations: [InvoiceSummaryComponent],
+    }).compileComponents();
 
     //create component
     fixture = TestBed.createComponent(InvoiceSummaryComponent);

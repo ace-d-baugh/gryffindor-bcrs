@@ -2,7 +2,7 @@
 ============================================
 ; Title: role-list.component.html
 ; Author: Professor Krasso
-; Date: 05/04/2023
+; Date: 05/08/2023
 ; Modified By: John Vanhessche
 ; Description: role-list Component
 ;===========================================
@@ -10,75 +10,75 @@
 
 <!-- Confirm dialog popup -->
 <p-confirmDialog
-    [baseZIndex]="10000"
-    rejectButtonStyleClass="p-button-text"
+  [baseZIndex]="10000"
+  rejectButtonStyleClass="p-button-text"
 ></p-confirmDialog>
 
 <!--main-->
 <div class="main-container">
-    <div class="content-title center">
-        <h1>Role Configuration Page!</h1>
-        <h3>Fields marked with an asterisk (*) are required.</h3>
-    </div><br>
+  <div class="content-title center">
+    <h1>Role Configuration Page!</h1>
+    <h3>Fields marked with an asterisk (*) are required.</h3>
+  </div>
+  <br />
 
-    <p-messages [(value)]="errorMessages"></p-messages>
-    <!--create roles-->
-    <div class="create-role-container">
-        <div class="m2">
-            <form [formGroup]="roleForm" (ngSubmit)="create(); roleForm.reset()">
-                <div class="form-group">
-                    <label class="input-label" for="text">Role*</label>
-                    <input
-                        type="text"
-                        formControlName="text"
-                        required
-                        placeholder="Enter a role.."
-                    />
+  <p-messages [(value)]="errorMessages"></p-messages>
+  <!--create roles-->
+  <div class="create-role-container">
+    <div class="m2">
+      <form [formGroup]="roleForm" (ngSubmit)="create(); roleForm.reset()">
+        <div class="form-group">
+          <label class="input-label" for="text">Role*</label>
+          <input
+            type="text"
+            formControlName="text"
+            required
+            placeholder="Enter a role.."
+          />
 
-                    <!--buttons-->
-                    <button
-                        type="submit"
-                        [disabled]="!roleForm.valid"
-                    >
-                        <i class="pi pi-plus role-create"></i>
-                    </button>
-                </div>
-                <mat-error
-                    *ngIf="
-                        roleForm.controls['text'].hasError('required') &&
-                        roleForm.controls['text'].touched
-                    "
-                >
-                    Role is a required field.
-                </mat-error>
-            </form>
+          <!--buttons-->
+          <button type="submit" [disabled]="!roleForm.valid">
+            <i class="pi pi-plus role-create"></i>
+          </button>
         </div>
+        <mat-error
+          *ngIf="
+            roleForm.controls['text'].hasError('required') &&
+            roleForm.controls['text'].touched
+          "
+        >
+          Role is a required field.
+        </mat-error>
+      </form>
     </div>
+  </div>
 
-    <!--Roles -->
-    <div>
-        <p-table [value]="roles" responsiveLayout="scroll">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>Text</th>
-                    <th style="width: 8rem"></th>
-                </tr>
-            </ng-template>
+  <!--Roles -->
+  <div>
+    <p-table [value]="roles" responsiveLayout="scroll">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Text</th>
+          <th style="width: 8rem"></th>
+        </tr>
+      </ng-template>
 
-            <ng-template pTemplate="body" let-role>
-                <tr>
-                    <td>{{ role.text }}</td>
-                    <td style="text-align: center">
-                        <i
-                            routerLink="/main/role-details/{{ role._id }}"
-                            class="pi pi-pencil edit-btn"
-                        ></i>
-                        <i *ngIf="roles.length > 1" (click)="delete(role._id)" class="pi pi-trash delete-btn"></i>
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </div>
+      <ng-template pTemplate="body" let-role>
+        <tr>
+          <td>{{ role.text }}</td>
+          <td style="text-align: center">
+            <i
+              routerLink="/main/role-details/{{ role._id }}"
+              class="pi pi-pencil edit-btn"
+            ></i>
+            <i
+              *ngIf="roles.length > 1"
+              (click)="delete(role._id)"
+              class="pi pi-trash delete-btn"
+            ></i>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
 </div>
-
-

@@ -3,7 +3,7 @@
 ; File Name: user.service.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/20/2023
+; Date: 05/08/2023
 ; File Description: user.service.ts
 ; Modifications: John Vanhessche
 =====================================================

@@ -3,7 +3,7 @@
 ; File Name: invoice.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 05/04/2023
+; Date: 05/08/2023
 ; File Description: The invoice class
 ; Modifications: Ace Baugh
 =====================================================

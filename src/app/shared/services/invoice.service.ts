@@ -3,7 +3,7 @@
 ; File Name: invoice.service.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 05/04/2023
+; Date: 05/08/2023
 ; File Description: The invoice service
 ; Modifications: Ace Baugh
 =====================================================
@@ -27,7 +27,6 @@ export class InvoiceService {
 
   // Create invoice
   createInvoice(username: string, invoice: Invoice): Observable<any> {
-
     return this.http.post(`/api/invoices/${username}`, {
       lineItems: invoice.getLineItems(),
       partsAmount: invoice.partsAmount,

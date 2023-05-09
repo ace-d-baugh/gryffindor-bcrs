@@ -2,7 +2,7 @@
 ============================================
 ; Title: user-details.component.html
 ; Author: Professor Krasso
-; Date: 04/22/2023
+; Date: 05/08/2023
 ; Modified By: John Vanhessche
 ; Description: user-details Component
 ;===========================================
@@ -35,7 +35,6 @@
         First name is a required field.
       </mat-error>
     </div>
-
 
     <!--form groups-->
     <div class="form-group">
@@ -128,11 +127,8 @@
 
     <!--City-->
     <div class="buttons reverse split">
-      <button class="btn" [disabled]="!form.valid">
-        Submit
-      </button>
+      <button class="btn" [disabled]="!form.valid">Submit</button>
       <button class="btn" (click)="cancel()">Cancel</button>
     </div>
-
   </form>
 </div>

@@ -2,20 +2,19 @@
 ============================================
 ; Title: security-question-list.component.html
 ; Author: Professor Krasso
-; Date: 04/22/2023
+; Date: 05/08/2023
 ; Modified By: John Vanhessche
 ; Description: security-question-list Component
 ;===========================================
 -->
 
-  <p-confirmDialog
-    [baseZIndex]="10000"
-    rejectButtonStyleClass="p-button-text"
-  ></p-confirmDialog>
+<p-confirmDialog
+  [baseZIndex]="10000"
+  rejectButtonStyleClass="p-button-text"
+></p-confirmDialog>
 
 <!--main-->
 <div class="main-container">
-
   <div class="content-title center">
     <h1>Security Questions Configuration Page!</h1>
     <h3>Fields marked with an asterisk (*) are required.</h3>
@@ -36,10 +35,7 @@
           />
 
           <!--buttons-->
-          <button
-            type="submit"
-            [disabled]="!sqForm.valid"
-          >
+          <button type="submit" [disabled]="!sqForm.valid">
             <i class="pi pi-plus sq-create"></i>
           </button>
         </div>
@@ -73,7 +69,11 @@
               routerLink="/main/security-question-details/{{ sq._id }}"
               class="pi pi-pencil edit-btn"
             ></i>
-            <i *ngIf="securityQuestions.length > 3" (click)="delete(sq._id)" class="pi pi-trash delete-btn"></i>
+            <i
+              *ngIf="securityQuestions.length > 3"
+              (click)="delete(sq._id)"
+              class="pi pi-trash delete-btn"
+            ></i>
           </td>
         </tr>
       </ng-template>

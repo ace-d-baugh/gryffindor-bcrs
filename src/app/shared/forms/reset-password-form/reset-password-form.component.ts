@@ -3,7 +3,7 @@
 ; Title: reset-password-form.component
 ; Author: Professor Krasso
 ; Modified by: John Vanhessche
-; Date: 04/29/2023
+; Date: 05/08/2023
 ; Description: reset-password-form
 ===========================================
 */
@@ -20,7 +20,6 @@ import { SessionService } from '../../services/session.service';
   templateUrl: './reset-password-form.component.html',
   styleUrls: ['./reset-password-form.component.css'],
 })
-
 export class ResetPasswordFormComponent implements OnInit {
   isAuthenticated: string;
   username: string;
@@ -51,7 +50,7 @@ export class ResetPasswordFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  //method for updating password.  
+  //method for updating password.
   updatePassword() {
     const password = this.form.controls['password'].value;
 

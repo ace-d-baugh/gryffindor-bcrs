@@ -3,7 +3,7 @@
 ; Title: register.component.ts
 ; Author: Professor Krasso
 ; Modified by: Ace Baugh
-; Date: 04/30/2023
+; Date: 05/08/2023
 ; Description: This is the register component ts file
 ===========================================
 */

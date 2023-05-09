@@ -3,7 +3,7 @@
 ; File Name: security-question-list.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/22/2023
+; Date: 05/08/2023
 ; File Description: security-question-list.component
 ; Modifications: John Vanhessche
 =====================================================
@@ -50,7 +50,7 @@ export class SecurityQuestionListComponent implements OnInit {
       },
       error: (e) => {
         console.log(e);
-      }
+      },
     });
   }
 
@@ -72,8 +72,8 @@ export class SecurityQuestionListComponent implements OnInit {
         console.log(e);
       },
       complete: () => {
-        this.sqForm.controls['text'].setErrors({ 'incorrect': false });
-      }
+        this.sqForm.controls['text'].setErrors({ incorrect: false });
+      },
     });
   }
 
@@ -90,8 +90,13 @@ export class SecurityQuestionListComponent implements OnInit {
             this.securityQuestions = this.securityQuestions.filter(
               (sq) => sq._id !== sqId
             );
-            this.errorMessages = [{severity:'success', summary: 'Success', detail: 'Security question deleted successfully'}];
-
+            this.errorMessages = [
+              {
+                severity: 'success',
+                summary: 'Success',
+                detail: 'Security question deleted successfully',
+              },
+            ];
           },
           error: (e) => {
             console.log(e);

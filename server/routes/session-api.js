@@ -3,7 +3,7 @@
 ; File Name: session-api.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Professor Krasso
-; Date: 04/19/2023
+; Date: 05/08/2023
 ; File Description: API for user sessions
 ; Modifications: Chad ONeal, John Vanhessche, Ace Baugh
 =====================================================
@@ -408,7 +408,7 @@ router.get("/verify/users/:username", async (req, res) => {
             message: `User ${user} successfully verified`,
           });
         } else {
-          //if user cannot be found due to an invalid username.  Instead of a 404 we are 
+          //if user cannot be found due to an invalid username.  Instead of a 404 we are
           //returning a 418 to return a "invalid username", rather than an interceptor message.
           const invalidUsernameResponse = new BaseResponse(
             "418",
@@ -594,7 +594,7 @@ router.post("/verify/users/:username/security-questions", async (req, res) => {
   }
 });
 
-//Data verification schema for resetPassword. 
+//Data verification schema for resetPassword.
 const resetPasswordSchema = {
   type: "object",
   properties: {
@@ -690,7 +690,7 @@ router.post("/users/:username/reset-password", async (req, res) => {
                 res
                   .status(500)
                   .send(updatedUserMongodbErrorResponse.toObject());
-                  //Log error
+                //Log error
                 errorLogger({
                   filename: myFile,
                   message: `Error attempting to save new password for ${updatedUser} user`,
