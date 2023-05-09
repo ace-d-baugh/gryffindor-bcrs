@@ -87,17 +87,7 @@ import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-g
     UserCreateComponent,
     AboutComponent,
     ContactComponent,
-    ThankYouComponent,
-    UserDetailsComponent,
-    BadRequestComponent,
-    VerifyUsernameFormComponent,
-    ResetPasswordFormComponent,
-    VerifySecurityQuestionsFormComponent,
-    RegisterComponent,
-    RoleListComponent,
-    RoleDetailsComponent,
-    InvoiceSummaryComponent,
-    PurchasesByServiceGraphComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
