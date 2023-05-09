@@ -2,8 +2,8 @@
 ============================================
 ; Title: styles.css for BCRS
 ; Author: Professor Krasso
-; Modified by: Ace Baugh 04/24/2023
-; Date: 03/25/2023
+; Modified by: Ace Baugh 05/08/2023
+; Date: 05/08/2023
 ; Description: styles.css for BCRS
 ===========================================
 */
@@ -66,6 +66,8 @@
   --color-black-3: #21070688;
   --color-black-4: #21070644;
   --color-black-5: #21070622;
+  --svg-color: invert(9%) sepia(57%) saturate(5918%) hue-rotate(345deg)
+    brightness(88%) contrast(118%);
 }
 
 * {
@@ -73,7 +75,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 
 .font-primary {
   font-family: var(--font-primary);
@@ -103,7 +104,6 @@ p {
 a {
   text-decoration: none;
 }
-
 
 .m1 {
   margin: 1rem;
@@ -315,13 +315,13 @@ a {
   margin: 1rem;
   font-size: 1.2rem;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .btn:hover {
   background-color: var(--color-primary-dark);
   color: var(--color-white);
 }
-
 
 .btn[disabled],
 .disabled-btn {
@@ -343,7 +343,6 @@ a {
   color: var(--color-white);
 }
 
-
 .card:hover {
   box-shadow: 0 0 20px var(--color-primary-dark);
 }
@@ -355,13 +354,14 @@ a {
   text-align: center;
 }
 
-
 .card-title {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-accent);
 }
 
 .card-subtitle {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 .card-body {
@@ -372,10 +372,10 @@ a {
   background-color: var(--color-primary-dark-4);
   color: var(--color-primary);
   padding: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   text-align: center;
+  font-weight: 700;
 }
-
 
 .card-footer a {
   color: var(--color-white);
@@ -397,7 +397,6 @@ form {
   position: relative;
   margin-bottom: 1rem;
 }
-
 
 .input-label {
   padding: 0.5rem;
@@ -469,7 +468,6 @@ td {
   padding: 0.5rem;
 }
 
-
 th {
   background-color: var(--color-primary-dark);
   color: var(--color-white);
@@ -492,7 +490,6 @@ tr:hover i {
   color: var(--color-white);
 }
 
-
 a {
   color: var(--color-primary-dark);
   text-decoration: none;
@@ -509,7 +506,6 @@ a {
   flex-direction: column;
 }
 
-
 .user-menu {
   border-radius: 0 !important;
   background-color: #f5deb3;
@@ -522,13 +518,12 @@ a {
   color: var(--color-white) !important;
 }
 
-
 .p-message-error,
 .p-toast-message {
   background: var(--color-primary-dark-2);
   padding: 0.5rem;
   color: var(--color-white);
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   margin-top: 0.5rem;
   box-shadow: 0 0 10px var(--color-primary-dark-3);
 }
@@ -538,9 +533,20 @@ a {
 .p-toast-icon-close {
   cursor: pointer;
   color: var(--color-white);
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   background-color: var(--color-primary-dark-2);
   border: none;
+}
+
+.p-message-close-icon {
+  color: var(--color-white);
+  font-size: 1.2rem;
+}
+
+.p-message-summary,
+.p-message-detail {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
 }
 
 .p-dialog-mask {
@@ -551,7 +557,6 @@ a {
   background-color: var(--color-white);
   padding: 2rem;
 }
-
 
 .p-dialog-title {
   font-size: 1.5rem;
@@ -578,7 +583,6 @@ a {
   margin-right: 1rem;
 }
 
-
 .p-confirm-dialog-accept,
 .p-confirm-dialog-reject {
   outline: none;
@@ -587,6 +591,12 @@ a {
 .p-dialog-footer {
   display: flex;
   justify-content: flex-end;
+}
+
+.pi-times-circle {
+  color: var(--color-primary-dark);
+  font-size: 2rem;
+  margin-right: 1rem;
 }
 
 header {
@@ -705,6 +715,19 @@ main {
   cursor: pointer;
 }
 
+.role-create {
+  position: absolute;
+  top: 1.7rem;
+  right: 0.5rem;
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  border: none;
+  padding: 0.5rem 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 .contact-content {
   max-width: 1200px;
   display: flex;
@@ -738,7 +761,7 @@ main {
 
 .phone-side a:hover {
   color: #740001;
-  box-shadow: .25rem .25rem #EEBA30;
+  box-shadow: 0.25rem 0.25rem #eeba30;
 }
 
 .contact-text {
@@ -753,9 +776,11 @@ main {
   float: right;
 }
 
-.questions-row {
+.questions-row,
+.personal-info-row,
+.user-cred-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 1rem;
   align-items: center;
   margin-bottom: 1rem;
@@ -764,9 +789,21 @@ main {
 }
 
 .question,
-.answer {
+.answer,
+.personal-info-first-name,
+.personal-info-last-name,
+.personal-info-phone,
+.personal-info-email,
+.user-cred-username,
+.user-cred-password {
   flex: 1;
   flex-direction: column;
+}
+
+.registration-form input,
+select,
+option {
+  font-size: 1rem;
 }
 
 .reverse {
@@ -775,6 +812,119 @@ main {
 
 .split {
   justify-content: space-between;
+}
+
+.services {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.services-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.service .card,
+.service .card-header,
+.service .card-body,
+.service .card-footer {
+  cursor: pointer;
+}
+
+.services-checkbox {
+  display: none;
+}
+
+.services-checkbox:checked + label .card {
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 0 0 5px var(--color-accent);
+}
+
+.services-checkbox:checked + label .card-header {
+  background: var(--color-primary-dark);
+}
+
+.service .card-header {
+  width: 200px;
+}
+
+.service .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.service-img {
+  width: 100px;
+  height: 100px;
+  filter: var(--svg-color);
+}
+
+.mat-dialog-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-white) !important;
+  border-radius: 0 !important;
+}
+
+.invoice-container {
+  color: var(--color-primary-dark);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.line-item:nth-child(odd) {
+  background-color: var(--color-primary-dark-4);
+}
+
+.line-item:nth-child(odd):hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+.line-item:nth-child(even) {
+  background-color: var(--color-primary-5);
+}
+
+.line-item:nth-child(even):hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+.purchase-graph {
+  background: var(--color-white-2);
+  min-width: 800px;
+  max-width: 1200px;
+  border: 1px solid var(--color-primary-dark);
+  box-shadow: 0 0 10px var(--color-primary-dark-3);
+}
+
+mat-dialog-container {
+  background-color: var(--color-white) !important;
+  border-radius: 0;
+}
+
+.print-info {
+  display: flex;
+  align-items: center;
+}
+
+.print-this {
+  display: none;
 }
 
 footer {
@@ -790,4 +940,35 @@ footer {
   width: 100%;
   color: var(--color-white);
   font-weight: 700;
+}
+
+@media print {
+  .main-container {
+    box-shadow: none;
+    margin: 0 auto;
+  }
+
+  .thank-you-container {
+    color: black;
+    margin-top: -100px;
+  }
+
+  hr {
+    border: 1px solid black;
+    box-shadow: none;
+  }
+
+  header,
+  footer,
+  .do-not-print {
+    display: none;
+  }
+
+  .line-item {
+    border-bottom: 1px solid black;
+  }
+
+  .line-item:last-child {
+    margin-bottom: 1rem;
+  }
 }

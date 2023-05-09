@@ -3,7 +3,7 @@
 ; Title: user-list.component.css for BCRS
 ; Author: Professor Krasso
 ; Modified by: Chad ONeal
-; Date: 04/24/2023
+; Date: 05/08/2023
 : Description: user-list.component.css for BCRS
 ===========================================
 */
@@ -19,9 +19,8 @@ describe('UserListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserListComponent ]
-    })
-    .compileComponents();
+      declarations: [UserListComponent],
+    }).compileComponents();
 
     //  import statements
     fixture = TestBed.createComponent(UserListComponent);

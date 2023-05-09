@@ -3,7 +3,7 @@
 ; File Name: base-layout.component.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; File Description: Base layout component
 ; Modifications: Chad ONeal
 =====================================================
@@ -28,8 +28,10 @@ import {
 })
 export class BaseLayoutComponent implements OnInit {
   sessionName: string;
+  sessionRole: string;
   currentYear: number = new Date().getFullYear();
   role: any;
+  reports: any;
 
   //  constructor
   constructor(
@@ -39,6 +41,7 @@ export class BaseLayoutComponent implements OnInit {
     private messageService: MessageService
   ) {
     this.sessionName = this.cookieService.get('sessionUser');
+    this.sessionRole = this.cookieService.get('sessionRole');
   }
 
   ngOnInit(): void {}
@@ -47,7 +50,7 @@ export class BaseLayoutComponent implements OnInit {
   signout() {
     this.confirmationService.confirm({
       message: 'Are you sure you want to proceed?',
-      header: 'Sign out confirmation',
+      header: 'Log out confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.cookieService.deleteAll();
@@ -59,14 +62,14 @@ export class BaseLayoutComponent implements OnInit {
             this.messageService.add({
               severity: 'info',
               summary: 'Cancelled',
-              detail: 'Sign out cancelled',
+              detail: 'Signout cancelled',
             });
             break;
           case ConfirmEventType.CANCEL:
             this.messageService.add({
               severity: 'info',
               summary: 'Cancelled',
-              detail: 'Sign out cancelled',
+              detail: 'Signout out cancelled',
             });
             break;
         }

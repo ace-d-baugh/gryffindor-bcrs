@@ -60,3 +60,44 @@
 [5/1/2023, 8:41:02 PM] server	 session-api.js - User jaybirdd not found
 [5/1/2023, 7:52:21 PM] server	 session-api.js - User jaybirdd not found
 [5/1/2023, 7:52:44 PM] server	 session-api.js - User null doesn't exist
+[5/2/2023, 8:59:16 AM] server	 role-api.js - Entered role is not unique
+[5/2/2023, 9:11:15 AM] server	 role-api.js - The field was blank, or the data could not be read
+[5/2/2023, 9:11:32 AM] server	 role-api.js - The field was blank, or the data could not be read
+[5/2/2023, 9:14:34 AM] server	 role-api.js - The field was blank, or the data could not be read
+[5/2/2023, 9:14:42 AM] server	 role-api.js - The field was blank, or the data could not be read
+[5/2/2023, 9:15:38 AM] server	 role-api.js - Entered role is not unique
+[5/2/2023, 2:52:41 PM] server	 user-api.js - User null not found
+[5/2/2023, 2:53:58 PM] server	 user-api.js - User jarybird not found
+[5/2/2023, 3:00:12 PM] server	 user-api.js - User jaybirdd not found
+[5/2/2023, 3:45:52 PM] server	 user-api.js - Validation on creating user failed
+[5/2/2023, 3:57:16 PM] server	 user-api.js - Validation of updates failed
+[5/2/2023, 4:11:54 PM] server	 user-api.js - User undefined not found
+[5/2/2023, 5:15:56 PM] server	 user-api.js - User undefined not found
+[5/2/2023, 5:16:40 PM] server	 user-api.js - User undefined not found
+[5/2/2023, 5:19:01 PM] server	 user-api.js - User undefined not found
+[5/2/2023, 5:20:12 PM] server	 user-api.js - User undefined not found
+[5/2/2023, 5:20:54 PM] server	 user-api.js - User undefined not found
+[5/2/2023, 5:21:11 PM] server	 user-api.js - User undefined not found
+[5/2/2023, 5:22:06 PM] server	 user-api.js - User 6451775a8d9403bc2c8f63f7 not found
+[5/2/2023, 5:22:22 PM] server	 user-api.js - User id: 6451775a8d9403bc2c8f63f7 not found
+[5/3/2023, 7:58:34 AM] server	 role-api.js - Entered role is not unique
+[5/3/2023, 11:59:14 AM] server	 role-api.js - Entered role is not unique
+[5/3/2023, 12:01:20 PM] server	 user-api.js - User tester03 not found
+[5/3/2023, 12:06:05 PM] server	 role-api.js - Internal server error
+[5/3/2023, 1:40:09 PM] server	 role-api.js - Error updating role on Mongo
+[5/3/2023, 1:48:02 PM] server	 role-api.js - Input doesn't match expected schema
+[5/3/2023, 1:50:40 PM] server	 role-api.js - Error updating role on Mongo
+[5/3/2023, 2:19:42 PM] server	 role-api.js - Input doesn't match expected schema
+[5/3/2023, 2:20:47 PM] server	 role-api.js - Error updating role on Mongo
+[5/4/2023, 1:43:55 PM] server	 role-api.js - Entered role is not unique
+[5/4/2023, 2:03:46 PM] server	 role-api.js - ${roleId}: Invalid id and/or request
+<<<<<<< HEAD
+[5/6/2023, 3:54:27 PM] server	 session-api.js - Invalid user id
+[5/6/2023, 3:54:47 PM] server	 session-api.js - Invalid credentials entered
+[5/6/2023, 3:59:26 PM] server	 session-api.js - Invalid credentials entered
+[5/6/2023, 3:59:39 PM] server	 session-api.js - Invalid credentials entered
+[5/6/2023, 7:36:27 PM] server	 session-api.js - Invalid credentials entered
+=======
+>>>>>>> 16e2f8559534c207be26e1cc36f2b6bbd3bea7de
+[5/7/2023, 11:19:07 AM] server	 role-api.js - Entered role is not unique
+[5/7/2023, 11:30:09 AM] server	 user-api.js - User rooferdudeee not found

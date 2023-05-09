@@ -3,7 +3,7 @@
 ; File Name: user.service.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/20/2023
+; Date: 05/08/2023
 ; File Description: user.service.ts
 ; Modifications: John Vanhessche
 =====================================================
@@ -50,6 +50,7 @@ export class UserService {
     return this.http.put('/api/users/' + userId, {
       firstName: user.firstName,
       lastName: user.lastName,
+      role: user.role?.text,
       phoneNumber: user.phoneNumber,
       address: user.address,
       email: user.email,
@@ -66,4 +67,3 @@ export class UserService {
     return this.http.get('/api/users/' + username + '/security-questions');
   }
 }
-

@@ -3,7 +3,7 @@
 ; Title: verify-username-form.component
 ; Author: Professor Krasso
 ; Modified by: John Vanhessche
-; Date: 04/27/2023
+; Date: 05/08/2023
 ; Description: verify-username-form
 ===========================================
 */
@@ -45,7 +45,6 @@ export class VerifyUsernameFormComponent implements OnInit {
 
     this.sessionService.verifyUsername(username).subscribe({
       next: (res) => {
-        console.log(res);
         this.router.navigate(['/session/verify-security-questions'], {
           queryParams: { username: username },
           skipLocationChange: true,

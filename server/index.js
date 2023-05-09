@@ -3,7 +3,7 @@
 ; File Name: index.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; File Description: This is the main server file
 ; Modifications: Ace Baugh
 =====================================================
@@ -14,13 +14,14 @@ const path = require("path");
 const mongoose = require("mongoose");
 const createError = require("http-errors");
 
-
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
 const SecurityQuestionRoute = require("./routes/security-question-api");
 const UserRoute = require("./routes/user-api");
 const Session = require("./routes/session-api");
+const Roles = require("./routes/role-api");
+const Invoice = require("./routes/invoice-api");
 
 const app = express(); // Express variable.
 
@@ -31,7 +32,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../dist/bcrs")));
 app.use("/", express.static(path.join(__dirname, "../dist/bcrs")));
-
 
 // default server port value.
 const PORT = process.env.PORT || 3000;
@@ -69,11 +69,12 @@ const openapiSpecification = swaggerJsDoc(options);
 // Swagger UI
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
-
 // API routes.
 app.use("/api/security-questions", SecurityQuestionRoute);
 app.use("/api/users", UserRoute);
 app.use("/api/session", Session);
+app.use("/api/role", Roles);
+app.use("/api/invoices", Invoice);
 
 // Error handler for 404 errors
 app.use(function (req, res, next) {

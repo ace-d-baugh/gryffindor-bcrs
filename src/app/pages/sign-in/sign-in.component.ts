@@ -3,7 +3,7 @@
 ; Title: sign-in.component.ts
 ; Author: Professor Krasso
 ; Modified by: Chad ONeal
-; Date: 04/23/2023
+; Date: 05/08/2023
 ; Description: sign-in component
 ============================================
 */
@@ -30,7 +30,9 @@ export class SignInComponent implements OnInit {
       null,
       Validators.compose([
         Validators.required,
-        Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$'),
+        Validators.pattern(
+          '^(?=.*[A-Za-z])(?=.*\\d)(?=.*[A-Z])[A-Za-z\\d]{8,}$'
+        ),
       ]),
     ],
   });
@@ -61,8 +63,8 @@ export class SignInComponent implements OnInit {
 
     this.sessionService.signin(username, password).subscribe({
       next: (res) => {
-        console.log(res);
         this.cookieService.set('sessionUser', res.data.username, 1);
+        this.cookieService.set('sessionRole', res.data.role.text, 1);
         this.router.navigate(['main/']);
       },
       error: (e) => {

@@ -2,7 +2,7 @@
 ============================================
 ; Title: base-layout.component.html
 ; Author: Professor Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; Modified By: Chad ONeal
 ; Description: Base Layout Component
 ;===========================================
@@ -24,26 +24,39 @@
     <div class="navbar">
       <div class="nav-link" routerLink="/">Home</div>
       <div class="nav-link" routerLink="/main/about">About</div>
-      <div class="nav-link" routerLink="/main">Services</div>
+      <div class="nav-link" *ngIf="!sessionName" routerLink="/session/sign-in">
+        Services
+      </div>
+      <div class="nav-link" *ngIf="sessionName" routerLink="/main/">
+        Services
+      </div>
       <div class="nav-link" routerLink="/main/contact">Contact</div>
       <!-- if not signed in, show sign-in link -->
-      <div class="nav-link" routerLink="/session/sign-in" *ngIf="!sessionName">Sign-In</div>
+      <div class="nav-link" routerLink="/session/sign-in" *ngIf="!sessionName">
+        Sign-In
+      </div>
 
-      <button [matMenuTriggerFor]="session" mat-icon-button class="ml-xs" *ngIf="sessionName">
+      <button
+        [matMenuTriggerFor]="session"
+        mat-icon-button
+        class="ml-xs"
+        *ngIf="sessionName"
+      >
         <mat-icon>person</mat-icon>
       </button>
 
       <mat-menu #session="matMenu" x-position="before" class="user-menu">
-        <button
-          mat-menu-item
-          style="text-align: center; font-weight: bold"
-        >
+        <button mat-menu-item style="text-align: center; font-weight: bold">
           Welcome {{ sessionName }}
         </button>
 
         <mat-divider></mat-divider>
 
-        <button mat-menu-item [matMenuTriggerFor]="configs" class="user-menu-item">
+        <button
+          mat-menu-item
+          [matMenuTriggerFor]="configs"
+          class="user-menu-item"
+        >
           <mat-icon>settings</mat-icon>
           Configurations
         </button>
@@ -56,10 +69,41 @@
             User List
           </button>
 
+          <button
+            mat-menu-item
+            routerLink="/main/role-list"
+            class="user-menu-item"
+          >
+            <mat-icon>supervised_user_circle</mat-icon>
+            Roles
+          </button>
+
           <!-- security questions -->
-          <button mat-menu-item routerLink="/main/security-question-list" class="user-menu-item">
+          <button
+            mat-menu-item
+            routerLink="/main/security-question-list"
+            class="user-menu-item"
+          >
             <mat-icon>help</mat-icon>
             Security Questions
+          </button>
+        </mat-menu>
+
+        <!-- If the user is an admin, show the admin menu -->
+        <button
+          *ngIf="sessionRole === 'admin'"
+          mat-menu-item
+          [matMenuTriggerFor]="reports"
+          class="user-menu-item"
+        >
+          <mat-icon>report</mat-icon>
+          Reports
+        </button>
+
+        <mat-menu #reports="matMenu" class="user-menu">
+          <button mat-menu-item routerLink="/main/graph" class="user-menu-item">
+            <mat-icon>pie_chart</mat-icon>
+            Purchases by Services Graph
           </button>
         </mat-menu>
 

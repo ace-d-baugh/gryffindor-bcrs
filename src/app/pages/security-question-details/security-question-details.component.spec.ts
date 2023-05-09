@@ -3,7 +3,7 @@
 ; Title: not-found.component.css for BCRS
 ; Author: Professor Krasso
 ; Modified by: John Vanhessche
-; Date: 04/23/2023
+; Date: 05/08/2023
 ; Description: not-found.component.css for BCRS
 ===========================================
 */
@@ -19,9 +19,8 @@ describe('SecurityQuestionDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SecurityQuestionDetailsComponent ]
-    })
-    .compileComponents();
+      declarations: [SecurityQuestionDetailsComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SecurityQuestionDetailsComponent);
     component = fixture.componentInstance;

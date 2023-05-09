@@ -2,7 +2,7 @@
 ============================================
 ; Title: BCRS
 ; Author: Professor Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; Modified By: Ace Baugh
 ; Description: Home Component
 ;===========================================
@@ -17,15 +17,19 @@
       <div class="company-name font-accent">Bob's Computer Repair Shop</div>
     </div>
     <div class="navbar">
-      <div class="nav-link" routerLink="/main">Home</div>
+      <div class="nav-link" routerLink="/">Home</div>
       <div class="nav-link" routerLink="/main/about">About</div>
-      <!-- If the user is not logged in, the user will be sent to the signin page, else they will go to the services page
-      <div class="nav-link" *ngIf="!sessionName" routerLink="/session/sign-in">Services</div>
-      <div class="nav-link" *ngIf="sessionName" routerLink="/main/services">Services</div>-->
-      <div class="nav-link" routerLink="/main/services">Services</div>
-      <!-- This is for testing purposes -->
+      <div class="nav-link" *ngIf="!sessionName" routerLink="/session/sign-in">
+        Services
+      </div>
+      <div class="nav-link" *ngIf="sessionName" routerLink="/main/">
+        Services
+      </div>
       <div class="nav-link" routerLink="/main/contact">Contact</div>
-      <div class="nav-link" routerLink="/session/sign-in">Sign-In</div>
+      <!-- if not signed in, show sign-in link -->
+      <div class="nav-link" routerLink="/session/sign-in" *ngIf="!sessionName">
+        Sign-In
+      </div>
     </div>
   </header>
   <div>
@@ -39,18 +43,32 @@
           potential!
         </div>
         <div class="hero-action-button">
-          <button class="btn hero-button" routerLink="/services">
+          <button
+            class="btn hero-button"
+            *ngIf="!sessionName"
+            routerLink="/session/sign-in"
+          >
+            ACCIO SERVICE
+          </button>
+          <button
+            class="btn hero-button"
+            *ngIf="sessionName"
+            routerLink="/main"
+          >
             ACCIO SERVICE
           </button>
         </div>
       </div>
       <div class="hero-review">
-        <div class="hero-review-rating">
-          <div class="rating-star">&starf;</div>
-          <div class="rating-star">&starf;</div>
-          <div class="rating-star">&starf;</div>
-          <div class="rating-star">&starf;</div>
-          <div class="rating-star">&starf;</div>
+        <div class="review-header">
+          <div class="reviewer"><img src="../assets/images/belladonna.jpg" /></div>
+          <div class="hero-review-rating">
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+            <div class="rating-star">&starf;</div>
+          </div>
         </div>
         <div class="hero-review-body font-handwriting">
           "I had a virus on my magical computer, and I was worried that I would
@@ -60,7 +78,7 @@
           provided excellent customer service. An attest to their Gryffindor
           history."
         </div>
-        <div class="hero-review-author font-accent">-Lysander Ashworth</div>
+        <div class="hero-review-author font-accent">-Belladonna Ravenswood</div>
       </div>
     </div>
     <div class="content">
@@ -74,14 +92,25 @@
             affordable repair services to get your muggle computer back up and
             running in no time. From virus removal to hardware upgrades, we have
             the expertise to get the job done right.
-            <a href="#">Learn more about us here.</a>
+            <a routerLink="/main/about">Learn more about us here.</a>
           </p>
           <p>
             Click below to schedule your repair service today and experience our
             personalized magical service!
           </p>
           <div class="about-action-button">
-            <button class="btn about-button" routerLink="/services">
+            <button
+              class="btn about-button"
+              *ngIf="!sessionName"
+              routerLink="/session/sign-in"
+            >
+              ACCIO SERVICE
+            </button>
+            <button
+              class="btn about-button"
+              *ngIf="sessionName"
+              routerLink="/main"
+            >
               ACCIO SERVICE
             </button>
           </div>
@@ -123,7 +152,7 @@
             throughout the entire process."
           </div>
           <div class="landing-review-author font-accent">
-            -Belladonna Ravenswood
+            -Lysander Ashworth
           </div>
         </div>
         <div class="landing-review">

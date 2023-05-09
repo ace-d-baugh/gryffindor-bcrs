@@ -30965,3 +30965,259 @@
 [5/1/2023, 7:59:14 PM] server	 user-api.js - Query on all users was successful
 [5/1/2023, 7:59:37 PM] server	 user-api.js - user mozart found successfully
 [5/1/2023, 7:59:40 PM] server	 user-api.js - Query on all users was successful
+[5/2/2023, 8:58:57 AM] server	 role-api.js - The role was added successfully
+[5/2/2023, 9:08:15 AM] server	 role-api.js - The role was added successfully
+[5/2/2023, 9:13:33 AM] server	 role-api.js - The role was added successfully
+[5/2/2023, 9:15:33 AM] server	 role-api.js - The role was added successfully
+[5/2/2023, 1:54:11 PM] server	 user-api.js - User {
+  _id: new ObjectId("644d92d4886da3414f5443e6"),
+  username: 'jaybird',
+  password: '$2a$10$q56ceuTv2/sR/wDrwElw3eHIK8cz7WxTcJ9IWbAj6zvSGbxlXb60C',
+  firstName: 'Jay',
+  lastName: 'Phillips',
+  phoneNumber: '321-987-6540',
+  address: 'Somewhere in Colorado',
+  email: 'jay@me.com',
+  isDisabled: true,
+  role: { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") },
+  dateCreated: 2023-04-29T21:49:14.138Z,
+  selectedSecurityQuestions: [
+    {
+      _id: new ObjectId("64515c53095680e093813162"),
+      questionText: 'What is your favorite fruit?',
+      answerText: 'Watermelon'
+    },
+    {
+      _id: new ObjectId("64515c53095680e093813163"),
+      answerText: 'Pumped Up Kicks',
+      questionText: 'What is your most favorite song?'
+    },
+    {
+      _id: new ObjectId("64515c53095680e093813164"),
+      questionText: 'What color is your favorite bird?',
+      answerText: 'Blue'
+    }
+  ],
+  dateModified: 2023-05-01T01:09:33.501Z
+} role is { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") }
+[5/2/2023, 1:56:00 PM] server	 user-api.js - User jaybird role is { text: 'standard', _id: new ObjectId("644d92d4886da3414f5443e7") }
+[5/2/2023, 1:57:25 PM] server	 user-api.js - User jaybird role is standard
+[5/2/2023, 2:01:56 PM] server	 user-api.js - User jaybird role is standard
+[5/2/2023, 2:52:33 PM] server	 user-api.js - User jaybird role is standard
+[5/2/2023, 2:53:53 PM] server	 user-api.js - User jaybird role is standard
+[5/2/2023, 3:00:03 PM] server	 user-api.js - User jaybird role is standard
+[5/2/2023, 3:25:18 PM] server	 user-api.js - User mozart role is standard
+[5/2/2023, 3:25:26 PM] server	 user-api.js - User bach role is standard
+[5/2/2023, 3:49:30 PM] server	 user-api.js - user tester900 created successfully
+[5/2/2023, 3:52:47 PM] server	 user-api.js - Query on all users was successful
+[5/2/2023, 3:55:46 PM] server	 user-api.js - user tester900 updated successfully
+[5/2/2023, 5:16:20 PM] server	 user-api.js - user tester900 updated successfully
+[5/2/2023, 5:16:29 PM] server	 user-api.js - user tester900 updated successfully
+[5/2/2023, 5:22:51 PM] server	 user-api.js - user tester900 updated successfully
+[5/3/2023, 7:58:29 AM] server	 role-api.js - The role was added successfully
+[5/3/2023, 8:02:06 AM] server	 role-api.js - Query was successful
+[5/3/2023, 8:02:32 AM] server	 role-api.js - user undefined deleted successfully
+[5/3/2023, 8:05:59 AM] server	 role-api.js - user undefined deleted successfully
+<<<<<<< HEAD
+[5/3/2023, 1:42:25 PM] server	 invoice-api.js - Query successful
+[5/3/2023, 1:47:12 PM] server	 invoice-api.js - Query successful
+=======
+[5/3/2023, 11:59:10 AM] server	 role-api.js - The role was added successfully
+[5/3/2023, 12:03:10 PM] server	 user-api.js - User tester6 role is standard
+[5/3/2023, 12:04:04 PM] server	 role-api.js - Query was successful
+[5/3/2023, 1:39:58 PM] server	 role-api.js - The role was updated successfully
+[5/3/2023, 1:40:24 PM] server	 role-api.js - The role was updated successfully
+[5/3/2023, 1:42:20 PM] server	 role-api.js - Query was successful
+[5/3/2023, 2:18:07 PM] server	 role-api.js - The role was updated successfully
+[5/4/2023, 12:32:29 PM] server	 session-api.js - User logged in successfully
+[5/4/2023, 12:32:46 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:33:04 PM] server	 security-question-api.js - All security questions returned successfully
+[5/4/2023, 12:33:14 PM] server	 user-api.js - Query on all users was successful
+[5/4/2023, 12:33:24 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:33:58 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:34:02 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:36:24 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:36:27 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:36:52 PM] server	 security-question-api.js - All security questions returned successfully
+[5/4/2023, 12:37:06 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:37:16 PM] server	 security-question-api.js - All security questions returned successfully
+[5/4/2023, 12:38:45 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:38:45 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:39:24 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:40:31 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:40:37 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:53:55 PM] server	 security-question-api.js - All security questions returned successfully
+[5/4/2023, 12:54:06 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:55:42 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:56:22 PM] server	 role-api.js - Query was successful
+[5/4/2023, 12:57:11 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:20:26 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:20:27 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:20:32 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:20:36 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:20:38 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:20:41 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:20:45 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:20:47 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:20:57 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:21:01 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:21:04 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:21:25 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:21:26 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:21:32 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:21:36 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:21:56 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:22:01 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:22:07 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:22:12 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:22:17 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:22:19 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:22:24 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:22:40 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:22:43 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:22:50 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:22:54 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:22:58 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:23:21 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:23:49 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:24:00 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:24:09 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:24:29 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:24:31 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:24:41 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:24:44 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:24:48 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:24:52 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:25:09 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:30:02 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:30:03 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:30:09 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:30:18 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:30:21 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:30:26 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:30:30 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:30:32 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:30:33 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:30:36 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:30:39 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:30:42 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:30:52 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:30:59 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:31:02 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:31:14 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:31:18 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:31:34 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:31:38 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:31:41 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:31:43 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:31:46 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:31:50 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:31:55 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:31:56 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:32:23 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:32:32 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:32:36 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:32:40 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:33:35 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:33:40 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:34:57 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:41:13 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:41:25 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:43:06 PM] server	 security-question-api.js - All security questions returned successfully
+[5/4/2023, 1:43:24 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:43:27 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:43:34 PM] server	 role-api.js - The role was added successfully
+[5/4/2023, 1:43:47 PM] server	 role-api.js - user undefined deleted successfully
+[5/4/2023, 1:43:59 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:44:04 PM] server	 role-api.js - The role was added successfully
+[5/4/2023, 1:50:44 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:51:28 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:52:35 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:52:39 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:52:53 PM] server	 security-question-api.js - All security questions returned successfully
+[5/4/2023, 1:52:55 PM] server	 security-question-api.js - Query was successful
+[5/4/2023, 1:52:57 PM] server	 security-question-api.js - All security questions returned successfully
+[5/4/2023, 1:57:14 PM] server	 security-question-api.js - All security questions returned successfully
+[5/4/2023, 1:57:17 PM] server	 security-question-api.js - Query was successful
+[5/4/2023, 1:57:19 PM] server	 security-question-api.js - All security questions returned successfully
+[5/4/2023, 1:57:27 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:57:27 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:57:30 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:58:12 PM] server	 session-api.js - User logged in successfully
+[5/4/2023, 1:58:43 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:58:44 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:58:48 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:58:55 PM] server	 role-api.js - Query was successful
+[5/4/2023, 1:59:03 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:00:04 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:00:13 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:04:01 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:04:03 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:04:10 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:04:12 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:04:20 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:04:22 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:04:25 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:05:19 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:05:49 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:09:32 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:09:53 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:09:55 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:09:58 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:10:06 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:10:08 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:10:12 PM] server	 role-api.js - The role was updated successfully
+[5/4/2023, 2:10:13 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:10:13 PM] server	 role-api.js - The role was updated successfully
+[5/4/2023, 2:10:17 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:10:21 PM] server	 role-api.js - The role was updated successfully
+[5/4/2023, 2:10:21 PM] server	 role-api.js - The role was updated successfully
+[5/4/2023, 2:10:22 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:24:05 PM] server	 role-api.js - Query was successful
+[5/4/2023, 2:24:21 PM] server	 role-api.js - Query was successful
+<<<<<<< HEAD
+<<<<<<< HEAD
+[5/6/2023, 3:31:55 PM] server	 session-api.js - User logged in successfully
+[5/6/2023, 3:36:54 PM] server	 session-api.js - User logged in successfully
+[5/6/2023, 3:37:58 PM] server	 user-api.js - Query on all users was successful
+[5/6/2023, 3:38:04 PM] server	 user-api.js - user tester2 deleted successfully
+[5/6/2023, 3:38:08 PM] server	 user-api.js - user tester1 deleted successfully
+[5/6/2023, 3:38:13 PM] server	 user-api.js - user tester3 deleted successfully
+[5/6/2023, 3:38:17 PM] server	 user-api.js - user gopher deleted successfully
+[5/6/2023, 3:38:20 PM] server	 user-api.js - user tester900 deleted successfully
+[5/6/2023, 3:38:24 PM] server	 user-api.js - user testuser99 deleted successfully
+[5/6/2023, 3:38:28 PM] server	 user-api.js - user pringles deleted successfully
+[5/6/2023, 3:40:34 PM] server	 user-api.js - Query on all users was successful
+[5/6/2023, 3:40:52 PM] server	 user-api.js - Query on all users was successful
+[5/6/2023, 3:40:58 PM] server	 role-api.js - Query was successful
+[5/6/2023, 3:41:17 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 3:41:33 PM] server	 security-question-api.js - All security questions returned successfully
+[5/6/2023, 3:43:37 PM] server	 user-api.js - Query on all users was successful
+[5/6/2023, 3:55:09 PM] server	 session-api.js - User logged in successfully
+[5/6/2023, 3:59:53 PM] server	 session-api.js - User logged in successfully
+=======
+>>>>>>> 391d23d4b393f94cdca9093baf7d28df994ef3b1
+[5/6/2023, 4:50:40 PM] server	 session-api.js - User logged in successfully
+[5/6/2023, 4:50:59 PM] server	 session-api.js - User logged in successfully
+[5/6/2023, 4:51:57 PM] server	 session-api.js - User logged in successfully
+[5/6/2023, 9:03:28 PM] server	 session-api.js - User logged in successfully
+[5/6/2023, 9:03:33 PM] server	 invoice-api.js - Query successful
+[5/7/2023, 10:46:32 AM] server	 invoice-api.js - Query successful
+[5/7/2023, 10:46:35 AM] server	 invoice-api.js - Query successful
+[5/7/2023, 11:00:27 AM] server	 session-api.js - User logged in successfully
+[5/7/2023, 11:01:35 AM] server	 invoice-api.js - Query successful
+[5/7/2023, 11:02:05 AM] server	 invoice-api.js - Query successful
+[5/7/2023, 11:06:49 AM] server	 user-api.js - user lamar_jackson updated successfully
+[5/7/2023, 11:09:23 AM] server	 role-api.js - The role was added successfully
+[5/7/2023, 11:12:45 AM] server	 invoice-api.js - Query successful
+[5/7/2023, 11:23:00 AM] server	 role-api.js - The role was added successfully
+[5/7/2023, 11:24:35 AM] server	 user-api.js - User rooferdude role is standard
+[5/7/2023, 11:28:24 AM] server	 user-api.js - User rooferdude role is standard
+[5/7/2023, 11:44:18 AM] server	 role-api.js - Query was successful
+[5/7/2023, 11:45:21 AM] server	 session-api.js - User logged in successfully
+[5/7/2023, 11:46:18 AM] server	 session-api.js - User logged in successfully
+[5/8/2023, 5:24:03 PM] server	 invoice-api.js - Invoice created
+[5/8/2023, 5:24:37 PM] server	 user-api.js - Query on all users was successful
+[5/8/2023, 5:27:26 PM] server	 user-api.js - Query on all users was successful
+[5/8/2023, 5:27:32 PM] server	 role-api.js - Query was successful
+[5/8/2023, 5:27:44 PM] server	 role-api.js - user undefined deleted successfully

@@ -3,7 +3,7 @@
 ; File Name: app.module.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; File Description: App module
 ; Modifications: Ace Baugh
 =====================================================
@@ -48,7 +48,7 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { BadRequestComponent } from './pages/bad-request/bad-request.component';
-
+import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -64,7 +64,12 @@ import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-secu
 import { ErrorInterceptor } from './shared/error.interceptor';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './pages/register/register.component';
-
+import { ChartModule } from 'primeng/chart';
+import { RoleListComponent } from './pages/role-list/role-list.component';
+import { RoleDetailsComponent } from './pages/role-details/role-details.component';
+import { InvoiceSummaryComponent } from './shared/invoice-summary/invoice-summary.component';
+import { MatListModule } from '@angular/material/list';
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
 //module
 @NgModule({
   declarations: [
@@ -82,12 +87,17 @@ import { RegisterComponent } from './pages/register/register.component';
     UserCreateComponent,
     AboutComponent,
     ContactComponent,
+    ThankYouComponent,
     UserDetailsComponent,
     BadRequestComponent,
     VerifyUsernameFormComponent,
     ResetPasswordFormComponent,
     VerifySecurityQuestionsFormComponent,
-    RegisterComponent
+    RegisterComponent,
+    RoleListComponent,
+    RoleDetailsComponent,
+    InvoiceSummaryComponent,
+    PurchasesByServiceGraphComponent,
   ],
   imports: [
     BrowserModule,
@@ -114,7 +124,9 @@ import { RegisterComponent } from './pages/register/register.component';
     ToastModule,
     MatDividerModule,
     MenuModule,
-    CommonModule
+    CommonModule,
+    ChartModule,
+    MatListModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

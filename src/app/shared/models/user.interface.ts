@@ -3,13 +3,15 @@
 ; File Name: user.interface.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/20/2023
+; Date: 05/08/2023
 ; File Description: user.interface.ts
 ; Modifications: John Vanhessche
 =====================================================
 */
 
-import { SelectedSecurityQuestion } from "./selected-security-question.interface";
+//import statements
+import { SelectedSecurityQuestion } from './selected-security-question.interface';
+import { Role } from './role.interface';
 
 //export interface
 export interface User {
@@ -21,6 +23,6 @@ export interface User {
   phoneNumber: string;
   address: string;
   email: string;
-  role?: string;
-  selectedSecurityQuestions?: any;
+  role?: Role;
+  selectedSecurityQuestions?: SelectedSecurityQuestion[];
 }

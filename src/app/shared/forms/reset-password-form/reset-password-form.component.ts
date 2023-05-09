@@ -3,11 +3,12 @@
 ; Title: reset-password-form.component
 ; Author: Professor Krasso
 ; Modified by: John Vanhessche
-; Date: 04/29/2023
+; Date: 05/08/2023
 ; Description: reset-password-form
 ===========================================
 */
 
+//import components
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -28,7 +29,9 @@ export class ResetPasswordFormComponent implements OnInit {
       null,
       Validators.compose([
         Validators.required,
-        Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$'),
+        Validators.pattern(
+          '^(?=.*[A-Za-z])(?=.*\\d)(?=.*[A-Z])[A-Za-z\\d]{8,}$'
+        ),
       ]),
     ],
   });
@@ -47,6 +50,7 @@ export class ResetPasswordFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //method for updating password.
   updatePassword() {
     const password = this.form.controls['password'].value;
 

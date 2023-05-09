@@ -3,7 +3,7 @@
 ; File Name: bad-request.component.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; File Description: 400 Bad Request page
 ; Modifications: Ace Baugh
 =====================================================

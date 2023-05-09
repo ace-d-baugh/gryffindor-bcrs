@@ -3,7 +3,7 @@
 ; File Name: session-api.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Professor Krasso
-; Date: 04/19/2023
+; Date: 05/08/2023
 ; File Description: API for user sessions
 ; Modifications: Chad ONeal, John Vanhessche, Ace Baugh
 =====================================================
@@ -25,7 +25,7 @@ const myFile = "session-api.js";
 
 // Configurations
 
-//Datavalidation schema
+//Datavalidation schemas
 const sessionSigninSchema = {
   type: "object",
   properties: {
@@ -33,6 +33,27 @@ const sessionSigninSchema = {
     password: { type: "string" },
   },
   required: ["username", "password"],
+  additionalProperties: false,
+};
+
+const verifySecurityQuestionsSchema = {
+  type: "object",
+  properties: {
+    questionText1: { type: "string" },
+    answerText1: { type: "string" },
+    questionText2: { type: "string" },
+    answerText2: { type: "string" },
+    questionText3: { type: "string" },
+    answerText3: { type: "string" },
+  },
+  required: [
+    "questionText1",
+    "answerText1",
+    "questionText2",
+    "answerText2",
+    "questionText3",
+    "answerText3",
+  ],
   additionalProperties: false,
 };
 
@@ -88,7 +109,6 @@ router.post("/signin", (req, res) => {
           res.status(500).send(signinMongodbErrorResponse.toObject());
           errorLogger({ filename: myfile, message: "Internal server error" });
         } else {
-          console.log(user);
           /**
            * Description: If the user is found, compare the password
            */
@@ -98,7 +118,6 @@ router.post("/signin", (req, res) => {
               user.password
             );
 
-            console.log(passwordIsValid);
             /**
              * if password is valid, return the user
              */
@@ -118,11 +137,9 @@ router.post("/signin", (req, res) => {
               /**
                * If password is invalid, return an error
                */
-              console.log("Invalid password: Please try again");
               const invalidPasswordResponse = new BaseResponse(
                 401,
-                "Invalid password",
-                "Please try again",
+                "Invalid username or password. Please try again.",
                 user
               );
               res.status(401).send(invalidPasswordResponse.toObject());
@@ -135,13 +152,9 @@ router.post("/signin", (req, res) => {
             /**
              * if username is invalid, return an error
              */
-            console.log(
-              `Invalid username: ${req.body.username}. Please try again`
-            );
             const invalidUsernameResponse = new BaseResponse(
               401,
-              "Invalid username",
-              "Please try again",
+              "Invalid username or password. Please try again.",
               null
             );
             res.status(401).send(invalidUsernameResponse.toObject());
@@ -307,7 +320,6 @@ router.post("/register", async (req, res) => {
               }
             });
           } else {
-            console.log(`Username ${req.body.username} already exists`);
             const alreadyExistsUserResponse = new BaseResponse(
               "400",
               `The username: ${req.body.username} is already in use.`,
@@ -365,8 +377,10 @@ router.post("/register", async (req, res) => {
 /* John */
 router.get("/verify/users/:username", async (req, res) => {
   try {
+    //Takes user name entered and finds on the database.
     User.findOne({ username: req.params.username }, function (err, user) {
       if (err) {
+        //return error if the user doesn't exist on the database
         console.log(err);
         const verifyMongodbErrorResponse = new ErrorResponse(
           "500",
@@ -374,30 +388,35 @@ router.get("/verify/users/:username", async (req, res) => {
           err
         );
         res.status(500).send(verifyMongodbErrorResponse.toObject());
+        //Log error
         errorLogger({
           filename: myFile,
           message: `Error retrieving ${user} from database`,
         });
       } else {
+        //return success if user was successfully found on the database.
         if (user) {
-          console.log(user);
           const verifyUserResponse = new BaseResponse(
             "200",
             "Query successful",
             user
           );
           res.json(verifyUserResponse.toObject());
+          //Log success message.
           debugLogger({
             filename: myFile,
             message: `User ${user} successfully verified`,
           });
         } else {
+          //if user cannot be found due to an invalid username.  Instead of a 404 we are
+          //returning a 418 to return a "invalid username", rather than an interceptor message.
           const invalidUsernameResponse = new BaseResponse(
             "418",
             " Invalid username",
             req.params.username
           );
           res.status(418).send(invalidUsernameResponse.toObject());
+          //Log error
           errorLogger({
             filename: myFile,
             message: `User ${user} doesn't exist`,
@@ -406,6 +425,7 @@ router.get("/verify/users/:username", async (req, res) => {
       }
     });
   } catch (e) {
+    //catch try errors
     console.log(e);
     const verifyUserCatchErrorResponse = new ErrorResponse(
       "500",
@@ -413,6 +433,7 @@ router.get("/verify/users/:username", async (req, res) => {
       e.message
     );
     res.status(500).send(verifyUserCatchErrorResponse.toObject());
+    //Log error
     errorLogger({ filename: myFile, message: "Internal Server Error" });
   }
 });
@@ -476,69 +497,91 @@ router.get("/verify/users/:username", async (req, res) => {
 // Ace Coded | John Tested | Chad Approved
 router.post("/verify/users/:username/security-questions", async (req, res) => {
   try {
-    User.findOne({ username: req.params.username }, function (err, user) {
-      if (err) {
-        console.log(err);
-        const verifySecurityQuestionMongodbErrorResponse = new ErrorResponse(
-          500,
-          "Internal server error",
-          err
-        );
-        res
-          .status(500)
-          .send(verifySecurityQuestionMongodbErrorResponse.toObject());
-        errorLogger({ filename: myFile, message: "Internal server error" });
-      } else {
-        console.log(user);
-        const selectedSecurityQuestionOne = user.selectedSecurityQuestions.find(
-          (q1) => q1.questionText === req.body.questionText1
-        );
-        const selectedSecurityQuestionTwo = user.selectedSecurityQuestions.find(
-          (q2) => q2.questionText === req.body.questionText2
-        );
-        const selectedSecurityQuestionThree =
-          user.selectedSecurityQuestions.find(
-            (q3) => q3.questionText === req.body.questionText3
-          );
+    let verifySecurityQuestions = req.body;
 
-        const isValidAnswerOne =
-          selectedSecurityQuestionOne.answerText === req.body.answerText1;
-        const isValidAnswerTwo =
-          selectedSecurityQuestionTwo.answerText === req.body.answerText2;
-        const isValidAnswerThree =
-          selectedSecurityQuestionThree.answerText === req.body.answerText3;
+    const validator = ajv.compile(verifySecurityQuestionsSchema);
+    const valid = validator(verifySecurityQuestions);
 
-        if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree) {
-          console.log(
-            `User ${user.username} answered all security questions correctly`
+    if (!valid) {
+      console.log("Invalid request", validator.errors);
+      const verifySecurityQuestionsInvalidRequest = new ErrorResponse(
+        400,
+        "Invalid request",
+        validator.errors
+      );
+      res.status(400).send(verifySecurityQuestionsInvalidRequest.toObject());
+      errorLogger({
+        filename: myFile,
+        message: "Invalid request",
+        data: verifySecurityQuestionsInvalidRequest.toObject(),
+      });
+    } else {
+      User.findOne({ username: req.params.username }, function (err, user) {
+        if (err) {
+          console.log(err);
+          const verifySecurityQuestionMongodbErrorResponse = new ErrorResponse(
+            500,
+            "Internal server error",
+            err
           );
-          const validSecurityQuestionsResponse = new BaseResponse(
-            200,
-            "Success",
-            user
-          );
-          res.json(validSecurityQuestionsResponse.toObject());
-          debugLogger({
-            filename: myFile,
-            message: "User answered all security questions correctly",
-          });
+          res
+            .status(500)
+            .send(verifySecurityQuestionMongodbErrorResponse.toObject());
+          errorLogger({ filename: myFile, message: "Internal server error" });
         } else {
-          console.log(
-            `User ${user.username} answered one or more security questions incorrectly`
-          );
-          const invalidSecurityQuestionsResponse = new BaseResponse(
-            400,
-            "Error: One or more security questions were answered incorrectly",
-            user
-          );
-          res.json(invalidSecurityQuestionsResponse.toObject());
-          errorLogger({
-            filename: myFile,
-            message: "User answered one or more security questions incorrectly",
-          });
+          const selectedSecurityQuestionOne =
+            user.selectedSecurityQuestions.find(
+              (q1) => q1.questionText === req.body.questionText1
+            );
+          const selectedSecurityQuestionTwo =
+            user.selectedSecurityQuestions.find(
+              (q2) => q2.questionText === req.body.questionText2
+            );
+          const selectedSecurityQuestionThree =
+            user.selectedSecurityQuestions.find(
+              (q3) => q3.questionText === req.body.questionText3
+            );
+
+          const isValidAnswerOne =
+            selectedSecurityQuestionOne.answerText === req.body.answerText1;
+          const isValidAnswerTwo =
+            selectedSecurityQuestionTwo.answerText === req.body.answerText2;
+          const isValidAnswerThree =
+            selectedSecurityQuestionThree.answerText === req.body.answerText3;
+
+          if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree) {
+            console.log(
+              `User ${user.username} answered all security questions correctly`
+            );
+            const validSecurityQuestionsResponse = new BaseResponse(
+              200,
+              "Success",
+              user
+            );
+            res.json(validSecurityQuestionsResponse.toObject());
+            debugLogger({
+              filename: myFile,
+              message: "User answered all security questions correctly",
+            });
+          } else {
+            console.log(
+              `User ${user.username} answered one or more security questions incorrectly`
+            );
+            const invalidSecurityQuestionsResponse = new BaseResponse(
+              400,
+              "Error: One or more security questions were answered incorrectly",
+              user
+            );
+            res.json(invalidSecurityQuestionsResponse.toObject());
+            errorLogger({
+              filename: myFile,
+              message:
+                "User answered one or more security questions incorrectly",
+            });
+          }
         }
-      }
-    });
+      });
+    }
   } catch (e) {
     console.log(e);
     const verifySecurityQuestionCatchErrorResponse = new ErrorResponse(
@@ -551,6 +594,7 @@ router.post("/verify/users/:username/security-questions", async (req, res) => {
   }
 });
 
+//Data verification schema for resetPassword.
 const resetPasswordSchema = {
   type: "object",
   properties: {
@@ -597,29 +641,36 @@ const resetPasswordSchema = {
  *
  */
 router.post("/users/:username/reset-password", async (req, res) => {
-
-  try
-  {
+  try {
+    //Data validation.  Verifies the user entered a valid password.
     const sessionResetPassword = req.body;
-    // let password = req.body.password;
     const validator = ajv.compile(resetPasswordSchema);
     const valid = validator(sessionResetPassword);
 
-    if (valid)
-    {
+    //if the password passes data validation, find the username on the database.
+    if (valid) {
       User.findOne({ username: req.params.username }, function (err, user) {
-        if (err)
-        {
+        //if there's an error communicating with the database.
+        if (err) {
           console.log(err);
-          const resetPasswordMongodbErrorResponse = new ErrorResponse("500", "Internal server error", err);
+          const resetPasswordMongodbErrorResponse = new ErrorResponse(
+            "500",
+            "Internal server error",
+            err
+          );
           res.status(500).send(resetPasswordMongodbErrorResponse.toObject());
-          errorLogger({filename: myFile, message: `Cannot find user ${username} on database`,});
-        }
-        else
-        {
+          //Log error
+          errorLogger({
+            filename: myFile,
+            message: `Cannot find user ${username} on database`,
+          });
+        } else {
+          //If the database lookup returns successful, encrypt entered password.
           if (user) {
-            console.log(user);
-            let hashedPassword = bcrypt.hashSync(sessionResetPassword.password, saltRounds);
+            let hashedPassword = bcrypt.hashSync(
+              sessionResetPassword.password,
+              saltRounds
+            );
 
             //set the new password
             user.set({
@@ -628,53 +679,67 @@ router.post("/users/:username/reset-password", async (req, res) => {
 
             //save the new password for the user
             user.save(function (err, updatedUser) {
-              if (err)
-              {
+              if (err) {
+                //if error communicating with the database during save.
                 console.log(err);
-                const updatedUserMongodbErrorResponse = new ErrorResponse("500", "Internal server error", err);
-                res.status(500).send(updatedUserMongodbErrorResponse.toObject());
-                errorLogger({filename: myFile, message: `Error attempting to save new password for ${updatedUser} user`,});
-              }
-              else
-              {
+                const updatedUserMongodbErrorResponse = new ErrorResponse(
+                  "500",
+                  "Internal server error",
+                  err
+                );
+                res
+                  .status(500)
+                  .send(updatedUserMongodbErrorResponse.toObject());
+                //Log error
+                errorLogger({
+                  filename: myFile,
+                  message: `Error attempting to save new password for ${updatedUser} user`,
+                });
+              } else {
+                //if success saving user, return success message.
                 console.log(updatedUser);
-                const updatedUserPasswordResponse = new BaseResponse("200", "Query successful", updatedUser);
+                const updatedUserPasswordResponse = new BaseResponse(
+                  "200",
+                  "Query successful",
+                  updatedUser
+                );
                 res.json(updatedUserPasswordResponse.toObject());
-                debugLogger({filename: myFile, message: `Password for user ${updatedUser} reset successfully`,});
+                //Log success.
+                debugLogger({
+                  filename: myFile,
+                  message: `Password for user ${updatedUser} reset successfully`,
+                });
               }
             });
-
           } else {
+            //If username cannot be found return error.
             const resetPasswordNotFoundResponse = new ErrorResponse(
               404,
               "User not found",
               null
             );
-            res
-              .status(404)
-              .send(resetPasswordNotFoundResponse.toObject());
+            res.status(404).send(resetPasswordNotFoundResponse.toObject());
+            //Log error
             errorLogger({
               filename: myFile,
               message: `User ${req.params.username} not found`,
             });
           }
-
         }
       });
     }
-  }
-
-  catch (e)
-  {
+  } catch (e) {
+    //error for try statement.
     console.log(e);
-    const resetPasswordCatchError = new ErrorResponse("500", "Internal server error", e.message);
+    const resetPasswordCatchError = new ErrorResponse(
+      "500",
+      "Internal server error",
+      e.message
+    );
     res.status(500).send(resetPasswordCatchError.toObject());
-    errorLogger({ filename: myFile, message: "Internal server error"});
+    //Log error
+    errorLogger({ filename: myFile, message: "Internal server error" });
   }
 });
-
-/**
- * User Sign-out
- */
 
 module.exports = router;

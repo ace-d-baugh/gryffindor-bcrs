@@ -3,7 +3,7 @@
 ; Title: user-create.component.css for BCRS
 ; Author: Professor Krasso
 ; Modified by: Chad ONeal
-; Date: 03/25/2023
+; Date: 05/08/2023
 ; Description: user-create.component.css for BCRS
 ===========================================
 */
@@ -32,7 +32,9 @@ export class UserCreateComponent implements OnInit {
       null,
       Validators.compose([
         Validators.required,
-        Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$'),
+        Validators.pattern(
+          '^(?=.*[A-Za-z])(?=.*\\d)(?=.*[A-Z])[A-Za-z\\d]{8,}$'
+        ),
       ]),
     ],
     firstName: [null, Validators.compose([Validators.required])],
@@ -72,7 +74,6 @@ export class UserCreateComponent implements OnInit {
 
     this.userService.createUser(newUser).subscribe({
       next: (res) => {
-        console.log(res);
         this.router.navigate(['/main/users']);
       },
       error: (err) => {

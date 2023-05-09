@@ -2,7 +2,7 @@
 ============================================
 ; Title: user-details.component.html
 ; Author: Professor Krasso
-; Date: 04/22/2023
+; Date: 05/08/2023
 ; Modified By: John Vanhessche
 ; Description: user-details Component
 ;===========================================
@@ -36,7 +36,6 @@
       </mat-error>
     </div>
 
-
     <!--form groups-->
     <div class="form-group">
       <label class="input-label">Last name</label>
@@ -49,6 +48,25 @@
         "
       >
         Last name is a required field
+      </mat-error>
+    </div>
+
+    <!-- Role Options -->
+    <div class="form-group">
+      <label class="input-label">Role</label>
+      <select formControlName="role" required>
+        <option *ngFor="let role of roles" [value]="role.text">
+          {{ role.text }}
+        </option>
+      </select>
+
+      <mat-error
+        *ngIf="
+          form.controls['role'].hasError('required') &&
+          form.controls['role'].touched
+        "
+      >
+        Role is a required field
       </mat-error>
     </div>
 
@@ -109,11 +127,8 @@
 
     <!--City-->
     <div class="buttons reverse split">
-      <button class="btn" [disabled]="!form.valid">
-        Submit
-      </button>
+      <button class="btn" [disabled]="!form.valid">Submit</button>
       <button class="btn" (click)="cancel()">Cancel</button>
     </div>
-
   </form>
 </div>

@@ -3,7 +3,7 @@
 ; File Name: auth-layout.component.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; File Description: Auth layout component
 ; Modifications: Ace Baugh
 =====================================================

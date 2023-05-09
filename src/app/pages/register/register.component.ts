@@ -3,7 +3,7 @@
 ; Title: register.component.ts
 ; Author: Professor Krasso
 ; Modified by: Ace Baugh
-; Date: 04/30/2023
+; Date: 05/08/2023
 ; Description: This is the register component ts file
 ===========================================
 */
@@ -19,12 +19,26 @@ import { CookieService } from 'ngx-cookie-service';
 import { SecurityQuestionService } from 'src/app/shared/services/security-question.service';
 import { SelectedSecurityQuestion } from 'src/app/shared/models/selected-security-question.interface';
 import { SessionService } from 'src/app/shared/session.service';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
+
+const fadeAnimation = trigger('fade', [
+  state('void', style({ opacity: 0 })),
+  state('*', style({ opacity: 1 })),
+  transition('void => *, * => void', [animate('1s ease-in-out')]),
+]);
 
 //component
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
+  animations: [fadeAnimation],
 })
 
 //export class
@@ -45,7 +59,9 @@ export class RegisterComponent implements OnInit {
       null,
       Validators.compose([
         Validators.required,
-        Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$'),
+        Validators.pattern(
+          '^(?=.*[A-Za-z])(?=.*\\d)(?=.*[A-Z])[A-Za-z\\d]{8,}$'
+        ),
       ]),
     ],
     firstName: [null, Validators.compose([Validators.required])],
@@ -120,7 +136,6 @@ export class RegisterComponent implements OnInit {
         answerText: form.answerToSecurityQuestion3,
       },
     ];
-    console.log(this.selectedSecurityQuestions);
 
     this.user = {
       username: form.username,
@@ -132,11 +147,9 @@ export class RegisterComponent implements OnInit {
       email: form.email,
       selectedSecurityQuestions: this.selectedSecurityQuestions,
     };
-    console.log(this.user);
 
     this.sessionService.register(this.user).subscribe({
       next: (res) => {
-        console.log(res);
         this.cookieService.set('sessionUser', this.user.username, 1);
         this.router.navigate(['main/']);
       },
@@ -157,8 +170,28 @@ export class RegisterComponent implements OnInit {
 
   // update security question options
   updateSecurityQuestionOptions(): void {
-
+    // If Question 1 is changed
     if (this.form.value.securityQuestion1) {
+      // If Questions 2 & 3 have not been selected yet
+      if (
+        this.form.value.securityQuestion2 === null &&
+        this.form.value.securityQuestion3 === null
+      ) {
+        // Question 2 list is equal to security questions minus what was selected from Question 1
+        this.questionList2 = this.securityQuestions.filter(
+          (question) => question.text !== this.form.value.securityQuestion1
+        );
+        // Question 3 List is unchanged
+      }
+      // If question 3 has not been selected yet but 1 & 2 have
+      if (this.form.value.securityQuestion3 === null) {
+        this.questionList3 = this.securityQuestions.filter(
+          (question) =>
+            question.text !== this.form.value.securityQuestion1 &&
+            question.text !== this.form.value.securityQuestion2
+        );
+      }
+      // If answers have been chosen
       this.questionList2 = this.securityQuestions.filter(
         (question) =>
           question.text !== this.form.value.securityQuestion1 &&
@@ -171,7 +204,17 @@ export class RegisterComponent implements OnInit {
       );
     }
 
+    // If Question 2 is changed
     if (this.form.value.securityQuestion2) {
+      // If question 3 has not been selected yet but 1 & 2 have
+      if (this.form.value.securityQuestion3 === null) {
+        this.questionList3 = this.securityQuestions.filter(
+          (question) =>
+            question.text !== this.form.value.securityQuestion1 &&
+            question.text !== this.form.value.securityQuestion2
+        );
+      }
+      // If answers have been chosen
       this.questionList1 = this.securityQuestions.filter(
         (question) =>
           question.text !== this.form.value.securityQuestion2 &&
@@ -181,6 +224,21 @@ export class RegisterComponent implements OnInit {
         (question) =>
           question.text !== this.form.value.securityQuestion1 &&
           question.text !== this.form.value.securityQuestion2
+      );
+    }
+
+    // If Question 3 is changed
+    if (this.form.value.securityQuestion3) {
+      // If answers have been chosen
+      this.questionList1 = this.securityQuestions.filter(
+        (question) =>
+          question.text !== this.form.value.securityQuestion2 &&
+          question.text !== this.form.value.securityQuestion3
+      );
+      this.questionList2 = this.securityQuestions.filter(
+        (question) =>
+          question.text !== this.form.value.securityQuestion1 &&
+          question.text !== this.form.value.securityQuestion3
       );
     }
   }

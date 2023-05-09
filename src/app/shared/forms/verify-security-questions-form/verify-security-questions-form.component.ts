@@ -3,7 +3,7 @@
 ; Title: verify-security-questions-form.component.ts
 ; Author: Professor Krasso
 ; Modified by: Chad ONeal
-; Date: 04/29/2023
+; Date: 05/08/2023
 ; Description: verify-security-questions-form.component.ts
 ===========================================
 */
@@ -63,7 +63,6 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
     this.userService.findSelectedSecurityQuestions(this.username).subscribe({
       next: (res) => {
         this.selectedSecurityQuestions = res.data;
-        console.log(this.selectedSecurityQuestions);
       },
       error: (e) => {
         console.log(e);
@@ -76,9 +75,6 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
           this.selectedSecurityQuestions[1].questionText;
         this.verifySecurityQuestionsModel.question3 =
           this.selectedSecurityQuestions[2].questionText;
-
-        console.log('Verify security questions model');
-        console.log(this.verifySecurityQuestionsModel);
       },
     });
   }
@@ -94,14 +90,11 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
     this.verifySecurityQuestionsModel.answerToQuestion3 =
       this.form.controls['answerToSecurityQuestion3'].value;
 
-    console.log(this.verifySecurityQuestionsModel);
-
     // verifySecurityQuestions from sessionService
     this.sessionService
       .verifySecurityQuestions(this.verifySecurityQuestionsModel, this.username)
       .subscribe({
         next: (res) => {
-          console.log(res);
           if (res.message === 'Success') {
             this.router.navigate(['/session/reset-password'], {
               queryParams: { isAuthenticated: 'true', username: this.username },
@@ -115,7 +108,6 @@ export class VerifySecurityQuestionsFormComponent implements OnInit {
                 detail: 'Unable to verify security question answers',
               },
             ];
-            console.log('Unable to verify security question answers');
           }
         },
         // error

@@ -3,7 +3,7 @@
 ; Title: sign-in.component.css for BCRS
 ; Author: Professor Krasso
 ; Modified by: Chad ONeal
-; Date: 04/24/2023
+; Date: 05/08/2023
 ; Description: sign-in.component.css for BCRS
 ===========================================
 */
@@ -19,9 +19,8 @@ describe('SignInComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignInComponent ]
-    })
-    .compileComponents();
+      declarations: [SignInComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SignInComponent);
     component = fixture.componentInstance;
