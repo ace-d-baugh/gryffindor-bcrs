@@ -3,7 +3,7 @@
 ; File Name: security-question-api.js
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; File Description: API for security questions
 ; Modifications: Ace Baugh, Chad ONeal, John Vanhessche
 =====================================================
@@ -14,23 +14,23 @@ const express = require("express");
 const SecurityQuestion = require("../models/security-question");
 const ErrorResponse = require("../services/error-response");
 const BaseResponse = require("../services/base-response");
-const Ajv = require('ajv');
-const { debugLogger, errorLogger } = require('../logs/logger');
-
+const Ajv = require("ajv");
+const { debugLogger, errorLogger } = require("../logs/logger");
 
 // Configurations
 const router = express.Router();
-const ajv = new Ajv()
-const myfile = 'security-question-api.js'
+const ajv = new Ajv();
+const myfile = "security-question-api.js";
 
+//data validation schema for creating/updating security questions api's [createSecurityQuestion, updateSecurityQuestion]
 const securityQuestionsSchema = {
-  type: 'object',
+  type: "object",
   properties: {
-    text: {type: 'string'}
+    text: { type: "string" },
   },
-  required: ['text'],
-  additionalProperties: false
-}
+  required: ["text"],
+  additionalProperties: false,
+};
 
 /**
  * FindAll
@@ -66,10 +66,8 @@ router.get("/", async (req, res) => {
           );
           // Send the error response object
           res.status(500).send(findAllMongodbErrorResponse.toObject());
-          errorLogger({filename: myfile, message: err})
+          errorLogger({ filename: myfile, message: err });
         } else {
-          // Log the security questions
-          console.log(securityQuestions);
           // Create a new base response object
           const findAllResponse = new BaseResponse(
             200,
@@ -78,7 +76,10 @@ router.get("/", async (req, res) => {
           );
           // Send the base response object
           res.json(findAllResponse.toObject());
-          debugLogger({filename: myfile, message: "All security questions returned successfully"})
+          debugLogger({
+            filename: myfile,
+            message: "All security questions returned successfully",
+          });
         }
       });
   } catch (e) {
@@ -92,11 +93,9 @@ router.get("/", async (req, res) => {
     );
     // Send the error response object
     res.status(500).send(findAllCatchErrorResponse.toObject());
-    errorLogger({filename: myfile, message: e})
+    errorLogger({ filename: myfile, message: e });
   }
 });
-
-
 
 /**
  * FindById
@@ -127,14 +126,23 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     // find a security question by _id, or return an error message
-    SecurityQuestion.findOne({ _id: req.params.id },function (err, securityQuestion) {
+    SecurityQuestion.findOne(
+      { _id: req.params.id },
+      function (err, securityQuestion) {
         if (err) {
           console.log(err);
           //const findByIdMongoDBErrorResponse = new BaseResponse(501,`${config.mongoServerError}:${err.message}`, null);
-          const findByIdMongoDBErrorResponse = new BaseResponse(501,"Invalid id and/or request", null);
+          const findByIdMongoDBErrorResponse = new BaseResponse(
+            501,
+            "Invalid id and/or request",
+            null
+          );
           console.log(findByIdMongoDBErrorResponse.toObject());
           res.status(501).send(findByIdMongoDBErrorResponse.toObject());
-          errorLogger({filename: myfile, message: `${req.params.id}: Invalid id and/or request`})
+          errorLogger({
+            filename: myfile,
+            message: `${req.params.id}: Invalid id and/or request`,
+          });
         } else {
           const findByIdResponse = new BaseResponse(
             200,
@@ -143,7 +151,7 @@ router.get("/:id", async (req, res) => {
           );
           console.log(findByIdResponse.toObject());
           res.json(findByIdResponse.toObject());
-          debugLogger({filename: myfile, message: "Query was successful"})
+          debugLogger({ filename: myfile, message: "Query was successful" });
         }
       }
     );
@@ -156,11 +164,9 @@ router.get("/:id", async (req, res) => {
     );
     console.log(findByIdErrorResponse.toObject());
     res.status(500).send(findByIdErrorResponse.toObject());
-    errorLogger({filename: myfile, message: "Internal Server Error"})
+    errorLogger({ filename: myfile, message: "Internal Server Error" });
   }
 });
-
-
 
 /**
  * createSecurityQuestion
@@ -191,53 +197,63 @@ router.get("/:id", async (req, res) => {
  */
 // John Coded | Chad Tested | Ace Approved
 router.post("/", async (req, res) => {
-  try
-  {
-    const newSecurityQuestion = req.body
-    const validator = ajv.compile(securityQuestionsSchema)
-    const valid = validator(newSecurityQuestion)
+  try {
+    //data validation.  Verifies that the user entered the required text for the security question.
+    const newSecurityQuestion = req.body;
+    const validator = ajv.compile(securityQuestionsSchema);
+    const valid = validator(newSecurityQuestion);
 
-    if (valid)
-    {
+    //If what the user entered is valid..... creates security question to Mongo.
+    if (valid) {
       SecurityQuestion.create(
         newSecurityQuestion,
         function (err, securityQuestion) {
           if (err) {
+            //error if having an issue talking to Mongo.
             console.log(err);
-            const createSecurityQuestionMongodbErrorResponse = new ErrorResponse(
-              500,
-              "Internal server error",
-              err
-            );
+            const createSecurityQuestionMongodbErrorResponse =
+              new ErrorResponse(500, "Internal server error", err);
             res
               .status(500)
               .send(createSecurityQuestionMongodbErrorResponse.toObject());
-              errorLogger({filename: myfile, message: "Message could not be created"})
+              //Log error
+            errorLogger({
+              filename: myfile,
+              message: "Message could not be created",
+            });
           } else {
-            console.log(securityQuestion);
+            //if creation was successful....
             const createSecurityQuestionResponse = new BaseResponse(
               200,
               "Query successful",
               securityQuestion
             );
             res.json(createSecurityQuestionResponse.toObject());
-            debugLogger({filename: myfile, message: `${securityQuestion} was added successfully`})
+            //Log success message.
+            debugLogger({
+              filename: myfile,
+              message: `${securityQuestion} was added successfully`,
+            });
           }
         }
       );
-    } else
-    {
-        const securityQuestionValidationError = new ErrorResponse(
-          400,
-          "Bad Request",
-          `Input doesn't match expected Schema ${req.body}`
-        );
-        console.log(securityQuestionValidationError);
-        errorLogger({ filename: myfile, message: "Bad request, input doesn't match schema"})
-        res.json(securityQuestionValidationError.toObject());
+    } else {
+      //captures error if valid is not true - user data doesn't pass validation.
+      const securityQuestionValidationError = new ErrorResponse(
+        400,
+        "Bad Request",
+        `Input doesn't match expected Schema ${req.body}`
+      );
+      console.log(securityQuestionValidationError);
+      //Log error
+      errorLogger({
+        filename: myfile,
+        message: "Bad request, input doesn't match schema",
+      });
+      res.json(securityQuestionValidationError.toObject());
     }
-  }
-  catch (e) {
+  } catch (e) {
+    //Error for try/catch
     console.log(e);
     const createSecurityQuestionCatchErrorResponse = new ErrorResponse(
       500,
@@ -245,10 +261,10 @@ router.post("/", async (req, res) => {
       e.message
     );
     res.status(500).send(createSecurityQuestionCatchErrorResponse.toObject());
-    errorLogger({filename: myfile, message: "Internal Server Error"})
+    //Log error
+    errorLogger({ filename: myfile, message: "Internal Server Error" });
   }
 });
-
 
 /**
  * updateSecurityQuestion
@@ -284,29 +300,26 @@ router.post("/", async (req, res) => {
 // Ace Coded | John Tested | Chad Approved
 router.put("/:id", async (req, res) => {
   try {
+    const updateSecurityQuestion = req.body;
+    const validator = ajv.compile(securityQuestionsSchema);
+    const valid = validator(updateSecurityQuestion);
 
-    const updateSecurityQuestion = req.body
-    const validator = ajv.compile(securityQuestionsSchema)
-    const valid = validator(updateSecurityQuestion)
-
-    if (valid)
-    {
+    if (valid) {
       SecurityQuestion.findOne(
         { _id: req.params.id },
         function (err, securityQuestion) {
           if (err) {
             console.log(err);
-            const updateSecurityQuestionMongodbErrorResponse = new ErrorResponse(
-              500,
-              "Internal server error",
-              err
-            );
+            const updateSecurityQuestionMongodbErrorResponse =
+              new ErrorResponse(500, "Internal server error", err);
             res
               .status(500)
               .send(updateSecurityQuestionMongodbErrorResponse.toObject());
-              errorLogger({filename: myfile, message: "Message could not be updated"})
+            errorLogger({
+              filename: myfile,
+              message: "Message could not be updated",
+            });
           } else {
-            console.log(securityQuestion);
 
             securityQuestion.set({
               text: req.body.text,
@@ -320,16 +333,21 @@ router.put("/:id", async (req, res) => {
                 res
                   .status(500)
                   .send(savedSecurityQuestionMongodbErrorResponse.toObject());
-                  errorLogger({filename: myfile, message: "Internal server error"})
+                errorLogger({
+                  filename: myfile,
+                  message: "Internal server error",
+                });
               } else {
-                console.log(savedSecurityQuestion);
                 const savedSecurityQuestionResponse = new BaseResponse(
                   200,
                   "Query successful",
                   savedSecurityQuestion
                 );
                 res.json(savedSecurityQuestionResponse.toObject());
-                debugLogger({filename: myfile, message: `${securityQuestion} was updated successfully`})
+                debugLogger({
+                  filename: myfile,
+                  message: `${securityQuestion} was updated successfully`,
+                });
               }
             });
           }
@@ -343,7 +361,10 @@ router.put("/:id", async (req, res) => {
       );
       console.log(securityQuestionValidationError);
       res.json(securityQuestionValidationError.toObject());
-      errorLogger({filename: myfile, message: "Message doesn't match expected schema"})
+      errorLogger({
+        filename: myfile,
+        message: "Input doesn't match expected schema",
+      });
     }
   } catch (e) {
     console.log(e);
@@ -353,7 +374,7 @@ router.put("/:id", async (req, res) => {
       e.message
     );
     res.status(500).send(updateSecurityQuestionCatchErrorResponse.toObject());
-    errorLogger({filename: myfile, message: "Internal server error"})
+    errorLogger({ filename: myfile, message: "Internal server error" });
   }
 });
 
@@ -397,8 +418,7 @@ router.delete("/:id", async (req, res) => {
 
           console.log(deleteByIdMongoDBErrorResponse.toObject());
           res.status(501).send(deleteByIdMongoDBErrorResponse.toObject());
-          errorLogger({filename: myfile, message: "Internal Server error"})
-
+          errorLogger({ filename: myfile, message: "Internal Server error" });
         } else {
           securityQuestion.set({
             isDisabled: true,
@@ -408,19 +428,17 @@ router.delete("/:id", async (req, res) => {
             if (err) {
               console.log(err);
               const savedSecurityQuestionMongoDBErrorResponse =
-                new ErrorResponse(
-                  501,
-                  "Internal server error",
-                  null
-                );
+                new ErrorResponse(501, "Internal server error", null);
 
               console.log(savedSecurityQuestionMongoDBErrorResponse.toObject());
               res
                 .status(501)
                 .send(savedSecurityQuestionMongoDBErrorResponse.toObject());
-                errorLogger({filename: myfile, message: "Could not be deleted"})
+              errorLogger({
+                filename: myfile,
+                message: "Could not be deleted",
+              });
             } else {
-              // console.log(savedSecurityQuestion);
 
               const deleteByIdResponse = new BaseResponse(
                 200,
@@ -428,7 +446,10 @@ router.delete("/:id", async (req, res) => {
                 savedSecurityQuestion
               );
               res.json(deleteByIdResponse.toObject());
-              debugLogger({filename: myfile, message: "Security Question deleted successfully"})
+              debugLogger({
+                filename: myfile,
+                message: "Security Question deleted successfully",
+              });
             }
           });
         }
@@ -443,7 +464,7 @@ router.delete("/:id", async (req, res) => {
     );
     console.log(deleteByIdErrorResponse.toObject());
     res.status(500).send(deleteByIdErrorResponse.toObject());
-    errorLogger({filename: myfile, message: "Internal server error"})
+    errorLogger({ filename: myfile, message: "Internal server error" });
   }
 });
 

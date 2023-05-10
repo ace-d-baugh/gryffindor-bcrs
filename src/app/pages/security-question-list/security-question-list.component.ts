@@ -3,7 +3,7 @@
 ; File Name: security-question-list.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/22/2023
+; Date: 05/08/2023
 ; File Description: security-question-list.component
 ; Modifications: John Vanhessche
 =====================================================
@@ -15,6 +15,8 @@ import { ConfirmationService, ConfirmEventType } from 'primeng/api';
 import { SecurityQuestionService } from 'src/app/shared/services/security-question.service';
 import { SecurityQuestion } from 'src/app/shared/models/security-question.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { Message } from 'primeng/api';
 
 //export class
 @Component({
@@ -27,6 +29,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //export class
 export class SecurityQuestionListComponent implements OnInit {
   securityQuestions: SecurityQuestion[];
+  errorMessages: Message[];
 
   sqForm: FormGroup = this.fb.group({
     text: [null, Validators.compose([Validators.required])],
@@ -35,9 +38,11 @@ export class SecurityQuestionListComponent implements OnInit {
   constructor(
     private securityQuestionService: SecurityQuestionService,
     private confirmationService: ConfirmationService,
+    private messageService: MessageService,
     private fb: FormBuilder
   ) {
     this.securityQuestions = [];
+    this.errorMessages = [];
 
     this.securityQuestionService.findAllSecurityQuestions().subscribe({
       next: (res) => {
@@ -45,7 +50,7 @@ export class SecurityQuestionListComponent implements OnInit {
       },
       error: (e) => {
         console.log(e);
-      }
+      },
     });
   }
 
@@ -67,8 +72,8 @@ export class SecurityQuestionListComponent implements OnInit {
         console.log(e);
       },
       complete: () => {
-        this.sqForm.controls['text'].setErrors({ 'incorrect': false });
-      }
+        this.sqForm.controls['text'].setErrors({ incorrect: false });
+      },
     });
   }
 
@@ -85,6 +90,13 @@ export class SecurityQuestionListComponent implements OnInit {
             this.securityQuestions = this.securityQuestions.filter(
               (sq) => sq._id !== sqId
             );
+            this.errorMessages = [
+              {
+                severity: 'success',
+                summary: 'Success',
+                detail: 'Security question deleted successfully',
+              },
+            ];
           },
           error: (e) => {
             console.log(e);
@@ -93,6 +105,7 @@ export class SecurityQuestionListComponent implements OnInit {
       },
       reject: (type: any) => {
         switch (type) {
+          //if user does anything other than confirm delete.
           case ConfirmEventType.REJECT:
             console.log('User rejected this operation');
             break;

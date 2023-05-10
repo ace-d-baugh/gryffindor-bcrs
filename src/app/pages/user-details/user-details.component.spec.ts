@@ -2,7 +2,7 @@
 ============================================
 , Title: user-details.component.css for BCRS
 ; Author: Chad ONeal
-; Date: 04/24/2023
+; Date: 05/08/2023
 ; Description: css styling for BCRS
 ===========================================
 */
@@ -18,9 +18,8 @@ describe('UserDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserDetailsComponent ]
-    })
-    .compileComponents();
+      declarations: [UserDetailsComponent],
+    }).compileComponents();
 
     // create component
     fixture = TestBed.createComponent(UserDetailsComponent);

@@ -3,7 +3,7 @@
 ; File Name: app-routing.module.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/18/2023
+; Date: 05/08/2023
 ; File Description: App routing module
 ; Modifications: Ace Baugh, John Vanhessche, Chad ONeal
 =====================================================
@@ -25,7 +25,19 @@ import { ServerErrorComponent } from './pages/server-error/server-error.componen
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { BadRequestComponent } from './pages/bad-request/bad-request.component';
+import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
+import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
+import { VerifySecurityQuestionsFormComponent } from './shared/forms/verify-security-questions-form/verify-security-questions-form.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { RoleListComponent } from './pages/role-list/role-list.component';
+import { RoleDetailsComponent } from './pages/role-details/role-details.component';
+import { AuthGuard } from './shared/auth.guard';
+import { InvoiceSummaryComponent } from './shared/invoice-summary/invoice-summary.component';
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+import { RoleGuard } from './shared/role.guard';
 
 // routes
 const routes: Routes = [
@@ -39,8 +51,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        // component: ServicesComponent,
-        component: HomeComponent, // depricate
+        component: HomeComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'about',
@@ -53,32 +65,64 @@ const routes: Routes = [
       {
         path: 'security-question-list',
         component: SecurityQuestionListComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'security-question-details/:questionId',
         component: SecurityQuestionDetailsComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'users',
         component: UserListComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'users/create/new',
         component: UserCreateComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'users/user-details/:userId',
         component: UserDetailsComponent,
-      }
-    ]
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'role-list',
+        component: RoleListComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'role-details/:roleId',
+        component: RoleDetailsComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'graph',
+        component: PurchasesByServiceGraphComponent,
+        canActivate: [RoleGuard],
+      },
+      {
+        path: 'thank-you',
+        component: ThankYouComponent,
+      },
+    ],
   },
   {
     path: 'session',
     component: AuthLayoutComponent,
     children: [
       {
+        path: 'bad-request',
+        component: BadRequestComponent,
+      },
+      {
         path: 'sign-in',
         component: SignInComponent,
+      },
+      {
+        path: 'register',
+        component: RegisterComponent,
       },
       {
         path: 'not-found',
@@ -87,6 +131,18 @@ const routes: Routes = [
       {
         path: 'server-error',
         component: ServerErrorComponent,
+      },
+      {
+        path: 'forgot',
+        component: VerifyUsernameFormComponent,
+      },
+      {
+        path: 'verify-security-questions',
+        component: VerifySecurityQuestionsFormComponent,
+      },
+      {
+        path: 'reset-password',
+        component: ResetPasswordFormComponent,
       },
     ],
   },

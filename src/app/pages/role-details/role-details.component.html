@@ -1,0 +1,46 @@
+<!--
+============================================
+; Title: role-details.component.html
+; Author: Professor Krasso
+; Date: 05/08/2023
+; Modified By: John Vanhessche
+; Description: role-details Component
+;===========================================
+-->
+
+<!--main content container-->
+<div class="main-container">
+  <div class="content-title center">
+    <h1>Update Role Form</h1>
+    <h3>Fields marked with an asterisk (*) are required.</h3>
+  </div>
+
+  <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+
+  <!--forms-->
+  <form
+    [formGroup]="roleForm"
+    (ngSubmit)="save(); roleForm.reset()"
+    (keydown.enter)="$event.preventDefault()"
+  >
+    <label class="input-label" for="text">Role</label>
+    <input type="text" formControlName="text" required placeholder="Role*" />
+
+    <!-- Display if error occurs -->
+    <mat-error
+      class="error"
+      *ngIf="
+        roleForm.controls['text'].hasError('required') &&
+        roleForm.controls['text'].touched
+      "
+    >
+      Role is a required field.
+    </mat-error>
+
+    <!--save cancel buttons-->
+    <div class="buttons reverse split">
+      <button class="btn" (click)="save()">Save</button>
+      <button class="btn" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

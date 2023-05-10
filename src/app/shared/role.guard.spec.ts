@@ -1,26 +1,27 @@
 /*
 ============================================
-; Title: auth.guard.spec.ts
+; Title: role.guard.spec.ts
 ; Author: Professor Krasso
 ; Modified by: Chad ONeal
-; Date: 04/23/2023
-; Description: auth.guard.spec.ts for BCRS
+; Date: 05/06/2023
+; Description: role.guard.spec.ts for BCRS
 ============================================
 */
 
 // import statements
 import { TestBed } from '@angular/core/testing';
-import { AuthGuard } from './auth.guard';
+import { RoleGuard } from './role.guard';
 
-// setup auth guard
-describe('AuthGuard', () => {
-  let guard: AuthGuard;
+// component
+describe('RoleGuard', () => {
+  let guard: RoleGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(AuthGuard);
+    guard = TestBed.inject(RoleGuard);
   });
 
+  //  it statement
   it('should be created', () => {
     expect(guard).toBeTruthy();
   });

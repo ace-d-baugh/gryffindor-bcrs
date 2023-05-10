@@ -3,16 +3,14 @@
 ; Title: hintrc BCRS
 ; Author: Professor Krasso
 ; Modified by: Ace Baugh
-; Date: 04/24/2023
+; Date: 05/08/2023
 ; Description: hintrc BCRS
 ===========================================
 */
 
 // eslint-disable-next-line no-undef
 {
-  "extends": [
-    "development"
-  ],
+  "extends": ["development"],
   "hints": {
     "disown-opener": "off",
     "no-inline-styles": "off",
@@ -21,9 +19,7 @@
     "compat-api/css": [
       "default",
       {
-        "ignore": [
-          "-webkit-font-feature-settings"
-        ]
+        "ignore": ["-webkit-font-feature-settings"]
       }
     ],
     "button-type": "off"

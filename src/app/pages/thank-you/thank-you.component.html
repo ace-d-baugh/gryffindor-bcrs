@@ -1,0 +1,80 @@
+<!--
+============================================
+; Title: thank-you.component.html
+; Author: Professor Krasso
+; Date: 05/08/2023
+; Modified By: Ace Baugh
+; Description: This is the Thank you page
+;===========================================
+-->
+
+<div class="main-container">
+  <div class="thank-you-container">
+    <h1 class="center mb">Bob's Computer Repair Shop</h1>
+    <h2 class="center mb">Thank you for your order, {{ username }}!</h2>
+    <h3 class="center mb">Order Invoice</h3>
+    <h4 class="center mb">Order date: {{ orderDate | date }}</h4>
+
+    <div class="invoice-services">
+      <h2 class="mb">Services</h2>
+      <div class="services-list">
+        <div
+          *ngFor="let lineItem of invoice.lineItems"
+          class="line-item p1"
+        >
+          <div class="flex split">
+            <h3>
+              {{ lineItem.title }}:
+              <h5>{{ lineItem.subtitle }}</h5>
+            </h3>
+            <h3>
+              {{ lineItem.price | currency : "GBP" : "symbol" : "1.2-2" }}
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="do-not-print" />
+
+    <div class="invoice-parts">
+      <h2 class="mb">Parts</h2>
+      <div class="flex split p1">
+        <h3>Price of Parts Needed</h3>
+        <h3>
+          {{ parts | currency : "GBP" : "symbol" : "1.2-2" }}
+        </h3>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="invoice-labor">
+      <h2 class="mb">Labor</h2>
+      <div class="flex split p1">
+        <h3>Labor Hours @ 50/hr:</h3>
+        <h3>
+          {{ labor | currency : "GBP" : "symbol" : "1.2-2" }}
+        </h3>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="invoice-total mb2">
+      <h2 class="mb">Total</h2>
+      <div>
+        <div class="flex split p1">
+          <h3>Total charges:</h3>
+          <h2>
+            {{ total | currency : "GBP" : "symbol" : "1.2-2" }}
+          </h2>
+        </div>
+      </div>
+      <hr class="do-not-print" />
+      <div class="do-not-print center">
+        <button (click)="printPage()" class="btn m3">Print Invoice</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+<!--
+==============================================
+; Title: bcrs verify-security-questions.component.html
+; Author: Professor Krasso
+; Modified by: Chad ONeal
+; Date: 05/08/2023
+; Description: html for bcrs
+==============================================
+!-->
+
+<div class="main-container">
+  <!--main card title-->
+  <div class="content-title center">
+    <h1>Verify Security Questions</h1>
+    <h3>Fields marked with an asterisk (*) are required.</h3>
+  </div>
+  <br /><br />
+
+  <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+
+  <!--forms field-->
+  <form
+    *ngIf="selectedSecurityQuestions"
+    [formGroup]="form"
+    (ngSubmit)="verifySecurityQuestions()"
+  >
+    <div class="form-group">
+      <label class="input-label" for="input">{{
+        verifySecurityQuestionsModel.question1
+      }}</label>
+      <input
+        type="text"
+        formControlName="answerToSecurityQuestion1"
+        id="answerToSecurityQuestion1"
+        class="form-control"
+      />
+      <!--mat-error-->
+      <mat-error
+        class="error"
+        *ngIf="
+          form.controls['answerToSecurityQuestion1'].hasError('required') &&
+          form.controls['answerToSecurityQuestion1'].touched
+        "
+      >
+        Required field.
+      </mat-error>
+    </div>
+
+    <div class="form-group">
+      <label class="input-label" for="input">{{
+        verifySecurityQuestionsModel.question2
+      }}</label>
+      <input
+        type="text"
+        formControlName="answerToSecurityQuestion2"
+        id="answerToSecurityQuestion2"
+        class="form-control"
+      />
+      <!--mat-error-->
+      <mat-error
+        class="error"
+        *ngIf="
+          form.controls['answerToSecurityQuestion2'].hasError('required') &&
+          form.controls['answerToSecurityQuestion2'].touched
+        "
+      >
+        Required field.
+      </mat-error>
+    </div>
+
+    <div class="form-group">
+      <label class="input-label" for="input">{{
+        verifySecurityQuestionsModel.question3
+      }}</label>
+      <input
+        type="text"
+        formControlName="answerToSecurityQuestion3"
+        id="answerToSecurityQuestion3"
+        class="form-control"
+      />
+      <!--mat-error-->
+      <mat-error
+        class="error"
+        *ngIf="
+          form.controls['answerToSecurityQuestion3'].hasError('required') &&
+          form.controls['answerToSecurityQuestion3'].touched
+        "
+      >
+        Required field.
+      </mat-error>
+    </div>
+
+    <div class="buttons reverse split">
+      <!-- verify security questions button-->
+      <button class="btn" [disabled]="!form.valid">
+        Verify Security Questions
+      </button>
+      <!-- cancel button-->
+      <button class="btn" routerLink="/session/sign-in">Cancel</button>
+    </div>
+  </form>
+</div>

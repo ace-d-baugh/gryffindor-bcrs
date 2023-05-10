@@ -3,7 +3,7 @@
 ; Title: user-create.component.html for BCRS
 ; Author: Professor Krasso
 ; Modified by: Chad ONeal
-; Date: 04/24/2023
+; Date: 05/08/2023
 ; Description: user-create.component.html for BCRS
 ===========================================
 -->
@@ -29,15 +29,15 @@
         <input
           type="text"
           class="form-control"
-          formControlName="userName"
+          formControlName="username"
           required
         />
 
         <mat-error
           class="error"
           *ngIf="
-            form.controls['userName'].hasError('required') &&
-            form.controls['userName'].touched
+            form.controls['username'].hasError('required') &&
+            form.controls['username'].touched
           "
         >
           Username is a required field.
@@ -173,8 +173,7 @@
     <div class="form-group">
       <label class="input-label">Address</label>
 
-          <textarea matInput required formControlName="address"
-          ></textarea>
+      <textarea matInput required formControlName="address"></textarea>
 
       <mat-error
         class="error"
@@ -186,12 +185,11 @@
         Address is a required field.
       </mat-error>
     </div>
-    <div class="buttons">
+    <div class="buttons reverse split">
+      <button class="btn submit-button" type="submit" [disabled]="form.invalid">
+        Create User
+      </button>
       <button class="btn" (click)="cancel()">Cancel</button>
-      <button
-        class="btn submit-button"
-        type="submit"
-        [disabled]="form.invalid">Create User</button>
     </div>
   </form>
 </div>

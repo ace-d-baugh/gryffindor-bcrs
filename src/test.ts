@@ -3,7 +3,7 @@
 ; Title: test.ts for BCRS
 ; Author: Professor Krasso
 ; Modified by: John Vanhessche
-; Date: 04/23/2023
+; Date: 05/08/2023
 ; Description: test.ts for BCRS
 ===========================================
 */
@@ -15,11 +15,15 @@ import 'zone.js/testing';
 import { getTestBed } from '@angular/core/testing';
 import {
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting
+  platformBrowserDynamicTesting,
 } from '@angular/platform-browser-dynamic/testing';
 
 declare const require: {
-  context(path: string, deep?: boolean, filter?: RegExp): {
+  context(
+    path: string,
+    deep?: boolean,
+    filter?: RegExp
+  ): {
     <T>(id: string): T;
     keys(): string[];
   };
@@ -28,7 +32,7 @@ declare const require: {
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting(),
+  platformBrowserDynamicTesting()
 );
 
 // Then we find all the tests.

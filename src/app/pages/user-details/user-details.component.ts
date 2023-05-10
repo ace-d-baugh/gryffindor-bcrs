@@ -3,7 +3,7 @@
 ; File Name: user-details.ts
 ; Project: Gryffindor - Bob's Computer Repair Shop
 ; Author: Richard Krasso
-; Date: 04/22/2023
+; Date: 05/08/2023
 ; File Description: user-details Component
 ; Modifications: John Vanhessche
 =====================================================
@@ -16,6 +16,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/shared/services/user.service';
 import { User } from 'src/app/shared/models/user.interface';
 import { Message } from 'primeng/api';
+import { Role } from 'src/app/shared/models/role.interface';
+import { RoleService } from 'src/app/shared/services/role.service';
 
 //  declare component
 @Component({
@@ -28,12 +30,14 @@ import { Message } from 'primeng/api';
 export class UserDetailsComponent implements OnInit {
   user: User;
   userId: string;
+  roles: Role[];
   errorMessages: Message[];
 
   //  declare form
   form: FormGroup = this.fb.group({
     firstName: [null, Validators.compose([Validators.required])],
     lastName: [null, Validators.compose([Validators.required])],
+    role: [null, Validators.compose([Validators.required])],
     phoneNumber: [null, Validators.compose([Validators.required])],
     address: [null, Validators.compose([Validators.required])],
     email: [null, Validators.compose([Validators.required, Validators.email])],
@@ -44,11 +48,13 @@ export class UserDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private roleService: RoleService
   ) {
     this.userId = this.route.snapshot.paramMap.get('userId') ?? '';
     this.user = {} as User;
     this.errorMessages = [];
+    this.roles = [];
 
     //  find user by id
     this.userService.findUserById(this.userId).subscribe({
@@ -62,12 +68,20 @@ export class UserDetailsComponent implements OnInit {
       complete: () => {
         this.form.controls['firstName'].setValue(this.user.firstName);
         this.form.controls['lastName'].setValue(this.user.lastName);
+        this.form.controls['role'].setValue(this.user.role?.text);
         this.form.controls['phoneNumber'].setValue(this.user.phoneNumber);
         this.form.controls['address'].setValue(this.user.address);
         this.form.controls['email'].setValue(this.user.email);
 
-        //  log user
-        console.log(this.user);
+        //  find all roles
+        this.roleService.findAllRoles().subscribe({
+          next: (res) => {
+            this.roles = res.data;
+          },
+          error: (e) => {
+            console.log(e);
+          },
+        });
       },
     });
   }
@@ -79,6 +93,7 @@ export class UserDetailsComponent implements OnInit {
       username: this.user.username,
       firstName: this.form.controls['firstName'].value,
       lastName: this.form.controls['lastName'].value,
+      role: { text: this.form.controls['role'].value },
       phoneNumber: this.form.controls['phoneNumber'].value,
       address: this.form.controls['address'].value,
       email: this.form.controls['email'].value,

@@ -1,0 +1,88 @@
+<!--
+=====================================================
+; File Name: invoice.summary.component.html
+; Project: Gryffindor - Bob's Computer Repair Shop
+; Author: Richard Krasso
+; Date: 05/08/2023
+; Modifications: Chad ONeal
+=====================================================
+-->
+
+<div class="invoice-container">
+  <!--user pulled from MongoDB-->
+  <div class="do-not-print">
+    <h1 class="center mb">{{ username }}, please confirm you order.</h1>
+  </div>
+  <div class="print-this">
+    <h1 class="center mb">Bob's Computer Repair Shop</h1>
+    <h2 class="center mb">Thank you for your order, {{ username }}!</h2>
+    <h3 class="center mb">Order Invoice</h3>
+  </div>
+  <div class="center">
+    <h4 class="mb">Order date: {{ orderDate | date }}</h4>
+  </div>
+
+  <!--services-->
+  <div class="invoice-services">
+    <h2 class="mb">Services</h2>
+    <div class="services-list">
+      <!-- display lineItem title and price -->
+      <div *ngFor="let lineItem of invoice.getLineItems()" class="line-item p1">
+        <div class="flex split">
+          <h3>
+            {{ lineItem.title }}:
+            <h5>{{ lineItem.subtitle }}</h5>
+          </h3>
+          <h3>
+            {{ lineItem.price | currency : "GBP" : "symbol" : "1.2-2" }}
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!--Parts-->
+  <div class="invoice-parts">
+    <h2 class="mb">Parts</h2>
+    <div class="flex split p1">
+      <h3>Price of Parts Needed</h3>
+      <h3>
+        {{ parts | currency : "GBP" : "symbol" : "1.2-2" }}
+      </h3>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- labor -->
+  <div class="invoice-labor">
+    <h2 class="mb">Labor</h2>
+    <div class="flex split p1">
+      <h3>Labor Hours @ 50/hr:</h3>
+      <h3>
+        {{ labor | currency : "GBP" : "symbol" : "1.2-2" }}
+      </h3>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- total -->
+  <div class="invoice-total mb2">
+    <h2 class="mb">Total</h2>
+    <div>
+      <div class="flex split p1">
+        <h3>Total charges:</h3>
+        <h2>
+          {{ total | currency : "GBP" : "symbol" : "1.2-2" }}
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div class="buttons reverse split do-not-print">
+    <button matDialogClose="confirm" class="btn m3">Confirm Order</button>
+    <button matDialogClose="cancel" class="btn m3">Cancel</button>
+  </div>
+</div>

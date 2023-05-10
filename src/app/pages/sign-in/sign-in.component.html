@@ -2,7 +2,7 @@
 ============================================
 ; Title: sign-in.component.html
 ; Author: Professor Krasso
-; Date: 04/21/2023
+; Date: 05/08/2023
 ; Modified By: Chad ONeal
 ; Description: Sign-In Component
 ;===========================================
@@ -26,7 +26,6 @@
         class="form-control"
       />
 
-
       <!--mat-error-->
       <mat-error
         *ngIf="
@@ -46,7 +45,6 @@
         id="password"
         class="form-control"
       />
-
 
       <!--mat-error-->
       <mat-error
@@ -82,9 +80,7 @@
   </form>
 </div>
 
-<!--create new account button-->
+<!--register new account button-->
 <div class="center m3">
-  <button class="btn" routerLink="/main/users/create/new">
-    Create New Account
-  </button>
+  <button class="btn" routerLink="/session/register">Create New Account</button>
 </div>

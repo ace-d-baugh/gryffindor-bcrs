@@ -1,0 +1,25 @@
+<!--
+============================================
+; Title: purchase-by-service-graph.component.html
+; Author: Professor Krasso
+; Date: 05/06/2023
+; Modified By: Chad ONeal
+; Description: purchase-by-service-graph.component.html
+;===========================================
+-->
+
+<div class="purchase-graph card p1">
+
+  <h1 class="center">
+    Purchases by Services Graph<br />
+  </h1>
+    <h3 class="subtitle center mb2">
+      You can hide or show items by selecting their label
+    </h3>
+    <hr>
+  <!--chart-->
+  <div>
+  <p-chart height="500px" width="900px" style="margin: 0 auto;" type="pie" [data]='data' [options]="options">
+  </p-chart>
+  </div>
+</div>

@@ -1,0 +1,376 @@
+<!--
+============================================
+; Title: register.component.html
+; Author: Professor Krasso
+; Modified by: Ace Baugh
+; Date: 05/08/2023
+; Description: register component
+===========================================
+-->
+
+<!--main container-->
+<div class="main-container">
+  <div class="content-title center">
+    <h1>Account Registration Form</h1>
+    <h3>Fields marked with an asterisk (*) are required</h3>
+  </div>
+
+  <!--error messages-->
+  <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+
+  <form
+    [formGroup]="form"
+    (ngSubmit)="register()"
+    (keydown.enter)="$event.preventDefault()"
+    class="registration-form"
+  >
+    <!--form group-->
+    <h2 class="center m1">Personal Information</h2>
+
+    <div class="personal-info">
+      <div class="personal-info-row">
+        <div class="personal-info-first-name">
+          <div class="form-group">
+            <label class="input-label">First Name*</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="firstName"
+              required
+            />
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['firstName'].hasError('required') &&
+                form.controls['firstName'].touched
+              "
+            >
+              First name is a required field.
+            </mat-error>
+          </div>
+        </div>
+        <div class="personal-info-last-name">
+          <div class="form-group">
+            <label class="input-label">Last Name*</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="lastName"
+              required
+            />
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['lastName'].hasError('required') &&
+                form.controls['lastName'].touched
+              "
+            >
+              Last name is a required field.
+            </mat-error>
+          </div>
+        </div>
+      </div>
+      <div class="personal-info-row">
+        <div class="personal-info-phone">
+          <div class="form-group">
+            <label class="input-label">Phone Number*</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="phoneNumber"
+              required
+            />
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['phoneNumber'].hasError('required') &&
+                form.controls['phoneNumber'].touched
+              "
+            >
+              Phone number is a required field.
+            </mat-error>
+          </div>
+        </div>
+        <div class="personal-info-email">
+          <div class="form-group">
+            <label class="input-label">Email*</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="email"
+              required
+            />
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['email'].hasError('required') &&
+                form.controls['email'].touched
+              "
+            >
+              Email is a required field.
+            </mat-error>
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['email'].hasError('email') &&
+                form.controls['email'].touched
+              "
+            >
+              Invalid email format.
+            </mat-error>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="input-label">Address*</label>
+
+      <textarea matInput required formControlName="address"></textarea>
+
+      <mat-error
+        class="error"
+        *ngIf="
+          form.controls['address'].hasError('required') &&
+          form.controls['address'].touched
+        "
+      >
+        Address is a required field.
+      </mat-error>
+    </div>
+
+    <!-- Security Questions Section of Registration -->
+
+    <div
+      class="security-questions form-group"
+      [@fade]
+      *ngIf="form.controls['address'].valid"
+    >
+      <hr />
+
+      <h2 class="center m1">Security Questions</h2>
+      <div class="form-group">
+        <!-- Security Question 1 -->
+        <div class="questions-row">
+          <div class="question">
+            <label class="input-label">Question 1*</label>
+            <select
+              formControlName="securityQuestion1"
+              required
+              (change)="updateSecurityQuestionOptions()"
+            >
+              <option
+                *ngFor="let question of questionList1"
+                [value]="question.text"
+              >
+                {{ question.text }}
+              </option>
+            </select>
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['securityQuestion1'].hasError('required') &&
+                form.controls['securityQuestion1'].touched
+              "
+            >
+              Question 1 is a required field.
+            </mat-error>
+          </div>
+          <div class="answer">
+            <label class="input-label">Answer 1*</label>
+            <input formControlName="answerToSecurityQuestion1" required />
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['answerToSecurityQuestion1'].hasError(
+                  'required'
+                ) && form.controls['answerToSecurityQuestion1'].touched
+              "
+            >
+              Answer 1 is a required field.
+            </mat-error>
+          </div>
+        </div>
+
+        <!-- Security Question 2 -->
+        <div
+          class="questions-row"
+          [@fade]
+          *ngIf="form.controls['securityQuestion1'].valid"
+        >
+          <div class="question">
+            <label class="input-label">Question 2*</label>
+            <select
+              formControlName="securityQuestion2"
+              required
+              (change)="updateSecurityQuestionOptions()"
+            >
+              <option
+                *ngFor="let question of questionList2"
+                [value]="question.text"
+              >
+                {{ question.text }}
+              </option>
+            </select>
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['securityQuestion2'].hasError('required') &&
+                form.controls['securityQuestion2'].touched
+              "
+            >
+              Question 2 is a required field.
+            </mat-error>
+          </div>
+          <div class="answer">
+            <label class="input-label">Answer 2*</label>
+            <input formControlName="answerToSecurityQuestion2" required />
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['answerToSecurityQuestion2'].hasError(
+                  'required'
+                ) && form.controls['answerToSecurityQuestion2'].touched
+              "
+            >
+              Answer 2 is a required field.
+            </mat-error>
+          </div>
+        </div>
+
+        <!-- Security Question 3 -->
+        <div
+          class="questions-row"
+          [@fade]
+          *ngIf="form.controls['securityQuestion2'].valid"
+        >
+          <div class="question">
+            <label class="input-label">Question 3*</label>
+            <select
+              formControlName="securityQuestion3"
+              required
+              (change)="updateSecurityQuestionOptions()"
+            >
+              <option
+                *ngFor="let question of questionList3"
+                [value]="question.text"
+              >
+                {{ question.text }}
+              </option>
+            </select>
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['securityQuestion3'].hasError('required') &&
+                form.controls['securityQuestion3'].touched
+              "
+            >
+              Question 3 is a required field.
+            </mat-error>
+          </div>
+          <div class="answer">
+            <label class="input-label">Answer 3*</label>
+            <input formControlName="answerToSecurityQuestion3" required />
+
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['answerToSecurityQuestion3'].hasError(
+                  'required'
+                ) && form.controls['answerToSecurityQuestion3'].touched
+              "
+            >
+              Answer 3 is a required field.
+            </mat-error>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Credentials Section of Registration -->
+    <div
+      class="credentials form-group"
+      [@fade]
+      *ngIf="form.controls['answerToSecurityQuestion3'].valid"
+    >
+      <hr />
+      <h2 class="center m1">User Credentials</h2>
+      <div class="user-cred">
+        <div class="user-cred-row">
+          <div class="user-cred-username">
+            <div class="form-group">
+              <label class="input-label">Username*</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="username"
+                required
+              />
+
+              <mat-error
+                class="error"
+                *ngIf="
+                  form.controls['username'].hasError('required') &&
+                  form.controls['username'].touched
+                "
+              >
+                Username is a required field.
+              </mat-error>
+            </div>
+          </div>
+          <div class="user-cred-password">
+            <div class="form-group">
+              <label class="input-label">Password*</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                required
+              />
+
+              <mat-error
+                class="error"
+                *ngIf="
+                  form.controls['password'].hasError('required') &&
+                  form.controls['password'].touched
+                "
+              >
+                Password is a required field.
+              </mat-error>
+            </div>
+
+            <!--errors-->
+            <mat-error
+              class="error"
+              *ngIf="
+                form.controls['password'].hasError('pattern') &&
+                form.controls['password'].touched
+              "
+            >
+              Password must be at least 8 characters, contain one letter, and
+              one number.
+            </mat-error>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons reverse split">
+      <button class="btn submit-button" type="submit" [disabled]="form.invalid">
+        Register
+      </button>
+      <button class="btn" type="reset">Clear Form</button>
+      <button class="btn" (click)="cancel()">Sign In</button>
+    </div>
+  </form>
+</div>

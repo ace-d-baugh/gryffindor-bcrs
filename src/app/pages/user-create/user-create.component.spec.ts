@@ -3,7 +3,7 @@
 ; Title: user-create.component.css for BCRS
 ; Author: Professor Krasso
 ; Modified by: Chad ONeal
-; Date: 03/25/2023
+; Date: 05/08/2023
 ; Description: user-create.component.css for BCRS
 ===========================================
 */
@@ -19,9 +19,8 @@ describe('UserCreateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserCreateComponent ]
-    })
-    .compileComponents();
+      declarations: [UserCreateComponent],
+    }).compileComponents();
 
     //import statements
     fixture = TestBed.createComponent(UserCreateComponent);

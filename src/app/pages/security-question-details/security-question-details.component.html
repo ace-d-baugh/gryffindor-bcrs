@@ -2,7 +2,7 @@
 ============================================
 ; Title: security-question-details.component.html
 ; Author: Professor Krasso
-; Date: 04/22/2023
+; Date: 05/08/2023
 ; Modified By: John Vanhessche
 ; Description: security-question-details Component
 ;===========================================
@@ -18,7 +18,11 @@
   <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
   <!--forms-->
-  <form [formGroup]="editForm" (ngSubmit)="save(); editForm.reset()" (keydown.enter)="$event.preventDefault()">
+  <form
+    [formGroup]="editForm"
+    (ngSubmit)="save(); editForm.reset()"
+    (keydown.enter)="$event.preventDefault()"
+  >
     <label class="input-label" for="text">Security question</label>
     <input
       type="text"
@@ -38,9 +42,9 @@
     </mat-error>
 
     <!--save cancel buttons-->
-    <div class="buttons">
-      <button class="btn" (click)="cancel()">Cancel</button>
+    <div class="buttons reverse split">
       <button class="btn" (click)="save()">Save</button>
+      <button class="btn" (click)="cancel()">Cancel</button>
     </div>
   </form>
 </div>
