@@ -70,7 +70,6 @@ import { RoleDetailsComponent } from './pages/role-details/role-details.componen
 import { InvoiceSummaryComponent } from './shared/invoice-summary/invoice-summary.component';
 import { MatListModule } from '@angular/material/list';
 import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
-import { NewComponent } from './pages/new/new.component';
 
 
 //module
@@ -90,7 +89,17 @@ import { NewComponent } from './pages/new/new.component';
     UserCreateComponent,
     AboutComponent,
     ContactComponent,
-    UserDetailsComponent
+    ThankYouComponent,
+    UserDetailsComponent,
+    BadRequestComponent,
+    VerifyUsernameFormComponent,
+    ResetPasswordFormComponent,
+    VerifySecurityQuestionsFormComponent,
+    RegisterComponent,
+    RoleListComponent,
+    RoleDetailsComponent,
+    InvoiceSummaryComponent,
+    PurchasesByServiceGraphComponent,
   ],
   imports: [
     BrowserModule,
