@@ -242,4 +242,10 @@ export class RegisterComponent implements OnInit {
       );
     }
   }
+
+  resetSecurityQuestions(): void {
+    this.questionList1 = this.securityQuestions;
+    this.questionList2 = this.securityQuestions;
+    this.questionList3 = this.securityQuestions;
+  }
 }

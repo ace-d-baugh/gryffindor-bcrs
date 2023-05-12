@@ -113,39 +113,53 @@ router.post("/signin", (req, res) => {
            * Description: If the user is found, compare the password
            */
           if (user) {
-            let passwordIsValid = bcrypt.compareSync(
-              req.body.password,
-              user.password
-            );
+            // If user is found and disabled, return an error
+            if (!user.isDisabled) {
+              let passwordIsValid = bcrypt.compareSync(
+                req.body.password,
+                user.password
+              );
 
-            /**
-             * if password is valid, return the user
-             */
-            if (passwordIsValid) {
-              console.log("Login successful");
-              const signinResponse = new BaseResponse(
-                200,
-                "Login successful",
-                user
-              );
-              res.json(signinResponse.toObject());
-              debugLogger({
-                filename: myFile,
-                message: "User logged in successfully",
-              });
-            } else {
               /**
-               * If password is invalid, return an error
+               * if password is valid, return the user
                */
-              const invalidPasswordResponse = new BaseResponse(
+              if (passwordIsValid) {
+                console.log("Login successful");
+                const signinResponse = new BaseResponse(
+                  200,
+                  "Login successful",
+                  user
+                );
+                res.json(signinResponse.toObject());
+                debugLogger({
+                  filename: myFile,
+                  message: "User logged in successfully",
+                });
+              } else {
+                /**
+                 * If password is invalid, return an error
+                 */
+                const invalidPasswordResponse = new BaseResponse(
+                  401,
+                  "Invalid username or password. Please try again.",
+                  user
+                );
+                res.status(401).send(invalidPasswordResponse.toObject());
+                errorLogger({
+                  filename: myFile,
+                  message: "Invalid credentials entered",
+                });
+              }
+            } else {
+              const signinDisabledResponse = new BaseResponse(
                 401,
-                "Invalid username or password. Please try again.",
-                user
+                "User account has been disabled. Please contact the system administrator.",
+                null
               );
-              res.status(401).send(invalidPasswordResponse.toObject());
+              res.status(401).send(signinDisabledResponse.toObject());
               errorLogger({
                 filename: myFile,
-                message: "Invalid credentials entered",
+                message: "User account has been disabled",
               });
             }
           } else {

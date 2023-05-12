@@ -70,8 +70,6 @@ import { RoleDetailsComponent } from './pages/role-details/role-details.componen
 import { InvoiceSummaryComponent } from './shared/invoice-summary/invoice-summary.component';
 import { MatListModule } from '@angular/material/list';
 import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
-
-
 //module
 @NgModule({
   declarations: [

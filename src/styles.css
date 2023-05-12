@@ -519,6 +519,7 @@ a {
 }
 
 .p-message-error,
+.p-message-success,
 .p-toast-message {
   background: var(--color-primary-dark-2);
   padding: 0.5rem;
