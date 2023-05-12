@@ -369,7 +369,7 @@
       <button class="btn submit-button" type="submit" [disabled]="form.invalid">
         Register
       </button>
-      <button class="btn" type="reset">Clear Form</button>
+      <button class="btn" type="reset" (click)="resetSecurityQuestions()">Clear Form</button>
       <button class="btn" (click)="cancel()">Sign In</button>
     </div>
   </form>
