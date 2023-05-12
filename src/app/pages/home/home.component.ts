@@ -107,15 +107,16 @@ export class HomeComponent implements OnInit {
           this.invoice.clear();
         }
       });
-      // if line items are less than 0
+      // if no services were chosen
     } else {
       this.errorMessages = [
         {
           severity: 'error',
           summary: 'Error',
-          detail: 'Invoice Cancelled',
+          detail: 'Please select at least one service.',
         },
       ];
+      this.clearLineItems();
     }
   }
 
