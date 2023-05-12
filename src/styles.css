@@ -938,6 +938,11 @@ option {
   box-shadow: 0 0 10px var(--color-primary-dark-3);
 }
 
+.pie-hole {
+  width: 80vw;
+  margin: 0 auto;
+}
+
 mat-dialog-container {
   background-color: var(--color-white) !important;
   border-radius: 0;
