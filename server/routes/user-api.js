@@ -50,9 +50,6 @@ const createUserSchema = {
     address: {
       type: "string",
     },
-    role: {
-      type: "string",
-    },
   },
   required: [
     "username",
@@ -62,7 +59,6 @@ const createUserSchema = {
     "phoneNumber",
     "email",
     "address",
-    "role",
   ],
   additionalProperties: false,
 };

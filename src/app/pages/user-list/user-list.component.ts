@@ -19,6 +19,8 @@ import {
 } from 'primeng/api';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Message } from 'primeng/api';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -38,7 +40,9 @@ export class UserListComponent implements OnInit {
     private userService: UserService,
     private confirmationService: ConfirmationService,
     private fb: FormBuilder,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private cookieService: CookieService,
+    private router: Router
   ) {
     this.users = [];
     this.errorMessages = [];
@@ -63,14 +67,23 @@ export class UserListComponent implements OnInit {
       accept: () => {
         this.userService.deleteUser(userId).subscribe({
           next: (res) => {
-            console.log('User deleted successfully');
-            this.users = this.users.filter((user) => user._id != userId);
-            this.messageService.add({
-              severity: 'success',
-              summary: 'Success',
-              detail: 'User deleted successfully',
-            });
+            // If the user is the same at the signed in user, log them out, delete cookie, and redirect to the login page
+            if (res.data.username === this.cookieService.get('sessionUser')) {
+              this.cookieService.delete('sessionUser');
+              this.cookieService.delete('sessionRole');
+              this.router.navigate(['session/sign-in']);
+            } else {
+
+              console.log('User deleted successfully');
+              this.users = this.users.filter((user) => user._id != userId);
+              this.messageService.add({
+                severity: 'success',
+                summary: 'Success',
+                detail: 'User deleted successfully',
+              });
+            }
           },
+
           error: (e) => {
             console.log(e);
           },
