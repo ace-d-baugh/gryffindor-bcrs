@@ -90,9 +90,9 @@ export class PurchasesByServiceGraphComponent implements OnInit {
           layout: {
             padding: {
               left: 20,
-              right: 0,
-              top: 0,
-              bottom: 0,
+              right: 20,
+              top: 20,
+              bottom: 20,
             },
           },
           plugins: {
@@ -107,20 +107,21 @@ export class PurchasesByServiceGraphComponent implements OnInit {
                 },
                 color: '#740001',
               },
-              position: 'right',
+              position: 'left',
               labels: {
                 font: {
-                  size: 16,
+                  size: 14,
                   family: 'Lato, sans-serif',
                   weight: 'bold',
                 },
                 color: '#740001',
                 boxWidth: 20,
                 boxHeight: 20,
-                padding: 15,
+                padding: 20,
                 usePointStyle: true,
                 pointStyle: 'triangle',
               },
+              align: 'left',
             },
             tooltip: {
               enabled: true,
