@@ -26,8 +26,8 @@
     <button class="btn" routerLink="/main/users/create/new">Add User</button>
   </div>
 
-  <div>
-    <p-table [value]="users" responsiveLayout="scroll">
+  <div class="user-table">
+    <p-table [value]="users">
       <ng-template pTemplate="header">
         <tr>
           <th>First Name</th>
@@ -46,7 +46,7 @@
           <td>{{ user.phoneNumber }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.address }}</td>
-          <td style="text-align: center">
+          <td class="user-edit center">
             <i
               class="pi pi-pencil edit-btn"
               routerLink="/main/users/user-details/{{ user._id }}"

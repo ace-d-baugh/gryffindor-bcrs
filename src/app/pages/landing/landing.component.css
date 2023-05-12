@@ -20,60 +20,6 @@
   flex-direction: column;
 }
 
-/*stylings for the header*/
-header {
-  background: linear-gradient(#210706ff, #210706cc, #21070688, transparent);
-  display: flex;
-  justify-content: space-between;
-  padding: 0 2rem;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-  color: #f5deb3;
-}
-
-/*stylings for the company logo*/
-.company {
-  flex: 1;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-
-/*stylings for the company logo image*/
-.company-logo img {
-  width: 4rem;
-  height: 4rem;
-}
-
-/*stylings for the company name*/
-.company-name {
-  font-size: 2rem;
-}
-
-/*stylings for the navbar*/
-.navbar {
-  flex: 1;
-  display: flex;
-  justify-content: right;
-  align-items: center;
-}
-
-/*stylings for the navbar links*/
-.nav-link {
-  font-size: 1.5rem;
-  padding: 1.5rem;
-  cursor: finger;
-}
-
-/*  stylings for the navbar links when hovered over*/
-.nav-link:hover {
-  color: #740001;
-  background-color: #f5deb3;
-  box-shadow: 0 0.5rem 3rem #740001cc;
-}
-
 /*stylings for the navbar links when active*/
 .hero {
   height: 100vh;
@@ -104,7 +50,7 @@ header {
 .hero-action-body {
   font-size: 1.5rem;
   line-height: 1.5rem;
-  width: 40rem;
+  max-width: 40rem;
   margin: 3rem 0;
   background-color: #21070666;
   padding: 1rem;
@@ -117,17 +63,12 @@ header {
 }
 
 /*stylings for the hero image button*/
-.btn {
-  background-color: #f5deb3;
-  color: #740001;
-  border: none;
-}
-
 .hero-button {
   padding: 1.75rem;
   font-size: 1.75rem;
   font-weight: 700;
   box-shadow: 1rem 1rem #eeba30;
+  border: none;
 }
 
 .hero-review {
@@ -135,7 +76,7 @@ header {
   bottom: 0;
   right: 0;
   background-color: #21070688;
-  width: 30rem;
+  max-width: 30rem;
   height: 18rem;
   padding: 1rem;
   color: #f5deb3;
@@ -282,56 +223,32 @@ header {
   color: #740001;
 }
 
-.contact-content {
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+/* Media query for screens under 768px */
+@media (max-width: 768px) {
+  .hero-action-title {
+    font-size: 3rem;
+  }
 
-.contact-content h2 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-}
+  .hero-action-body {
+    font-size: 1rem;
+    line-height: 1rem;
+    max-width: 20rem;
+    margin: 1rem 0;
+    background-color: #21070666;
+    padding: 1rem;
+    box-shadow: 0 0 1rem #210706;
+  }
 
-.contact-info {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
+  .hero-button {
+    border: 1px solid var(--color-primary-dark);
+    padding: 0.5rem 1rem;
+    box-shadow: 0.5rem 0.5rem var(--color-accent);
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
 
-.col {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.phone-side a {
-  color: #740001;
-  text-decoration: none;
-}
-
-.phone-side a:hover {
-  color: #740001;
-  box-shadow: 0.25rem 0.25rem #eeba30;
-}
-
-.contact-text {
-  padding: 1rem 0;
-}
-
-.transparent-text {
-  color: transparent;
-}
-
-footer {
-  background: linear-gradient(transparent, #21070688, #210706cc, #210706ff);
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  width: 100%;
-  color: #f5deb3;
-  font-weight: 700;
+  .hero-review {
+    display: none;
+  }
 }
